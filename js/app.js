@@ -3,8 +3,8 @@
 const minBet = 1;
 const maxBet = 100;
 
+let strUp = 0;
 let completeBet = 25;
-let strUp = 2;
 
 const payoutRatios = {
     numb: {
@@ -412,7 +412,14 @@ function chipsNeededForABet(strUp) {
     let result = quantitySum;
     return result;
 }
-console.log('strUp ' + strUp + ': ' + chipsNeededForABet(strUp) + ' chips');
+console.log('strUp ' + strUp + ': ' + chipsNeededForABet(strUp) + ' chips of ' + completeBet);
+
+function sumBet(strUp) {
+    let sumChips = chipsNeededForABet(strUp);
+    let result = sumChips * completeBet;
+    return result;
+};
+console.log('sumBet: $' + sumBet(strUp));
 
 function completePayment(strUp) {
     let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb * payoutRatios.numb.payout;
@@ -431,7 +438,7 @@ function totalPayment(strUp) {
     let result = completeBet * chips;
     return result;
 };
-console.log('totalPayment: ' + totalPayment(strUp));
+console.log('totalPayment: $' + totalPayment(strUp));
 
 function info(strUp) {
     let color = rouletteNumber[strUp].color;
