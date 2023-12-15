@@ -734,7 +734,23 @@ const rouletteNumber = {
         column: "3rd"
     },
 };
-console.log(rouletteNumber[0].positions.split[2]);
+
+// console.log(rouletteNumber[0].positions.split[0]);
+// console.log(rouletteNumber[0].positions.split.length);
+
+// console.log(rouletteNumber[0].positions.corner);
+// console.log(rouletteNumber[0].positions.street);
+// console.log(rouletteNumber[0].positions.six_line);
+
+// рекурсия
+for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
+    console.log(rouletteNumber[0].positions.split[i]);
+};
+
+for (let i = 0; i < rouletteNumber[1].positions.split.length; i++) {
+    console.log(rouletteNumber[1].positions.split[i]);
+};
+
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -776,7 +792,9 @@ calculate.onclick = function () {
         let color = rouletteNumber[strUp].color;
         let parity = rouletteNumber[strUp].parity;
         let magnitude = rouletteNumber[strUp].magnitude;
-        let result = `color: ${color} <br\/> \nparity: ${parity} <br\/> \nmagnitude: ${magnitude}`;
+        let dozen = rouletteNumber[strUp].dozen;
+        let column = rouletteNumber[strUp].column;
+        let result = `color: ${color} <br\/> \nparity: ${parity} <br\/> \nmagnitude: ${magnitude} <br\/> \ndozen: ${dozen} <br\/> \ncolumn: ${column}`;
         return result;
     };
 
