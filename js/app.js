@@ -735,22 +735,45 @@ const rouletteNumber = {
     },
 };
 
-// console.log(rouletteNumber[0].positions.split[0]);
-// console.log(rouletteNumber[0].positions.split.length);
+// let arr0 = rouletteNumber[0].positions.split;
+// let arr1 = rouletteNumber[1].positions.split;
+
+// console.log(arr0);
+// console.log(arr1);
+
+// console.log(arr0.some((elem) => elem == '0-1')); 
+// console.log(arr1.some((elem) => elem == '0-1'));
+
+const arr1 = [1, 2, 3, 6, 5];
+const arr2 = [1, 6, 7, 8];
+const result = [];
+
+for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+        if (arr1[i] === arr2[j]) {
+            result.push(arr1[i])
+        }
+    }
+};
+console.log(result);
 
 // console.log(rouletteNumber[0].positions.corner);
 // console.log(rouletteNumber[0].positions.street);
 // console.log(rouletteNumber[0].positions.six_line);
 
 // рекурсия
-for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
-    console.log(rouletteNumber[0].positions.split[i]);
-};
+// for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
+//     console.log(rouletteNumber[0].positions.split[i]);
+// };
 
-for (let i = 0; i < rouletteNumber[1].positions.split.length; i++) {
-    console.log(rouletteNumber[1].positions.split[i]);
-};
+// for (let i = 0; i < rouletteNumber[1].positions.split.length; i++) {
+//     console.log(rouletteNumber[1].positions.split[i]);
+// };
 
+// function deepEqual(obj1, obj2) {
+//     return JSON.stringify(obj1) === JSON.stringify(obj2);
+// };
+// console.log(deepEqual(rouletteNumber[0], rouletteNumber[1]));
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
