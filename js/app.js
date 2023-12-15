@@ -3,16 +3,8 @@
 const minBet = 1;
 const maxBet = 100;
 
-let strUp = 0;
-let completeBet;
-
-/*
-const select = document.getElementById("complete"); 
-completeBet = select.value;
-console.log(completeBet);
-*/
-
-
+// let strUp = 0;
+// let completeBet = 25;
 
 const payoutRatios = {
     numb: {
@@ -461,9 +453,14 @@ const positionsOnTheRouletteTable = {
 
 };
 
-butt.onclick = function () {
-    completeBet = document.getElementById('complete').value;
-    document.getElementById('str').innerHTML = "Вы ввели: " + completeBet;
+calculate.onclick = function () {
+    let strUp = document.getElementById('str_up').value;
+    document.getElementById('info_1').innerHTML = "Вы ввели: " + strUp;
+
+    let completeBet = document.getElementById('complete').value;
+    document.getElementById('info_2').innerHTML = "Вы ввели: " + completeBet;
+
+    
 };
 
 
