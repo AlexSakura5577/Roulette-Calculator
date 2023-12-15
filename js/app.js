@@ -402,68 +402,63 @@ const rouletteNumber = {
     },
 };
 
-function chipsNeededForABet(strUp) {
-    let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb;
-    let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split;
-    let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner;
-    let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street;
-    let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line;
-    let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-    let result = quantitySum;
-    return result;
-}
-console.log('strUp ' + strUp + ': ' + chipsNeededForABet(strUp) + ' chips of ' + completeBet);
-
-function sumBet(strUp) {
-    let sumChips = chipsNeededForABet(strUp);
-    let result = sumChips * completeBet;
-    return result;
-};
-console.log('sumBet: $' + sumBet(strUp));
-
-function completePayment(strUp) {
-    let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb * payoutRatios.numb.payout;
-    let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split * payoutRatios.split.payout;
-    let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner * payoutRatios.corner.payout;
-    let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street * payoutRatios.street.payout;
-    let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line * payoutRatios.six_line.payout;
-    let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-    let result = quantitySum;
-    return result;
-}
-console.log('payment: ' + completePayment(strUp) + ' chips');
-
-function totalPayment(strUp) {
-    let chips = completePayment(strUp);
-    let result = completeBet * chips;
-    return result;
-};
-console.log('totalPayment: $' + totalPayment(strUp));
-
-function info(strUp) {
-    let color = rouletteNumber[strUp].color;
-    let parity = rouletteNumber[strUp].parity;
-    let magnitude = rouletteNumber[strUp].magnitude;
-    let result = `color: ${color} \nparity: ${parity} \nmagnitude: ${magnitude}`;
-    return result;
-};
-console.log(info(strUp));
-
-const positionsOnTheRouletteTable = {
-
-};
-
 calculate.onclick = function () {
     let strUp = document.getElementById('str_up').value;
-    document.getElementById('info_1').innerHTML = "Вы ввели: " + strUp;
-
     let completeBet = document.getElementById('complete').value;
-    document.getElementById('info_2').innerHTML = "Вы ввели: " + completeBet;
 
-    
+    // блок функций:
+    function chipsNeededForABet(strUp) {
+        let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb;
+        let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split;
+        let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner;
+        let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street;
+        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line;
+        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
+        let result = quantitySum;
+        return result;
+    }
+    function sumBet(strUp) {
+        let sumChips = chipsNeededForABet(strUp);
+        let result = sumChips * completeBet;
+        return result;
+    };
+    function completePayment(strUp) {
+        let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb * payoutRatios.numb.payout;
+        let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split * payoutRatios.split.payout;
+        let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner * payoutRatios.corner.payout;
+        let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street * payoutRatios.street.payout;
+        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line * payoutRatios.six_line.payout;
+        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
+        let result = quantitySum;
+        return result;
+    }
+    function totalPayment(strUp) {
+        let chips = completePayment(strUp);
+        let result = completeBet * chips;
+        return result;
+    };
+    function info(strUp) {
+        let color = rouletteNumber[strUp].color;
+        let parity = rouletteNumber[strUp].parity;
+        let magnitude = rouletteNumber[strUp].magnitude;
+        let result = `color: ${color} <br\/> \nparity: ${parity} <br\/> \nmagnitude: ${magnitude}`;
+        return result;
+    };
+
+    // блок вызовов:
+    console.log('strUp ' + strUp + ': ' + chipsNeededForABet(strUp) + ' positions of ' + completeBet);
+    console.log('sumBet: $' + sumBet(strUp));
+    console.log('payment: ' + completePayment(strUp) + ' chips');
+    console.log('totalPayment: $' + totalPayment(strUp));
+    console.log(info(strUp));
+
+    // вывод информации:
+    document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> sumBet: $${sumBet(strUp)}<br\/> payment: ${completePayment(strUp)} chips<br\/> totalPayment: $${totalPayment(strUp)}<br\/> ${info(strUp)}`;
 };
 
-
+const positionsOnTheRouletteTable = {
+    
+};
 
 
 
