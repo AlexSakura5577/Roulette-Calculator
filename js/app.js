@@ -4,31 +4,35 @@ const minBet = 1;
 const maxBet = 100;
 
 // let strUp = 0;
-// let completeBet = 25;
+let completeBet = 100;
 
 const payoutRatios = {
     numb: {
         payout: 35,
-        position: 1
+        position: 1,
+        maxbet: (maxBet * 1)
     },
     split: {
         payout: 17,
-        position: 2
+        position: 2,
+        maxbet: (maxBet * 2)
     },
     corner: {
         payout: 8,
-        position: 4
+        position: 4,
+        maxbet: (maxBet * 4)
     },
     street: {
         payout: 11,
-        position: 3
+        position: 3,
+        maxbet: (maxBet * 3)
     },
     six_line: {
         payout: 5,
-        position: 6
+        position: 6,
+        maxbet: (maxBet * 6)
     }
 };
-
 const rouletteNumber = {
     0: {
         numb: 1,
@@ -734,32 +738,36 @@ const rouletteNumber = {
         column: "3rd"
     },
 };
-
-// let arr0 = rouletteNumber[0].positions.split;
-// let arr1 = rouletteNumber[1].positions.split;
-
-// console.log(arr0);
-// console.log(arr1);
-
 // console.log(arr0.some((elem) => elem == '0-1')); 
 // console.log(arr1.some((elem) => elem == '0-1'));
 
-const arr1 = [1, 2, 3, 6, 5];
-const arr2 = [1, 6, 7, 8];
-const result = [];
+// выбранные пользователем номера:
+const selectedNumbers = ["0"];
 
-for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-        if (arr1[i] === arr2[j]) {
-            result.push(arr1[i])
+// console.log(payoutRatios.corner.maxbet);
+
+
+
+
+
+
+
+/* не трогать! цикл проверки совпадений
+const arr0 = ["0-1", "0-2", "0-3"];
+const arr1 = ["0-1", "1-2", "1-4"];
+const coincidences = [];
+
+for (let i = 0; i < arr0.length; i++) {
+    for (let j = 0; j < arr1.length; j++) {
+        if (arr0[i] === arr1[j]) {
+            coincidences.push(arr1[i])
         }
     }
 };
-console.log(result);
+console.log(coincidences);
+console.log(coincidences.length);
+*/
 
-// console.log(rouletteNumber[0].positions.corner);
-// console.log(rouletteNumber[0].positions.street);
-// console.log(rouletteNumber[0].positions.six_line);
 
 // рекурсия
 // for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
@@ -770,11 +778,36 @@ console.log(result);
 //     console.log(rouletteNumber[1].positions.split[i]);
 // };
 
-// function deepEqual(obj1, obj2) {
-//     return JSON.stringify(obj1) === JSON.stringify(obj2);
-// };
-// console.log(deepEqual(rouletteNumber[0], rouletteNumber[1]));
-
+// функция загрузки номера:
+function fullBets(strUp) {
+    // ставка в номер
+    let strup = rouletteNumber[strUp].positions.numb.length * payoutRatios.numb.position * completeBet;
+    console.log("ставка в номер " + strUp + ": " + strup);
+    // ставка на сплиты
+    for (let i = 0; i < rouletteNumber[strUp].positions.split.length; i++) {
+        let position = rouletteNumber[strUp].positions.split[i];
+        let bet = 1 * payoutRatios.split.position * completeBet;
+        console.log("ставка на сплит " + position + ": " + bet);
+    };
+    // ставка на карэ
+    for (let i = 0; i < rouletteNumber[strUp].positions.corner.length; i++) {
+        let position = rouletteNumber[strUp].positions.corner[i];
+        let bet = 1 * payoutRatios.corner.position * completeBet;
+        console.log("ставка на карэ " + position + ": " + bet);
+    };
+    // ставка на стриты
+    for (let i = 0; i < rouletteNumber[strUp].positions.street.length; i++) {
+        let position = rouletteNumber[strUp].positions.street[i];
+        let bet = 1 * payoutRatios.street.position * completeBet;
+        console.log("ставка на стрит " + position + ": " + bet);
+    };
+    // ставка на six_line
+    for (let i = 0; i < rouletteNumber[strUp].positions.six_line.length; i++) {
+        let position = rouletteNumber[strUp].positions.six_line[i];
+        let bet = 1 * payoutRatios.six_line.position * completeBet;
+        console.log("ставка на six_line " + position + ": " + bet);
+    };
+};
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let strUp = document.getElementById('str_up').value;
