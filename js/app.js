@@ -4,7 +4,7 @@ const minBet = 1;
 const maxBet = 100;
 
 // let strUp = 0;
-let completeBet = 25;
+// let completeBet = 25;
 
 // коэффициенты выплат
 const payoutRatios = {
@@ -766,50 +766,6 @@ const spiel = {
     numb: ["26"],
     split: ["0-3", "12-15", "32-35"]
 };
-
-
-// console.log(arr0.some((elem) => elem == '0-1')); 
-// console.log(arr1.some((elem) => elem == '0-1'));
-
-// выбранные пользователем номера:
-const selectedNumbers = ["0"];
-
-// console.log(payoutRatios.corner.maxbet);
-
-
-
-
-
-
-
-/* не трогать! цикл проверки совпадений
-const arr0 = ["0-1", "0-2", "0-3"];
-const arr1 = ["0-1", "1-2", "1-4"];
-const coincidences = [];
-
-for (let i = 0; i < arr0.length; i++) {
-    for (let j = 0; j < arr1.length; j++) {
-        if (arr0[i] === arr1[j]) {
-            coincidences.push(arr1[i])
-        }
-    }
-};
-console.log(coincidences);
-console.log(coincidences.length);
-*/
-
-
-// рекурсия
-// for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
-//     console.log(rouletteNumber[0].positions.split[i]);
-// };
-
-// for (let i = 0; i < rouletteNumber[1].positions.split.length; i++) {
-//     console.log(rouletteNumber[1].positions.split[i]);
-// };
-
-
-
 // функция загрузки номера:
 function fullBets(strUp) {
     // ставка в номер
@@ -840,7 +796,7 @@ function fullBets(strUp) {
         console.log("ставка на six_line " + position + ": " + bet);
     };
 };
-console.log(fullBets(5));
+// console.log(fullBets(0));
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let strUp = document.getElementById('str_up').value;
@@ -900,6 +856,55 @@ calculate.onclick = function () {
 
 
 
+
+// console.log(arr0.some((elem) => elem == '0-1')); 
+// console.log(arr1.some((elem) => elem == '0-1'));
+
+// выбранные пользователем номера:
+let selectedNumbers = [0, 1];
+
+// функция подсчёта нескольких комплитов в поле:
+function chipsNeededForABet(arr) {
+    arr.forEach(element => {
+        let quantityNumb = payoutRatios.numb.position * rouletteNumber[element].numb;
+        let quantitySplit = payoutRatios.split.position * rouletteNumber[element].split;
+        let quantityCorner = payoutRatios.corner.position * rouletteNumber[element].corner;
+        let quantityStreet = payoutRatios.street.position * rouletteNumber[element].street;
+        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[element].six_line;
+        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
+        let result = quantitySum;
+        return result;
+    });
+};
+console.log(chipsNeededForABet(selectedNumbers));
+
+
+
+/* не трогать! цикл проверки совпадений
+const arr0 = ["0-1", "0-2", "0-3"];
+const arr1 = ["0-1", "1-2", "1-4"];
+const coincidences = [];
+
+for (let i = 0; i < arr0.length; i++) {
+    for (let j = 0; j < arr1.length; j++) {
+        if (arr0[i] === arr1[j]) {
+            coincidences.push(arr1[i])
+        }
+    }
+};
+console.log(coincidences);
+console.log(coincidences.length);
+*/
+
+
+// рекурсия
+// for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
+//     console.log(rouletteNumber[0].positions.split[i]);
+// };
+
+// for (let i = 0; i < rouletteNumber[1].positions.split.length; i++) {
+//     console.log(rouletteNumber[1].positions.split[i]);
+// };
 
 
 
