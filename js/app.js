@@ -4,8 +4,9 @@ const minBet = 1;
 const maxBet = 100;
 
 // let strUp = 0;
-let completeBet = 100;
+let completeBet = 25;
 
+// коэффициенты выплат
 const payoutRatios = {
     numb: {
         payout: 35,
@@ -33,6 +34,7 @@ const payoutRatios = {
         maxbet: (maxBet * 6)
     }
 };
+// номера рулетки:
 const rouletteNumber = {
     0: {
         numb: 1,
@@ -738,6 +740,34 @@ const rouletteNumber = {
         column: "3rd"
     },
 };
+// малая серия (tier):
+const tier = {
+    position: 6,
+    split: ["5-8", "10-11", "13-16", "23-24", "27-30", "33-36"]
+};
+// орфолайнс (orphelins):
+const orphelins = {
+    position: 5,
+    numb: ["1"],
+    split: ["6-9", "14-17", "17-20", "31-34"]
+    // при выпадении 17 x 2 positions
+};
+// большая серия (voisins du zéro):
+const voisins = {
+    position: 9,
+    split: ["4-7", "12-15", "18-21", "19-22", "32-35"],
+    corner: ["25-29"],
+    street: ["0-2-3"]
+    // street & corner x 2 positions
+};
+// шпиль (0-spiel):
+const spiel = {
+    position: 4,
+    numb: ["26"],
+    split: ["0-3", "12-15", "32-35"]
+};
+
+
 // console.log(arr0.some((elem) => elem == '0-1')); 
 // console.log(arr1.some((elem) => elem == '0-1'));
 
@@ -778,6 +808,8 @@ console.log(coincidences.length);
 //     console.log(rouletteNumber[1].positions.split[i]);
 // };
 
+
+
 // функция загрузки номера:
 function fullBets(strUp) {
     // ставка в номер
@@ -808,6 +840,7 @@ function fullBets(strUp) {
         console.log("ставка на six_line " + position + ": " + bet);
     };
 };
+console.log(fullBets(5));
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let strUp = document.getElementById('str_up').value;
