@@ -855,13 +855,8 @@ calculate.onclick = function () {
 };
 
 
-
-
-// console.log(arr0.some((elem) => elem == '0-1')); 
-// console.log(arr1.some((elem) => elem == '0-1'));
-
 // выбранные пользователем номера:
-let selectedNumbers = [0, 1, 2, 3];
+let selectedNumbers = [0, 1];
 // функция подсчёта нескольких комплитов в поле:
 function chipsNeededForABet(arr) {
     let result;
@@ -883,11 +878,10 @@ function chipsNeededForABet(arr) {
     return result;
 };
 // общее число позиций без учёта пересечений:
-console.log(chipsNeededForABet(selectedNumbers));
+// console.log(chipsNeededForABet(selectedNumbers)); // 44
 
-
-
-/* не трогать! цикл проверки совпадений
+/*
+// цикл проверки совпадений:
 const arr0 = ["0-1", "0-2", "0-3"];
 const arr1 = ["0-1", "1-2", "1-4"];
 const coincidences = [];
@@ -902,6 +896,27 @@ for (let i = 0; i < arr0.length; i++) {
 console.log(coincidences);
 console.log(coincidences.length);
 */
+
+// сплиты выбранных номеров:
+function splitsPositions(arr) {
+    let totalSplits = [];
+    let coincidences = 0;
+    arr.forEach(element => {
+        totalSplits.push(rouletteNumber[element].positions.split);
+    });
+    let totalSplitsFlat = totalSplits.flat(Infinity);
+    console.log(totalSplitsFlat);
+    let unique = [...new Set(totalSplitsFlat)];
+    console.log(unique);
+    coincidences = totalSplitsFlat.length - unique.length;
+    console.log("кол-во совпадений: " + coincidences);
+    let chips = coincidences * payoutRatios.split.position;
+    return chips;
+};
+console.log(splitsPositions(selectedNumbers));
+// карэ выбранных номеров:
+// стриты выбранных номеров:
+// сикслайны выбранных номеров:
 
 
 // рекурсия
