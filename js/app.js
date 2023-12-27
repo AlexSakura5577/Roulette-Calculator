@@ -993,48 +993,7 @@ let resultBet = () => {
 };
 console.log(resultBet());
 
-
-/*
-function countPositions(arr) {
-    let numb;
-    arr.forEach(element => {
-        numb = arr[element];
-        console.log(numb);
-        // console.log(rouletteNumber[element]);
-
-        let position = rouletteNumber[numb].positions;
-        for (let key in position) {
-            let pos = position[key];
-            console.log(pos);
-
-            let total = [];
-            let coincidences = 0;
-            // подсчёт 1-й позиции
-            function onePositionCount(arr) {
-                arr.forEach(element => {
-
-                    let concat = `${numb.positions}.${pos}`
-
-                    total.push(+concat);
-                });
-                let flatArr = total.flat(Infinity);
-                console.log(flatArr);
-                let unique = [...new Set(flatArr)];
-                console.log(unique);
-                coincidences = flatArr.length - unique.length;
-                console.log("кол-во совпадений: " + coincidences);
-            }
-            onePositionCount(arr);
-        };
-    })
-
-
-    // let chips = coincidences * payoutRatios.split.position;
-
-    return;
-};
-console.log(countPositions(selectedNumbers));
-*/
+// console.log(rouletteSeries.spiel.strUps);
 
 
 
