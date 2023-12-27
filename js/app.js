@@ -898,22 +898,25 @@ console.log(coincidences.length);
 */
 
 // сплиты выбранных номеров:
-function splitsPositions(arr) {
-    let totalSplits = [];
+function countPositions(arr) {
+    let total = [];
     let coincidences = 0;
     arr.forEach(element => {
-        totalSplits.push(rouletteNumber[element].positions.split);
+        total.push(rouletteNumber[element].positions.split);
     });
-    let totalSplitsFlat = totalSplits.flat(Infinity);
-    console.log(totalSplitsFlat);
-    let unique = [...new Set(totalSplitsFlat)];
+    let flatArr = total.flat(Infinity);
+    console.log(flatArr);
+    let unique = [...new Set(flatArr)];
     console.log(unique);
-    coincidences = totalSplitsFlat.length - unique.length;
+    coincidences = flatArr.length - unique.length;
     console.log("кол-во совпадений: " + coincidences);
+    
     let chips = coincidences * payoutRatios.split.position;
+
+
     return chips;
 };
-console.log(splitsPositions(selectedNumbers));
+console.log(countPositions(selectedNumbers));
 // карэ выбранных номеров:
 // стриты выбранных номеров:
 // сикслайны выбранных номеров:
