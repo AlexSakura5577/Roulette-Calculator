@@ -861,21 +861,28 @@ calculate.onclick = function () {
 // console.log(arr1.some((elem) => elem == '0-1'));
 
 // выбранные пользователем номера:
-let selectedNumbers = [0, 1];
-
+let selectedNumbers = [0, 1, 2, 3];
 // функция подсчёта нескольких комплитов в поле:
 function chipsNeededForABet(arr) {
+    let result;
+    let quantitySum;
+    let arrChips = [];
+    let totalSum;
     arr.forEach(element => {
         let quantityNumb = payoutRatios.numb.position * rouletteNumber[element].numb;
         let quantitySplit = payoutRatios.split.position * rouletteNumber[element].split;
         let quantityCorner = payoutRatios.corner.position * rouletteNumber[element].corner;
         let quantityStreet = payoutRatios.street.position * rouletteNumber[element].street;
         let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[element].six_line;
-        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        let result = quantitySum;
-        return result;
+        quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
+        arrChips.push(quantitySum);
+        totalSum = arrChips.reduce((acc, number) => acc + number);
     });
+    result = totalSum;
+    console.log(arrChips);
+    return result;
 };
+// общее число позиций без учёта пересечений:
 console.log(chipsNeededForABet(selectedNumbers));
 
 
