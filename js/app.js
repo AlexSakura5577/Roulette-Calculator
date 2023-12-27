@@ -740,31 +740,34 @@ const rouletteNumber = {
         column: "3rd"
     },
 };
-// малая серия (tier):
-const tier = {
-    position: 6,
-    split: ["5-8", "10-11", "13-16", "23-24", "27-30", "33-36"]
-};
-// орфолайнс (orphelins):
-const orphelins = {
-    position: 5,
-    numb: ["1"],
-    split: ["6-9", "14-17", "17-20", "31-34"]
-    // при выпадении 17 x 2 positions
-};
-// большая серия (voisins du zéro):
-const voisins = {
-    position: 9,
-    split: ["4-7", "12-15", "18-21", "19-22", "32-35"],
-    corner: ["25-29"],
-    street: ["0-2-3"]
-    // street & corner x 2 positions
-};
-// шпиль (0-spiel):
-const spiel = {
-    position: 4,
-    numb: ["26"],
-    split: ["0-3", "12-15", "32-35"]
+// серии рулетки:
+const rouletteSeries = {
+    // малая серия (tier):
+    tier: {
+        position: 6,
+        split: ["5-8", "10-11", "13-16", "23-24", "27-30", "33-36"]
+    },
+    // орфолайнс (orphelins):
+    orphelins: {
+        position: 5,
+        numb: ["1"],
+        split: ["6-9", "14-17", "17-20", "31-34"]
+        // при выпадении 17 x 2 positions
+    },
+    // большая серия (voisins du zéro):
+    voisins: {
+        position: 9,
+        split: ["4-7", "12-15", "18-21", "19-22", "32-35"],
+        corner: ["25-29"],
+        street: ["0-2-3"]
+        // street & corner x 2 positions
+    },
+    // шпиль (0-spiel):
+    spiel: {
+        position: 4,
+        numb: ["26"],
+        split: ["0-3", "12-15", "32-35"]
+    }
 };
 // функция загрузки номера:
 function fullBets(strUp) {
@@ -853,8 +856,6 @@ calculate.onclick = function () {
     // вывод информации:
     document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> sumBet: $${sumBet(strUp)}<br\/> payment: ${completePayment(strUp)} chips<br\/> totalPayment: $${totalPayment(strUp)}<br\/> ${info(strUp)}`;
 };
-
-
 // выбранные пользователем номера:
 let selectedNumbers = [0, 1];
 // функция подсчёта нескольких комплитов в поле:
@@ -880,56 +881,146 @@ function chipsNeededForABet(arr) {
 // общее число позиций без учёта пересечений:
 // console.log(chipsNeededForABet(selectedNumbers)); // 44
 
-/*
-// цикл проверки совпадений:
-const arr0 = ["0-1", "0-2", "0-3"];
-const arr1 = ["0-1", "1-2", "1-4"];
-const coincidences = [];
-
-for (let i = 0; i < arr0.length; i++) {
-    for (let j = 0; j < arr1.length; j++) {
-        if (arr0[i] === arr1[j]) {
-            coincidences.push(arr1[i])
-        }
-    }
-};
-console.log(coincidences);
-console.log(coincidences.length);
-*/
-
-// сплиты выбранных номеров:
+// функция подсчёта совпадений:
 function countPositions(arr) {
     let total = [];
-    let coincidences = 0;
-    arr.forEach(element => {
-        total.push(rouletteNumber[element].positions.split);
-    });
-    let flatArr = total.flat(Infinity);
-    console.log(flatArr);
-    let unique = [...new Set(flatArr)];
-    console.log(unique);
-    coincidences = flatArr.length - unique.length;
-    console.log("кол-во совпадений: " + coincidences);
-    
-    let chips = coincidences * payoutRatios.split.position;
+    let totalChips;
 
+    // сплиты выбранных номеров:
+    function splits(arr) {
+        let totalSplits = [];
+        let coincidences = 0;
+        console.log("сплиты");
+        arr.forEach(element => {
+            totalSplits.push(rouletteNumber[element].positions.split);
+        });
+        let flatArr = totalSplits.flat(Infinity);
+        console.log(flatArr);
+        let unique = [...new Set(flatArr)];
+        console.log(unique);
+        coincidences = flatArr.length - unique.length;
+        console.log("кол-во совпадений: " + coincidences);
+        let chips = coincidences * payoutRatios.split.position;
+        console.log(chips);
+        return chips;
+    };
+    let splitChips = splits(arr);
 
-    return chips;
+    // карэ выбранных номеров:
+    function corners(arr) {
+        let totalCorners = [];
+        let coincidences = 0;
+        console.log("карэ");
+        arr.forEach(element => {
+            totalCorners.push(rouletteNumber[element].positions.corner);
+        });
+        let flatArr = totalCorners.flat(Infinity);
+        console.log(flatArr);
+        let unique = [...new Set(flatArr)];
+        console.log(unique);
+        coincidences = flatArr.length - unique.length;
+        console.log("кол-во совпадений: " + coincidences);
+        let chips = coincidences * payoutRatios.corner.position;
+        console.log(chips);
+        return chips;
+    };
+    let cornerChips = corners(arr);
+
+    // стриты выбранных номеров:
+    function streets(arr) {
+        let totalStreets = [];
+        let coincidences = 0;
+        console.log("стриты");
+        arr.forEach(element => {
+            totalStreets.push(rouletteNumber[element].positions.street);
+        });
+        let flatArr = totalStreets.flat(Infinity);
+        console.log(flatArr);
+        let unique = [...new Set(flatArr)];
+        console.log(unique);
+        coincidences = flatArr.length - unique.length;
+        console.log("кол-во совпадений: " + coincidences);
+        let chips = coincidences * payoutRatios.street.position;
+        console.log(chips);
+        return chips;
+    };
+    let streetChips = streets(arr);
+
+    // сикслайны выбранных номеров:
+    function sixLines(arr) {
+        let totalSixLines = [];
+        let coincidences = 0;
+        console.log("сикслайны");
+        arr.forEach(element => {
+            totalSixLines.push(rouletteNumber[element].positions.six_line);
+        });
+        let flatArr = totalSixLines.flat(Infinity);
+        console.log(flatArr);
+        let unique = [...new Set(flatArr)];
+        console.log(unique);
+        coincidences = flatArr.length - unique.length;
+        console.log("кол-во совпадений: " + coincidences);
+        let chips = coincidences * payoutRatios.six_line.position;
+        console.log(chips);
+        return chips;
+    };
+    let sixLineChips = sixLines(arr);
+
+    total.push(splitChips);
+    total.push(cornerChips);
+    total.push(streetChips);
+    total.push(sixLineChips);
+    console.log(total);
+    totalChips = total.reduce(function (sum, elem) {
+        return sum + elem;
+    }, 0);
+    return totalChips;
 };
 console.log(countPositions(selectedNumbers));
-// карэ выбранных номеров:
-// стриты выбранных номеров:
-// сикслайны выбранных номеров:
 
 
-// рекурсия
-// for (let i = 0; i < rouletteNumber[0].positions.split.length; i++) {
-//     console.log(rouletteNumber[0].positions.split[i]);
-// };
 
-// for (let i = 0; i < rouletteNumber[1].positions.split.length; i++) {
-//     console.log(rouletteNumber[1].positions.split[i]);
-// };
+/*
+function countPositions(arr) {
+    let numb;
+    arr.forEach(element => {
+        numb = arr[element];
+        console.log(numb);
+        // console.log(rouletteNumber[element]);
+
+        let position = rouletteNumber[numb].positions;
+        for (let key in position) {
+            let pos = position[key];
+            console.log(pos);
+
+            let total = [];
+            let coincidences = 0;
+            // подсчёт 1-й позиции
+            function onePositionCount(arr) {
+                arr.forEach(element => {
+
+                    let concat = `${numb.positions}.${pos}`
+
+                    total.push(+concat);
+                });
+                let flatArr = total.flat(Infinity);
+                console.log(flatArr);
+                let unique = [...new Set(flatArr)];
+                console.log(unique);
+                coincidences = flatArr.length - unique.length;
+                console.log("кол-во совпадений: " + coincidences);
+            }
+            onePositionCount(arr);
+        };
+    })
+
+
+    // let chips = coincidences * payoutRatios.split.position;
+
+    return;
+};
+console.log(countPositions(selectedNumbers));
+*/
 
 
 
