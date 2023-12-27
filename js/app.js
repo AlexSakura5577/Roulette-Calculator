@@ -6,6 +6,9 @@ const maxBet = 100;
 // let strUp = 0;
 // let completeBet = 25;
 
+// выбранные пользователем номера:
+let selectedNumbers = [0, 1];
+
 // коэффициенты выплат
 const payoutRatios = {
     numb: {
@@ -856,8 +859,6 @@ calculate.onclick = function () {
     // вывод информации:
     document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> sumBet: $${sumBet(strUp)}<br\/> payment: ${completePayment(strUp)} chips<br\/> totalPayment: $${totalPayment(strUp)}<br\/> ${info(strUp)}`;
 };
-// выбранные пользователем номера:
-let selectedNumbers = [0, 1];
 // функция подсчёта нескольких комплитов в поле:
 function chipsNeededForABet(arr) {
     let result;
@@ -879,9 +880,8 @@ function chipsNeededForABet(arr) {
     return result;
 };
 // общее число позиций без учёта пересечений:
-// console.log(chipsNeededForABet(selectedNumbers)); // 44
-
-// функция подсчёта совпадений:
+// console.log(chipsNeededForABet(selectedNumbers));
+// функция подсчёта совпадений (сдача):
 function countPositions(arr) {
     let total = [];
     let totalChips;
@@ -890,16 +890,15 @@ function countPositions(arr) {
     function splits(arr) {
         let totalSplits = [];
         let coincidences = 0;
-        console.log("сплиты");
         arr.forEach(element => {
             totalSplits.push(rouletteNumber[element].positions.split);
         });
         let flatArr = totalSplits.flat(Infinity);
-        console.log(flatArr);
+        // console.log(flatArr);
         let unique = [...new Set(flatArr)];
-        console.log(unique);
+        // console.log(unique);
         coincidences = flatArr.length - unique.length;
-        console.log("кол-во совпадений: " + coincidences);
+        console.log("кол-во совпадений сплитов: " + coincidences);
         let chips = coincidences * payoutRatios.split.position;
         console.log(chips);
         return chips;
@@ -910,16 +909,15 @@ function countPositions(arr) {
     function corners(arr) {
         let totalCorners = [];
         let coincidences = 0;
-        console.log("карэ");
         arr.forEach(element => {
             totalCorners.push(rouletteNumber[element].positions.corner);
         });
         let flatArr = totalCorners.flat(Infinity);
-        console.log(flatArr);
+        // console.log(flatArr);
         let unique = [...new Set(flatArr)];
-        console.log(unique);
+        // console.log(unique);
         coincidences = flatArr.length - unique.length;
-        console.log("кол-во совпадений: " + coincidences);
+        console.log("кол-во совпадений карэ: " + coincidences);
         let chips = coincidences * payoutRatios.corner.position;
         console.log(chips);
         return chips;
@@ -930,16 +928,15 @@ function countPositions(arr) {
     function streets(arr) {
         let totalStreets = [];
         let coincidences = 0;
-        console.log("стриты");
         arr.forEach(element => {
             totalStreets.push(rouletteNumber[element].positions.street);
         });
         let flatArr = totalStreets.flat(Infinity);
-        console.log(flatArr);
+        // console.log(flatArr);
         let unique = [...new Set(flatArr)];
-        console.log(unique);
+        // console.log(unique);
         coincidences = flatArr.length - unique.length;
-        console.log("кол-во совпадений: " + coincidences);
+        console.log("кол-во совпадений стритов: " + coincidences);
         let chips = coincidences * payoutRatios.street.position;
         console.log(chips);
         return chips;
@@ -950,16 +947,15 @@ function countPositions(arr) {
     function sixLines(arr) {
         let totalSixLines = [];
         let coincidences = 0;
-        console.log("сикслайны");
         arr.forEach(element => {
             totalSixLines.push(rouletteNumber[element].positions.six_line);
         });
         let flatArr = totalSixLines.flat(Infinity);
-        console.log(flatArr);
+        // console.log(flatArr);
         let unique = [...new Set(flatArr)];
-        console.log(unique);
+        // console.log(unique);
         coincidences = flatArr.length - unique.length;
-        console.log("кол-во совпадений: " + coincidences);
+        console.log("кол-во совпадений сикслайнов: " + coincidences);
         let chips = coincidences * payoutRatios.six_line.position;
         console.log(chips);
         return chips;
@@ -976,8 +972,16 @@ function countPositions(arr) {
     }, 0);
     return totalChips;
 };
-console.log(countPositions(selectedNumbers));
-
+// console.log(countPositions(selectedNumbers));
+// общая ставка с вычетом сдачи:
+let resultBet = () => {
+    let positions = chipsNeededForABet(selectedNumbers);
+    let coincidences = countPositions(selectedNumbers);
+    console.log(positions);
+    let result = positions - coincidences;
+    return result;
+};
+console.log(resultBet());
 
 
 /*
