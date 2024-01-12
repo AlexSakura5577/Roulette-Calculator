@@ -5,7 +5,7 @@ export function sayHi(user) {
 
 import '../../js/app.js';
 
-
+console.log(import.meta.url);
 
 
 
