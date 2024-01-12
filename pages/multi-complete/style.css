@@ -1,4 +1,6 @@
 body {
-    background-color: rgba(0, 0, 0, 0.823);
-    color: #11cf34;
+    background-color: rgba(0, 0, 0, 0.852);
+    color: rgb(0, 255, 179);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
 }
