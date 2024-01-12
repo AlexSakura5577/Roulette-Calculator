@@ -3,6 +3,22 @@ export function sayHi(user) {
     console.log(`Hello, ${user}!`);
 };
 
+import '../../js/app.js';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 // roulette-calculator
 
 const minBet = 1;
@@ -999,7 +1015,7 @@ let resultBet = () => {
 console.log(resultBet());
 
 // console.log(rouletteSeries.spiel.strUps);
-
+*/
 
 
 
