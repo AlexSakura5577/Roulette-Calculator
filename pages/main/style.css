@@ -1,0 +1,10 @@
+body {
+    background-color: rgba(0, 0, 0, 0.852);
+    color: rgb(0, 255, 179);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+
+.header__link {
+    color: rgb(233, 170, 87);
+}
