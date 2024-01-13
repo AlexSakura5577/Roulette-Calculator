@@ -3,7 +3,7 @@ export function sayHi(user) {
     console.log(`Hello, ${user}!`);
 };
 
-import '../../js/app.js';
+import '../main/app.js';
 
 console.log(import.meta.url);
 
