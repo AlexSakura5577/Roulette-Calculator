@@ -1,10 +1,5 @@
 
-export function sayHi(user) {
-    console.log(`Hello, ${user}!`);
-};
-
 import '../main/app.js';
-
 console.log(import.meta.url);
 
 

@@ -4,7 +4,22 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
 }
+
 .btn {
     display: flex;
     justify-content: flex-end;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 100px;
+    grid-template-rows: 100px;
+    grid-gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.item {
+    padding: 10px;
+    border: 1px solid white;
 }
