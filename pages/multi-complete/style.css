@@ -1,8 +1,9 @@
 body {
-    background-color: rgba(0, 0, 0, 0.852);
-    color: rgb(255, 255, 255);
+    background-color: rgba(7, 88, 24);
+    color: rgb(0, 255, 179);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5em;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .btn {
@@ -12,18 +13,22 @@ body {
 
 .grid {
     display: grid;
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 255, 255);
     background-color: rgb(7, 88, 24);
-    grid-template-columns: repeat(5, 80px);
-    grid-template-rows: repeat(14, 65px);
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(14, 45px);
     grid-gap: 5px;
     justify-content: center;
     align-content: center;
 }
-.radioBtn {
+
+/* .radioBtn {
     transform:scale(1.6);
     opacity:0.9;
     cursor:pointer;
-}
+} */
 .item_zero {
     grid-column: 3/6;
 }
@@ -116,4 +121,8 @@ body {
 
 .item_3rd-collumn {
     grid-column: 5/5;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
 }
