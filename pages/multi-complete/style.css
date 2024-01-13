@@ -1,10 +1,119 @@
 body {
     background-color: rgba(0, 0, 0, 0.852);
-    color: rgb(0, 255, 179);
+    color: rgb(255, 255, 255);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 1.5em;
 }
+
 .btn {
     display: flex;
     justify-content: flex-end;
+}
+
+.grid {
+    display: grid;
+    background-color: rgb(7, 88, 24);
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: repeat(14, 65px);
+    grid-gap: 5px;
+    justify-content: center;
+    align-content: center;
+}
+.radioBtn {
+    transform:scale(1.6);
+    opacity:0.9;
+    cursor:pointer;
+}
+.item_zero {
+    grid-column: 3/6;
+}
+
+.zero {
+    display: flex;
+    width: 85%;
+    height: 85%;
+    align-items: start;
+    justify-content: center;
+    border: 2px solid rgb(146, 146, 146);
+    border-radius: 50%;
+    background-color: rgb(21, 255, 0);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgb(0, 102, 255); */
+    text-align: center;
+    border: 1px solid white;
+}
+
+.red_num {
+    /* display: flex; */
+    width: 85%;
+    height: 85%;
+    /* align-items: start; */
+    /* justify-content: center; */
+    border: 2px solid rgb(3, 3, 3);
+    border-radius: 50%;
+    background-color: rgb(255, 0, 0);
+}
+
+.black_num {
+    /* display: flex; */
+    width: 85%;
+    height: 85%;
+    /* align-items: start; */
+    /* justify-content: center; */
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+}
+
+.item_small {
+    grid-row: 2/4;
+}
+
+.item_1st12 {
+    grid-row: 2/6;
+}
+
+.item_even {
+    grid-row: 4/6;
+}
+
+.item_red {
+    grid-row: 6/8;
+}
+
+.item_2nd12 {
+    grid-row: 6/10;
+}
+
+.item_black {
+    grid-row: 8/10;
+}
+
+.item_odd {
+    grid-row: 10/12
+}
+
+.item_3rd12 {
+    grid-row: 10/14;
+}
+
+.item_big {
+    grid-row: 12/14;
+}
+
+.item_1st-collumn {
+    grid-column: 3/3;
+}
+
+.item_2nd-collumn {
+    grid-column: 4/4;
+}
+
+.item_3rd-collumn {
+    grid-column: 5/5;
 }
