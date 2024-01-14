@@ -1,16 +1,16 @@
 // roulette-calculator
 
-const minBet = 1;
-const maxBet = 100;
+export const minBet = 1;
+export const maxBet = 100;
 
-// let strUp = 0;
-// let completeBet = 25;
+//export let strUp = 0;
+//export let completeBet = 25;
 
 // выбранные пользователем номера:
 let selectedNumbers = [0, 1];
 
 // коэффициенты выплат
-const payoutRatios = {
+export const payoutRatios = {
     numb: {
         payout: 35,
         position: 1,
@@ -38,7 +38,7 @@ const payoutRatios = {
     }
 };
 // номера рулетки:
-const rouletteNumber = {
+export const rouletteNumber = {
     0: {
         numb: 1,
         split: 3,
@@ -744,7 +744,7 @@ const rouletteNumber = {
     },
 };
 // серии рулетки:
-const rouletteSeries = {
+export const rouletteSeries = {
     // малая серия (tier):
     tier: {
         position: 6,
@@ -783,7 +783,7 @@ const rouletteSeries = {
     }
 };
 // функция загрузки номера:
-function fullBets(strUp) {
+export function fullBets(strUp) {
     // ставка в номер
     let strup = rouletteNumber[strUp].positions.numb.length * payoutRatios.numb.position * completeBet;
     console.log("ставка в номер " + strUp + ": " + strup);
@@ -811,7 +811,7 @@ function fullBets(strUp) {
         let bet = 1 * payoutRatios.six_line.position * completeBet;
         console.log("ставка на six_line " + position + ": " + bet);
     };
-};
+}
 // console.log(fullBets(0));
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -870,7 +870,7 @@ calculate.onclick = function () {
     document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> sumBet: $${sumBet(strUp)}<br\/> payment: ${completePayment(strUp)} chips<br\/> totalPayment: $${totalPayment(strUp)}<br\/> ${info(strUp)}`;
 };
 // функция подсчёта нескольких комплитов в поле:
-function chipsNeededForABet(arr) {
+export function chipsNeededForABet(arr) {
     let result;
     let quantitySum;
     let arrChips = [];
@@ -888,11 +888,11 @@ function chipsNeededForABet(arr) {
     result = totalSum;
     console.log(arrChips);
     return result;
-};
+}
 // общее число позиций без учёта пересечений:
 // console.log(chipsNeededForABet(selectedNumbers));
 // функция подсчёта совпадений (сдача):
-function countPositions(arr) {
+export function countPositions(arr) {
     let total = [];
     let totalChips;
 
@@ -981,10 +981,10 @@ function countPositions(arr) {
         return sum + elem;
     }, 0);
     return totalChips;
-};
+}
 // console.log(countPositions(selectedNumbers));
 // общая ставка с вычетом сдачи:
-let resultBet = () => {
+export let resultBet = () => {
     let positions = chipsNeededForABet(selectedNumbers);
     let coincidences = countPositions(selectedNumbers);
     console.log(positions);
