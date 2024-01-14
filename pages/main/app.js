@@ -7,7 +7,7 @@ export const maxBet = 100;
 //export let completeBet = 25;
 
 // выбранные пользователем номера:
-let selectedNumbers = [0, 1];
+// export let selectedNumbers = [0, 1];
 
 // коэффициенты выплат
 export const payoutRatios = {
@@ -980,18 +980,20 @@ export function countPositions(arr) {
     totalChips = total.reduce(function (sum, elem) {
         return sum + elem;
     }, 0);
+    console.log('всего лишних фишек: ' + totalChips);
     return totalChips;
 }
-// console.log(countPositions(selectedNumbers));
+
+// используется в multi-complete:
 // общая ставка с вычетом сдачи:
-export let resultBet = () => {
-    let positions = chipsNeededForABet(selectedNumbers);
-    let coincidences = countPositions(selectedNumbers);
-    console.log(positions);
-    let result = positions - coincidences;
-    return result;
-};
-console.log(resultBet());
+// export let resultBet = () => {
+//     let positions = chipsNeededForABet(selectedNumbers);
+//     let coincidences = countPositions(selectedNumbers);
+//     console.log('кол-во позиций: ' + positions);
+//     let result = positions - coincidences;
+//     return result;
+// };
+// console.log(resultBet());
 
 // console.log(rouletteSeries.spiel.strUps);
 
