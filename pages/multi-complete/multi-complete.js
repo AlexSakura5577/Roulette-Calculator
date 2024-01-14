@@ -1,3 +1,10 @@
+// import "../main/app.js";
+import { minBet } from "../main/app.js";
+import { maxBet } from "../main/app.js";
+console.log(minBet);
+console.log(maxBet);
+
+
 
 
 
@@ -7,3 +14,15 @@ calculate.onclick = function () {
     console.log(isChecked);
     alert(isChecked);
 }
+
+
+
+
+
+
+
+
+
+
+
+console.log(import.meta.url);

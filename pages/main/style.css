@@ -5,6 +5,42 @@ body {
     font-size: 20px;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 .header__link {
     color: rgb(233, 170, 87);
+    text-decoration: none;
+}
+.header__link:hover {
+    color: #250202;
+}
+
+.header__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.header__item {
+    display: flex;
+    justify-content: center;
+    width: 180px;
+    height: 30px;
+    background-color: rgb(8, 52, 52);
+    border: 1px solid gold;
+    align-items: center;
+}
+
+.header__item:hover {
+    background: linear-gradient(to top, #cabe1c, #a2ac10);
+    box-shadow: 0 0 2px 1px #E2E2E2;
+    color: #250202;
 }

@@ -13,17 +13,26 @@
 
 <body>
 
-    <input id="calculate" type="button" value="Рассчитать" />
-
-    <div class="btn">
-        <form action="../main/index.html">
-            <button>Меню</button>
+    <div class="flex_header">
+        <div>
+            <input id="calculate" type="button" value="Рассчитать" />
+        </div>
+        <div>
+            <h1>multi-complete</h1>
+        </div>
+        <div class="btn">
+            <form action="../main/index.html">
+                <button>Меню</button>
+        </div>
     </div>
-    <h1>multi-complete</h1>
-    <br>
+    <!-- <br> -->
     <div class="grid">
         <div class="item item_zero">
-            <div class="zero">0</div>
+            <div class="zero">0
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_0">
+                </div>
+            </div>
         </div>
         <div class="item item_small">
             <span class="vertical-text">1-18</span>
@@ -37,66 +46,273 @@
                     <input class="radioBtn" type="checkbox" id="num_1">
                 </div>
             </div>
-
         </div>
         <div class="item item_2">
-            <div class="black_num">2</div>
+            <div class="black_num">2
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_2">
+                </div>
+            </div>
         </div>
-        <div class="item item_3">3</div>
-        <div class="item item_4">4</div>
-        <div class="item item_5">5</div>
-        <div class="item item_6">6</div>
+        <div class="item item_3">
+            <div class="red_num">3
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_3">
+                </div>
+            </div>
+        </div>
+        <div class="item item_4">
+            <div class="black_num">4
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_4">
+                </div>
+            </div>
+        </div>
+        <div class="item item_5">
+            <div class="red_num">5
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_5">
+                </div>
+            </div>
+        </div>
+        <div class="item item_6">
+            <div class="black_num">6
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_6">
+                </div>
+            </div>
+        </div>
         <div class="item item_even">
             <span class="vertical-text">even</span>
         </div>
-        <div class="item item_7">7</div>
-        <div class="item item_8">8</div>
-        <div class="item item_9">9</div>
-        <div class="item item_10">10</div>
-        <div class="item item_11">11</div>
-        <div class="item item_12">12</div>
+        <div class="item item_7">
+            <div class="red_num">7
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_7">
+                </div>
+            </div>
+        </div>
+        <div class="item item_8">
+            <div class="black_num">8
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_8">
+                </div>
+            </div>
+        </div>
+        <div class="item item_9">
+            <div class="red_num">9
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_9">
+                </div>
+            </div>
+        </div>
+        <div class="item item_10">
+            <div class="black_num">10
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_10">
+                </div>
+            </div>
+        </div>
+        <div class="item item_11">
+            <div class="black_num">11
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_11">
+                </div>
+            </div>
+        </div>
+        <div class="item item_12">
+            <div class="red_num">12
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_12">
+                </div>
+            </div>
+        </div>
         <div class="item item_red">
             <span class="vertical-text">red</span>
         </div>
         <div class="item item_2nd12">
             <span class="vertical-text">2nd12</span>
         </div>
-        <div class="item item_13">13</div>
-        <div class="item item_14">14</div>
-        <div class="item item_15">15</div>
-        <div class="item item_16">16</div>
-        <div class="item item_17">17</div>
-        <div class="item item_18">18</div>
+        <div class="item item_13">
+            <div class="black_num">13
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_13">
+                </div>
+            </div>
+        </div>
+        <div class="item item_14">
+            <div class="red_num">14
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_14">
+                </div>
+            </div>
+        </div>
+        <div class="item item_15">
+            <div class="black_num">15
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_15">
+                </div>
+            </div>
+        </div>
+        <div class="item item_16">
+            <div class="red_num">16
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_16">
+                </div>
+            </div>
+        </div>
+        <div class="item item_17">
+            <div class="black_num">17
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_17">
+                </div>
+            </div>
+        </div>
+        <div class="item item_18">
+            <div class="red_num">18
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_18">
+                </div>
+            </div>
+        </div>
         <div class="item item_black">
             <span class="vertical-text">black</span>
         </div>
-        <div class="item item_19">19</div>
-        <div class="item item_20">20</div>
-        <div class="item item_21">21</div>
-        <div class="item item_22">22</div>
-        <div class="item item_23">23</div>
-        <div class="item item_24">24</div>
+        <div class="item item_19">
+            <div class="red_num">19
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_19">
+                </div>
+            </div>
+        </div>
+        <div class="item item_20">
+            <div class="black_num">20
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_20">
+                </div>
+            </div>
+        </div>
+        <div class="item item_21">
+            <div class="red_num">21
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_21">
+                </div>
+            </div>
+        </div>
+        <div class="item item_22">
+            <div class="black_num">22
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_22">
+                </div>
+            </div>
+        </div>
+        <div class="item item_23">
+            <div class="red_num">23
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_23">
+                </div>
+            </div>
+        </div>
+        <div class="item item_24">
+            <div class="black_num">24
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_24">
+                </div>
+            </div>
+        </div>
         <div class="item item_odd">
             <span class="vertical-text">odd</span>
         </div>
         <div class="item item_3rd12">
             <span class="vertical-text">3rd12</span>
         </div>
-        <div class="item item_25">25</div>
-        <div class="item item_26">26</div>
-        <div class="item item_27">27</div>
-        <div class="item item_28">28</div>
-        <div class="item item_29">29</div>
-        <div class="item item_30">30</div>
+        <div class="item item_25">
+            <div class="red_num">25
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_25">
+                </div>
+            </div>
+        </div>
+        <div class="item item_26">
+            <div class="black_num">26
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_26">
+                </div>
+            </div>
+        </div>
+        <div class="item item_27">
+            <div class="red_num">27
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_27">
+                </div>
+            </div>
+        </div>
+        <div class="item item_28">
+            <div class="black_num">28
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_28">
+                </div>
+            </div>
+        </div>
+        <div class="item item_29">
+            <div class="black_num">29
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_29">
+                </div>
+            </div>
+        </div>
+        <div class="item item_30">
+            <div class="red_num">30
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_30">
+                </div>
+            </div>
+        </div>
         <div class="item item_big">
             <span class="vertical-text">19-36</span>
         </div>
-        <div class="item item_31">31</div>
-        <div class="item item_32">32</div>
-        <div class="item item_33">33</div>
-        <div class="item item_34">34</div>
-        <div class="item item_35">35</div>
-        <div class="item item_36">36</div>
+        <div class="item item_31">
+            <div class="black_num">31
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_31">
+                </div>
+            </div>
+        </div>
+        <div class="item item_32">
+            <div class="red_num">32
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_32">
+                </div>
+            </div>
+        </div>
+        <div class="item item_33">
+            <div class="black_num">33
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_33">
+                </div>
+            </div>
+        </div>
+        <div class="item item_34">
+            <div class="red_num">34
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_34">
+                </div>
+            </div>
+        </div>
+        <div class="item item_35">
+            <div class="black_num">35
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_35">
+                </div>
+            </div>
+        </div>
+        <div class="item item_36">
+            <div class="red_num">36
+                <div>
+                    <input class="radioBtn" type="checkbox" id="num_36">
+                </div>
+            </div>
+        </div>
         <div class="item item_1st-collumn">2to1</div>
         <div class="item item_2nd-collumn">2to1</div>
         <div class="item item_3rd-collumn">2to1</div>
