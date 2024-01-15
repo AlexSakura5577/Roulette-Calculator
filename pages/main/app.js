@@ -895,7 +895,6 @@ export function chipsNeededForABet(arr) {
 export function countPositions(arr) {
     let total = [];
     let totalChips;
-
     // сплиты выбранных номеров:
     function splits(arr) {
         let totalSplits = [];
@@ -982,7 +981,7 @@ export function countPositions(arr) {
     }, 0);
     console.log('всего лишних фишек: ' + totalChips);
     return totalChips;
-}
+};
 
 // используется в multi-complete:
 // общая ставка с вычетом сдачи:
