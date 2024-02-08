@@ -16,6 +16,12 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+}
+
+h1 {
+    background-color: rgb(64, 66, 192);
 }
 
 .grid {
@@ -29,6 +35,7 @@ body {
     grid-gap: 5px;
     justify-content: center;
     align-content: center;
+    margin-top: 25px;
 }
 
 .radioBtn {
@@ -110,17 +117,22 @@ body {
 
 .item_1st-collumn {
     grid-column: 3/3;
+    display: flex;
+    flex-direction: column;
 }
 
 .item_2nd-collumn {
     grid-column: 4/4;
+    display: flex;
+    flex-direction: column;
 }
 
 .item_3rd-collumn {
     grid-column: 5/5;
+    display: flex;
+    flex-direction: column;
 }
 
 .vertical-text {
     writing-mode: vertical-rl;
 }
-
