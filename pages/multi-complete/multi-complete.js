@@ -42,4 +42,4 @@ calculate.onclick = function () {
     return showMessage();
 };
 
-console.log(import.meta.url);
+// console.log(import.meta.url);
