@@ -45,200 +45,54 @@ calculate.onclick = function () {
             multipleChoice(dozen_2, nodeList);
         };
         // 3-я дюжина:
-        let dozen_3 = [];
+        let dozen_3 = [33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45];
         if (nodeList[32].checked === true) {
-            nodeList[33].checked = true
-            nodeList[34].checked = true
-            nodeList[35].checked = true
-            nodeList[36].checked = true
-            nodeList[37].checked = true
-            nodeList[38].checked = true
-            nodeList[40].checked = true
-            nodeList[41].checked = true
-            nodeList[42].checked = true
-            nodeList[43].checked = true
-            nodeList[44].checked = true
-            nodeList[45].checked = true
+            multipleChoice(dozen_3, nodeList);
         };
         // малые номера:
-        let small = [];
+        let small = [3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23];
         if (nodeList[1].checked === true) {
-            nodeList[3].checked = true
-            nodeList[4].checked = true
-            nodeList[5].checked = true
-            nodeList[6].checked = true
-            nodeList[7].checked = true
-            nodeList[8].checked = true
-            nodeList[10].checked = true
-            nodeList[11].checked = true
-            nodeList[12].checked = true
-            nodeList[13].checked = true
-            nodeList[14].checked = true
-            nodeList[15].checked = true
-            nodeList[18].checked = true
-            nodeList[19].checked = true
-            nodeList[20].checked = true
-            nodeList[21].checked = true
-            nodeList[22].checked = true
-            nodeList[23].checked = true
+            multipleChoice(small, nodeList);
         };
         // большие номера:
-        let big = [];
+        let big = [25, 26, 27, 28, 29, 30, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45];
         if (nodeList[39].checked === true) {
-            nodeList[25].checked = true
-            nodeList[26].checked = true
-            nodeList[27].checked = true
-            nodeList[28].checked = true
-            nodeList[29].checked = true
-            nodeList[30].checked = true
-            nodeList[33].checked = true
-            nodeList[34].checked = true
-            nodeList[35].checked = true
-            nodeList[36].checked = true
-            nodeList[37].checked = true
-            nodeList[38].checked = true
-            nodeList[40].checked = true
-            nodeList[41].checked = true
-            nodeList[42].checked = true
-            nodeList[43].checked = true
-            nodeList[44].checked = true
-            nodeList[45].checked = true
+            multipleChoice(big, nodeList);
         };
         // чёт:
-        let even = [];
+        let even = [4, 6, 8, 11, 13, 15, 19, 21, 23, 26, 28, 30, 34, 36, 38, 41, 43, 45];
         if (nodeList[9].checked === true) {
-            nodeList[4].checked = true
-            nodeList[6].checked = true
-            nodeList[8].checked = true
-            nodeList[11].checked = true
-            nodeList[13].checked = true
-            nodeList[15].checked = true
-            nodeList[19].checked = true
-            nodeList[21].checked = true
-            nodeList[23].checked = true
-            nodeList[26].checked = true
-            nodeList[28].checked = true
-            nodeList[30].checked = true
-            nodeList[34].checked = true
-            nodeList[36].checked = true
-            nodeList[38].checked = true
-            nodeList[41].checked = true
-            nodeList[43].checked = true
-            nodeList[45].checked = true
+            multipleChoice(even, nodeList);
         };
         // нечет:
-        let odd = [];
+        let odd = [3, 5, 7, 10, 12, 14, 18, 20, 22, 25, 27, 29, 33, 35, 37, 40, 42, 44];
         if (nodeList[31].checked === true) {
-            nodeList[3].checked = true
-            nodeList[5].checked = true
-            nodeList[7].checked = true
-            nodeList[10].checked = true
-            nodeList[12].checked = true
-            nodeList[14].checked = true
-            nodeList[18].checked = true
-            nodeList[20].checked = true
-            nodeList[22].checked = true
-            nodeList[25].checked = true
-            nodeList[27].checked = true
-            nodeList[29].checked = true
-            nodeList[33].checked = true
-            nodeList[35].checked = true
-            nodeList[37].checked = true
-            nodeList[40].checked = true
-            nodeList[42].checked = true
-            nodeList[44].checked = true
+            multipleChoice(odd, nodeList);
         };
         // красное:
-        let red = [];
+        let red = [3, 5, 7, 10, 12, 15, 19, 21, 23, 25, 27, 29, 33, 35, 38, 41, 43, 45];
         if (nodeList[16].checked === true) {
-            nodeList[3].checked = true
-            nodeList[5].checked = true
-            nodeList[7].checked = true
-            nodeList[10].checked = true
-            nodeList[12].checked = true
-            nodeList[15].checked = true
-            nodeList[19].checked = true
-            nodeList[21].checked = true
-            nodeList[23].checked = true
-            nodeList[25].checked = true
-            nodeList[27].checked = true
-            nodeList[29].checked = true
-            nodeList[33].checked = true
-            nodeList[35].checked = true
-            nodeList[38].checked = true
-            nodeList[41].checked = true
-            nodeList[43].checked = true
-            nodeList[45].checked = true
+            multipleChoice(red, nodeList);
         };
         // чёрное:
-        let black = [];
+        let black = [4, 6, 8, 11, 13, 14, 18, 20, 22, 26, 28, 30, 34, 36, 37, 40, 42, 44];
         if (nodeList[24].checked === true) {
-            nodeList[4].checked = true
-            nodeList[6].checked = true
-            nodeList[8].checked = true
-            nodeList[11].checked = true
-            nodeList[13].checked = true
-            nodeList[14].checked = true
-            nodeList[18].checked = true
-            nodeList[20].checked = true
-            nodeList[22].checked = true
-            nodeList[26].checked = true
-            nodeList[28].checked = true
-            nodeList[30].checked = true
-            nodeList[34].checked = true
-            nodeList[36].checked = true
-            nodeList[37].checked = true
-            nodeList[40].checked = true
-            nodeList[42].checked = true
-            nodeList[44].checked = true
+            multipleChoice(black, nodeList);
         };
         // 1-я колонка:
-        let column_1 = [];
+        let column_1 = [3, 6, 10, 13, 18, 21, 25, 28, 33, 36, 40, 43];
         if (nodeList[46].checked === true) {
-            nodeList[3].checked = true
-            nodeList[6].checked = true
-            nodeList[10].checked = true
-            nodeList[13].checked = true
-            nodeList[18].checked = true
-            nodeList[21].checked = true
-            nodeList[25].checked = true
-            nodeList[28].checked = true
-            nodeList[33].checked = true
-            nodeList[36].checked = true
-            nodeList[40].checked = true
-            nodeList[43].checked = true
+            multipleChoice(column_1, nodeList);
         };
         // 2-я колонка:
-        let column_2 = [];
+        let column_2 = [4, 7, 11, 14, 19, 22, 26, 29, 34, 37, 41, 44];
         if (nodeList[47].checked === true) {
-            nodeList[4].checked = true
-            nodeList[7].checked = true
-            nodeList[11].checked = true
-            nodeList[14].checked = true
-            nodeList[19].checked = true
-            nodeList[22].checked = true
-            nodeList[26].checked = true
-            nodeList[29].checked = true
-            nodeList[34].checked = true
-            nodeList[37].checked = true
-            nodeList[41].checked = true
-            nodeList[44].checked = true
+            multipleChoice(column_2, nodeList);
         };
         // 3-я колонка:
-        let column_3 = [];
+        let column_3 = [5, 8, 12, 15, 20, 23, 27, 30, 35, 38, 42, 45];
         if (nodeList[48].checked === true) {
-            nodeList[5].checked = true
-            nodeList[8].checked = true
-            nodeList[12].checked = true
-            nodeList[15].checked = true
-            nodeList[20].checked = true
-            nodeList[23].checked = true
-            nodeList[27].checked = true
-            nodeList[30].checked = true
-            nodeList[35].checked = true
-            nodeList[38].checked = true
-            nodeList[42].checked = true
-            nodeList[45].checked = true
+            multipleChoice(column_3, nodeList);
         };
         if (element_id.includes("num") === true && isChecked === true) {
             selectedNumbers.push(+num);
