@@ -3,6 +3,10 @@
 export const minBet = 1;
 export const maxBet = 100;
 
+// пересекается ли трек с полем:
+// whether the track overlaps with a field
+export const trackOverlapsField = true;
+
 //export let strUp = 0;
 //export let completeBet = 25;
 
@@ -1009,8 +1013,10 @@ export function countPositions(arr) {
 // };
 // console.log(resultBet());
 
-// console.log(rouletteSeries.spiel.strUps);
-
+// localstorage:
+localStorage.setItem('minBet', minBet);
+localStorage.setItem('maxBet', maxBet);
+localStorage.setItem('trackOverlapsField', trackOverlapsField);
 
 
 
