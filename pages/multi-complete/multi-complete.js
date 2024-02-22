@@ -112,4 +112,11 @@ calculate.onclick = function () {
     return showMessage();
 };
 
+// функция сброса всех значений:
+reset.onclick = function () {
+    localStorage.clear();
+    return;
+};
+
+// localStorage.clear();
 // console.log(import.meta.url);
