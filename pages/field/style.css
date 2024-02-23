@@ -61,9 +61,6 @@ h1 {
 }
 
 .square {
-    /* border: 2px solid rgb(24, 220, 223); */
-    /* background-color: rgb(7, 54, 208); */
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,4 +89,85 @@ h1 {
     border: 1px solid rgb(242, 99, 158);
     border-radius: 50%;
     /* background-color: rgb(238, 229, 45); */
+}
+
+.red_num {
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: rgb(235, 0, 0);
+}
+
+.black_num {
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: rgb(15, 15, 15);
+}
+.item_zero {
+    grid-column: 3/6;
+}
+.zero {
+    width: 85%;
+    height: 85%;
+    border: 2px solid rgb(146, 146, 146);
+    border-radius: 50%;
+    background-color: rgb(21, 255, 0);
+}
+.item_small {
+    grid-row: 2/4;
+}
+
+.item_1st12 {
+    grid-row: 2/6;
+}
+
+.item_even {
+    grid-row: 4/6;
+}
+
+.item_red {
+    grid-row: 6/8;
+}
+
+.item_2nd12 {
+    grid-row: 6/10;
+}
+
+.item_black {
+    grid-row: 8/10;
+}
+
+.item_odd {
+    grid-row: 10/12
+}
+
+.item_3rd12 {
+    grid-row: 10/14;
+}
+
+.item_big {
+    grid-row: 12/14;
+}
+
+.item_1st-collumn {
+    grid-column: 3/3;
+    display: flex;
+    flex-direction: column;
+}
+
+.item_2nd-collumn {
+    grid-column: 4/4;
+    display: flex;
+    flex-direction: column;
+}
+
+.item_3rd-collumn {
+    grid-column: 5/5;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
 }
