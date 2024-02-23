@@ -111,4 +111,3 @@ calculate.onclick = function () {
     // selectedNumbers = [];
     return showMessage();
 };
-
