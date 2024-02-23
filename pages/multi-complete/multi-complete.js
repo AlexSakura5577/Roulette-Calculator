@@ -111,12 +111,3 @@ calculate.onclick = function () {
     // selectedNumbers = [];
     return showMessage();
 };
-
-// функция сброса всех значений:
-reset.onclick = function () {
-    localStorage.clear();
-    return;
-};
-
-// localStorage.clear();
-// console.log(import.meta.url);

@@ -67,6 +67,8 @@ h1 {
     background-color: rgb(2, 57, 140);
     text-align: center;
     border: 1px solid white;
+    /* margin-top: 1px; */
+    margin: 1px 1px 1px 1px;
 }
 
 .container_positions {
@@ -85,84 +87,97 @@ h1 {
     align-content: center;
 }
 
+/* фишки */
 .item {
     border: 1px solid rgb(242, 99, 158);
     border-radius: 50%;
+    /* text-align: center; */
     /* background-color: rgb(238, 229, 45); */
 }
 
 .red_num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 85%;
     height: 85%;
     border-radius: 50%;
     background-color: rgb(235, 0, 0);
+    text-align: center;
 }
 
 .black_num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 85%;
     height: 85%;
     border-radius: 50%;
     background-color: rgb(15, 15, 15);
+    text-align: center;
 }
-.item_zero {
+.square_zero {
     grid-column: 3/6;
 }
 .zero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 85%;
     height: 85%;
     border: 2px solid rgb(146, 146, 146);
     border-radius: 50%;
     background-color: rgb(21, 255, 0);
 }
-.item_small {
+.square_small {
     grid-row: 2/4;
 }
 
-.item_1st12 {
+.square_1st12 {
     grid-row: 2/6;
 }
 
-.item_even {
+.square_even {
     grid-row: 4/6;
 }
 
-.item_red {
+.square_red {
     grid-row: 6/8;
 }
 
-.item_2nd12 {
+.square_2nd12 {
     grid-row: 6/10;
 }
 
-.item_black {
+.square_black {
     grid-row: 8/10;
 }
 
-.item_odd {
+.square_odd {
     grid-row: 10/12
 }
 
-.item_3rd12 {
+.square_3rd12 {
     grid-row: 10/14;
 }
 
-.item_big {
+.square_big {
     grid-row: 12/14;
 }
 
-.item_1st-collumn {
+.square_1st-collumn {
     grid-column: 3/3;
     display: flex;
     flex-direction: column;
 }
 
-.item_2nd-collumn {
+.square_2nd-collumn {
     grid-column: 4/4;
     display: flex;
     flex-direction: column;
 }
 
-.item_3rd-collumn {
+.square_3rd-collumn {
     grid-column: 5/5;
     display: flex;
     flex-direction: column;
