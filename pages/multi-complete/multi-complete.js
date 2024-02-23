@@ -112,13 +112,3 @@ calculate.onclick = function () {
     return showMessage();
 };
 
-// console.log(import.meta.url);
-
-const myNumber = 42;
-const myNumber2 = 84;
-
-localStorage.setItem('number', myNumber);
-localStorage.setItem('number2', myNumber2);
-sessionStorage.setItem('number', myNumber);
-sessionStorage.setItem('number2', myNumber2);
-// console.log(+localStorage.getItem('number'));
