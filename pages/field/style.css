@@ -67,7 +67,6 @@ h1 {
     background-color: rgb(2, 57, 140);
     text-align: center;
     border: 1px solid white;
-    /* margin-top: 1px; */
     margin: 1px 1px 1px 1px;
 }
 
@@ -78,20 +77,23 @@ h1 {
     width: 100%;
     height: 100%;
     font-size: 0;
-    /* color: rgb(255, 255, 255); */
-    /* background-color: rgb(7, 88, 24); */
     grid-template-columns: repeat(11, 25px);
     grid-template-rows: repeat(29, 25px);
-    /* grid-gap: 2px; */
     justify-content: center;
     align-content: center;
+}
+
+.pos {
+    width: 25px;
+    height: 25px;
+    opacity: 0%;
+    /* border-radius: 50%; */
 }
 
 /* фишки */
 .item {
     border: 1px solid rgb(242, 99, 158);
-    border-radius: 50%;
-    /* text-align: center; */
+    border-radius: 15%;
     /* background-color: rgb(238, 229, 45); */
 }
 
@@ -116,9 +118,11 @@ h1 {
     background-color: rgb(15, 15, 15);
     text-align: center;
 }
+
 .square_zero {
     grid-column: 3/6;
 }
+
 .zero {
     display: flex;
     align-items: center;
@@ -129,6 +133,7 @@ h1 {
     border-radius: 50%;
     background-color: rgb(21, 255, 0);
 }
+
 .square_small {
     grid-row: 2/4;
 }
@@ -185,4 +190,165 @@ h1 {
 
 .vertical-text {
     writing-mode: vertical-rl;
+}
+
+/* простые шансы, колонки и дюжины */
+.item_31,
+.item_73,
+.item_33,
+.item_109,
+.item_151,
+.item_111,
+.item_187,
+.item_229,
+.item_189,
+.item_269,
+.item_271,
+.item_273 {
+    background-color: rgb(168, 104, 245);
+    opacity: 75%;
+}
+
+/* номера */
+.item_1,
+/*0*/
+.item_35,
+/*1*/
+.item_37,
+/*2*/
+.item_39,
+/*3*/
+.item_53,
+/*4*/
+.item_55,
+/*5*/
+.item_57,
+/*6*/
+.item_72,
+/*7*/
+.item_75,
+/*8*/
+.item_77,
+/*9*/
+.item_91,
+/*10*/
+.item_93,
+/*11*/
+.item_95,
+/*12*/
+.item_113,
+/*13*/
+.item_115,
+/*14*/
+.item_117,
+/*15*/
+.item_131,
+/*16*/
+.item_133,
+/*17*/
+.item_135,
+/*18*/
+.item_150,
+/*19*/
+.item_153,
+/*20*/
+.item_155,
+/*21*/
+.item_169,
+/*22*/
+.item_171,
+/*23*/
+.item_173,
+/*24*/
+.item_191,
+/*25*/
+.item_193,
+/*26*/
+.item_195,
+/*27*/
+.item_209,
+/*28*/
+.item_211,
+/*29*/
+.item_213,
+/*30*/
+.item_228,
+/*31*/
+.item_231,
+/*32*/
+.item_233,
+/*33*/
+.item_247,
+/*34*/
+.item_249,
+/*35*/
+.item_251
+
+/*36*/
+    {
+    background-color: rgb(235, 138, 224);
+    opacity: 75%;
+}
+
+/* остальные позиции */
+.item_23,
+.item_24 {
+    background-color: rgb(242, 247, 96);
+    opacity: 75%;
+    border-radius: 50%;
+}
+
+.item_1 {
+    grid-column: 6/11;
+    grid-row: 2;
+}
+
+.item_31 {
+    grid-row: 4/7;
+    grid-column: 2/3;
+}
+
+.item_73 {
+    grid-row: 8/11;
+    grid-column: 2/3;
+}
+
+.item_33 {
+    grid-row: 4/11;
+    grid-column: 4/5;
+}
+
+.item_109 {
+    grid-row: 12/15;
+    grid-column: 2/3;
+}
+
+.item_151 {
+    grid-row: 16/19;
+    grid-column: 2/3;
+}
+
+.item_111 {
+    grid-row: 12/19;
+    grid-column: 4/5;
+}
+
+.item_187 {
+    grid-row: 20/23;
+    grid-column: 2/3;
+}
+
+.item_229 {
+    grid-row: 24/27;
+    grid-column: 2/3;
+}
+
+.item_189 {
+    grid-row: 20/27;
+    grid-column: 4/5;
+}
+
+.empty {
+    background-color: rgb(49, 227, 239);
+    opacity: 75%;
 }
