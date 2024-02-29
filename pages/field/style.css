@@ -91,7 +91,6 @@ h1 {
 .item {
     border: 1px solid rgb(242, 99, 158);
     border-radius: 50%;
-    /* text-align: center; */
     /* background-color: rgb(238, 229, 45); */
 }
 
@@ -185,4 +184,9 @@ h1 {
 
 .vertical-text {
     writing-mode: vertical-rl;
+}
+
+.item_1 {
+    display: none;
+    background-color: rgb(242, 99, 158);
 }
