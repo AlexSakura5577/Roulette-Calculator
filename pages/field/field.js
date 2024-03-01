@@ -18,7 +18,7 @@ firstfour.addEventListener("click", test);
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
-// console.log(nodeList);
+console.log(nodeList);
 
 // получить текст из тега элемента
 let split_01 = document.getElementById("split01");
