@@ -10,24 +10,28 @@ import { fullBets } from "../main/app.js";
 
 // let split_0_1 = rouletteNumber[0].positions.split[0];
 // let firstfour = rouletteNumber[0].positions.corner[0];
-let firstfour = document.getElementById("firstfour");
-function test() {
-    alert("first four")
-};
-firstfour.addEventListener("click", test);
-
+let posClick = document.getElementById("firstfour");
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
 console.log(nodeList);
 
-// получить текст из тега элемента
-let split_01 = document.getElementById("split01");
-let content = split_01.textContent;
-console.log(content);
-function test2() {
-    alert(`${content}`)
+function test() {
+    let id = firstfour.id;
+    let content = firstfour.textContent;
+    alert(`${id}\n${content}`);
+    return;
 };
-split_01.addEventListener("click", test2);
+posClick.addEventListener("click", test);
+
+
+// получить текст из тега элемента
+// let split_01 = document.getElementById("split01");
+// let content = split_01.textContent;
+// console.log(content);
+// function test2() {
+//     alert(`${content}`)
+// };
+// split_01.addEventListener("click", test2);
 
 
 
