@@ -8,6 +8,9 @@ import { rouletteNumber } from "../main/app.js";
 // import { oddDozColum } from "../main/app.js";
 import { fullBets } from "../main/app.js";
 
+//поворот экрана:
+// document.body.style.transform = 'rotate(90deg)';
+
 // let split_0_1 = rouletteNumber[0].positions.split[0];
 // let firstfour = rouletteNumber[0].positions.corner[0];
 let posClick = document.getElementById("firstfour");

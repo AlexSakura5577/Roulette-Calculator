@@ -490,8 +490,3 @@ h1 {
     grid-row: 20/27;
     grid-column: 4/5;
 }
-
-.empty {
-    /* background-color: rgb(49, 227, 239); */
-    /* opacity: 75%; */
-}

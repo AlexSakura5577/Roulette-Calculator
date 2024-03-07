@@ -750,43 +750,43 @@ export const rouletteNumber = {
 // все позиции рулетки (157 шт) и ставка:
 export const rltPos = {
     num: {
-        "numder_0": 0,
-        "numder_1": 0,
-        "numder_2": 0,
-        "numder_3": 0,
-        "numder_4": 0,
-        "numder_5": 0,
-        "numder_6": 0,
-        "numder_7": 0,
-        "numder_8": 0,
-        "numder_9": 0,
-        "numder_10": 0,
-        "numder_11": 0,
-        "numder_12": 0,
-        "numder_13": 0,
-        "numder_14": 0,
-        "numder_15": 0,
-        "numder_16": 0,
-        "numder_17": 0,
-        "numder_18": 0,
-        "numder_19": 0,
-        "numder_20": 0,
-        "numder_21": 0,
-        "numder_22": 0,
-        "numder_23": 0,
-        "numder_24": 0,
-        "numder_25": 0,
-        "numder_26": 0,
-        "numder_27": 0,
-        "numder_28": 0,
-        "numder_29": 0,
-        "numder_30": 0,
-        "numder_31": 0,
-        "numder_32": 0,
-        "numder_33": 0,
-        "numder_34": 0,
-        "numder_35": 0,
-        "numder_36": 0
+        "number_0": 0,
+        "number_1": 0,
+        "number_2": 0,
+        "number_3": 0,
+        "number_4": 0,
+        "number_5": 0,
+        "number_6": 0,
+        "number_7": 0,
+        "number_8": 0,
+        "number_9": 0,
+        "number_10": 0,
+        "number_11": 0,
+        "number_12": 0,
+        "number_13": 0,
+        "number_14": 0,
+        "number_15": 0,
+        "number_16": 0,
+        "number_17": 0,
+        "number_18": 0,
+        "number_19": 0,
+        "number_20": 0,
+        "number_21": 0,
+        "number_22": 0,
+        "number_23": 0,
+        "number_24": 0,
+        "number_25": 0,
+        "number_26": 0,
+        "number_27": 0,
+        "number_28": 0,
+        "number_29": 0,
+        "number_30": 0,
+        "number_31": 0,
+        "number_32": 0,
+        "number_33": 0,
+        "number_34": 0,
+        "number_35": 0,
+        "number_36": 0
     },
     spl: {
         "split_0-1": 0,
@@ -939,10 +939,6 @@ export const rltPos = {
         numbers: [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
     }
 };
-// !!
-console.log(rltPos.black.numbers.length);
-// rltPos.spl["split_0-1"] += 25;
-// console.log(rltPos.spl["split_0-1"]);
 // серии рулетки:
 export const rouletteSeries = {
     // малая серия (tier):
