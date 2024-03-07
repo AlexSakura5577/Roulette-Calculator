@@ -92,7 +92,7 @@ h1 {
 
 /* фишки */
 .item {
-    border: 1px solid rgb(242, 99, 158);
+    border: 1px solid rgb(109, 242, 99);
     border-radius: 15%;
     /* background-color: rgb(238, 229, 45); */
 }
@@ -435,8 +435,7 @@ h1 {
 .item_248,
 .item_249,
 .item_250,
-.item_251
- {
+.item_251 {
     background-color: rgb(242, 247, 96);
     opacity: 75%;
     border-radius: 50%;
@@ -493,6 +492,6 @@ h1 {
 }
 
 .empty {
-    background-color: rgb(49, 227, 239);
-    opacity: 75%;
+    /* background-color: rgb(49, 227, 239); */
+    /* opacity: 75%; */
 }

@@ -13,7 +13,7 @@ import { fullBets } from "../main/app.js";
 let posClick = document.getElementById("firstfour");
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
-console.log(nodeList);
+// console.log(nodeList);
 
 function test() {
     let id = firstfour.id;
@@ -21,7 +21,7 @@ function test() {
     alert(`${id}\n${content}`);
     return;
 };
-posClick.addEventListener("click", test);
+// posClick.addEventListener("click", test);
 
 
 // получить текст из тега элемента
