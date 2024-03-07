@@ -1,11 +1,28 @@
 body {
-    background-color: rgba(0, 0, 0, 0.852);
+    background-color: rgba(7, 88, 24);
     color: rgb(0, 255, 179);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 1em;
+    font-weight: bold;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flex_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
 }
 
 .btn {
-    display: flex;
-    justify-content: flex-end;
+    margin-bottom: 35px;
+}
+h1 {
+    background-color: rgb(64, 66, 192);
 }
