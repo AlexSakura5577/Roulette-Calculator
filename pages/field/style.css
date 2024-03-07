@@ -60,6 +60,7 @@ h1 {
     /* margin-top: 25px; */
 }
 
+/* фон поля рулетки */
 .square {
     display: flex;
     align-items: center;
@@ -206,7 +207,7 @@ h1 {
 .item_271,
 .item_273 {
     background-color: rgb(168, 104, 245);
-    opacity: 75%;
+    opacity: 40%;
 }
 
 /* номера */
@@ -286,7 +287,7 @@ h1 {
 
 /*36*/
     {
-    background-color: rgb(235, 138, 224);
+    /* background-color: rgb(235, 138, 224); */
     opacity: 75%;
 }
 
@@ -437,8 +438,169 @@ h1 {
 .item_250,
 .item_251 {
     background-color: rgb(242, 247, 96);
-    opacity: 75%;
+    opacity: 40%;
     border-radius: 50%;
+}
+
+/* при наведении курсора */
+.item_1:hover,
+.item_23:hover,
+.item_24:hover,
+.item_25:hover,
+.item_26:hover,
+.item_27:hover,
+.item_28:hover,
+.item_34:hover,
+.item_35:hover,
+.item_36:hover,
+.item_37:hover,
+.item_38:hover,
+.item_39:hover,
+.item_43:hover,
+.item_44:hover,
+.item_45:hover,
+.item_46:hover,
+.item_47:hover,
+.item_48:hover,
+.item_52:hover,
+.item_53:hover,
+.item_54:hover,
+.item_55:hover,
+.item_56:hover,
+.item_57:hover,
+.item_62:hover,
+.item_63:hover,
+.item_64:hover,
+.item_65:hover,
+.item_66:hover,
+.item_67:hover,
+.item_71:hover,
+.item_72:hover,
+.item_74:hover,
+.item_75:hover,
+.item_76:hover,
+.item_77:hover,
+.item_81:hover,
+.item_82:hover,
+.item_83:hover,
+.item_84:hover,
+.item_85:hover,
+.item_86:hover,
+.item_90:hover,
+.item_91:hover,
+.item_92:hover,
+.item_93:hover,
+.item_94:hover,
+.item_95:hover,
+.item_101:hover,
+.item_102:hover,
+.item_103:hover,
+.item_104:hover,
+.item_105:hover,
+.item_106:hover,
+.item_112:hover,
+.item_113:hover,
+.item_114:hover,
+.item_115:hover,
+.item_116:hover,
+.item_117:hover,
+.item_121:hover,
+.item_122:hover,
+.item_123:hover,
+.item_124:hover,
+.item_125:hover,
+.item_126:hover,
+.item_130:hover,
+.item_131:hover,
+.item_132:hover,
+.item_133:hover,
+.item_134:hover,
+.item_135:hover,
+.item_140:hover,
+.item_141:hover,
+.item_142:hover,
+.item_143:hover,
+.item_144:hover,
+.item_145:hover,
+.item_149:hover,
+.item_150:hover,
+.item_152:hover,
+.item_153:hover,
+.item_154:hover,
+.item_155:hover,
+.item_159:hover,
+.item_160:hover,
+.item_161:hover,
+.item_162:hover,
+.item_163:hover,
+.item_164:hover,
+.item_168:hover,
+.item_169:hover,
+.item_170:hover,
+.item_171:hover,
+.item_172:hover,
+.item_173:hover,
+.item_179:hover,
+.item_180:hover,
+.item_181:hover,
+.item_182:hover,
+.item_183:hover,
+.item_184:hover,
+.item_190:hover,
+.item_191:hover,
+.item_192:hover,
+.item_193:hover,
+.item_194:hover,
+.item_195:hover,
+.item_199:hover,
+.item_200:hover,
+.item_201:hover,
+.item_202:hover,
+.item_203:hover,
+.item_204:hover,
+.item_208:hover,
+.item_209:hover,
+.item_210:hover,
+.item_211:hover,
+.item_212:hover,
+.item_213:hover,
+.item_218:hover,
+.item_219:hover,
+.item_220:hover,
+.item_221:hover,
+.item_222:hover,
+.item_223:hover,
+.item_227:hover,
+.item_228:hover,
+.item_230:hover,
+.item_231:hover,
+.item_232:hover,
+.item_233:hover,
+.item_237:hover,
+.item_238:hover,
+.item_239:hover,
+.item_240:hover,
+.item_241:hover,
+.item_242:hover,
+.item_246:hover,
+.item_247:hover,
+.item_248:hover,
+.item_249:hover,
+.item_250:hover,
+.item_251:hover,
+.item_31:hover,
+.item_73:hover,
+.item_33:hover,
+.item_109:hover,
+.item_151:hover,
+.item_111:hover,
+.item_187:hover,
+.item_229:hover,
+.item_189:hover,
+.item_269:hover,
+.item_271:hover,
+.item_273:hover {
+    opacity: 85%;
 }
 
 .item_1 {

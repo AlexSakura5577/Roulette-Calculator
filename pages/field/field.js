@@ -18,9 +18,9 @@ const nodeList = document.querySelectorAll(".pos");
 nodeList.forEach(element => {
     element.addEventListener('click', () => {
         let text = element.textContent;
-        // Выводим текст элемента в консоль
+        // Выводим текст элемента в консоль и всплывашку:
         console.log(text);
-        // alert(text);
+        alert(text);
     });
 });
 
