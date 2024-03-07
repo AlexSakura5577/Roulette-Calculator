@@ -7,34 +7,27 @@ import { rouletteNumber } from "../main/app.js";
 // import { countPositions } from "../main/app.js";
 // import { oddDozColum } from "../main/app.js";
 import { fullBets } from "../main/app.js";
+import { rltPos } from "../main/app.js";
 
 //поворот экрана:
 // document.body.style.transform = 'rotate(90deg)';
 
-// let split_0_1 = rouletteNumber[0].positions.split[0];
-// let firstfour = rouletteNumber[0].positions.corner[0];
-let posClick = document.getElementById("firstfour");
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
-// console.log(nodeList);
+// Для каждого элемента добавляем обработчик события "click"
+nodeList.forEach(element => {
+    element.addEventListener('click', () => {
+        let text = element.textContent;
+        // Выводим текст элемента в консоль
+        console.log(text);
+        // alert(text);
+    });
+});
 
-function test() {
-    let id = firstfour.id;
-    let content = firstfour.textContent;
-    alert(`${id}\n${content}`);
-    return;
-};
-// posClick.addEventListener("click", test);
 
 
-// получить текст из тега элемента
-// let split_01 = document.getElementById("split01");
-// let content = split_01.textContent;
-// console.log(content);
-// function test2() {
-//     alert(`${content}`)
-// };
-// split_01.addEventListener("click", test2);
+
+
 
 
 
