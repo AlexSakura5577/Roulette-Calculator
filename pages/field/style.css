@@ -652,3 +652,53 @@ h1 {
     grid-row: 20/27;
     grid-column: 4/5;
 }
+/* 
+.block {
+    --border: 1px solid black;
+    --size: 25px;
+    width: var(--size);
+    height: var(--size);
+    margin: calc(var(--size) / 4);
+    margin-top: calc(var(--size) / 1.5);
+    transform: scaleY(1.5);
+}
+
+.block::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: var(--border);
+    transform: rotate(45deg);
+    background-color: red;
+} */
+
+#triangle_up {
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid black;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+#triangle_down {
+    width: 0;
+    height: 0;
+    border-top: 25px solid black;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+#diamond_up {
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+#diamond_down {
+    width: 0;
+    height: 0;
+    border-top: 25px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
