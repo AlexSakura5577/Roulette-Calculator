@@ -16,13 +16,38 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
 }
 
 .btn {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
+
 h1 {
     background-color: rgb(64, 66, 192);
+}
+
+.wrapper {
+    display: block;
+    border: 2px white solid;
+    width: 118px;
+    height: 550px;
+    margin: 25px 25px 25px 55px;
+}
+
+.track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.circle {
+    display: flex;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background-color: rgb(75, 42, 165);
+    border: 2px white solid;
 }
