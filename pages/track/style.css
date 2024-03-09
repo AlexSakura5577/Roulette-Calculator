@@ -31,7 +31,7 @@ h1 {
 .wrapper {
     display: block;
     border: 2px white solid;
-    width: 118px;
+    width: 119px;
     height: 550px;
     margin: 25px 25px 25px 55px;
 }
@@ -43,11 +43,73 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 }
+
 .circle {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     width: 115px;
     height: 115px;
     border-radius: 50%;
     background-color: rgb(75, 42, 165);
     border: 2px white solid;
+}
+
+.line {
+    display: block;
+    width: 2px;
+    height: 115px;
+    /* border: 1px white solid; */
+    background-color: white;
+    position: absolute;
+}
+
+.line_1 {
+    rotate: 30deg;
+}
+.line_2 {
+    rotate: 90deg;
+}
+.line_3 {
+    rotate: 330deg;
+}
+.line_4 {
+    rotate: 45deg;
+}
+.line_5 {
+    rotate: 90deg;
+}
+.line_6 {
+    rotate: 135deg;
+}
+.line_7 {
+    rotate: 180deg;
+}
+.numbers_5-35{
+    width: 25px;
+    height: 430px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 59px 0px 0px 7px;
+}
+.numbers_11-27{
+    width: 25px;
+    height: 430px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 59px 0px 0px 85px;
+}
+.numbers_6-17{
+    width: 25px;
+    height: 430px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 59px 0px 0px 85px;
+}
+.numbers_25-32{
+    width: 25px;
+    height: 430px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 59px 0px 0px 85px;
 }
