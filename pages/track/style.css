@@ -51,7 +51,8 @@ h1 {
     width: 115px;
     height: 115px;
     border-radius: 50%;
-    background-color: rgba(7, 88, 24);
+    /* background-color: rgba(7, 88, 24); */
+    background-color: rgb(88, 19, 7);
     border: 2px white solid;
 }
 
@@ -60,7 +61,8 @@ h1 {
     width: 93px;
     height: 93px;
     border-radius: 50%;
-    background-color: transparent;
+    /* background-color: transparent; */
+    background-color: rgba(7, 88, 24);
     border: 2px white solid;
 }
 
@@ -78,6 +80,7 @@ h1 {
     height: 45px;
     border-radius: 50%;
     background-color: rgba(7, 88, 24);
+    /* background-color: aqua; */
     border: 2px white solid;
 }
 
@@ -86,11 +89,47 @@ h1 {
 }
 
 .spiel_small_1 {
-    margin: 80px 0px 0px 35px;
+    margin: 83px 0px 0px 35px;
 }
 
 .spiel_small_2 {
     margin: 36px 0px 0px 35px;
+}
+
+.series-tier {
+    position: absolute;
+    width: 45px;
+    height: 108px;
+    /* background-color: aqua; */
+    background-color: rgba(7, 88, 24);
+    margin: 385px 0px 0px 37px;
+}
+
+.series-orphelins {
+    position: absolute;
+    width: 45px;
+    height: 132px;
+    /* background-color: rgb(0, 255, 128); */
+    background-color: rgba(7, 88, 24);
+    margin: 251px 0px 0px 37px;
+}
+
+.series-voisins {
+    position: absolute;
+    width: 45px;
+    height: 117px;
+    /* background-color: rgb(0, 255, 38); */
+    background-color: rgba(7, 88, 24);
+    margin: 132px 0px 0px 37px;
+}
+
+.series-spiel {
+    position: absolute;
+    width: 45px;
+    height: 53px;
+    /* background-color: rgb(0, 68, 255); */
+    background-color: rgba(7, 88, 24);
+    margin: 60px 0px 0px 37px;
 }
 
 .line {
@@ -154,7 +193,7 @@ h1 {
 .align {
     display: flex;
     flex-direction: column;
-    width: 25px;
+    width: 22px;
     height: 25px;
     justify-content: center;
     align-items: center;
@@ -177,17 +216,18 @@ h1 {
 
 .cube {
     display: block;
-    width: 25px;
+    width: 22px;
     height: 25px;
     background-color: rgba(7, 88, 24);
-    /* border: 1px dotted black; */
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .rectangle {
     display: block;
-    width: 25px;
-    height: 42px;
+    width: 22px;
+    height: 43px;
     background-color: rgba(7, 88, 24);
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .red_numb {
@@ -198,38 +238,92 @@ h1 {
     color: rgb(255, 227, 12);
 }
 
+.double_blocks_5-35 {
+    position: absolute;
+    width: 11px;
+    height: 429px;
+    background-color: aqua;
+    margin: 61px 0px 0px 0px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double_blocks_11-27 {
+    position: absolute;
+    width: 11px;
+    height: 105px;
+    background-color: rgb(191, 0, 255);
+    margin: 385px 0px 0px 107px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double_blocks_6-17 {
+    position: absolute;
+    width: 11px;
+    height: 131px;
+    background-color: rgb(0, 26, 255);
+    margin: 251px 0px 0px 107px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double_blocks_25-32 {
+    position: absolute;
+    width: 11px;
+    height: 187px;
+    background-color: rgb(255, 234, 0);
+    margin: 61px 0px 0px 107px;
+    border: 1px solid rgb(255, 255, 255);
+}
+.double-cube {
+    display: block;
+    width: 10px;
+    height: 25px;
+    background-color: rgb(88, 19, 7);
+    border: 1px solid rgb(255, 255, 255);
+}
+.double-rectangle{
+    display: block;
+    width: 10px;
+    height: 43px;
+    background-color: rgb(88, 19, 7);
+    border: 1px solid rgb(255, 255, 255);
+}
+
 .numbers_5-35 {
-    width: 25px;
+    width: 23px;
     height: 430px;
     border: 1px white solid;
     position: absolute;
-    margin: 60px 0px 0px 11px;
-    background-color: rgb(14, 235, 235);
+    margin: 60px 0px 0px 12px;
+    /* background-color: rgb(14, 235, 235); */
 }
 
 .numbers_11-27 {
-    width: 25px;
+    width: 24px;
     height: 106px;
     border: 1px white solid;
     position: absolute;
     margin: 384px 0px 0px 82px;
-    background-color: rgb(123, 183, 3);
+    /* background-color: rgb(123, 183, 3); */
 }
 
 .numbers_6-17 {
-    width: 25px;
-    height: 133px;
+    width: 24px;
+    height: 132px;
     border: 1px white solid;
     position: absolute;
-    margin: 249px 0px 0px 82px;
-    background-color: rgb(230, 128, 25);
+    margin: 250px 0px 0px 82px;
+    /* background-color: rgb(230, 128, 25); */
 }
 
 .numbers_25-32 {
-    width: 25px;
+    width: 24px;
     height: 187px;
     border: 1px white solid;
     position: absolute;
     margin: 60px 0px 0px 82px;
-    background-color: rgb(140, 255, 0);
+    /* background-color: rgb(140, 255, 0); */
+}
+
+.border-left-off {
+    border-bottom: 0px;
 }
