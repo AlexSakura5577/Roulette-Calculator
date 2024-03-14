@@ -27,6 +27,9 @@ body {
 h1 {
     background-color: rgb(64, 66, 192);
 }
+/* .v-text {
+    writing-mode: vertical-rl;
+} */
 
 .wrapper {
     display: block;
@@ -58,7 +61,7 @@ h1 {
 .line {
     display: block;
     width: 2px;
-    height: 115px;
+    height: 117px;
     /* border: 1px white solid; */
     background-color: white;
     position: absolute;
@@ -67,53 +70,113 @@ h1 {
 .line_1 {
     rotate: 30deg;
 }
+
 .line_2 {
     rotate: 90deg;
 }
+
 .line_3 {
     rotate: 330deg;
 }
+
 .line_4 {
     rotate: 45deg;
 }
+
 .line_5 {
     rotate: 90deg;
 }
+
 .line_6 {
     rotate: 135deg;
 }
+
 .line_7 {
     rotate: 180deg;
 }
-.numbers_5-35{
+/* 2 перемычки */
+.line_8 {
+    height: 120px;
+    rotate: 90deg;
+    margin-left: 58px;
+    margin-top: 190px;
+}
+.line_9 {
+    height: 120px;
+    rotate: 90deg;
+    margin-left: 58px;
+    margin-top: 324px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.align {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.align-orphelins {
+    display: flex;
+    width: 25px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+}
+.text {
+    transform: rotate(270deg);
+    background-color: transparent;
+}
+
+.cube {
+    display: block;
+    width: 25px;
+    height: 25px;
+    background-color: rgb(255, 6, 6);
+    /* border: 1px dotted black; */
+}
+.rectangle{
+    display: block;
+    width: 25px;
+    height: 42px;
+    background-color: rgb(255, 6, 6);
+}
+.numbers_5-35 {
     width: 25px;
     height: 430px;
     border: 1px white solid;
     position: absolute;
-    margin: 59px 0px 0px 7px;
+    margin: 60px 0px 0px 11px;
     background-color: rgb(14, 235, 235);
 }
-.numbers_11-27{
+
+.numbers_11-27 {
     width: 25px;
-    height: 430px;
+    height: 106px;
     border: 1px white solid;
     position: absolute;
-    margin: 59px 0px 0px 85px;
+    margin: 384px 0px 0px 82px;
     background-color: rgb(123, 183, 3);
 }
-.numbers_6-17{
+
+.numbers_6-17 {
     width: 25px;
-    height: 430px;
+    height: 133px;
     border: 1px white solid;
     position: absolute;
-    margin: 59px 0px 0px 85px;
+    margin: 249px 0px 0px 82px;
     background-color: rgb(230, 128, 25);
 }
-.numbers_25-32{
+
+.numbers_25-32 {
     width: 25px;
-    height: 430px;
+    height: 187px;
     border: 1px white solid;
     position: absolute;
-    margin: 59px 0px 0px 85px;
+    margin: 60px 0px 0px 82px;
     background-color: rgb(140, 255, 0);
 }
