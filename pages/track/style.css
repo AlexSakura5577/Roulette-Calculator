@@ -1,11 +1,372 @@
 body {
-    background-color: rgba(0, 0, 0, 0.852);
+    background-color: rgba(7, 88, 24);
     color: rgb(0, 255, 179);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 1em;
+    font-weight: bold;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flex_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    /* position: fixed; */
+    top: 0;
 }
 
 .btn {
+    margin-bottom: 25px;
+}
+
+h1 {
+    background-color: rgb(64, 66, 192);
+}
+
+.wrapper {
+    display: block;
+    width: 119px;
+    height: 550px;
+    margin: 25px 25px 25px 55px;
+}
+
+.track {
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.circle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background-color: rgba(7, 88, 24);
+    border: 2px white solid;
+}
+
+.circle_2 {
+    position: absolute;
+    width: 93px;
+    height: 93px;
+    border-radius: 50%;
+    background-color: rgba(7, 88, 24);
+    border: 2px white solid;
+}
+
+.tier {
+    margin: 442px 0px 0px 11px;
+}
+
+.spiel {
+    margin: 11px 0px 0px 11px;
+}
+
+.circle_3 {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(7, 88, 24);
+    border: 2px white solid;
+}
+
+.tier_small {
+    margin: 466px 0px 0px 35px;
+}
+
+.spiel_small_1 {
+    margin: 83px 0px 0px 35px;
+}
+
+.spiel_small_2 {
+    margin: 36px 0px 0px 35px;
+}
+
+.series-tier {
+    position: absolute;
+    width: 45px;
+    height: 108px;
+    background-color: rgba(7, 88, 24);
+    margin: 385px 0px 0px 37px;
+}
+
+.series-orphelins {
+    position: absolute;
+    width: 45px;
+    height: 132px;
+    background-color: rgba(7, 88, 24);
+    margin: 251px 0px 0px 37px;
+}
+
+.series-voisins {
+    position: absolute;
+    width: 45px;
+    height: 117px;
+    background-color: rgba(7, 88, 24);
+    margin: 132px 0px 0px 37px;
+}
+
+.series-spiel {
+    position: absolute;
+    width: 45px;
+    height: 53px;
+    background-color: rgba(7, 88, 24);
+    margin: 60px 0px 0px 37px;
+}
+
+.line {
+    display: block;
+    width: 2px;
+    height: 117px;
+    background-color: white;
+    position: absolute;
+}
+
+.line_1 {
+    rotate: 30deg;
+}
+
+.line_2 {
+    rotate: 90deg;
+}
+
+.line_3 {
+    rotate: 330deg;
+}
+
+.line_4 {
+    rotate: 45deg;
+}
+
+.line_5 {
+    rotate: 90deg;
+}
+
+.line_6 {
+    rotate: 135deg;
+}
+
+.line_7 {
+    rotate: 180deg;
+}
+
+/* 2 перемычки */
+.line_8 {
+    height: 120px;
+    rotate: 90deg;
+    margin-left: 58px;
+    margin-top: 190px;
+}
+
+.line_9 {
+    height: 120px;
+    rotate: 90deg;
+    margin-left: 58px;
+    margin-top: 324px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.align {
+    display: flex;
+    flex-direction: column;
+    width: 22px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.align-orphelins {
+    display: flex;
+    width: 25px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    transform: rotate(270deg);
+    background-color: transparent;
+    font-size: 1.2em;
+    font-family: Roboto, monospace;
+}
+
+.cube {
+    display: block;
+    width: 22px;
+    height: 25px;
+    background-color: rgba(7, 88, 24);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.rectangle {
+    display: block;
+    width: 22px;
+    height: 43px;
+    background-color: rgba(7, 88, 24);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.red_num {
+    color: red;
+}
+
+.black_num {
+    color: rgb(255, 227, 12);
+}
+
+.green_num {
+    color: rgb(38, 249, 10);
+}
+
+.double_blocks_5-35 {
+    position: absolute;
+    width: 11px;
+    height: 429px;
+    background-color: rgba(7, 88, 24);
+    margin: 61px 0px 0px 0px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double_blocks_11-27 {
+    position: absolute;
+    width: 11px;
+    height: 105px;
+    background-color: rgba(7, 88, 24);
+    margin: 385px 0px 0px 107px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double_blocks_6-17 {
+    position: absolute;
+    width: 11px;
+    height: 131px;
+    background-color: rgba(7, 88, 24);
+    margin: 251px 0px 0px 107px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double_blocks_25-32 {
+    position: absolute;
+    width: 11px;
+    height: 187px;
+    background-color: rgba(7, 88, 24);
+    margin: 61px 0px 0px 107px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double-cube {
+    display: block;
+    width: 10px;
+    height: 25px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.double-rectangle {
+    display: block;
+    width: 10px;
+    height: 43px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.numbers_5-35 {
+    width: 23px;
+    height: 430px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 60px 0px 0px 12px;
+}
+
+.numbers_11-27 {
+    width: 24px;
+    height: 106px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 384px 0px 0px 82px;
+}
+
+.numbers_6-17 {
+    width: 24px;
+    height: 132px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 250px 0px 0px 82px;
+}
+
+.numbers_25-32 {
+    width: 24px;
+    height: 187px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 60px 0px 0px 82px;
+}
+
+.border-left-off {
+    border-bottom: 0px;
+}
+
+.bet-pos {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgb(231, 22, 11);
+    border-radius: 50%;
+    background-color: rgb(180, 177, 42);
+    opacity: 75%;
+}
+
+.pos-num_3 {
+    margin: 0px 0px 0px 0px;
+}
+
+.num26,
+.num10,
+.num8,
+.num3,
+.num23,
+.num30,
+.num0 {
+    position: absolute;
+}
+
+.num26 {
+    margin: 12px 0px 0px 49px;
+}
+
+.num10 {
+    margin: 493px 0px 0px 17px;
+}
+
+.num8 {
+    margin: 511px 0px 0px 62px;
+}
+
+.num3 {
+    margin: 29px 0px 0px 19px;
+}
+
+.num23 {
+    margin: 511px 0px 0px 37px;
+}
+
+.num30 {
+    margin: 492px 0px 0px 81px;
+}
+
+.num0 {
+    margin: 30px 0px 0px 79px;
 }
