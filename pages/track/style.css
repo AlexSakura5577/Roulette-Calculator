@@ -324,8 +324,7 @@ h1 {
     border-bottom: 0px;
 }
 
-.bet-pos {
-    /* display: none; */
+.bet {
     position: absolute;
     width: 25px;
     height: 25px;
@@ -335,8 +334,10 @@ h1 {
     opacity: 50%;
 }
 
-.pos-num_3 {
-    margin: 0px 0px 0px 0px;
+/* класс для JS addEventListener */
+.pos {
+    /* display: block; */
+    /* display: none; */
 }
 
 .num26,
@@ -415,151 +416,151 @@ h1 {
 }
 
 /* кликабельные позиции на треке */
-.pos-num_0 {
+.neighbor_0 {
     margin: 30px 0px 0px 77px;
 }
 
-.pos-num_1 {
+.neighbor_1 {
     margin: 356px 0px 0px 11px;
 }
 
-.pos-num_2 {
+.neighbor_2 {
     margin: 195px 0px 0px 81px;
 }
 
-.pos-num_3 {
+.neighbor_3 {
     margin: 29px 0px 0px 17px;
 }
 
-.pos-num_4 {
+.neighbor_4 {
     margin: 141px 0px 0px 81px;
 }
 
-.pos-num_5 {
+.neighbor_5 {
     margin: 464px 0px 0px 11px;
 }
 
-.pos-num_6 {
+.neighbor_6 {
     margin: 347px 0px 0px 82px;
 }
 
-.pos-num_7 {
+.neighbor_7 {
     margin: 142px 0px 0px 11px;
 }
 
-.pos-num_8 {
+.neighbor_8 {
     margin: 510px 0px 0px 59px;
 }
 
-.pos-num_9 {
+.neighbor_9 {
     margin: 249px 0px 0px 11px;
 }
 
-.pos-num_10 {
+.neighbor_10 {
     margin: 492px 0px 0px 14px;
 }
 
-.pos-num_11 {
+.neighbor_11 {
     margin: 465px 0px 0px 82px;
 }
 
-.pos-num_12 {
+.neighbor_12 {
     margin: 87px 0px 0px 11px;
 }
 
-.pos-num_13 {
+.neighbor_13 {
     margin: 411px 0px 0px 82px;
 }
 
-.pos-num_14 {
+.neighbor_14 {
     margin: 302px 0px 0px 11px;
 }
 
-.pos-num_15 {
+.neighbor_15 {
     margin: 87px 0px 0px 81px;
 }
 
-.pos-num_16 {
+.neighbor_16 {
     margin: 410px 0px 0px 11px;
 }
 
-.pos-num_17 {
+.neighbor_17 {
     margin: 259px 0px 0px 82px;
 }
 
-.pos-num_18 {
+.neighbor_18 {
     margin: 195px 0px 0px 11px;
 }
 
-.pos-num_19 {
+.neighbor_19 {
     margin: 114px 0px 0px 81px;
 }
 
-.pos-num_20 {
+.neighbor_20 {
     margin: 329px 0px 0px 11px;
 }
 
-.pos-num_21 {
+.neighbor_21 {
     margin: 168px 0px 0px 81px;
 }
 
-.pos-num_22 {
+.neighbor_22 {
     margin: 223px 0px 0px 11px;
 }
 
-.pos-num_23 {
+.neighbor_23 {
     margin: 510px 0px 0px 34px;
 }
 
-.pos-num_24 {
+.neighbor_24 {
     margin: 437px 0px 0px 11px;
 }
 
-.pos-num_25 {
+.neighbor_25 {
     margin: 222px 0px 0px 82px;
 }
 
-.pos-num_26 {
+.neighbor_26 {
     margin: 11px 0px 0px 46px;
 }
 
-.pos-num_27 {
+.neighbor_27 {
     margin: 385px 0px 0px 82px;
 }
 
-.pos-num_28 {
+.neighbor_28 {
     margin: 115px 0px 0px 11px;
 }
 
-.pos-num_29 {
+.neighbor_29 {
     margin: 169px 0px 0px 11px;
 }
 
-.pos-num_30 {
+.neighbor_30 {
     margin: 491px 0px 0px 78px;
 }
 
-.pos-num_31 {
+.neighbor_31 {
     margin: 275px 0px 0px 11px;
 }
 
-.pos-num_32 {
+.neighbor_32 {
     margin: 61px 0px 0px 81px;
 }
 
-.pos-num_33 {
+.neighbor_33 {
     margin: 383px 0px 0px 11px;
 }
 
-.pos-num_34 {
+.neighbor_34 {
     margin: 303px 0px 0px 82px;
 }
 
-.pos-num_35 {
+.neighbor_35 {
     margin: 61px 0px 0px 11px;
 }
 
-.pos-num_36 {
+.neighbor_36 {
     margin: 438px 0px 0px 82px;
 }
 
