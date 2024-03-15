@@ -15,7 +15,7 @@ let coincidences;
 // вывод сообщения алерт:
 function showMessage() {
     alert(`выбранные номера: ${selectedNumbers} \nкол-во позиций: ${positions} \nлишних позиций: ${coincidences} \nитоговая ставка: ${result}`);
-    // location.reload();
+    location.reload();
     return;
 };
 // функция подсчёта пересечений комплитов:
