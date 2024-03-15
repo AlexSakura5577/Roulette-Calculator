@@ -63,11 +63,11 @@ h1 {
     border: 2px white solid;
 }
 
-.tier {
+.tr {
     margin: 442px 0px 0px 11px;
 }
 
-.spiel {
+.spl {
     margin: 11px 0px 0px 11px;
 }
 
@@ -103,7 +103,7 @@ h1 {
 .series-orphelins {
     position: absolute;
     width: 45px;
-    height: 132px;
+    height: 131px;
     background-color: rgba(7, 88, 24);
     margin: 251px 0px 0px 37px;
 }
@@ -111,7 +111,7 @@ h1 {
 .series-voisins {
     position: absolute;
     width: 45px;
-    height: 117px;
+    height: 116px;
     background-color: rgba(7, 88, 24);
     margin: 132px 0px 0px 37px;
 }
@@ -162,16 +162,16 @@ h1 {
 
 /* 2 перемычки */
 .line_8 {
-    height: 120px;
+    height: 118px;
     rotate: 90deg;
-    margin-left: 58px;
+    margin-left: 59px;
     margin-top: 190px;
 }
 
 .line_9 {
-    height: 120px;
+    height: 118px;
     rotate: 90deg;
-    margin-left: 58px;
+    margin-left: 59px;
     margin-top: 324px;
 }
 
@@ -240,6 +240,7 @@ h1 {
     background-color: rgba(7, 88, 24);
     margin: 61px 0px 0px 0px;
     border: 1px solid rgb(255, 255, 255);
+    border-right: none;
 }
 
 .double_blocks_11-27 {
@@ -247,8 +248,9 @@ h1 {
     width: 11px;
     height: 105px;
     background-color: rgba(7, 88, 24);
-    margin: 385px 0px 0px 107px;
+    margin: 384px 0px 0px 106px;
     border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
 }
 
 .double_blocks_6-17 {
@@ -256,8 +258,9 @@ h1 {
     width: 11px;
     height: 131px;
     background-color: rgba(7, 88, 24);
-    margin: 251px 0px 0px 107px;
+    margin: 250px 0px 0px 106px;
     border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
 }
 
 .double_blocks_25-32 {
@@ -265,8 +268,9 @@ h1 {
     width: 11px;
     height: 187px;
     background-color: rgba(7, 88, 24);
-    margin: 61px 0px 0px 107px;
+    margin: 61px 0px 0px 106px;
     border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
 }
 
 .double-cube {
@@ -274,6 +278,7 @@ h1 {
     width: 10px;
     height: 25px;
     border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
 }
 
 .double-rectangle {
@@ -320,13 +325,14 @@ h1 {
 }
 
 .bet-pos {
+    /* display: none; */
     position: absolute;
     width: 25px;
     height: 25px;
     border: 1px solid rgb(231, 22, 11);
     border-radius: 50%;
     background-color: rgb(180, 177, 42);
-    opacity: 75%;
+    opacity: 50%;
 }
 
 .pos-num_3 {
@@ -339,10 +345,18 @@ h1 {
 .num3,
 .num23,
 .num30,
-.num0 {
+.num0,
+.num_d_26,
+.num_d_10,
+.num_d_8,
+.num_d_3,
+.num_d_23,
+.num_d_30,
+.num_d_0 {
     position: absolute;
 }
 
+/* крайние номера */
 .num26 {
     margin: 12px 0px 0px 49px;
 }
@@ -371,6 +385,36 @@ h1 {
     margin: 30px 0px 0px 79px;
 }
 
+/* дублирующие крайние номера */
+.num_d_26 {
+    margin: -6px 0px 0px 55px;
+}
+
+.num_d_10 {
+    margin: 500px 0px 0px 6px;
+}
+
+.num_d_8 {
+    margin: 527px 0px 0px 74px;
+}
+
+.num_d_3 {
+    margin: 20px 0px 0px 9px;
+}
+
+.num_d_23 {
+    margin: 527px 0px 0px 33px;
+}
+
+.num_d_30 {
+    margin: 501px 0px 0px 102px;
+}
+
+.num_d_0 {
+    margin: 20px 0px 0px 100px;
+}
+
+/* кликабельные позиции на треке */
 .pos-num_0 {
     margin: 30px 0px 0px 77px;
 }
@@ -517,4 +561,50 @@ h1 {
 
 .pos-num_36 {
     margin: 438px 0px 0px 82px;
+}
+
+.d-t {
+    font-size: 0.5rem;
+    margin-right: 12px;
+}
+
+.pos-tier {
+    margin: 432px 0px 0px 46px;
+}
+
+.pos-orphelins {
+    margin: 302px 0px 0px 46px;
+}
+
+.pos-voisins {
+    margin: 176px 0px 0px 46px;
+}
+
+.pos-spiel {
+    margin: 69px 0px 0px 46px;
+}
+
+.series-text {
+    position: absolute;
+    rotate: 270deg;
+    white-space: nowrap;
+    color: rgb(255, 227, 12);
+    font-size: 0.9rem;
+    font-family: fangsong;
+}
+
+.tier-t {
+    margin: 55px 0px 0px -14px;
+}
+
+.orphelins-t {
+    margin: 57px 0px 0px -20px;
+}
+
+.voisins-t {
+    margin: 52px 0px 0px -19px;
+}
+
+.spiel-t {
+    margin: 17px 0px 0px -4px;
 }
