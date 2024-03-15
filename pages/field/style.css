@@ -41,7 +41,7 @@ h1 {
     height: 750px;
     left: 20%;
     /* right: 50%; */
-    margin: 0px 0px 0px -190px;
+    margin: auto;
 }
 
 .container {
@@ -720,7 +720,8 @@ h1 {
     display: block;
     width: 119px;
     height: 550px;
-    margin: 75px 0px 0px -160px;
+    margin: auto;
+    margin-left: 110px;
 }
 
 .track {
