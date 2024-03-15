@@ -1,6 +1,6 @@
 
 // поворот экрана:
-document.body.style.transform = 'rotate(90deg)'; 
+// document.body.style.transform = 'rotate(90deg)'; 
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");

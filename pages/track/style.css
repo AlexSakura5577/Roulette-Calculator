@@ -124,6 +124,10 @@ h1 {
     margin: 60px 0px 0px 37px;
 }
 
+.transparent {
+    background-color: transparent;
+}
+
 .line {
     display: block;
     width: 2px;
@@ -335,7 +339,12 @@ h1 {
 }
 
 /* класс для JS addEventListener */
-.pos {
+.pos,
+.pos-tier,
+.pos-orphelins,
+.pos-voisins,
+.pos-spiel {
+    font-size: 0;
     /* display: block; */
     /* display: none; */
 }
