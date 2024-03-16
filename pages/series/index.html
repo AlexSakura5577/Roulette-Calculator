@@ -13,22 +13,41 @@
 
 <body>
     <!--  -->
-    <div class="flex_header">
-        <div>
-            <div class="btn">
-                <input id="calculate" type="button" value="Рассчитать" />
-            </div>
-            <!-- <div class="btn">
-                <input id="reset" type="button" value="Сброс" />
-            </div> -->
-        </div>
-        <div>
-            <h1>series</h1>
-        </div>
-        <div class="btn">
+    <div class="header">
+        <div class="btn header__item_1 item">
             <form action="../main/index.html">
                 <button>Меню</button>
         </div>
+        <div class="header__item_2 item">
+            <h1>Series</h1>
+        </div>
+        <div class="header__item_3 item">
+            <h1>Серия:</h1>
+        </div>
+        <div class="header__item_4 item">
+            <p><select id="str_up" size="1">
+                    <option value="tier">tier</option>
+                    <option value="orphelins">orphelins</option>
+                    <option value="voisins">voisins de zero</option>
+                    <option value="spiel">0-spiel</option>
+                </select></p>
+        </div>
+        <div class="header__item_5 item">
+            <h1>Комплит играет по:</h1>
+        </div>
+        <div class="header__item_6 item">
+            <p><select id="complete" size="1">
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                </select></p>
+        </div>
+        <div class="header__item_7 item">
+            <input class="btn" id="calculate" type="button" value="Рассчитать" />
+        </div>
+    </div>
+    <div class="header__item_8 item" id="info_1"></div>
     </div>
 
     <script src="series.js" type="module"></script>
