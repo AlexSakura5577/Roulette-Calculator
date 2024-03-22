@@ -1,6 +1,7 @@
 // импорты:
 // import "../main/app.js";
 import { rouletteSeries } from "../main/app.js";
+import { payoutRatios } from "../main/app.js";
 
 // localStorage
 localStorage.setItem('minBet', 1);
@@ -85,7 +86,9 @@ calculate.onclick = function () {
                 let maxTier = maxBet * rouletteSeries.tier.chips;
                 if (bet >= maxTier) {
                     change = bet - maxTier;
+                    plays = maxBet * payoutRatios.split.position;
                     console.log(`максимум на tier: ${maxTier}`);
+                    return;
                 } else if (bet < maxTier) {
                     // рассчёты:
                     let diff_1 = bet / rouletteSeries.tier.position;
@@ -101,20 +104,36 @@ calculate.onclick = function () {
                 };
                 break;
             case "orphelins":
-
+                //  проверка на максимум:
+                let maxOrphelins = maxBet * rouletteSeries.orphelins.chips;
+                if (bet >= maxOrphelins) {
+                    change = bet - maxOrphelins;
+                    plays = maxBet * payoutRatios.split.position;
+                    console.log(`максимум на orphelins: ${maxOrphelins}`);
+                    return;
+                } else if (bet < maxOrphelins) {
+                    // рассчёты:
+                    let diff_1 = bet / rouletteSeries.orphelins.position;
+                    let diff_2 = bet / rouletteSeries.orphelins.position % 5;
+                    plays = diff_1 - diff_2;
+                    let cleanBet = plays * rouletteSeries.orphelins.position;
+                    let diff_3 = bet - cleanBet;
+                    change = diff_3 + residue;
+                    console.log(diff_1);
+                    console.log(diff_2);
+                    console.log(cleanBet);
+                    console.log(diff_3);
+                };
                 break;
             case "voisins":
-
+                console.log(series);
                 break;
             case "spiel":
-
+                console.log(series);
                 break;
             default:
                 console.log("выберите серию");
         };
-
-        // console.log(`серия: ${series}`);
-        // console.log(`ставка: ${bet}`);
         console.log(`играет по: ${plays}`);
         console.log(`остаток от деления: ${residue}`);
         console.log(`сдача: ${change}`);
