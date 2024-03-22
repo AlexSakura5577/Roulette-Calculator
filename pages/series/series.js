@@ -1,3 +1,8 @@
+// импорты:
+// import "../main/app.js";
+import { rouletteSeries } from "../main/app.js";
+
+// localStorage
 localStorage.setItem('minBet', 1);
 localStorage.setItem('maxBet', 100);
 // кнопка Сброс:
@@ -44,30 +49,80 @@ calculate.onclick = function () {
             localStorage.setItem('minBet', 1);
             localStorage.setItem('maxBet', 100);
     };
-    console.log(`мин-макс: ${minmax}`);
+    // console.log(`мин-макс: ${minmax}`);
     // console.log(minBet);
     // console.log(maxBet);
 
     // выбор серии:
     let series = document.getElementById('series').value;
-    console.log(`серия: ${series}`);
+    // console.log(`серия: ${series}`);
 
     // введённая сумма ставки на серию:
     let bet = +document.getElementById('bet').value;
-    console.log(`ставка: ${bet}`);
-
-    // вычисления:
-
-
+    // console.log(`ставка: ${bet}`);
     // по чём играет:
     let plays = 0;
-    console.log(`играет по: ${plays}`);
-
-    // сдача:
+    // остаток от деления (кратность):
     let residue = 0;
-    console.log(`сдача: ${residue}`);
-    
-    // document.getElementById('info_2').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> sumBet: $${sumBet(strUp)}<br\/> payment: ${completePayment(strUp)} chips<br\/> totalPayment: $${totalPayment(strUp)}<br\/> ${info(strUp)}`;
+    // сдача:
+    let change = 0;
+    // вычисления:
+    function seriesCalc(maxbet, series, bet) {
+        // проверка на кратность:
+        let multiplicity = bet % 5 == 0;
+        console.log(`ставка кратна пяти: ${multiplicity}`);
+        if (multiplicity == false) {
+            // сдача 1:
+            residue = bet % 5;
+            bet = bet - residue;
+        } else {
+            bet = bet;
+        };
+        // рассчёты:
+        switch (series) {
+            case "tier":
+                //  проверка на максимум:
+                let maxTier = maxBet * rouletteSeries.tier.chips;
+                if (bet >= maxTier) {
+                    change = bet - maxTier;
+                    console.log(`максимум на tier: ${maxTier}`);
+                } else if (bet < maxTier) {
+                    // рассчёты:
+                    let diff_1 = bet / rouletteSeries.tier.position;
+                    let diff_2 = bet / rouletteSeries.tier.position % 5;
+                    plays = diff_1 - diff_2;
+                    let cleanBet = plays * rouletteSeries.tier.position;
+                    let diff_3 = bet - cleanBet;
+                    change = diff_3 + residue;
+                    console.log(diff_1);
+                    console.log(diff_2);
+                    console.log(cleanBet);
+                    console.log(diff_3);
+                };
+                break;
+            case "orphelins":
+
+                break;
+            case "voisins":
+
+                break;
+            case "spiel":
+
+                break;
+            default:
+                console.log("выберите серию");
+        };
+
+        // console.log(`серия: ${series}`);
+        // console.log(`ставка: ${bet}`);
+        console.log(`играет по: ${plays}`);
+        console.log(`остаток от деления: ${residue}`);
+        console.log(`сдача: ${change}`);
+        return;
+    };
+    seriesCalc(maxBet, series, bet);
+
+    document.getElementById('info_2').innerHTML = `играет по: ${plays}<br\/> сдача: ${change}<br\/>`;
 
     return;
 };

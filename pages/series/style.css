@@ -82,7 +82,7 @@ body {
 }
 
 .header__item_10 {
-    margin-top: 20px;
+    margin: 20px 0px 0px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
