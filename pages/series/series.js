@@ -61,6 +61,10 @@ calculate.onclick = function () {
     // введённая сумма ставки на серию:
     let bet = +document.getElementById('bet').value;
     // console.log(`ставка: ${bet}`);
+    // ломается шаг:
+    let breakingStep = 0;
+    // ставка без сдачи:
+    let betWithoutChange = 0;
     // по чём играет:
     let plays = 0;
     // остаток от деления (кратность):
@@ -79,7 +83,7 @@ calculate.onclick = function () {
         } else {
             bet = bet;
         };
-        let breakingStep = 0;
+        breakingStep = 0;
         // рассчёты:
         switch (series) {
             case "tier":
@@ -243,8 +247,10 @@ calculate.onclick = function () {
         return;
     };
     seriesCalc(maxBet, series, bet);
+    betWithoutChange = bet - change;
 
-    document.getElementById('info_2').innerHTML = `играет по: ${plays}<br\/> сдача: ${change}<br\/>`;
+    document.getElementById('info_2').innerHTML = 
+    `шаг ломается на: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по: ${plays}<br\/> сдача: ${change}<br\/>`;
 
     return;
 };
