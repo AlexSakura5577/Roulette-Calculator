@@ -50,9 +50,6 @@ calculate.onclick = function () {
             localStorage.setItem('minBet', 1);
             localStorage.setItem('maxBet', 100);
     };
-    // console.log(`мин-макс: ${minmax}`);
-    // console.log(minBet);
-    // console.log(maxBet);
 
     // выбор серии:
     let series = document.getElementById('series').value;
@@ -241,16 +238,20 @@ calculate.onclick = function () {
             default:
                 console.log("выберите серию");
         };
-        // console.log(`играет по: ${plays}`);
         console.log(`остаток от деления: ${residue}`);
-        // console.log(`сдача: ${change}`);
         return;
     };
     seriesCalc(maxBet, series, bet);
-    betWithoutChange = bet - change;
 
-    document.getElementById('info_2').innerHTML = 
-    `шаг ломается на: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по: ${plays}<br\/> сдача: ${change}<br\/>`;
-
+    if (series == "tier") {
+        betWithoutChange = bet - change;
+        breakingStep = "в tier не ломается";
+        document.getElementById('info_2').innerHTML =
+            `шаг: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`;
+    } else if (series != "tier") {
+        betWithoutChange = bet - change;
+        document.getElementById('info_2').innerHTML =
+            `шаг ломается от: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`;
+    };
     return;
 };
