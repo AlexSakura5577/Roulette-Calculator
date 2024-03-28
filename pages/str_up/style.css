@@ -4,7 +4,85 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
 }
-.btn {
+
+.header {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header__item_0 {
+    display: block;
+}
+
+.header__item_1 {
+    display: block;
+}
+
+.header__item_2 {
+    display: block;
+}
+
+.body {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.minmax,
+.series,
+.bet,
+.calc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.input {
+    display: block;
+    width: 125px;
+}
+
+.body__item_3 {
+    display: block;
+}
+
+.body__item_4 {
+    display: block;
+    margin-left: 55px;
+}
+
+.body__item_5 {
+    display: block;
+}
+
+.body__item_6 {
+    display: block;
+    margin-left: 7px;
+}
+
+.body__item_7 {
+    display: block;
+}
+
+.body__item_8 {
+    display: block;
+    margin-left: 19px;
+}
+
+.body__item_9 {
+    display: block;
+    margin-top: 10px;
+}
+
+.body__item_10 {
+    display: block;
+    margin: 10px 50px 0px 50px;
+    white-space: pre;
 }
