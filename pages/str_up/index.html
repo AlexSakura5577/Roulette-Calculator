@@ -27,8 +27,8 @@
     </div>
     <!-- body -->
     <div class="body">
+        <!-- минимум - максимум -->
         <div class="minmax">
-            <!-- выбор минимума - максимума -->
             <div class="body__item_3 item">
                 <h1>Min/Max:</h1>
             </div>
@@ -41,35 +41,74 @@
                     </select></p>
             </div>
         </div>
-        <div class="series">
-            <!-- выбор серии -->
+        <!-- выбор позиции -->
+        <div class="positions">
             <div class="body__item_5 item">
-                <h1>Серия:</h1>
+                <h1>Позиция:</h1>
             </div>
             <div class="body__item_6 item">
-                <p><select id="series" size="1">
-                        <option value="tier">tier</option>
-                        <option value="orphelins">orphelins</option>
-                        <option value="voisins">voisins de zero</option>
-                        <option value="spiel">0-spiel</option>
+                <p><select id="positions" size="1">
+                        <option value="numbers">numbers</option>
+                        <option value="splits">splits</option>
+                        <option value="streets">streets</option>
+                        <option value="corners">corners</option>
+                        <option value="six-lines">six-lines</option>
                     </select></p>
             </div>
         </div>
+        <!-- ставка -->
         <div class="bet">
-            <!-- ставка -->
             <div class="body__item_7 item">
                 <h1>Ставка:</h1>
             </div>
             <div class="body__item_8 item">
                 <p>
                     <label>
-                        <input class="input" type="number" minlength="2" maxlength="10" size="10" id="bet">
+                        <input class="input" type="number" minlength="0" maxlength="7" size="7" id="bet">
                     </label>
                 </p>
             </div>
+            <!-- кнопка Добавить -->
+            <div class="body__item_9 item">
+                <input class="btn" id="add" type="button" value="OK" />
+            </div>
         </div>
+        <!-- цвет -->
+        <div class="color">
+            <div class="body__item_7 item">
+                <h1>Цвет по:</h1>
+            </div>
+            <div class="body__item_6 item">
+                <p><select id="color" size="1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select></p>
+            </div>
+        </div>
+        <!-- через -->
+        <div class="through">
+            <div class="body__item_7 item">
+                <h1>Через:</h1>
+            </div>
+            <div class="body__item_8 item">
+                <p>
+                    <label>
+                        <input class="input" type="number" minlength="0" maxlength="7" size="7" id="bet">
+                    </label>
+                </p>
+            </div>
+            <!-- кнопка Добавить -->
+            <div class="body__item_9 item">
+                <input class="btn" id="add" type="button" value="OK" />
+            </div>
+        </div>
+        <!-- кнопка Рассчитать -->
         <div class="calc">
-            <!-- кнопка Рассчитать -->
             <div class="body__item_9 item">
                 <input class="btn" id="calculate" type="button" value="Рассчитать" />
             </div>
@@ -77,7 +116,6 @@
         <!-- инфо -->
         <div class="body__item_10 item" id="info_3"></div>
     </div>
-
     <script src="str_up.js" type="module"></script>
 </body>
 
