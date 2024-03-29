@@ -51,12 +51,21 @@ body {
     width: 95px;
 }
 
+.minmax,
+.positions,
+.bet,
+.color,
+.cash {
+    margin-bottom: 5px;
+}
+
 .body__item_1 {
     display: block;
 }
 
 .body__item_2 {
     display: block;
+    margin-left: 53px;
 }
 
 .body__item_3 {
@@ -65,6 +74,7 @@ body {
 
 .body__item_4 {
     display: block;
+    margin-left: 38px;
 }
 
 .body__item_5 {
@@ -73,6 +83,7 @@ body {
 
 .body__item_6 {
     display: block;
+    margin-left: 5px;
 }
 
 .body__item_7 {
@@ -85,6 +96,7 @@ body {
 
 .body__item_9 {
     display: block;
+    margin-left: 82px;
 }
 
 .body__item_10 {
@@ -93,6 +105,7 @@ body {
 
 .body__item_11 {
     display: block;
+    margin-left: 61px;
 }
 
 .body__item_12 {
@@ -103,8 +116,18 @@ body {
     display: block;
 }
 
-.body__item_14 {
+.body__item_14,
+.body__item_15 {
     display: block;
     margin: 10px 50px 0px 50px;
+    white-space: pre;
+}
+
+.body__item_16,
+.body__item_17,
+.body__item_18,
+.body__item_19 {
+    display: block;
+    margin: 0px 50px 0px 50px;
     white-space: pre;
 }
