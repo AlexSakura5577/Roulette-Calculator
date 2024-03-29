@@ -53,7 +53,8 @@ calculate.onclick = function () {
     };
 
     document.getElementById('info_3').innerHTML =
-    `выплата: ${let_1}<br\/> цветом: ${let_2}<br\/> let_3:  ${let_3}<br\/> let_4: ${let_4}<br\/>`;
+        `выплата: ${let_1}<br\/> цветом: ${let_2}<br\/> let_3:  ${let_3}<br\/> let_4: ${let_4}<br\/>`;
 
     return;
 };
+
