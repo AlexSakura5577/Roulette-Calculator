@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3eea134bf1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../main/reset.css">
+    <link rel="stylesheet" href="style.css">
+    <title>field</title>
+</head>
+
+<body>
+    <!--  -->
+    <div class="flex_header">
+        <div>
+            <div class="btn">
+                <input id="calculate" type="button" value="Рассчитать" />
+            </div>
+            <!-- <div class="btn">
+                <input id="reset" type="button" value="Сброс" />
+            </div> -->
+        </div>
+        <div>
+            <h1>Поле</h1>
+        </div>
+        <div class="btn">
+            <form action="../main/index.html">
+                <button>Меню</button>
+        </div>
+    </div>
+    <!-- обёртка поля и трэка -->
+    <div class="all-flex">
+        <!-- поле -->
+        <div class="wrapper_field">
+            <div class="container">
+                <!-- поле рулетки -->
+                <div class="container_field">
+                    <div class="square_zero square">
+                        <div class="zero">0</div>
+                    </div>
+                    <div class="square_small square">
+                        <span class="vertical-text">1-18</span>
+                    </div>
+                    <div class="square_1st12 square">
+                        <span class="vertical-text">1st12</span>
+                    </div>
+                    <div class="square_1 square">
+                        <div class="red_num">1
+                        </div>
+                    </div>
+                    <div class="square_2 square">
+                        <div class="black_num">2</div>
+                    </div>
+                    <div class="square_3 square">
+                        <div class="red_num">3
+                        </div>
+                    </div>
+                    <div class="square_4 square">
+                        <div class="black_num">4</div>
+                    </div>
+                    <div class="square_5 square">
+                        <div class="red_num">5</div>
+                    </div>
+                    <div class="square_6 square">
+                        <div class="black_num">6</div>
+                    </div>
+                    <div class="square_even square">
+                        <span class="vertical-text">even</span>
+                    </div>
+                    <div class="square_7 square">
+                        <div class="red_num">7</div>
+                    </div>
+                    <div class="square_8 square">
+                        <div class="black_num">8</div>
+                    </div>
+                    <div class="square_9 square">
+                        <div class="red_num">9</div>
+                    </div>
+                    <div class="square_10 square">
+                        <div class="black_num">10</div>
+                    </div>
+                    <div class="square_11 square">
+                        <div class="black_num">11</div>
+                    </div>
+                    <div class="square_12 square">
+                        <div class="red_num">12</div>
+                    </div>
+                    <div class="square_red square">
+                        <!-- <span class="vertical-text">red</span> -->
+                        <!-- <div class="block">
+                    </div> -->
+                        <div class="triangle_red">
+                            <div id="diamond_up"></div>
+                            <div id="diamond_down"></div>
+                        </div>
+                    </div>
+                    <div class="square_2nd12 square">
+                        <span class="vertical-text">2nd12</span>
+                    </div>
+                    <div class="square_13 square">
+                        <div class="black_num">13</div>
+                    </div>
+                    <div class="square_14 square">
+                        <div class="red_num">14</div>
+                    </div>
+                    <div class="square_15 square">
+                        <div class="black_num">15</div>
+                    </div>
+                    <div class="square_16 square">
+                        <div class="red_num">16</div>
+                    </div>
+                    <div class="square_17 square">
+                        <div class="black_num">17</div>
+                    </div>
+                    <div class="square_18 square">
+                        <div class="red_num">18</div>
+                    </div>
+                    <div class="square_black square">
+                        <!-- <span class="vertical-text">black</span> -->
+                        <!-- <div class="block">
+                    </div> -->
+                        <div class="triangle_black">
+                            <div id="triangle_up"></div>
+                            <div id="triangle_down"></div>
+                        </div>
+                    </div>
+                    <div class="square_19 square">
+                        <div class="red_num">19</div>
+                    </div>
+                    <div class="square_20 square">
+                        <div class="black_num">20</div>
+                    </div>
+                    <div class="square_21 square">
+                        <div class="red_num">21</div>
+                    </div>
+                    <div class="square_22 square">
+                        <div class="black_num">22</div>
+                    </div>
+                    <div class="square_23 square">
+                        <div class="red_num">23</div>
+                    </div>
+                    <div class="square_24 square">
+                        <div class="black_num">24</div>
+                    </div>
+                    <div class="square_odd square">
+                        <span class="vertical-text">odd</span>
+                    </div>
+                    <div class="square_3rd12 square">
+                        <span class="vertical-text">3rd12</span>
+                    </div>
+                    <div class="square_25 square">
+                        <div class="red_num">25</div>
+                    </div>
+                    <div class="square_26 square">
+                        <div class="black_num">26</div>
+                    </div>
+                    <div class="square_27 square">
+                        <div class="red_num">27</div>
+                    </div>
+                    <div class="square_ square">
+                        <div class="black_num">28</div>
+                    </div>
+                    <div class="square_29 square">
+                        <div class="black_num">29</div>
+                    </div>
+                    <div class="square_30 square">
+                        <div class="red_num">30</div>
+                    </div>
+                    <div class="square_big square">
+                        <span class="vertical-text">19-36</span>
+                    </div>
+                    <div class="square_31 square">
+                        <div class="black_num">31</div>
+                    </div>
+                    <div class="square_32 square">
+                        <div class="red_num">32</div>
+                    </div>
+                    <div class="square_33 square">
+                        <div class="black_num">33</div>
+                    </div>
+                    <div class="square_34 square">
+                        <div class="red_num">34</div>
+                    </div>
+                    <div class="square_35 square">
+                        <div class="black_num">35</div>
+                    </div>
+                    <div class="square_36 square">
+                        <div class="red_num">36</div>
+                    </div>
+                    <div class="square_1st-collumn square">
+                        <span>2to1</span>
+                    </div>
+                    <div class="square_2nd-collumn square">
+                        <span>2to1</span>
+                    </div>
+                    <div class="square_3rd-collumn square">
+                        <span>2to1</span>
+                    </div>
+                </div>
+                <!-- кликабельные позиции в поле -->
+                <div class="container_positions">
+                    <div class="pos item item_1" id="number_0">number zero</div>
+                    <div class="empty item_2"></div>
+                    <div class="empty item_3"></div>
+                    <div class="empty item_4"></div>
+                    <div class="empty item_5"></div>
+                    <div class="empty item_6"></div>
+                    <div class="empty item_7"></div>
+                    <div class="empty item_8"></div>
+                    <div class="empty item_9"></div>
+                    <div class="empty item_10"></div>
+                    <div class="empty item_11"></div>
+                    <div class="empty item_12"></div>
+                    <div class="empty item_13"></div>
+                    <div class="empty item_14"></div>
+                    <div class="empty item_15"></div>
+                    <div class="empty item_16"></div>
+                    <div class="empty item_17"></div>
+                    <div class="empty item_18"></div>
+                    <div class="empty item_19"></div>
+                    <div class="empty item_20"></div>
+                    <div class="empty item_21"></div>
+                    <div class="empty item_22"></div>
+                    <div class="pos item item_23" id="corner_first-four">first four</div>
+                    <div class="pos item item_24" id="split_0-1">split 0-1</div>
+                    <div class="pos item item_25" id="street_0-1-2">street 0-1-2</div>
+                    <div class="pos item item_26" id="split_0-2">split 0-2</div>
+                    <div class="pos item item_27" id="street_0-2-3">street 0-2-3</div>
+                    <div class="pos item item_28" id="split_0-3">split 0-3</div>
+                    <div class="empty item_29"></div>
+                    <div class="empty item_30"></div>
+                    <div class="pos item item_31" id="small_1-18">small 1-18</div>
+                    <div class="empty item_32"></div>
+                    <div class="pos item item_33" id="dozen_1st">dozen_1st12</div>
+                    <div class="pos item item_34" id="street_1-2-3">street 1-2-3</div>
+                    <div class="pos item item_35" id="number_1">number 1</div>
+                    <div class="pos item item_36" id="split_1-2">split 1-2</div>
+                    <div class="pos item item_37" id="number_2">number 2</div>
+                    <div class="pos item item_38" id="split_2-3">split 2-3</div>
+                    <div class="pos item item_39" id="number_3">number 3</div>
+                    <div class="empty item_40"></div>
+                    <div class="empty item_41"></div>
+                    <div class="empty item_42"></div>
+                    <div class="pos item item_43" id="six_line_1-6">six-line 1-6</div>
+                    <div class="pos item item_44" id="split_1-4">split 1-4</div>
+                    <div class="pos item item_45" id="corner_1-5">corner 1-5</div>
+                    <div class="pos item item_46" id="split_2-5">split 2-5</div>
+                    <div class="pos item item_47" id="corner_2-6">corner 2-6</div>
+                    <div class="pos item item_48" id="split_3-6">split 3-6</div>
+                    <div class="empty item_49"></div>
+                    <div class="empty item_50"></div>
+                    <div class="empty item_51"></div>
+                    <div class="pos item item_52" id="street_4-5-6">street 4-5-6</div>
+                    <div class="pos item item_53" id="number_4">number 4</div>
+                    <div class="pos item item_54" id="split_4-5">split 4-5</div>
+                    <div class="pos item item_55" id="number_5">number 5</div>
+                    <div class="pos item item_56" id="split_5-6">split 5-6</div>
+                    <div class="pos item item_57" id="number_6">number 6</div>
+                    <div class="empty item_58"></div>
+                    <div class="empty item_59"></div>
+                    <div class="empty item_60"></div>
+                    <div class="empty item_61"></div>
+                    <div class="pos item item_62" id="six_line_4-9">six-line 4-9</div>
+                    <div class="pos item item_63" id="split_4-7">split 4-7</div>
+                    <div class="pos item item_64" id="corner_4-8">corner 4-8</div>
+                    <div class="pos item item_65" id="split_5-8">split 5-8</div>
+                    <div class="pos item item_66" id="corner_5-9">corner 5-9</div>
+                    <div class="pos item item_67" id="split_6-9">split 6-9</div>
+                    <div class="empty item_68"></div>
+                    <div class="empty item_69"></div>
+                    <div class="empty item_70"></div>
+                    <div class="pos item item_71" id="street_7-8-9">street 7-8-9</div>
+                    <div class="pos item item_72" id="number_7">number 7</div>
+                    <div class="pos item item_73" id="even">even numbers</div>
+                    <div class="pos item item_74" id="split_7-8">split 7-8</div>
+                    <div class="pos item item_75" id="number_8">number 8</div>
+                    <div class="pos item item_76" id="split_8-9">split 8-9</div>
+                    <div class="pos item item_77" id="number_9">number 9</div>
+                    <div class="empty item_78"></div>
+                    <div class="empty item_79"></div>
+                    <div class="empty item_80"></div>
+                    <div class="pos item item_81" id="six_line_7-12">six-line 7-12</div>
+                    <div class="pos item item_82" id="split_7-10">split 7-10</div>
+                    <div class="pos item item_83" id="corner_7-11">corner 7-11</div>
+                    <div class="pos item item_84" id="split_8-11">split 8-11</div>
+                    <div class="pos item item_85" id="corner_8-12">corner 8-12</div>
+                    <div class="pos item item_86" id="split_9-12">split 9-12</div>
+                    <div class="empty item_87"></div>
+                    <div class="empty item_88"></div>
+                    <div class="empty item_89"></div>
+                    <div class="pos item item_90" id="street_10-11-12">street 10-11-12</div>
+                    <div class="pos item item_91" id="number_10">number 10</div>
+                    <div class="pos item item_92" id="split_10-11">split 10-11</div>
+                    <div class="pos item item_93" id="number_11">number 11</div>
+                    <div class="pos item item_94" id="split_11-12">split 11-12</div>
+                    <div class="pos item item_95" id="number_12">number 12</div>
+                    <div class="empty item_96"></div>
+                    <div class="empty item_97"></div>
+                    <div class="empty item_98"></div>
+                    <div class="empty item_99"></div>
+                    <div class="empty item_100"></div>
+                    <div class="pos item item_101" id="six_line_10-15">six-line 10-15</div>
+                    <div class="pos item item_102" id="split_10-13">split 10-13</div>
+                    <div class="pos item item_103" id="corner_10-14">corner 10-14</div>
+                    <div class="pos item item_104" id="split_11-14">split 11-14</div>
+                    <div class="pos item item_105" id="corner_11-15">corner 11-15</div>
+                    <div class="pos item item_106" id="split_12-15">split 12-15</div>
+                    <div class="empty item_107"></div>
+                    <div class="empty item_108"></div>
+                    <div class="pos item item_109" id="red">red numbers</div>
+                    <div class="empty item_110"></div>
+                    <div class="pos item item_111" id="dozen_2nd">dozen_2nd12</div>
+                    <div class="pos item item_112" id="street_13-14-15">street 13-14-15</div>
+                    <div class="pos item item_113" id="number_13">number 13</div>
+                    <div class="pos item item_114" id="split_13-14">split 13-14</div>
+                    <div class="pos item item_115" id="number_14">number 14</div>
+                    <div class="pos item item_116" id="split_14-15">split 14-15</div>
+                    <div class="pos item item_117" id="number_15">number 15</div>
+                    <div class="empty item_118"></div>
+                    <div class="empty item_119"></div>
+                    <div class="empty item_120"></div>
+                    <div class="pos item item_121" id="six_line_13-18">six-line 13-18</div>
+                    <div class="pos item item_122" id="split_13-16">split 13-16</div>
+                    <div class="pos item item_123" id="corner_13-17">corner 13-17</div>
+                    <div class="pos item item_124" id="split_14-17">split 14-17</div>
+                    <div class="pos item item_125" id="corner_14-18">corner 14-18</div>
+                    <div class="pos item item_126" id="split_15-18">split_15-18</div>
+                    <div class="empty item_127"></div>
+                    <div class="empty item_128"></div>
+                    <div class="empty item_129"></div>
+                    <div class="pos item item_130" id="street_16-17-18">street 16-17-18</div>
+                    <div class="pos item item_131" id="number_16">number 16</div>
+                    <div class="pos item item_132" id="split_16-17">split 16-17</div>
+                    <div class="pos item item_133" id="number_17">number 17</div>
+                    <div class="pos item item_134" id="split_17-18">split 17-18</div>
+                    <div class="pos item item_135" id="number_18">number 18</div>
+                    <div class="empty item_136"></div>
+                    <div class="empty item_137"></div>
+                    <div class="empty item_138"></div>
+                    <div class="empty item_139"></div>
+                    <div class="pos item item_140" id="six_line_16-21">six-line 16-21</div>
+                    <div class="pos item item_141" id="split_16-19">split 16-19</div>
+                    <div class="pos item item_142" id="corner_16-20">corner 16-20</div>
+                    <div class="pos item item_143" id="split_17-20">split 17-20</div>
+                    <div class="pos item item_144" id="corner_17-21">corner 17-21</div>
+                    <div class="pos item item_145" id="split_18-21">split 18-21</div>
+                    <div class="empty item_146"></div>
+                    <div class="empty item_147"></div>
+                    <div class="empty item_148"></div>
+                    <div class="pos item item_149" id="street_19-20-21">street 19-20-21</div>
+                    <div class="pos item item_150" id="number_19">number 19</div>
+                    <div class="pos item item_151" id="black">black numbers</div>
+                    <div class="pos item item_152" id="split_19-20">split 19-20</div>
+                    <div class="pos item item_153" id="number_20">number 20</div>
+                    <div class="pos item item_154" id="split_20-21">split 20-21</div>
+                    <div class="pos item item_155" id="number_21">number 21</div>
+                    <div class="empty item_156"></div>
+                    <div class="empty item_157"></div>
+                    <div class="empty item_158"></div>
+                    <div class="pos item item_159" id="six_line_19-24">six-line 19-24</div>
+                    <div class="pos item item_160" id="split_19-22">split 19-22</div>
+                    <div class="pos item item_161" id="corner_19-23">corner 19-23</div>
+                    <div class="pos item item_162" id="split_20-23">split 20-23</div>
+                    <div class="pos item item_163" id="corner_20-24">corner 20-24</div>
+                    <div class="pos item item_164" id="split_21-24">split 21-24</div>
+                    <div class="empty item_165"></div>
+                    <div class="empty item_166"></div>
+                    <div class="empty item_167"></div>
+                    <div class="pos item item_168" id="street_22-23-24">street 22-23-24</div>
+                    <div class="pos item item_169" id="number_22">number 22</div>
+                    <div class="pos item item_170" id="split_22-23">split 22-23</div>
+                    <div class="pos item item_171" id="number_23">number 23</div>
+                    <div class="pos item item_172" id="split_23-24">split 23-24</div>
+                    <div class="pos item item_173" id="number_24">number 24</div>
+                    <div class="empty item_174"></div>
+                    <div class="empty item_175"></div>
+                    <div class="empty item_176"></div>
+                    <div class="empty item_177"></div>
+                    <div class="empty item_178"></div>
+                    <div class="pos item item_179" id="six_line_22-27">six-line 22-27</div>
+                    <div class="pos item item_180" id="split_22-25">split 22-25</div>
+                    <div class="pos item item_181" id="corner_22-26">corner 22-26</div>
+                    <div class="pos item item_182" id="split_23-26">split 23-26</div>
+                    <div class="pos item item_183" id="corner_23-27">corner 23-27</div>
+                    <div class="pos item item_184" id="split_24-27">split 24-27</div>
+                    <div class="empty item_185"></div>
+                    <div class="empty item_186"></div>
+                    <div class="pos item item_187" id="odd">odd numbers</div>
+                    <div class="empty item_188"></div>
+                    <div class="pos item item_189" id="dozen_3rd">dozen_3rd12</div>
+                    <div class="pos item item_190" id="street_25-26-27">street 25-26-27</div>
+                    <div class="pos item item_191" id="number_25">number 25</div>
+                    <div class="pos item item_192" id="split_25-26">split 25-26</div>
+                    <div class="pos item item_193" id="number_26">number 26</div>
+                    <div class="pos item item_194" id="split_26-27">split 26-27</div>
+                    <div class="pos item item_195" id="number_27">number 27</div>
+                    <div class="empty item_196"></div>
+                    <div class="empty item_197"></div>
+                    <div class="empty item_198"></div>
+                    <div class="pos item item_199" id="six_line_25-30">six-line 25-30</div>
+                    <div class="pos item item_200" id="split_25-28">split 25-28</div>
+                    <div class="pos item item_201" id="corner_25-29">corner 25-29</div>
+                    <div class="pos item item_202" id="split_26-29">split 26-29</div>
+                    <div class="pos item item_203" id="corner_26-30">corner 26-30</div>
+                    <div class="pos item item_204" id="split_27-30">split 27-30</div>
+                    <div class="empty item_205"></div>
+                    <div class="empty item_206"></div>
+                    <div class="empty item_207"></div>
+                    <div class="pos item item_208" id="street_28-29-30">street 28-29-30</div>
+                    <div class="pos item item_209" id="number_28">number 28</div>
+                    <div class="pos item item_210" id="split_28-29">split 28-29</div>
+                    <div class="pos item item_211" id="number_29">number 29</div>
+                    <div class="pos item item_212" id="split_29-30">split 29-30</div>
+                    <div class="pos item item_213" id="number_30">number 30</div>
+                    <div class="empty item_214"></div>
+                    <div class="empty item_215"></div>
+                    <div class="empty item_216"></div>
+                    <div class="empty item_217"></div>
+                    <div class="pos item item_218" id="six_line_28-33">six-line 28-33</div>
+                    <div class="pos item item_219" id="split_28-31">split 28-31</div>
+                    <div class="pos item item_220" id="corner_28-32">corner 28-32</div>
+                    <div class="pos item item_221" id="split_29-32">split 29-32</div>
+                    <div class="pos item item_222" id="corner_29-33">corner 29-33</div>
+                    <div class="pos item item_223" id="split_30-33">split 30-33</div>
+                    <div class="empty item_224"></div>
+                    <div class="empty item_225"></div>
+                    <div class="empty item_226"></div>
+                    <div class="pos item item_227" id="street_31-32-33">street 31-32-33</div>
+                    <div class="pos item item_228" id="number_31">number 31</div>
+                    <div class="pos item item_229" id="big_19-36">big 19-36</div>
+                    <div class="pos item item_230" id="split_31-32">split 31-32</div>
+                    <div class="pos item item_231" id="number_32">number 32</div>
+                    <div class="pos item item_232" id="split_32-33">split 32-33</div>
+                    <div class="pos item item_233" id="number_33">number 33</div>
+                    <div class="empty item_234"></div>
+                    <div class="empty item_235"></div>
+                    <div class="empty item_236"></div>
+                    <div class="pos item item_237" id="six_line_31-36">six-line 31-36</div>
+                    <div class="pos item item_238" id="split_31-34">split 31-34</div>
+                    <div class="pos item item_239" id="corner_31-35">corner 31-35</div>
+                    <div class="pos item item_240" id="split_32-35">split 32-35</div>
+                    <div class="pos item item_241" id="corner_32-36">corner 32-36</div>
+                    <div class="pos item item_242" id="split_33-36">split 33-36</div>
+                    <div class="empty item_243"></div>
+                    <div class="empty item_244"></div>
+                    <div class="empty item_245"></div>
+                    <div class="pos item item_246" id="street_34-35-36">street 34-35-36</div>
+                    <div class="pos item item_247" id="number_34">number 34</div>
+                    <div class="pos item item_248" id="split_34-35">split 34-35</div>
+                    <div class="pos item item_249" id="number_35">number 35</div>
+                    <div class="pos item item_250" id="split_35-36">split 35-36</div>
+                    <div class="pos item item_251" id="number_36">number 36</div>
+                    <div class="empty item_252"></div>
+                    <div class="empty item_253"></div>
+                    <div class="empty item_254"></div>
+                    <div class="empty item_255"></div>
+                    <div class="empty item_256"></div>
+                    <div class="empty item_257"></div>
+                    <div class="empty item_258"></div>
+                    <div class="empty item_259"></div>
+                    <div class="empty item_260"></div>
+                    <div class="empty item_261"></div>
+                    <div class="empty item_262"></div>
+                    <div class="empty item_263"></div>
+                    <div class="empty item_264"></div>
+                    <div class="empty item_265"></div>
+                    <div class="empty item_266"></div>
+                    <div class="empty item_267"></div>
+                    <div class="empty item_268"></div>
+                    <div class="pos item item_269" id="column_1st">column_1st</div>
+                    <div class="empty item_270"></div>
+                    <div class="pos item item_271" id="column_2nd">column_2nd</div>
+                    <div class="empty item_272"></div>
+                    <div class="pos item item_273" id="column_3rd">column_3rd</div>
+                    <div class="empty item_274">274</div>
+                    <div class="empty item_275"></div>
+                    <div class="empty item_276"></div>
+                    <div class="empty item_277"></div>
+                    <div class="empty item_278"></div>
+                    <div class="empty item_279"></div>
+                    <div class="empty item_280"></div>
+                    <div class="empty item_281"></div>
+                    <div class="empty item_282"></div>
+                    <div class="empty item_283"></div>
+                    <div class="empty item_284"></div>
+                    <div class="empty item_285"></div>
+                </div>
+            </div>
+        </div>
+        <!-- трэк -->
+        <div class="wrapper_track">
+            <div class="track">
+                <div class="circle_2 spl">
+                </div>
+                <!-- кружок "26" -->
+                <div class="circle">
+                    <div class="line line_1"></div>
+                    <div class="line line_2"></div>
+                    <div class="line line_3"></div>
+                </div>
+                <div class="circle_2 tr"></div>
+                <!-- кружок "8" -->
+                <div class="circle">
+                    <div class="line line_4"></div>
+                    <div class="line line_5"></div>
+                    <div class="line line_6"></div>
+                    <div class="line line_7"></div>
+                </div>
+                <div class="circle_3 tier_small"></div>
+                <div class="circle_3 spiel_small_1"></div>
+                <div class="circle_3 spiel_small_2"></div>
+                <!-- дублирующие блоки -->
+                <div class="flex double_blocks_5-35">
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">35</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">12</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">28</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">7</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">29</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">18</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">22</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">9</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">31</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">14</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">20</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">1</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">33</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">16</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">24</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">5</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex double_blocks_11-27">
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">27</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">13</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">36</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">11</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex double_blocks_6-17">
+                    <div class="double-rectangle">
+                        <div class="align-orphelins">
+                            <h2 class="text d-t black_num">17</h2>
+                        </div>
+                    </div>
+                    <div class="double-rectangle">
+                        <div class="align-orphelins">
+                            <h2 class="text d-t red_num">34</h2>
+                        </div>
+                    </div>
+                    <div class="double-rectangle">
+                        <div class="align-orphelins">
+                            <h2 class="text d-t black_num">6</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex double_blocks_25-32">
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">32</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">15</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">19</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">4</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">21</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t black_num">2</h2>
+                        </div>
+                    </div>
+                    <div class="double-cube">
+                        <div class="align">
+                            <h2 class="text d-t red_num">25</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- дублирующие номера по краям трека -->
+                <div class="num_d_26">
+                    <div class="align">
+                        <h2 class="text d-t black_num">26</h2>
+                    </div>
+                </div>
+                <div class="num_d_8">
+                    <div class="align">
+                        <h2 class="text d-t black_num">8</h2>
+                    </div>
+                </div>
+                <div class="num_d_10">
+                    <div class="align">
+                        <h2 class="text d-t black_num">10</h2>
+                    </div>
+                </div>
+                <div class="num_d_3">
+                    <div class="align">
+                        <h2 class="text d-t red_num">3</h2>
+                    </div>
+                </div>
+                <div class="num_d_23">
+                    <div class="align">
+                        <h2 class="text d-t red_num">23</h2>
+                    </div>
+                </div>
+                <div class="num_d_30">
+                    <div class="align">
+                        <h2 class="text d-t red_num">30</h2>
+                    </div>
+                </div>
+                <div class="num_d_0">
+                    <div class="align">
+                        <h2 class="text d-t green_num">0</h2>
+                    </div>
+                </div>
+                <!-- блоки с номерами -->
+                <div class="flex numbers_5-35">
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">35</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">12</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">28</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">7</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">29</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">18</h2>
+                        </div>
+                    </div>
+                    <div class="cube border-left-off">
+                        <div class="align">
+                            <h2 class="text black_num">22</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">9</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">31</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">14</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">20</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">1</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">33</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">16</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">24</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">5</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex numbers_11-27">
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">27</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">13</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">36</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">11</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex numbers_6-17">
+                    <div class="rectangle">
+                        <div class="align-orphelins">
+                            <h2 class="text black_num">17</h2>
+                        </div>
+                    </div>
+                    <div class="rectangle">
+                        <div class="align-orphelins">
+                            <h2 class="text red_num">34</h2>
+                        </div>
+                    </div>
+                    <div class="rectangle  border-left-off">
+                        <div class="align-orphelins">
+                            <h2 class="text black_num">6</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex numbers_25-32">
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">32</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">15</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">19</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">4</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text red_num">21</h2>
+                        </div>
+                    </div>
+                    <div class="cube">
+                        <div class="align">
+                            <h2 class="text black_num">2</h2>
+                        </div>
+                    </div>
+                    <div class="cube border-left-off">
+                        <div class="align">
+                            <h2 class="text red_num">25</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- номера по краям трека -->
+                <div class="num26">
+                    <div class="align">
+                        <h2 class="text black_num">26</h2>
+                    </div>
+                </div>
+                <div class="num8">
+                    <div class="align">
+                        <h2 class="text black_num">8</h2>
+                    </div>
+                </div>
+                <div class="num10">
+                    <div class="align">
+                        <h2 class="text black_num">10</h2>
+                    </div>
+                </div>
+                <div class="num3">
+                    <div class="align">
+                        <h2 class="text red_num">3</h2>
+                    </div>
+                </div>
+                <div class="num23">
+                    <div class="align">
+                        <h2 class="text red_num">23</h2>
+                    </div>
+                </div>
+                <div class="num30">
+                    <div class="align">
+                        <h2 class="text red_num">30</h2>
+                    </div>
+                </div>
+                <div class="num0">
+                    <div class="align">
+                        <h2 class="text green_num">0</h2>
+                    </div>
+                </div>
+                <!-- перемычки между сериями -->
+                <div class="line line_8"></div>
+                <div class="line line_9"></div>
+                <!-- серии -->
+                <!-- tier -->
+                <div class="series-tier">
+                    <h2 class="series-text tier-t">SERIES 5/8</h2>
+                </div>
+                <!-- orphelins -->
+                <div class="series-orphelins">
+                    <h2 class="series-text orphelins-t">ORPHELINS</h2>
+                </div>
+                <!-- voisins -->
+                <div class="series-voisins">
+                    <h2 class="series-text voisins-t">SERIES 0/2/3</h2>
+                </div>
+                <!-- spiel -->
+                <div class="series-spiel">
+                    <h2 class="series-text spiel-t">0-SPIEL</h2>
+                </div>
+                <!-- позиции серий (кружочки) -->
+                <div class="pos-tier bet"></div>
+                <div class="pos-orphelins bet"></div>
+                <div class="pos-voisins bet"></div>
+                <div class="pos-spiel bet"></div>
+                <!-- кликабельные позиции серий -->
+                <div class="series-tier transparent pos" id="tier">tier</div>
+                <div class="series-orphelins transparent pos" id="orphelins">orphelins</div>
+                <div class="series-voisins transparent pos" id="voisins">voisins</div>
+                <div class="series-spiel transparent pos" id="spiel">spiel</div>
+
+                <!-- все позиции трека -->
+                <div class="neighbor_0 bet pos" id="neighbor_0">сосед номера 0</div>
+                <div class="neighbor_1 bet pos" id="neighbor_1">сосед номера 1</div>
+                <div class="neighbor_2 bet pos" id="neighbor_2">сосед номера 2</div>
+                <div class="neighbor_3 bet pos" id="neighbor_3">сосед номера 3</div>
+                <div class="neighbor_4 bet pos" id="neighbor_4">сосед номера 4</div>
+                <div class="neighbor_5 bet pos" id="neighbor_5">сосед номера 5</div>
+                <div class="neighbor_6 bet pos" id="neighbor_6">сосед номера 6</div>
+                <div class="neighbor_7 bet pos" id="neighbor_7">сосед номера 7</div>
+                <div class="neighbor_8 bet pos" id="neighbor_8">сосед номера 8</div>
+                <div class="neighbor_9 bet pos" id="neighbor_9">сосед номера 9</div>
+                <div class="neighbor_10 bet pos" id="neighbor_10">сосед номера 10</div>
+                <div class="neighbor_11 bet pos" id="neighbor_11">сосед номера 11</div>
+                <div class="neighbor_12 bet pos" id="neighbor_12">сосед номера 12</div>
+                <div class="neighbor_13 bet pos" id="neighbor_13">сосед номера 13</div>
+                <div class="neighbor_14 bet pos" id="neighbor_14">сосед номера 14</div>
+                <div class="neighbor_15 bet pos" id="neighbor_15">сосед номера 15</div>
+                <div class="neighbor_16 bet pos" id="neighbor_16">сосед номера 16</div>
+                <div class="neighbor_17 bet pos" id="neighbor_17">сосед номера 17</div>
+                <div class="neighbor_18 bet pos" id="neighbor_18">сосед номера 18</div>
+                <div class="neighbor_19 bet pos" id="neighbor_19">сосед номера 19</div>
+                <div class="neighbor_20 bet pos" id="neighbor_20">сосед номера 20</div>
+                <div class="neighbor_21 bet pos" id="neighbor_21">сосед номера 21</div>
+                <div class="neighbor_22 bet pos" id="neighbor_22">сосед номера 22</div>
+                <div class="neighbor_23 bet pos" id="neighbor_23">сосед номера 23</div>
+                <div class="neighbor_24 bet pos" id="neighbor_24">сосед номера 24</div>
+                <div class="neighbor_25 bet pos" id="neighbor_25">сосед номера 25</div>
+                <div class="neighbor_26 bet pos" id="neighbor_26">сосед номера 26</div>
+                <div class="neighbor_27 bet pos" id="neighbor_27">сосед номера 27</div>
+                <div class="neighbor_28 bet pos" id="neighbor_28">сосед номера 28</div>
+                <div class="neighbor_29 bet pos" id="neighbor_29">сосед номера 29</div>
+                <div class="neighbor_30 bet pos" id="neighbor_30">сосед номера 30</div>
+                <div class="neighbor_31 bet pos" id="neighbor_31">сосед номера 31</div>
+                <div class="neighbor_32 bet pos" id="neighbor_32">сосед номера 32</div>
+                <div class="neighbor_33 bet pos" id="neighbor_33">сосед номера 33</div>
+                <div class="neighbor_34 bet pos" id="neighbor_34">сосед номера 34</div>
+                <div class="neighbor_35 bet pos" id="neighbor_35">сосед номера 35</div>
+                <div class="neighbor_36 bet pos" id="neighbor_36">сосед номера 36</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="field.js" type="module"></script>
+</body>
+
+</html>

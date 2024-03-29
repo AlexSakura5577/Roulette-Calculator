@@ -15,7 +15,7 @@ let coincidences;
 // вывод сообщения алерт:
 function showMessage() {
     alert(`выбранные номера: ${selectedNumbers} \nкол-во позиций: ${positions} \nлишних позиций: ${coincidences} \nитоговая ставка: ${result}`);
-    // location.reload();
+    location.reload();
     return;
 };
 // функция подсчёта пересечений комплитов:
@@ -111,14 +111,3 @@ calculate.onclick = function () {
     // selectedNumbers = [];
     return showMessage();
 };
-
-// console.log(import.meta.url);
-
-const myNumber = 42;
-const myNumber2 = 84;
-
-localStorage.setItem('number', myNumber);
-localStorage.setItem('number2', myNumber2);
-sessionStorage.setItem('number', myNumber);
-sessionStorage.setItem('number2', myNumber2);
-// console.log(+localStorage.getItem('number'));

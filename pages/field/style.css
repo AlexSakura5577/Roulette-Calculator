@@ -1,0 +1,1313 @@
+body {
+    background-color: rgba(7, 88, 24);
+    color: rgb(0, 255, 179);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    font-weight: bold;
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.flex_header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+}
+
+.btn {
+    margin-bottom: 35px;
+}
+
+h1 {
+    background-color: rgb(64, 66, 192);
+}
+
+.all-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/* поле */
+.wrapper_field {
+    position: relative;
+    width: 320px;
+    height: 750px;
+    left: 20%;
+    /* right: 50%; */
+    margin: auto;
+}
+
+.container {
+    display: block;
+    position: relative;
+    width: 320px;
+    height: 750px;
+    margin-top: 25px;
+}
+
+.container_field {
+    display: grid;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 1em;
+    color: rgb(255, 255, 255);
+    background-color: rgb(7, 88, 24);
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(14, 50px);
+    /* grid-gap: 5px; */
+    justify-content: center;
+    align-content: center;
+    /* margin-top: 25px; */
+}
+
+/* фон поля рулетки */
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(2, 57, 140);
+    text-align: center;
+    border: 1px solid white;
+    margin: 1px 1px 1px 1px;
+}
+
+.container_positions {
+    display: grid;
+    position: absolute;
+    /* visibility: hidden; */
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    grid-template-columns: repeat(11, 25px);
+    grid-template-rows: repeat(29, 25px);
+    justify-content: center;
+    align-content: center;
+}
+
+.pos {
+    /* width: 25px; */
+    /* height: 25px; */
+    opacity: 0%;
+    /* border-radius: 50%; */
+}
+
+/* фишки */
+.item {
+    border: 1px solid rgb(109, 242, 99);
+    border-radius: 15%;
+    /* background-color: rgb(238, 229, 45); */
+}
+
+.red_num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: rgb(235, 0, 0);
+    text-align: center;
+}
+
+.black_num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 85%;
+    border-radius: 50%;
+    background-color: rgb(15, 15, 15);
+    text-align: center;
+}
+
+.square_zero {
+    grid-column: 3/6;
+}
+
+.zero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 85%;
+    border: 2px solid rgb(146, 146, 146);
+    border-radius: 50%;
+    background-color: rgb(21, 255, 0);
+}
+
+.square_small {
+    grid-row: 2/4;
+}
+
+.square_1st12 {
+    grid-row: 2/6;
+}
+
+.square_even {
+    grid-row: 4/6;
+}
+
+.square_red {
+    grid-row: 6/8;
+}
+
+.square_2nd12 {
+    grid-row: 6/10;
+}
+
+.square_black {
+    grid-row: 8/10;
+}
+
+.square_odd {
+    grid-row: 10/12
+}
+
+.square_3rd12 {
+    grid-row: 10/14;
+}
+
+.square_big {
+    grid-row: 12/14;
+}
+
+.square_1st-collumn {
+    grid-column: 3/3;
+    display: flex;
+    flex-direction: column;
+}
+
+.square_2nd-collumn {
+    grid-column: 4/4;
+    display: flex;
+    flex-direction: column;
+}
+
+.square_3rd-collumn {
+    grid-column: 5/5;
+    display: flex;
+    flex-direction: column;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+}
+
+/* простые шансы, колонки и дюжины */
+.item_31,
+.item_73,
+.item_33,
+.item_109,
+.item_151,
+.item_111,
+.item_187,
+.item_229,
+.item_189,
+.item_269,
+.item_271,
+.item_273 {
+    background-color: rgb(168, 104, 245);
+    opacity: 40%;
+}
+
+/* номера */
+.item_1,
+/*0*/
+.item_35,
+/*1*/
+.item_37,
+/*2*/
+.item_39,
+/*3*/
+.item_53,
+/*4*/
+.item_55,
+/*5*/
+.item_57,
+/*6*/
+.item_72,
+/*7*/
+.item_75,
+/*8*/
+.item_77,
+/*9*/
+.item_91,
+/*10*/
+.item_93,
+/*11*/
+.item_95,
+/*12*/
+.item_113,
+/*13*/
+.item_115,
+/*14*/
+.item_117,
+/*15*/
+.item_131,
+/*16*/
+.item_133,
+/*17*/
+.item_135,
+/*18*/
+.item_150,
+/*19*/
+.item_153,
+/*20*/
+.item_155,
+/*21*/
+.item_169,
+/*22*/
+.item_171,
+/*23*/
+.item_173,
+/*24*/
+.item_191,
+/*25*/
+.item_193,
+/*26*/
+.item_195,
+/*27*/
+.item_209,
+/*28*/
+.item_211,
+/*29*/
+.item_213,
+/*30*/
+.item_228,
+/*31*/
+.item_231,
+/*32*/
+.item_233,
+/*33*/
+.item_247,
+/*34*/
+.item_249,
+/*35*/
+.item_251
+
+/*36*/
+    {
+    /* background-color: rgb(235, 138, 224); */
+    opacity: 75%;
+}
+
+/* остальные позиции */
+.item_1,
+.item_23,
+.item_24,
+.item_25,
+.item_26,
+.item_27,
+.item_28,
+.item_34,
+.item_35,
+.item_36,
+.item_37,
+.item_38,
+.item_39,
+.item_43,
+.item_44,
+.item_45,
+.item_46,
+.item_47,
+.item_48,
+.item_52,
+.item_53,
+.item_54,
+.item_55,
+.item_56,
+.item_57,
+.item_62,
+.item_63,
+.item_64,
+.item_65,
+.item_66,
+.item_67,
+.item_71,
+.item_72,
+.item_74,
+.item_75,
+.item_76,
+.item_77,
+.item_81,
+.item_82,
+.item_83,
+.item_84,
+.item_85,
+.item_86,
+.item_90,
+.item_91,
+.item_92,
+.item_93,
+.item_94,
+.item_95,
+.item_101,
+.item_102,
+.item_103,
+.item_104,
+.item_105,
+.item_106,
+.item_112,
+.item_113,
+.item_114,
+.item_115,
+.item_116,
+.item_117,
+.item_121,
+.item_122,
+.item_123,
+.item_124,
+.item_125,
+.item_126,
+.item_130,
+.item_131,
+.item_132,
+.item_133,
+.item_134,
+.item_135,
+.item_140,
+.item_141,
+.item_142,
+.item_143,
+.item_144,
+.item_145,
+.item_149,
+.item_150,
+.item_152,
+.item_153,
+.item_154,
+.item_155,
+.item_159,
+.item_160,
+.item_161,
+.item_162,
+.item_163,
+.item_164,
+.item_168,
+.item_169,
+.item_170,
+.item_171,
+.item_172,
+.item_173,
+.item_179,
+.item_180,
+.item_181,
+.item_182,
+.item_183,
+.item_184,
+.item_190,
+.item_191,
+.item_192,
+.item_193,
+.item_194,
+.item_195,
+.item_199,
+.item_200,
+.item_201,
+.item_202,
+.item_203,
+.item_204,
+.item_208,
+.item_209,
+.item_210,
+.item_211,
+.item_212,
+.item_213,
+.item_218,
+.item_219,
+.item_220,
+.item_221,
+.item_222,
+.item_223,
+.item_227,
+.item_228,
+.item_230,
+.item_231,
+.item_232,
+.item_233,
+.item_237,
+.item_238,
+.item_239,
+.item_240,
+.item_241,
+.item_242,
+.item_246,
+.item_247,
+.item_248,
+.item_249,
+.item_250,
+.item_251 {
+    background-color: rgb(242, 247, 96);
+    opacity: 40%;
+    border-radius: 50%;
+}
+
+/* при наведении курсора */
+.item_1:hover,
+.item_23:hover,
+.item_24:hover,
+.item_25:hover,
+.item_26:hover,
+.item_27:hover,
+.item_28:hover,
+.item_34:hover,
+.item_35:hover,
+.item_36:hover,
+.item_37:hover,
+.item_38:hover,
+.item_39:hover,
+.item_43:hover,
+.item_44:hover,
+.item_45:hover,
+.item_46:hover,
+.item_47:hover,
+.item_48:hover,
+.item_52:hover,
+.item_53:hover,
+.item_54:hover,
+.item_55:hover,
+.item_56:hover,
+.item_57:hover,
+.item_62:hover,
+.item_63:hover,
+.item_64:hover,
+.item_65:hover,
+.item_66:hover,
+.item_67:hover,
+.item_71:hover,
+.item_72:hover,
+.item_74:hover,
+.item_75:hover,
+.item_76:hover,
+.item_77:hover,
+.item_81:hover,
+.item_82:hover,
+.item_83:hover,
+.item_84:hover,
+.item_85:hover,
+.item_86:hover,
+.item_90:hover,
+.item_91:hover,
+.item_92:hover,
+.item_93:hover,
+.item_94:hover,
+.item_95:hover,
+.item_101:hover,
+.item_102:hover,
+.item_103:hover,
+.item_104:hover,
+.item_105:hover,
+.item_106:hover,
+.item_112:hover,
+.item_113:hover,
+.item_114:hover,
+.item_115:hover,
+.item_116:hover,
+.item_117:hover,
+.item_121:hover,
+.item_122:hover,
+.item_123:hover,
+.item_124:hover,
+.item_125:hover,
+.item_126:hover,
+.item_130:hover,
+.item_131:hover,
+.item_132:hover,
+.item_133:hover,
+.item_134:hover,
+.item_135:hover,
+.item_140:hover,
+.item_141:hover,
+.item_142:hover,
+.item_143:hover,
+.item_144:hover,
+.item_145:hover,
+.item_149:hover,
+.item_150:hover,
+.item_152:hover,
+.item_153:hover,
+.item_154:hover,
+.item_155:hover,
+.item_159:hover,
+.item_160:hover,
+.item_161:hover,
+.item_162:hover,
+.item_163:hover,
+.item_164:hover,
+.item_168:hover,
+.item_169:hover,
+.item_170:hover,
+.item_171:hover,
+.item_172:hover,
+.item_173:hover,
+.item_179:hover,
+.item_180:hover,
+.item_181:hover,
+.item_182:hover,
+.item_183:hover,
+.item_184:hover,
+.item_190:hover,
+.item_191:hover,
+.item_192:hover,
+.item_193:hover,
+.item_194:hover,
+.item_195:hover,
+.item_199:hover,
+.item_200:hover,
+.item_201:hover,
+.item_202:hover,
+.item_203:hover,
+.item_204:hover,
+.item_208:hover,
+.item_209:hover,
+.item_210:hover,
+.item_211:hover,
+.item_212:hover,
+.item_213:hover,
+.item_218:hover,
+.item_219:hover,
+.item_220:hover,
+.item_221:hover,
+.item_222:hover,
+.item_223:hover,
+.item_227:hover,
+.item_228:hover,
+.item_230:hover,
+.item_231:hover,
+.item_232:hover,
+.item_233:hover,
+.item_237:hover,
+.item_238:hover,
+.item_239:hover,
+.item_240:hover,
+.item_241:hover,
+.item_242:hover,
+.item_246:hover,
+.item_247:hover,
+.item_248:hover,
+.item_249:hover,
+.item_250:hover,
+.item_251:hover,
+.item_31:hover,
+.item_73:hover,
+.item_33:hover,
+.item_109:hover,
+.item_151:hover,
+.item_111:hover,
+.item_187:hover,
+.item_229:hover,
+.item_189:hover,
+.item_269:hover,
+.item_271:hover,
+.item_273:hover {
+    opacity: 85%;
+}
+
+.item_1 {
+    grid-column: 6/11;
+    grid-row: 2;
+}
+
+.item_31 {
+    grid-row: 4/7;
+    grid-column: 2/3;
+}
+
+.item_73 {
+    grid-row: 8/11;
+    grid-column: 2/3;
+}
+
+.item_33 {
+    grid-row: 4/11;
+    grid-column: 4/5;
+}
+
+.item_109 {
+    grid-row: 12/15;
+    grid-column: 2/3;
+}
+
+.item_151 {
+    grid-row: 16/19;
+    grid-column: 2/3;
+}
+
+.item_111 {
+    grid-row: 12/19;
+    grid-column: 4/5;
+}
+
+.item_187 {
+    grid-row: 20/23;
+    grid-column: 2/3;
+}
+
+.item_229 {
+    grid-row: 24/27;
+    grid-column: 2/3;
+}
+
+.item_189 {
+    grid-row: 20/27;
+    grid-column: 4/5;
+}
+
+/* 
+.block {
+    --border: 1px solid black;
+    --size: 25px;
+    width: var(--size);
+    height: var(--size);
+    margin: calc(var(--size) / 4);
+    margin-top: calc(var(--size) / 1.5);
+    transform: scaleY(1.5);
+}
+
+.block::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: var(--border);
+    transform: rotate(45deg);
+    background-color: red;
+} */
+
+#triangle_up {
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid black;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
+#triangle_down {
+    width: 0;
+    height: 0;
+    border-top: 25px solid black;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
+#diamond_up {
+    width: 0;
+    height: 0;
+    border-bottom: 25px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
+#diamond_down {
+    width: 0;
+    height: 0;
+    border-top: 25px solid red;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
+/* трэк */
+
+.wrapper_track {
+    display: block;
+    width: 119px;
+    height: 550px;
+    margin: auto;
+    margin-left: 110px;
+}
+
+.track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.circle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    background-color: rgba(7, 88, 24);
+    border: 2px white solid;
+}
+
+.circle_2 {
+    position: absolute;
+    width: 93px;
+    height: 93px;
+    border-radius: 50%;
+    background-color: rgba(7, 88, 24);
+    border: 2px white solid;
+}
+
+.tr {
+    margin: 442px 0px 0px 11px;
+}
+
+.spl {
+    margin: 11px 0px 0px 11px;
+}
+
+.circle_3 {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgba(7, 88, 24);
+    border: 2px white solid;
+}
+
+.tier_small {
+    margin: 466px 0px 0px 35px;
+}
+
+.spiel_small_1 {
+    margin: 83px 0px 0px 35px;
+}
+
+.spiel_small_2 {
+    margin: 36px 0px 0px 35px;
+}
+
+.series-tier {
+    position: absolute;
+    width: 45px;
+    height: 108px;
+    background-color: rgba(7, 88, 24);
+    margin: 385px 0px 0px 37px;
+}
+
+.series-orphelins {
+    position: absolute;
+    width: 45px;
+    height: 131px;
+    background-color: rgba(7, 88, 24);
+    margin: 251px 0px 0px 37px;
+}
+
+.series-voisins {
+    position: absolute;
+    width: 45px;
+    height: 116px;
+    background-color: rgba(7, 88, 24);
+    margin: 132px 0px 0px 37px;
+}
+
+.series-spiel {
+    position: absolute;
+    width: 45px;
+    height: 53px;
+    background-color: rgba(7, 88, 24);
+    margin: 60px 0px 0px 37px;
+}
+
+.transparent {
+    background-color: transparent;
+}
+
+.line {
+    display: block;
+    width: 2px;
+    height: 117px;
+    background-color: white;
+    position: absolute;
+}
+
+.line_1 {
+    rotate: 30deg;
+}
+
+.line_2 {
+    rotate: 90deg;
+}
+
+.line_3 {
+    rotate: 330deg;
+}
+
+.line_4 {
+    rotate: 45deg;
+}
+
+.line_5 {
+    rotate: 90deg;
+}
+
+.line_6 {
+    rotate: 135deg;
+}
+
+.line_7 {
+    rotate: 180deg;
+}
+
+/* 2 перемычки */
+.line_8 {
+    height: 118px;
+    rotate: 90deg;
+    margin-left: 59px;
+    margin-top: 190px;
+}
+
+.line_9 {
+    height: 118px;
+    rotate: 90deg;
+    margin-left: 59px;
+    margin-top: 324px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.align {
+    display: flex;
+    flex-direction: column;
+    width: 22px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.align-orphelins {
+    display: flex;
+    width: 25px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    transform: rotate(270deg);
+    background-color: transparent;
+    font-size: 1.2em;
+    font-family: Roboto, monospace;
+}
+
+.cube {
+    display: block;
+    width: 22px;
+    height: 25px;
+    background-color: rgba(7, 88, 24);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.rectangle {
+    display: block;
+    width: 22px;
+    height: 43px;
+    background-color: rgba(7, 88, 24);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.red_num {
+    color: red;
+}
+
+.black_num {
+    color: rgb(255, 227, 12);
+}
+
+.green_num {
+    color: rgb(38, 249, 10);
+}
+
+.double_blocks_5-35 {
+    position: absolute;
+    width: 11px;
+    height: 429px;
+    background-color: rgba(7, 88, 24);
+    margin: 61px 0px 0px 0px;
+    border: 1px solid rgb(255, 255, 255);
+    border-right: none;
+}
+
+.double_blocks_11-27 {
+    position: absolute;
+    width: 11px;
+    height: 105px;
+    background-color: rgba(7, 88, 24);
+    margin: 384px 0px 0px 106px;
+    border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
+}
+
+.double_blocks_6-17 {
+    position: absolute;
+    width: 11px;
+    height: 131px;
+    background-color: rgba(7, 88, 24);
+    margin: 250px 0px 0px 106px;
+    border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
+}
+
+.double_blocks_25-32 {
+    position: absolute;
+    width: 11px;
+    height: 187px;
+    background-color: rgba(7, 88, 24);
+    margin: 61px 0px 0px 106px;
+    border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
+}
+
+.double-cube {
+    display: block;
+    width: 10px;
+    height: 25px;
+    border: 1px solid rgb(255, 255, 255);
+    /* border-left: none; */
+}
+
+.double-rectangle {
+    display: block;
+    width: 10px;
+    height: 43px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.numbers_5-35 {
+    width: 23px;
+    height: 430px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 60px 0px 0px 12px;
+}
+
+.numbers_11-27 {
+    width: 24px;
+    height: 106px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 384px 0px 0px 82px;
+}
+
+.numbers_6-17 {
+    width: 24px;
+    height: 132px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 250px 0px 0px 82px;
+}
+
+.numbers_25-32 {
+    width: 24px;
+    height: 187px;
+    border: 1px white solid;
+    position: absolute;
+    margin: 60px 0px 0px 82px;
+}
+
+.border-left-off {
+    border-bottom: 0px;
+}
+
+.bet {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 1px solid rgb(231, 22, 11);
+    border-radius: 50%;
+    background-color: rgb(242, 247, 96);
+    opacity: 40%;
+}
+
+.bet:hover {
+    opacity: 85%;
+}
+
+/* класс для JS addEventListener */
+.pos,
+.pos-tier,
+.pos-orphelins,
+.pos-voisins,
+.pos-spiel {
+    font-size: 0;
+    /* display: block; */
+    /* display: none; */
+}
+
+.num26,
+.num10,
+.num8,
+.num3,
+.num23,
+.num30,
+.num0,
+.num_d_26,
+.num_d_10,
+.num_d_8,
+.num_d_3,
+.num_d_23,
+.num_d_30,
+.num_d_0 {
+    position: absolute;
+}
+
+/* крайние номера */
+.num26 {
+    margin: 12px 0px 0px 49px;
+}
+
+.num10 {
+    margin: 493px 0px 0px 17px;
+}
+
+.num8 {
+    margin: 511px 0px 0px 62px;
+}
+
+.num3 {
+    margin: 29px 0px 0px 19px;
+}
+
+.num23 {
+    margin: 511px 0px 0px 37px;
+}
+
+.num30 {
+    margin: 492px 0px 0px 81px;
+}
+
+.num0 {
+    margin: 30px 0px 0px 79px;
+}
+
+/* дублирующие крайние номера */
+.num_d_26 {
+    margin: -6px 0px 0px 55px;
+}
+
+.num_d_10 {
+    margin: 500px 0px 0px 6px;
+}
+
+.num_d_8 {
+    margin: 527px 0px 0px 74px;
+}
+
+.num_d_3 {
+    margin: 20px 0px 0px 9px;
+}
+
+.num_d_23 {
+    margin: 527px 0px 0px 33px;
+}
+
+.num_d_30 {
+    margin: 501px 0px 0px 102px;
+}
+
+.num_d_0 {
+    margin: 20px 0px 0px 100px;
+}
+
+/* кликабельные позиции на треке */
+.neighbor_0 {
+    margin: 30px 0px 0px 77px;
+}
+
+.neighbor_1 {
+    margin: 356px 0px 0px 11px;
+}
+
+.neighbor_2 {
+    margin: 195px 0px 0px 81px;
+}
+
+.neighbor_3 {
+    margin: 29px 0px 0px 17px;
+}
+
+.neighbor_4 {
+    margin: 141px 0px 0px 81px;
+}
+
+.neighbor_5 {
+    margin: 464px 0px 0px 11px;
+}
+
+.neighbor_6 {
+    margin: 347px 0px 0px 82px;
+}
+
+.neighbor_7 {
+    margin: 142px 0px 0px 11px;
+}
+
+.neighbor_8 {
+    margin: 510px 0px 0px 59px;
+}
+
+.neighbor_9 {
+    margin: 249px 0px 0px 11px;
+}
+
+.neighbor_10 {
+    margin: 492px 0px 0px 14px;
+}
+
+.neighbor_11 {
+    margin: 465px 0px 0px 82px;
+}
+
+.neighbor_12 {
+    margin: 87px 0px 0px 11px;
+}
+
+.neighbor_13 {
+    margin: 411px 0px 0px 82px;
+}
+
+.neighbor_14 {
+    margin: 302px 0px 0px 11px;
+}
+
+.neighbor_15 {
+    margin: 87px 0px 0px 81px;
+}
+
+.neighbor_16 {
+    margin: 410px 0px 0px 11px;
+}
+
+.neighbor_17 {
+    margin: 259px 0px 0px 82px;
+}
+
+.neighbor_18 {
+    margin: 195px 0px 0px 11px;
+}
+
+.neighbor_19 {
+    margin: 114px 0px 0px 81px;
+}
+
+.neighbor_20 {
+    margin: 329px 0px 0px 11px;
+}
+
+.neighbor_21 {
+    margin: 168px 0px 0px 81px;
+}
+
+.neighbor_22 {
+    margin: 223px 0px 0px 11px;
+}
+
+.neighbor_23 {
+    margin: 510px 0px 0px 34px;
+}
+
+.neighbor_24 {
+    margin: 437px 0px 0px 11px;
+}
+
+.neighbor_25 {
+    margin: 222px 0px 0px 82px;
+}
+
+.neighbor_26 {
+    margin: 11px 0px 0px 46px;
+}
+
+.neighbor_27 {
+    margin: 385px 0px 0px 82px;
+}
+
+.neighbor_28 {
+    margin: 115px 0px 0px 11px;
+}
+
+.neighbor_29 {
+    margin: 169px 0px 0px 11px;
+}
+
+.neighbor_30 {
+    margin: 491px 0px 0px 78px;
+}
+
+.neighbor_31 {
+    margin: 275px 0px 0px 11px;
+}
+
+.neighbor_32 {
+    margin: 61px 0px 0px 81px;
+}
+
+.neighbor_33 {
+    margin: 383px 0px 0px 11px;
+}
+
+.neighbor_34 {
+    margin: 303px 0px 0px 82px;
+}
+
+.neighbor_35 {
+    margin: 61px 0px 0px 11px;
+}
+
+.neighbor_36 {
+    margin: 438px 0px 0px 82px;
+}
+
+.d-t {
+    font-size: 0.5rem;
+    margin-right: 12px;
+}
+
+.pos-tier {
+    margin: 432px 0px 0px 46px;
+}
+
+.pos-orphelins {
+    margin: 302px 0px 0px 46px;
+}
+
+.pos-voisins {
+    margin: 176px 0px 0px 46px;
+}
+
+.pos-spiel {
+    margin: 69px 0px 0px 46px;
+}
+
+.series-text {
+    position: absolute;
+    rotate: 270deg;
+    white-space: nowrap;
+    color: rgb(255, 227, 12);
+    font-size: 0.9rem;
+    font-family: fangsong;
+}
+
+.tier-t {
+    margin: 55px 0px 0px -14px;
+}
+
+.orphelins-t {
+    margin: 57px 0px 0px -20px;
+}
+
+.voisins-t {
+    margin: 52px 0px 0px -19px;
+}
+
+.spiel-t {
+    margin: 17px 0px 0px -4px;
+}

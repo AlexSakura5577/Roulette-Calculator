@@ -3,6 +3,10 @@
 export const minBet = 1;
 export const maxBet = 100;
 
+// пересекается ли трек с полем:
+// whether the track overlaps with a field
+export const trackOverlapsField = true;
+
 //export let strUp = 0;
 //export let completeBet = 25;
 
@@ -48,7 +52,7 @@ export const rouletteNumber = {
         positions: {
             numb: ["0"],
             split: ["0-1", "0-2", "0-3"],
-            corner: ["first four"],
+            corner: ["first-four"],
             street: ["0-1-2", "0-2-3"],
             six_line: []
         },
@@ -67,7 +71,7 @@ export const rouletteNumber = {
         positions: {
             numb: ["1"],
             split: ["0-1", "1-2", "1-4"],
-            corner: ["first four", "1-5"],
+            corner: ["first-four", "1-5"],
             street: ["0-1-2", "1-2-3"],
             six_line: ["1-6"]
         },
@@ -86,7 +90,7 @@ export const rouletteNumber = {
         positions: {
             numb: ["2"],
             split: ["0-2", "1-2", "2-3", "2-5"],
-            corner: ["first four", "1-5", "2-6"],
+            corner: ["first-four", "1-5", "2-6"],
             street: ["0-1-2", "0-2-3", "1-2-3"],
             six_line: ["1-6"]
         },
@@ -105,7 +109,7 @@ export const rouletteNumber = {
         positions: {
             numb: ["3"],
             split: ["0-3", "2-3", "3-6"],
-            corner: ["first four", "2-6"],
+            corner: ["first-four", "2-6"],
             street: ["0-2-3", "1-2-3"],
             six_line: ["1-6"]
         },
@@ -741,7 +745,199 @@ export const rouletteNumber = {
         magnitude: 'large numbers',
         dozen: "3rd",
         column: "3rd"
+    }
+};
+// все позиции рулетки (157 шт) и ставка:
+export const rltPos = {
+    num: {
+        "number_0": 0,
+        "number_1": 0,
+        "number_2": 0,
+        "number_3": 0,
+        "number_4": 0,
+        "number_5": 0,
+        "number_6": 0,
+        "number_7": 0,
+        "number_8": 0,
+        "number_9": 0,
+        "number_10": 0,
+        "number_11": 0,
+        "number_12": 0,
+        "number_13": 0,
+        "number_14": 0,
+        "number_15": 0,
+        "number_16": 0,
+        "number_17": 0,
+        "number_18": 0,
+        "number_19": 0,
+        "number_20": 0,
+        "number_21": 0,
+        "number_22": 0,
+        "number_23": 0,
+        "number_24": 0,
+        "number_25": 0,
+        "number_26": 0,
+        "number_27": 0,
+        "number_28": 0,
+        "number_29": 0,
+        "number_30": 0,
+        "number_31": 0,
+        "number_32": 0,
+        "number_33": 0,
+        "number_34": 0,
+        "number_35": 0,
+        "number_36": 0
     },
+    spl: {
+        "split_0-1": 0,
+        "split_0-2": 0,
+        "split_0-3": 0,
+        "split_1-2": 0,
+        "split_2-3": 0,
+        "split_1-4": 0,
+        "split_2-5": 0,
+        "split_3-6": 0,
+        "split_4-5": 0,
+        "split_5-6": 0,
+        "split_4-7": 0,
+        "split_5-8": 0,
+        "split_6-9": 0,
+        "split_7-8": 0,
+        "split_8-9": 0,
+        "split_7-10": 0,
+        "split_8-11": 0,
+        "split_9-12": 0,
+        "split_10-11": 0,
+        "split_11-12": 0,
+        "split_10-13": 0,
+        "split_11-14": 0,
+        "split_12-15": 0,
+        "split_13-14": 0,
+        "split_14-15": 0,
+        "split_13-16": 0,
+        "split_14-17": 0,
+        "split_15-18": 0,
+        "split_16-17": 0,
+        "split_17-18": 0,
+        "split_16-19": 0,
+        "split_17-20": 0,
+        "split_18-21": 0,
+        "split_19-20": 0,
+        "split_20-21": 0,
+        "split_19-22": 0,
+        "split_20-23": 0,
+        "split_21-24": 0,
+        "split_22-23": 0,
+        "split_23-24": 0,
+        "split_22-25": 0,
+        "split_23-26": 0,
+        "split_24-27": 0,
+        "split_25-26": 0,
+        "split_26-27": 0,
+        "split_25-28": 0,
+        "split_26-29": 0,
+        "split_27-30": 0,
+        "split_28-29": 0,
+        "split_29-30": 0,
+        "split_28-31": 0,
+        "split_29-32": 0,
+        "split_30-33": 0,
+        "split_31-32": 0,
+        "split_32-33": 0,
+        "split_31-34": 0,
+        "split_32-35": 0,
+        "split_33-36": 0,
+        "split_34-35": 0,
+        "split_35-36": 0
+    },
+    cor: {
+        "corner_first-four": 0,
+        "corner_1-5": 0,
+        "corner_2-6": 0,
+        "corner_4-8": 0,
+        "corner_5-9": 0,
+        "corner_7-11": 0,
+        "corner_8-12": 0,
+        "corner_10-14": 0,
+        "corner_11-15": 0,
+        "corner_13-17": 0,
+        "corner_14-18": 0,
+        "corner_16-20": 0,
+        "corner_17-21": 0,
+        "corner_19-23": 0,
+        "corner_20-24": 0,
+        "corner_22-26": 0,
+        "corner_23-27": 0,
+        "corner_25-29": 0,
+        "corner_26-30": 0,
+        "corner_28-32": 0,
+        "corner_29-33": 0,
+        "corner_31-35": 0,
+        "corner_32-36": 0
+    },
+    str: {
+        "street_0-1-2": 0,
+        "street_0-2-3": 0,
+        "street_1-2-3": 0,
+        "street_4-5-6": 0,
+        "street_7-8-9": 0,
+        "street_10-11-12": 0,
+        "street_13-14-15": 0,
+        "street_16-17-18": 0,
+        "street_19-20-21": 0,
+        "street_22-23-24": 0,
+        "street_25-26-27": 0,
+        "street_28-29-30": 0,
+        "street_31-32-33": 0,
+        "street_34-35-36": 0
+    },
+    six: {
+        "six_line_1-6": 0,
+        "six_line_4-9": 0,
+        "six_line_7-12": 0,
+        "six_line_10-15": 0,
+        "six_line_13-18": 0,
+        "six_line_16-21": 0,
+        "six_line_19-24": 0,
+        "six_line_22-27": 0,
+        "six_line_25-30": 0,
+        "six_line_28-33": 0,
+        "six_line_31-36": 0
+    },
+    dozen: {
+        "dozen_1st": 0,
+        "dozen_2nd": 0,
+        "dozen_3rd": 0
+    },
+    column: {
+        "column_1st": 0,
+        "column_2nd": 0,
+        "column_3rd": 0
+    },
+    small: {
+        "small_1-18": 0,
+        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    },
+    big: {
+        "big_19-36": 0,
+        numbers: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36]
+    },
+    even: {
+        "even": 0,
+        numbers: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36]
+    },
+    odd: {
+        "odd": 0,
+        numbers: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35]
+    },
+    red: {
+        "red": 0,
+        numbers: [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
+    },
+    black: {
+        "black": 0,
+        numbers: [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
+    }
 };
 // серии рулетки:
 export const rouletteSeries = {
@@ -770,7 +966,8 @@ export const rouletteSeries = {
         corner: ["25-29"],
         street: ["0-2-3"],
         strUps: [0, 2, 3, 4, 7, 12, 15, 18, 21, 19, 22, 25, 26, 28, 29, 32, 35],
-        sumStrUps: 17
+        sumStrUps: 17,
+        chips: 11
         // street & corner x 2 positions
     },
     // шпиль (0-spiel):
@@ -1009,8 +1206,10 @@ export function countPositions(arr) {
 // };
 // console.log(resultBet());
 
-// console.log(rouletteSeries.spiel.strUps);
-
+// localstorage:
+localStorage.setItem('minBet', minBet);
+localStorage.setItem('maxBet', maxBet);
+localStorage.setItem('trackOverlapsField', trackOverlapsField);
 
 
 

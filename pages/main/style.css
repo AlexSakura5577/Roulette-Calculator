@@ -14,6 +14,7 @@ body {
 }
 
 .header__link {
+    display: block;
     color: rgb(233, 170, 87);
     text-decoration: none;
 }
@@ -40,7 +41,16 @@ body {
 }
 
 .header__item:hover {
+    display: block;
     background: linear-gradient(to top, #cabe1c, #a2ac10);
     box-shadow: 0 0 2px 1px #E2E2E2;
     color: #250202;
+    cursor: pointer;
+    text-align: center;
+}
+a {
+    display: block;
+}
+.btn {
+    display: none;
 }
