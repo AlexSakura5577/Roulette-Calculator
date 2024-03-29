@@ -57,38 +57,3 @@ a {
 .btn {
     display: none;
 }
-
-/* модальное окно тест */
-.modal {
-    border: 0;
-    border-radius: 4px;
-    text-align: center;
-    color: #0d0d0d;
-    background-color: #a1aea1;
-    display: block;
-    transform: scale(.2);
-    opacity: 0;
-    transition: all 0.2s linear;
-    visibility: hidden;
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-}
-
-.modal[open] {
-    transform: scale(1);
-    opacity: 1;
-    visibility: visible;
-}
-
-.modal::backdrop {
-    background-color: #252525;
-    opacity: 0.8;
-}
-
-.modal_inner {
-    padding: 1em 2em;
-}

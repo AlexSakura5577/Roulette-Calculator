@@ -1206,27 +1206,9 @@ export function countPositions(arr) {
 // };
 // console.log(resultBet());
 
-// localstorage:
-localStorage.setItem('minBet', minBet);
-localStorage.setItem('maxBet', maxBet);
-localStorage.setItem('trackOverlapsField', trackOverlapsField);
 
-// открыть - закрыть модальное окно:
-const openBtn = document.getElementById('openBtn');
-const closeBtn = document.getElementById('closeBtn');
-const modal = document.getElementById('modal');
 
-openBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.showModal();
-});
-closeBtn.addEventListener('click', () => {
-    modal.close();
-});
-modal.addEventListener('click', (e) => {
-    console.log(e.target);
-    if (e.target === modal) modal.close();
-});
+
 
 
 
