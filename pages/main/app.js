@@ -1206,10 +1206,7 @@ export function countPositions(arr) {
 // };
 // console.log(resultBet());
 
-// localstorage:
-localStorage.setItem('minBet', minBet);
-localStorage.setItem('maxBet', maxBet);
-localStorage.setItem('trackOverlapsField', trackOverlapsField);
+
 
 
 

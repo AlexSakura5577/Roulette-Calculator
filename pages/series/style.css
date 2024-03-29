@@ -12,10 +12,6 @@ body {
     justify-content: space-between;
 }
 
-.item {
-    /* border: 1px solid white; */
-}
-
 .header__item_0 {
     display: block;
 }
