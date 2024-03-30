@@ -127,6 +127,10 @@ h1 {
 .transparent {
     background-color: transparent;
 }
+.transparent:hover {
+    background-color: rgb(242, 247, 96);
+    opacity: 50%;
+}
 
 .line {
     display: block;
@@ -334,8 +338,12 @@ h1 {
     height: 25px;
     border: 1px solid rgb(231, 22, 11);
     border-radius: 50%;
-    background-color: rgb(180, 177, 42);
-    opacity: 50%;
+    background-color: rgb(242, 247, 96);
+    opacity: 40%;
+}
+
+.bet:hover {
+    opacity: 75%;
 }
 
 /* класс для JS addEventListener */

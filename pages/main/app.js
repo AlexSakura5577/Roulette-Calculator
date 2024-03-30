@@ -966,7 +966,8 @@ export const rouletteSeries = {
         corner: ["25-29"],
         street: ["0-2-3"],
         strUps: [0, 2, 3, 4, 7, 12, 15, 18, 21, 19, 22, 25, 26, 28, 29, 32, 35],
-        sumStrUps: 17
+        sumStrUps: 17,
+        chips: 11
         // street & corner x 2 positions
     },
     // шпиль (0-spiel):
@@ -1205,10 +1206,7 @@ export function countPositions(arr) {
 // };
 // console.log(resultBet());
 
-// localstorage:
-localStorage.setItem('minBet', minBet);
-localStorage.setItem('maxBet', maxBet);
-localStorage.setItem('trackOverlapsField', trackOverlapsField);
+
 
 
 

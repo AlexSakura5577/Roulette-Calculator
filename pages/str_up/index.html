@@ -12,16 +12,115 @@
 </head>
 
 <body>
-    <div class="btn">
-        <form action="../main/index.html">
-            <button>Меню</button>
+    <!-- header -->
+    <div class="header">
+        <div class="header__item_0 btn">
+            <input id="reset" type="button" value="Сброс" />
+        </div>
+        <div class="header__item_1 item">
+            <h1>Str-Up</h1>
+        </div>
+        <div class="btn header__item_2 item">
+            <form action="../main/index.html">
+                <button>Меню</button>
+        </div>
     </div>
-    <h1>str_up</h1>
-    <br>
-
-    <!-- временная кнопка заглушка -->
-    <input id="calculate" type="button" value="Рассчитать" />
-
+    <!-- body -->
+    <div class="body">
+        <!-- минимум - максимум -->
+        <div class="minmax">
+            <div class="body__item_1 item">
+                <h1>Min/Max:</h1>
+            </div>
+            <div class="body__item_2 item">
+                <p><select id="minmax" size="1">
+                        <option value="1-100">1-100</option>
+                        <option value="5-200">5-200</option>
+                        <option value="5-300">5-300</option>
+                        <option value="25-500">25-500</option>
+                    </select></p>
+            </div>
+        </div>
+        <!-- выбор позиции -->
+        <div class="positions">
+            <div class="body__item_3 item">
+                <h1>Позиция:</h1>
+            </div>
+            <div class="body__item_4 item">
+                <p><select id="positions" size="1">
+                        <option value="numbers">numbers</option>
+                        <option value="splits">splits</option>
+                        <option value="streets">streets</option>
+                        <option value="corners">corners</option>
+                        <option value="six-lines">six-lines</option>
+                    </select></p>
+            </div>
+        </div>
+        <!-- ставка -->
+        <div class="bet">
+            <div class="body__item_5 item">
+                <h1>Ставка:</h1>
+            </div>
+            <div class="body__item_6 item">
+                <p>
+                    <label>
+                        <input class="input" type="number" minlength="0" maxlength="7" size="7" id="bet">
+                    </label>
+                </p>
+            </div>
+            <!-- кнопка OK bet -->
+            <div class="body__item_7 item">
+                <input class="btn" id="add_bet" type="button" value="OK" />
+            </div>
+        </div>
+        <!-- цвет -->
+        <div class="color">
+            <div class="body__item_8 item">
+                <h1>Цвет по:</h1>
+            </div>
+            <div class="body__item_9 item">
+                <p><select id="color" size="1">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select></p>
+            </div>
+        </div>
+        <!-- через -->
+        <div class="cash">
+            <div class="body__item_10 item">
+                <h1>Через:</h1>
+            </div>
+            <div class="body__item_11 item">
+                <p>
+                    <label>
+                        <input class="input" type="number" minlength="0" maxlength="7" size="7" id="cash">
+                    </label>
+                </p>
+            </div>
+            <!-- кнопка OK cash -->
+            <!-- <div class="body__item_12 item">
+                <input class="btn" id="add_cash" type="button" value="OK" />
+            </div> -->
+        </div>
+        <!-- кнопка Рассчитать -->
+        <div class="calc">
+            <div class="body__item_13 item">
+                <input class="btn" id="calculate" type="button" value="Рассчитать" />
+            </div>
+        </div>
+        <!-- инфо -->
+        <div class="body__item_15 item" id="info_num"></div>
+        <div class="body__item_16 item" id="info_spl"></div>
+        <div class="body__item_17 item" id="info_str"></div>
+        <div class="body__item_18 item" id="info_cor"></div>
+        <div class="body__item_19 item" id="info_six"></div>
+        <div class="body__item_14 item" id="info_3"></div>
+    </div>
     <script src="str_up.js" type="module"></script>
 </body>
 

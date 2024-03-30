@@ -25,9 +25,9 @@ body {
     /* border: 2px solid white; */
 }
 
-.item {
-    /* border: 2px solid white; */
-}
+/* .item {
+    border: 2px solid white;
+} */
 
 .header__item_1 {
     grid-column: 4/4;
@@ -76,4 +76,5 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: pre;
 }
