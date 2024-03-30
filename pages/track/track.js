@@ -1,6 +1,10 @@
+// импорты:
+// import "../main/app.js";
+// import { rouletteSeries } from "../main/app.js";
+import { rltPos } from "../main/app.js";
 
 // поворот экрана:
-// document.body.style.transform = 'rotate(90deg)'; 
+document.body.style.transform = 'rotate(90deg)'; 
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
