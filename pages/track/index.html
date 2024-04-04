@@ -30,7 +30,26 @@
                 <button>Меню</button>
         </div>
     </div>
-
+    <!-- диалог модальное окно HTML -->
+    <button class="openBtn" id="openBtn">BET
+    </button>
+    <dialog class="modal" id="modal">
+        <div class="modal_inner">
+            Введите ставку
+            <br>
+            <div class="track_bet">
+                <p>
+                    <label>
+                        <input class="input" type="number" minlength="0" maxlength="7" size="7" id="track_bet">
+                    </label>
+                </p>
+            </div>
+            <br>
+            <button class="closeBtn" id="closeBtn">
+                ОК
+            </button>
+        </div>
+    </dialog>
     <div class="wrapper">
         <div class="track">
             <div class="circle_2 spl">

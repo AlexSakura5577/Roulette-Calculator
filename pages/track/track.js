@@ -161,8 +161,26 @@ document.body.style.transform = 'rotate(90deg)';
 let text = "";
 let id = "";
 let neighbors = "";
-// !! добавить модальное окно (временное значение 100) 
-let bet = 100;
+let bet = document.getElementById('track_bet');
+
+// модальное окно JS:
+const openBtn = document.getElementById('openBtn');
+const closeBtn = document.getElementById('closeBtn');
+const modal = document.getElementById('modal');
+
+openBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.showModal();
+});
+closeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.close();
+});
+modal.addEventListener('click', (e) => {
+    // console.log(e.target);
+    e.preventDefault();
+    if (e.target === modal) modal.close();
+});
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
@@ -173,18 +191,19 @@ nodeList.forEach(element => {
         text = element.textContent;
         id = element.id;
         neighbors = track[id];
-        neighbors.bet = bet;
+        neighbors.bet = +bet.value;
         // Выводим текст элемента в консоль и всплывашку:
-        console.log(`${text}, ставка: ${bet}`);
+        console.log(`${text}, ставка: ${neighbors.bet}`);
         // console.log(neighbors.numbers);
         // console.log(bet);
         // alert(`${text} \nвыбранные номера: ${neighbors}`);
         // объект трэк в консоль:
         for (let i = 0; i < 37; i++) {
             let num = "neighbor_" + i;
-            console.log(track[num].numbers);
-            console.log(track[num].bet);
+            // console.log(track[num].numbers);
+            // console.log(track[num].bet);
         };
+        console.log(+bet.value);
     });
 });
 
