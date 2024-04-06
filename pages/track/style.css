@@ -634,7 +634,15 @@ h1 {
 .spiel-t {
     margin: 17px 0px 0px -4px;
 }
-
+.test{
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #db8813;
+    border-radius: 50%;
+    margin: 275px 0px 0px 200px;
+}
 /* модальное окно CSS */
 .openBtn {
     display: block;

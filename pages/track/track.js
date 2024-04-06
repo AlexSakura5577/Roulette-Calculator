@@ -168,12 +168,15 @@ const openBtn = document.getElementById('openBtn');
 const closeBtn = document.getElementById('closeBtn');
 const modal = document.getElementById('modal');
 
+// 3 функции открытия и закрытия диалогового окна
 openBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modal.showModal();
 });
 closeBtn.addEventListener('click', (e) => {
     e.preventDefault();
+    // ! записать значение в переменную bettingNeighbor
+    // ! очистить input
     modal.close();
 });
 modal.addEventListener('click', (e) => {
@@ -181,6 +184,20 @@ modal.addEventListener('click', (e) => {
     e.preventDefault();
     if (e.target === modal) modal.close();
 });
+
+const test = document.querySelector('#num_test');
+const templateModal = document.querySelector('#template-id');
+const b = templateModal.content.querySelector('b');
+const input = templateModal.content.querySelector('input');
+
+b.textContent = "14";
+input.setAttribute("id", "betNei_14");
+
+// дубликат узла
+let testModal = templateModal.content.cloneNode(true);
+test.append(testModal);
+
+console.log(test);
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
