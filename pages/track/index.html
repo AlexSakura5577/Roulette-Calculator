@@ -12,8 +12,7 @@
 </head>
 
 <body>
-    <div class="test" id="num_test"></div>
-    <!--  -->
+    <!-- header -->
     <div class="flex_header">
         <div>
             <div class="btn">
@@ -31,53 +30,7 @@
                 <button>Меню</button>
         </div>
     </div>
-    <div>
-        <!-- диалог модальное окно HTML -->
-        <button class="openBtn" id="openBtn">BET
-        </button>
-        <dialog class="modal" id="modal">
-            <span>Сосед номера:</span><b></b>
-            <div class="modal_inner">
-                Введите ставку
-                <br>
-                <div>
-                    <p>
-                        <label>
-                            <input class="input" type="number" minlength="0" maxlength="7" size="7">
-                        </label>
-                    </p>
-                </div>
-                <br>
-                <button class="closeBtn" id="closeBtn">
-                    ОК
-                </button>
-            </div>
-        </dialog>
-        <!--  шаблон модального окна -->
-        <template id="template-id">
-            <button class="openBtn" id="openBtn">BET
-            </button>
-            <dialog class="modal" id="modal">
-                <span>Сосед номера:</span><b></b>
-                <div class="modal_inner">
-                    Введите ставку
-                    <br>
-                    <div>
-                        <p>
-                            <label>
-                                <input class="input" type="number" minlength="0" maxlength="7" size="7">
-                            </label>
-                        </p>
-                    </div>
-                    <br>
-                    <button class="closeBtn" id="closeBtn">
-                        ОК
-                    </button>
-                </div>
-            </dialog>
-        </template>
-    </div>
-    
+    <!-- обёртка трэка -->
     <div class="wrapper">
         <div class="track">
             <div class="circle_2 spl">

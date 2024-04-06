@@ -2,7 +2,6 @@
 // import "../main/app.js";
 // import { rouletteSeries } from "../main/app.js";
 import { rltPos } from "../main/app.js";
-
 export const track = {
     "neighbor_0": {
         numbers: [15, 32, 0, 26, 3],
@@ -153,51 +152,75 @@ export const track = {
         bet: 0
     }
 };
-
 // поворот экрана:
-document.body.style.transform = 'rotate(90deg)';
-
+// document.body.style.transform = 'rotate(90deg)';
 // переменные:
 let text = "";
 let id = "";
 let neighbors = "";
-let bet = document.getElementById('track_bet');
+let bet = 0;
+// let bet = document.getElementById('track_bet');
 
-// модальное окно JS:
-const openBtn = document.getElementById('openBtn');
-const closeBtn = document.getElementById('closeBtn');
-const modal = document.getElementById('modal');
+// функция модальное окно JS:
+function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
+    neighbor_id = document.getElementById(neighbor_id);
+    neighbor_id.innerHTML = `<button class="openBtn" id=${openBtn}>
+    </button>
+    <dialog class="modal" id=${modal}>
+        <span><h3>Сосед номера:</h3></span><b>${num}</b>
+        <div class="modal_inner">
+            <h3>Введите ставку</h3>
+            <br>
+            <div>
+                <p>
+                    <label>
+                        <input name="bet" class="input track_bet" type="number" minlength="0" maxlength="7" size="7" id=${bet_id}>
+                    </label>
+                </p>
+            </div>
+            <br>
+            <button class="closeBtn" id=${closeBtn}>
+                <h3>ОК</h3>
+            </button>
+        </div>
+    </dialog>`
 
-// 3 функции открытия и закрытия диалогового окна
-openBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.showModal();
-});
-closeBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    // ! записать значение в переменную bettingNeighbor
-    // ! очистить input
-    modal.close();
-});
-modal.addEventListener('click', (e) => {
-    // console.log(e.target);
-    e.preventDefault();
-    if (e.target === modal) modal.close();
-});
+    openBtn = document.getElementById(openBtn);
+    closeBtn = document.getElementById(closeBtn);
+    modal = document.getElementById(modal);
 
-const test = document.querySelector('#num_test');
-const templateModal = document.querySelector('#template-id');
-const b = templateModal.content.querySelector('b');
-const input = templateModal.content.querySelector('input');
+    // 3 функции открытия и закрытия диалогового окна
+    openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.showModal();
+    });
+    modal.addEventListener('click', (e) => {
+        // console.log(e.target);
+        e.preventDefault();
+        if (e.target === modal) modal.close();
+    });
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // ! записать значение в переменную
+        text = document.getElementsByTagName('b');
+        console.log(`Сосед номера: ${num}`);
+        bet = document.getElementById(bet_id).value;
+        if (bet == '') {
+            bet = 0;
+        };
+        console.log(`ставка: ${bet}`);
+        // ! очистить input
+        // document.getElementById(bet_id).value = 0;
+        modal.close();
+    });
 
-b.textContent = "14";
-input.setAttribute("id", "betNei_14");
+    return bet;
+};
+modalWindow('neighbor_14', 'openBtn_14', 'closeBtn_14', 'modal_14', '14', 'bet_14');
+modalWindow('neighbor_20', 'openBtn_20', 'closeBtn_20', 'modal_20', '20', 'bet_20');
 
-// дубликат узла
-let testModal = templateModal.content.cloneNode(true);
-test.append(testModal);
 
-console.log(test);
+
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
@@ -205,12 +228,13 @@ const nodeList = document.querySelectorAll(".pos");
 // информация - сосед, номера и ставка:
 nodeList.forEach(element => {
     element.addEventListener('click', () => {
-        text = element.textContent;
+        // text = element.textContent;
         id = element.id;
         neighbors = track[id];
+        // neighbors.bet = bet;
         neighbors.bet = +bet.value;
         // Выводим текст элемента в консоль и всплывашку:
-        console.log(`${text}, ставка: ${neighbors.bet}`);
+        // console.log(`${text}, ставка: ${neighbors.bet}`);
         // console.log(neighbors.numbers);
         // console.log(bet);
         // alert(`${text} \nвыбранные номера: ${neighbors}`);
@@ -220,14 +244,10 @@ nodeList.forEach(element => {
             // console.log(track[num].numbers);
             // console.log(track[num].bet);
         };
-        console.log(+bet.value);
+        // console.log(neighbors.bet);
     });
 });
 
-
-
-// console.log(track.neighbor_1.numbers);
-// console.log(track.neighbor_1.bet);
 
 // let number = "";
 // neighbors.forEach((element) => {
