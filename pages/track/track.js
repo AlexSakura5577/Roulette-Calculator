@@ -216,7 +216,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         e.preventDefault();
         // записать значение в переменную bet
         text = document.getElementsByTagName('b');
-        console.log(`Сосед номера: ${num}`);
+        // console.log(`Сосед номера: ${num}`);
         bet = document.getElementById(bet_id).value;
         if (bet == '') {
             bet = 0;
@@ -282,30 +282,36 @@ bettingOnNeighbor();
 calculate.onclick = function () {
     // крайняя ставка
     const values = bettingOnNeighbor();
+
+    for (let i = 0; i < 37; i++) {
+        let select = "neighbor_" + i;
+        let trackBet = track[select].bet;
+        // если есть ставка:
+        if (trackBet > 0) {
+            function trackBets() {
+                // проверка кратности 25
+                if (bet % 25 == 0) {
+                    let posBet = bet / 5;
+                    // console.log(`posBet: ${posBet}`);
+                    console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                } else {
+                    // сдача 1
+                    let residue_1 = bet % 25;
+                    bet = bet - residue_1;
+                    let posBet = bet / 5;
+                    console.log(`есть сдача: ${residue_1}`);
+                    console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                };
+                return;
+            }
+            trackBets();
+        };
+    };
+
+    // console.log(track.neighbor_20);
+    // console.log(track.neighbor_14);
+    // console.log(track.neighbor_31);
     console.log(values);
-
-
-
-
-    console.log(track.neighbor_20);
-    console.log(track.neighbor_14);
-    console.log(track.neighbor_31);
 };
 
-// // расчёт ставки по номерам:
-// numbers.forEach((element) => {
-//     betOfNumbers = "number_" + element;
-//     // console.log(number);
-//     let posBet = rltPos.num[betOfNumbers];
-//     // формула подсчёта ставки на позиции:
-//     function trackBets() {
-//         if (bet % 25 == 0) {
-//             posBet = bet / 5;
-//         } else {
-//             console.log("сдача");
-//         };
-//         console.log(`в номер: ${element} выставляем: ${posBet}`);
-//         return;
-//     }
-//     trackBets();
-// });
+
