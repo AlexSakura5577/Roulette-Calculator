@@ -4,14 +4,10 @@ export const minBet = 1;
 export const maxBet = 100;
 
 // пересекается ли трек с полем:
-// whether the track overlaps with a field
-export const trackOverlapsField = true;
+export const trackOverField = true;
 
 //export let strUp = 0;
 //export let completeBet = 25;
-
-// выбранные пользователем номера:
-// export let selectedNumbers = [0, 1];
 
 // коэффициенты выплат
 export const payoutRatios = {
