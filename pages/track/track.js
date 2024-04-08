@@ -293,8 +293,17 @@ calculate.onclick = function () {
     let residue_1 = 0;
     // сдача 2
     let residue_2 = 0;
+    // массив сдачи 1
+    let residue_Arr_1 = [];
+    // массив сдачи 2
+    let residue_Arr_2 = [];
+    // массив общей сдачи:
+    let residue_ArrAll = [];
+    // общая сдача (сумма)
+    let allResidue = 0;
     // функция подсчёта
     function trackBets() {
+        // цикл прохода по треку:
         for (let i = 0; i < 37; i++) {
             // селектор для объекта track:
             let select = "neighbor_" + i;
@@ -302,37 +311,26 @@ calculate.onclick = function () {
             let trackNumb = track[select].numbers;
             // если есть ставка:
             if (trackBet > 0) {
-                // проверка кратности 25
+                // проверка кратности 25 (без сдачи)
                 if (trackBet % 25 == 0) {
                     posBet = trackBet / 5;
                     console.log(`сосед номера: ${i} играет по: ${posBet}`);
                 } else {
-                    // сдача 1
+                    // есть сдача 1
                     residue_1 = trackBet % 25;
                     trackBet = trackBet - residue_1;
                     posBet = trackBet / 5;
-                    console.log(`есть сдача: ${residue_1}`);
+                    residue_Arr_1.push(residue_1);
                     console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                    console.log(`есть сдача: ${residue_1}`);
                 };
-                // массив номеров:
-                // numbers = values.numbers;
-
                 // заполняем ячейки позиций
                 trackNumb.forEach((element) => {
                     // селектор для объекта rltPos
                     let betOfNum = "number_" + element;
                     rltPos.num[betOfNum].push(posBet);
-                    console.log(`rltPos_${betOfNum}: ${rltPos.num[betOfNum]}`);
+                    // console.log(`rltPos_${betOfNum}: ${rltPos.num[betOfNum]}`);
                 });
-
-
-
-                // console.log(num);
-                // console.log(numbers);
-                // console.log(posBet);
-                // сдача 1
-                // console.log(residue_1);
-
                 // // проверочный список трека:
                 // for (let i = 0; i < 37; i++) {
                 //     let select = "neighbor_" + i;
@@ -347,6 +345,44 @@ calculate.onclick = function () {
             trackBet = 0;
             continue;
         };
+        // счётчики:
+        let count_1 = 0;
+        let count_2 = 0;
+        // цикл прохода по треку:
+        for (let i = 0; i < 37; i++) {
+            let select = "number_" + i;
+            let fillStr_Up = rltPos.num[select].reduce(function (a, b) {
+                return a + b;
+            }, 0);
+            // сколько номеров играет
+            if (fillStr_Up > 0) {
+                count_1 += 1;
+            };
+            console.log(`${select}: ${fillStr_Up}`);
+            // превышение с номера:
+            if (fillStr_Up > maxBet) {
+                residue_2 = fillStr_Up - maxBet;
+                residue_Arr_2.push(residue_2);
+                console.log(`превышение с номера ${i}: ${residue_2}`);
+                // сколько номеров играет до максимума:
+                count_2 += 1;
+            };
+
+            // console.log(`${select}:  ${rltPos.num[select]}`);
+        };
+        console.log(`всего номеров играет: ${count_1}`);
+        console.log(`номеров играет до максимума: ${count_2}`);
+        // общая сдача 1:
+        let sum1 = residue_Arr_1.reduce(function (a, b) {
+            return a + b;
+        }, 0);
+        console.log(`общая сдача 1: ${sum1}`);
+
+        let sum2 = residue_Arr_2.reduce(function (a, b) {
+            return a + b;
+        }, 0);
+        console.log(`общая сдача 2: ${sum2}`);
+
         return;
     };
     trackBets();
