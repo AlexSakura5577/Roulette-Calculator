@@ -8,19 +8,34 @@
     <script src="https://kit.fontawesome.com/3eea134bf1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../main/reset.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
     <title>track</title>
 </head>
 
 <body>
-    <!--  -->
+    <!-- header -->
     <div class="flex_header">
         <div>
             <div class="btn">
+                <input id="reset" type="button" value="Сброс" />
+            </div>
+            <div class="minmax">
+                <!-- выбор минимума - максимума -->
+                <div class="body__item_3 item">
+                    <h1>Min/Max:</h1>
+                </div>
+                <div class="body__item_4 item">
+                    <p><select id="minmax" size="1">
+                            <option value="1-100">1-100</option>
+                            <option value="5-200">5-200</option>
+                            <option value="5-300">5-300</option>
+                            <option value="25-500">25-500</option>
+                        </select></p>
+                </div>
+            </div>
+            <div class="btn">
                 <input id="calculate" type="button" value="Рассчитать" />
             </div>
-            <!-- <div class="btn">
-                <input id="reset" type="button" value="Сброс" />
-            </div> -->
         </div>
         <div>
             <h1>track</h1>
@@ -30,7 +45,7 @@
                 <button>Меню</button>
         </div>
     </div>
-
+    <!-- обёртка трэка -->
     <div class="wrapper">
         <div class="track">
             <div class="circle_2 spl">
@@ -512,6 +527,11 @@
             <div class="neighbor_36 bet pos" id="neighbor_36">сосед номера 36</div>
         </div>
     </div>
+
+    <!-- инфо -->
+    <div class="user_info" id="user_info">
+    </div>
+
 
     <script src="track.js" type="module"></script>
 </body>
