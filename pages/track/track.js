@@ -172,8 +172,6 @@ let numbers = [];
 let bet = 0;
 // сосед (число)
 let num = "";
-// ставка расставленная по номерам
-let betOfNumbers = "";
 // функция модальное окно JS:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     neighbor_id = document.getElementById(neighbor_id);
@@ -214,9 +212,9 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // записать значение в переменную bet
+        // текст номера в модальном окне:
         text = document.getElementsByTagName('b');
-        // console.log(`Сосед номера: ${num}`);
+        // записать значение в переменную bet:
         bet = document.getElementById(bet_id).value;
         if (bet == '') {
             bet = 0;
@@ -224,7 +222,14 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             console.log("не корректная ставка");
             return;
         };
-        // console.log(`ставка: ${bet}`);
+        // очистить объект для пересчёта:
+        for (let i = 0; i < 37; i++) {
+            let sel = "number_" + i;
+            rltPos.num[sel] = [];
+        };
+        console.log(`сосед: ${num}`);
+        console.log(`выбранные номера: ${numbers}`);
+        console.log(`ставка: ${bet}`);
         modal.close();
     });
     return bet;
@@ -258,8 +263,8 @@ function bettingOnNeighbor() {
             num = numbers[2];
             // ставка на соседа:
             neighbors.bet = bet;
-            console.log((`выбранные номера: ${numbers}`));
-            console.log((`ставка: ${track[id].bet}`));
+            // console.log((`выбранные номера: ${numbers}`));
+            // console.log((`ставка: ${track[id].bet}`));
             // подсветка ставок
             const inlineStyles = element.style;
             if (bet >= 25) {
@@ -282,32 +287,72 @@ bettingOnNeighbor();
 calculate.onclick = function () {
     // крайняя ставка
     const values = bettingOnNeighbor();
-
-    for (let i = 0; i < 37; i++) {
-        let select = "neighbor_" + i;
-        let trackBet = track[select].bet;
-        // если есть ставка:
-        if (trackBet > 0) {
-            function trackBets() {
+    // по чём играет:
+    let posBet = 0;
+    // сдача 1
+    let residue_1 = 0;
+    // сдача 2
+    let residue_2 = 0;
+    // функция подсчёта
+    function trackBets() {
+        for (let i = 0; i < 37; i++) {
+            // селектор для объекта track:
+            let select = "neighbor_" + i;
+            let trackBet = track[select].bet;
+            let trackNumb = track[select].numbers;
+            // если есть ставка:
+            if (trackBet > 0) {
                 // проверка кратности 25
-                if (bet % 25 == 0) {
-                    let posBet = bet / 5;
-                    // console.log(`posBet: ${posBet}`);
+                if (trackBet % 25 == 0) {
+                    posBet = trackBet / 5;
                     console.log(`сосед номера: ${i} играет по: ${posBet}`);
                 } else {
                     // сдача 1
-                    let residue_1 = bet % 25;
-                    bet = bet - residue_1;
-                    let posBet = bet / 5;
+                    residue_1 = trackBet % 25;
+                    trackBet = trackBet - residue_1;
+                    posBet = trackBet / 5;
                     console.log(`есть сдача: ${residue_1}`);
                     console.log(`сосед номера: ${i} играет по: ${posBet}`);
                 };
-                return;
-            }
-            trackBets();
-        };
-    };
+                // массив номеров:
+                // numbers = values.numbers;
 
+                // заполняем ячейки позиций
+                trackNumb.forEach((element) => {
+                    // селектор для объекта rltPos
+                    let betOfNum = "number_" + element;
+                    rltPos.num[betOfNum].push(posBet);
+                    console.log(`rltPos_${betOfNum}: ${rltPos.num[betOfNum]}`);
+                });
+
+
+
+                // console.log(num);
+                // console.log(numbers);
+                // console.log(posBet);
+                // сдача 1
+                // console.log(residue_1);
+
+                // // проверочный список трека:
+                // for (let i = 0; i < 37; i++) {
+                //     let select = "neighbor_" + i;
+                //     console.log(`${select}: ${track[select].bet}`);
+                // };
+                // // проверочный список поля:
+                // for (let i = 0; i < 37; i++) {
+                //     let select = "number_" + i;
+                //     console.log(`${select}: ${rltPos.num[select]}`);
+                // };
+            };
+            trackBet = 0;
+            continue;
+        };
+        return;
+    };
+    trackBets();
+
+    // console.log(posBet);
+    // console.log(values.numbers);
     // console.log(track.neighbor_20);
     // console.log(track.neighbor_14);
     // console.log(track.neighbor_31);
