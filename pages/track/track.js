@@ -1,9 +1,21 @@
 // импорты:
 // import "../main/app.js";
-import { minBet } from "../main/app.js";
-import { maxBet } from "../main/app.js";
+// import { minBet } from "../main/app.js";
+// import { maxBet } from "../main/app.js";
 import { rouletteSeries } from "../main/app.js";
 import { rltPos } from "../main/app.js";
+import { payoutRatios } from "../main/app.js";
+
+// localStorage
+localStorage.setItem('minBet', 1);
+localStorage.setItem('maxBet', 100);
+// кнопка Сброс:
+reset.onclick = function () {
+    location.reload();
+    localStorage.setItem('minBet', 1);
+    localStorage.setItem('maxBet', 100);
+    return;
+};
 
 export const track = {
     "neighbor_0": {
@@ -160,6 +172,7 @@ export const track = {
 // document.body.style.transform = 'rotate(90deg)';
 
 // переменные:
+const info = document.getElementById('user_info');
 // текст в модальном окне
 let text = ""; // ! переменная нужна
 // id соседа из nodelist
@@ -220,6 +233,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             bet = 0;
         } else if (bet < 25) {
             console.log("не корректная ставка");
+            info.innerHTML = `не корректная ставка`;
             return;
         };
         // очистить объект для пересчёта:
@@ -230,6 +244,10 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         console.log(`сосед: ${num}`);
         console.log(`выбранные номера: ${numbers}`);
         console.log(`ставка: ${bet}`);
+
+        // вывод информации юзеру:
+        info.innerHTML = `сосед: ${num}<br>выбранные номера: ${numbers}<br>ставка: ${bet}<br>`;
+
         modal.close();
     });
     return bet;
@@ -285,6 +303,46 @@ bettingOnNeighbor();
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
+    // выбор минимума-максимума рулетки:
+    let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
+    let minBet = localStorage.getItem('minBet');
+    let maxBet = localStorage.getItem('maxBet');
+    switch (minmax) {
+        case "1-100":
+            minBet = 1;
+            maxBet = 100;
+            localStorage.setItem('minBet', 1);
+            localStorage.setItem('maxBet', 100);
+            break;
+        case "5-200":
+            minBet = 5;
+            maxBet = 200;
+            localStorage.setItem('minBet', 5);
+            localStorage.setItem('maxBet', 200);
+            break;
+        case "5-300":
+            minBet = 5;
+            maxBet = 300;
+            localStorage.setItem('minBet', 5);
+            localStorage.setItem('maxBet', 300);
+            break;
+        case "25-500":
+            minBet = 25;
+            maxBet = 500;
+            localStorage.setItem('minBet', 25);
+            localStorage.setItem('maxBet', 500);
+            break;
+        default:
+            minBet = 1;
+            maxBet = 100;
+            localStorage.setItem('minBet', 1);
+            localStorage.setItem('maxBet', 100);
+    };
+    // обнуление позиций поля:
+    for (let i = 0; i < 37; i++) {
+        let select = "number_" + i;
+        rltPos.num[select] = [];
+    };
     // крайняя ставка
     const values = bettingOnNeighbor();
     // по чём играет:
@@ -401,7 +459,7 @@ calculate.onclick = function () {
     };
     const valuesDone = trackBets();
     console.log(values);
-    const info = document.getElementById('user_info');
+
     info.innerHTML = `общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}`;
 };
 

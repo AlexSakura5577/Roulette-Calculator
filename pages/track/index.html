@@ -17,11 +17,25 @@
     <div class="flex_header">
         <div>
             <div class="btn">
+                <input id="reset" type="button" value="Сброс" />
+            </div>
+            <div class="minmax">
+                <!-- выбор минимума - максимума -->
+                <div class="body__item_3 item">
+                    <h1>Min/Max:</h1>
+                </div>
+                <div class="body__item_4 item">
+                    <p><select id="minmax" size="1">
+                            <option value="1-100">1-100</option>
+                            <option value="5-200">5-200</option>
+                            <option value="5-300">5-300</option>
+                            <option value="25-500">25-500</option>
+                        </select></p>
+                </div>
+            </div>
+            <div class="btn">
                 <input id="calculate" type="button" value="Рассчитать" />
             </div>
-            <!-- <div class="btn">
-                <input id="reset" type="button" value="Сброс" />
-            </div> -->
         </div>
         <div>
             <h1>track</h1>
@@ -517,7 +531,7 @@
     <!-- инфо -->
     <div class="user_info" id="user_info">
     </div>
-    
+
 
     <script src="track.js" type="module"></script>
 </body>

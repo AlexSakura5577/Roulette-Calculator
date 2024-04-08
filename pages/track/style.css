@@ -734,6 +734,22 @@ b {
     font-size: 15px;
     color: #ffffff;
 }
+.minmax {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.body__item_3 {
+    display: block;
+    margin-left: 0px;
+}
+
+.body__item_4 {
+    display: block;
+    margin-left: 0px;
+}
 
 @media (pointer: fine) {
 
