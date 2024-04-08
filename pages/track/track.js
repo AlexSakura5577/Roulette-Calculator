@@ -299,6 +299,8 @@ calculate.onclick = function () {
     let residue_Arr_2 = [];
     // общая сдача (сумма)
     let allResidue = 0;
+    // превышение:
+    let excess = [];
     // функция подсчёта
     function trackBets() {
         // цикл прохода по треку:
@@ -312,15 +314,23 @@ calculate.onclick = function () {
                 // проверка кратности 25 (без сдачи)
                 if (trackBet % 25 == 0) {
                     posBet = trackBet / 5;
-                    console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                    if (posBet >= maxBet) {
+                        console.log(`сосед номера: ${i} играет по: ${maxBet}`);
+                    } else {
+                        console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                    }
                 } else {
                     // есть сдача 1
                     residue_1 = trackBet % 25;
                     trackBet = trackBet - residue_1;
                     posBet = trackBet / 5;
                     residue_Arr_1.push(residue_1);
-                    console.log(`сосед номера: ${i} играет по: ${posBet}`);
-                    console.log(`есть сдача: ${residue_1}`);
+                    if (posBet >= maxBet) {
+                        console.log(`сосед номера: ${i} играет по: ${maxBet}`);
+                    } else {
+                        console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                        console.log(`есть сдача: ${residue_1}`);
+                    }
                 };
                 // заполняем ячейки позиций
                 trackNumb.forEach((element) => {
@@ -364,6 +374,7 @@ calculate.onclick = function () {
                 console.log(`превышение с номера ${i}: ${residue_2}`);
                 // сколько номеров играет до максимума:
                 count_2 += 1;
+                excess.push(`,превышение с номера ${i}: ${residue_2}<br>`);
             };
             // console.log(`${select}:  ${rltPos.num[select]}`);
         };
@@ -381,10 +392,17 @@ calculate.onclick = function () {
         console.log(`общая сдача 2: ${sum2}`);
         allResidue = sum1 + sum2;
         console.log(`общая сдача с трека: ${allResidue}`);
-        return;
+        return {
+            count_1: count_1,
+            count_2: count_2,
+            allResidue: allResidue,
+            excess: excess
+        };
     };
-    trackBets();
+    const valuesDone = trackBets();
     console.log(values);
+    const info = document.getElementById('user_info');
+    info.innerHTML = `общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}`;
 };
 
 

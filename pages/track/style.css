@@ -722,11 +722,27 @@ b {
     background-color: #3c0d0d;
 }
 
+.user_info {
+    display: block;
+    position: absolute;
+    width: 280px;
+    height: 200px;
+    /* background-color: aqua; */
+    margin: -570px 0px 0px 190px;
+    /* border: 1px solid aqua; */
+   font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    color: #ffffff;
+}
 
 @media (pointer: fine) {
 
     /* desktop */
     body {
         transform: rotate(90deg);
+    }
+    .user_info {
+        transform: rotate(-90deg);
+        margin: -400px 0px 0px 145px;
     }
 }
