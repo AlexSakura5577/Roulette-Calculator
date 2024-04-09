@@ -185,6 +185,8 @@ let numbers = [];
 let bet = 0;
 // сосед (число)
 let num = "";
+// массив информации:
+let infoArr = [];
 // функция модальное окно JS:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     neighbor_id = document.getElementById(neighbor_id);
@@ -375,11 +377,13 @@ calculate.onclick = function () {
                     if (posBet >= maxBet) {
                         console.log(`сосед номера: ${i} играет по: ${maxBet}`);
                         // вывод информации юзеру:
-                        info.innerHTML = `сосед: ${i} играет по: ${maxBet}`;
+                        // info.innerHTML = `сосед: ${i} играет по: ${maxBet}`;
+                        infoArr.push(`сосед: ${i} играет по: ${maxBet}<br>`);
                     } else {
                         console.log(`сосед номера: ${i} играет по: ${posBet}`);
                         // вывод информации юзеру:
-                        info.innerHTML = `сосед: ${i} играет по: ${posBet}`;
+                        // info.innerHTML = `сосед: ${i} играет по: ${posBet}`;
+                        infoArr.push(`сосед: ${i} играет по: ${posBet}<br>`);
                     }
                 } else {
                     // есть сдача 1
@@ -390,12 +394,14 @@ calculate.onclick = function () {
                     if (posBet >= maxBet) {
                         console.log(`сосед номера: ${i} играет по: ${maxBet}`);
                         // вывод информации юзеру:
-                        info.innerHTML = `сосед: ${i} играет по: ${maxBet}`;
+                        // info.innerHTML = `сосед: ${i} играет по: ${maxBet}`;
+                        infoArr.push(`сосед: ${i} играет по: ${maxBet}<br>`);
                     } else {
                         console.log(`сосед номера: ${i} играет по: ${posBet}`);
                         console.log(`есть сдача: ${residue_1}`);
                         // вывод информации юзеру:
-                        info.innerHTML = `сосед: ${i} играет по: ${posBet}<br>есть сдача: ${residue_1}`;
+                        // info.innerHTML = `сосед: ${i} играет по: ${posBet}<br>есть сдача: ${residue_1}`;
+                        infoArr.push(`сосед: ${i} играет по: ${posBet}<br>есть сдача: ${residue_1}<br>`);
                     }
                 };
                 // заполняем ячейки позиций
@@ -437,7 +443,7 @@ calculate.onclick = function () {
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
                 residue_Arr_2.push(residue_2);
-                console.log(`превышение с номера ${i}: ${residue_2}`);
+                console.log(`превышение с номера ${i}: ${residue_2}<br>`);
                 // сколько номеров играет до максимума:
                 count_2 += 1;
                 excess.push(`,превышение с номера ${i}: ${residue_2}<br>`);
@@ -466,9 +472,10 @@ calculate.onclick = function () {
         };
     };
     const valuesDone = trackBets();
-    console.log(values);
 
-    info.innerHTML = `общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}`;
+    infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}`);
+
+    info.innerHTML = infoArr;
 };
 
 
