@@ -374,8 +374,12 @@ calculate.onclick = function () {
                     posBet = trackBet / 5;
                     if (posBet >= maxBet) {
                         console.log(`сосед номера: ${i} играет по: ${maxBet}`);
+                        // вывод информации юзеру:
+                        info.innerHTML = `сосед: ${i} играет по: ${maxBet}`;
                     } else {
                         console.log(`сосед номера: ${i} играет по: ${posBet}`);
+                        // вывод информации юзеру:
+                        info.innerHTML = `сосед: ${i} играет по: ${posBet}`;
                     }
                 } else {
                     // есть сдача 1
@@ -385,9 +389,13 @@ calculate.onclick = function () {
                     residue_Arr_1.push(residue_1);
                     if (posBet >= maxBet) {
                         console.log(`сосед номера: ${i} играет по: ${maxBet}`);
+                        // вывод информации юзеру:
+                        info.innerHTML = `сосед: ${i} играет по: ${maxBet}`;
                     } else {
                         console.log(`сосед номера: ${i} играет по: ${posBet}`);
                         console.log(`есть сдача: ${residue_1}`);
+                        // вывод информации юзеру:
+                        info.innerHTML = `сосед: ${i} играет по: ${posBet}<br>есть сдача: ${residue_1}`;
                     }
                 };
                 // заполняем ячейки позиций
