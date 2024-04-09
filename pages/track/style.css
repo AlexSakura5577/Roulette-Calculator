@@ -754,11 +754,11 @@ b {
 @media (pointer: fine) {
 
     /* desktop */
-    body {
+    /* body {
         transform: rotate(90deg);
     }
     .user_info {
         transform: rotate(-90deg);
         margin: -400px 0px 0px 145px;
-    }
+    } */
 }
