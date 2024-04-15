@@ -376,18 +376,20 @@ function bettingOnNeighbor() {
         element.addEventListener('click', () => {
             id = element.id;
             if (id === "tier" || "orphelins" || "voisins" || "spiel") {
-                console.log(id);
+                // console.log(id);
             };
             // сосед номера:
             neighbors = track[id];
-            // выбранные номера:
-            numbers = track[id].numbers;
-            // номер:
-            num = numbers[2];
-            // ставка на соседа:
-            neighbors.bet = bet;
-            // console.log((`выбранные номера: ${numbers}`));
-            // console.log((`ставка: ${track[id].bet}`));
+            try {
+                // выбранные номера:
+                numbers = track[id].numbers;
+                // номер:
+                num = numbers[2];
+                // ставка на соседа:
+                neighbors.bet = bet;
+            } catch (err) {
+                // console.log(id);
+            };
             // подсветка ставок
             const inlineStyles = element.style;
             if (bet >= 25) {
@@ -558,7 +560,7 @@ calculate.onclick = function () {
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
                 residue_Arr_2.push(residue_2);
-                console.log(`превышение с номера ${i}: ${residue_2}<br>`);
+                console.log(`превышение с номера ${i}: ${residue_2}`);
                 // сколько номеров играет до максимума:
                 count_2 += 1;
                 excess.push(`,превышение с номера ${i}: ${residue_2}<br>`);
