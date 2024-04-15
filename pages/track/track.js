@@ -173,6 +173,8 @@ export const track = {
 
 // переменные:
 const info = document.getElementById('user_info');
+// получить список элементов по классу
+const nodeList = document.querySelectorAll(".pos");
 // текст в модальном окне
 let text = ""; // ! переменная нужна
 // id соседа из nodelist
@@ -263,18 +265,119 @@ for (let i = 0; i < 37; i++) {
     let bet = "bet_" + i;
     modalWindow(neighbor, openBtn, closeBtn, modal, i, bet);
 };
+
+// модальное окно JS серия:
+function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
+    let nameSeries = series;
+    // nameSeries.toUpperCase();
+    let classOpenBtn = "openBtn";
+    switch (nameSeries) {
+        case "tier":
+            classOpenBtn = "tier-series";
+            break;
+        case "orphelins":
+            classOpenBtn = "orphelins-series";
+            break;
+        case "voisins":
+            classOpenBtn = "voisins-series";
+            break;
+        case "spiel":
+            classOpenBtn = "spiel-series";
+            break;
+    };
+    series = document.getElementById(series);
+    series.innerHTML = `<button class=${classOpenBtn} id=${openBtn}>
+    </button>
+    <dialog class="modal" id=${modal}>
+        <span><h3>Серия:</h3></span><b>${nameSeries}</b>
+        <div class="modal_inner">
+            <h3>Введите ставку</h3>
+            <br>
+            <div>
+                <p>
+                    <label>
+                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="25" id=${bet_id}>
+                    </label>
+                </p>
+            </div>
+            <br>
+            <button class="closeBtn" id=${closeBtn}>
+                <h3>ОК</h3>
+            </button>
+        </div>
+    </dialog>`
+
+    openBtn = document.getElementById(openBtn);
+    closeBtn = document.getElementById(closeBtn);
+    modal = document.getElementById(modal);
+
+    // 3 функции открытия и закрытия диалогового окна
+    openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.showModal();
+    });
+    modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (e.target === modal) modal.close();
+    });
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // текст номера в модальном окне:
+        text = document.getElementsByTagName('b');
+        // записать значение в переменную bet:
+        bet = document.getElementById(bet_id).value;
+        if (bet == '') {
+            bet = 0;
+        } else if (bet < 25) {
+            console.log("не корректная ставка");
+            info.innerHTML = `не корректная ставка`;
+            return;
+        };
+        // очистить объект для пересчёта:
+        // for (let i = 0; i < 37; i++) {
+        //     let sel = "number_" + i;
+        //     rltPos.num[sel] = [];
+        // };
+        console.log(`серия: ${nameSeries}`);
+        console.log(`ставка: ${bet}`);
+        // вывод информации юзеру:
+        info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
+        modal.close();
+    });
+    return bet;
+};
+// цикл размножает модальные окна серий
+let series = "";
+for (let i = 37; i < 41; i++) {
+    switch (i) {
+        case 37:
+            series = "tier";
+            break;
+        case 38:
+            series = "orphelins";
+            break;
+        case 39:
+            series = "voisins";
+            break;
+        case 40:
+            series = "spiel";
+            break;
+    }
+    let openBtn = "openBtn_" + i;
+    let closeBtn = "closeBtn_" + i;
+    let modal = "modal_" + i;
+    let bet = "bet_" + i;
+    modalWindow_2(series, openBtn, closeBtn, modal, bet);
+};
+
 // ставка на соседа:
 function bettingOnNeighbor() {
-    // получить список элементов по классу
-    const nodeList = document.querySelectorAll(".pos");
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
             id = element.id;
-            // серии:
-            // if (id === "tier" || "orphelins" || "voisins" || "spiel") {
-            //     console.log(id);
-            //     return;
-            // };
+            if (id === "tier" || "orphelins" || "voisins" || "spiel") {
+                console.log(id);
+            };
             // сосед номера:
             neighbors = track[id];
             // выбранные номера:
@@ -303,6 +406,18 @@ function bettingOnNeighbor() {
 };
 bettingOnNeighbor();
 
+// ставка на серию:
+
+
+
+
+
+
+// серию:
+// if (id === "tier" || "orphelins" || "voisins" || "spiel") {
+//     console.log(id);
+//     return;
+// };
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     // выбор минимума-максимума рулетки:
