@@ -5,6 +5,7 @@
 import { rouletteSeries } from "../main/app.js";
 import { rltPos } from "../main/app.js";
 import { payoutRatios } from "../main/app.js";
+import { seriesCalc } from "../series/series.js";
 
 // localStorage
 let minBet = localStorage.getItem('minBet');
@@ -204,7 +205,7 @@ export const track = {
 };
 
 // поворот экрана:
-// document.body.style.transform = 'rotate(90deg)';
+document.body.style.transform = 'rotate(90deg)';
 
 // переменные:
 // user info:
@@ -459,8 +460,9 @@ function bettingOnNeighbor() {
         element.addEventListener('click', () => {
             id = element.id;
             if (id === "tier" || "orphelins" || "voisins" || "spiel") {
-                console.log(`серия: ${id}`);
-                console.log(`ставка: ${bet}`);
+                series = id;
+                // console.log(`серия: ${series}`);
+                // console.log(`ставка: ${bet}`);
             };
             // сосед номера:
             neighbors = track[id];
@@ -493,10 +495,26 @@ function bettingOnNeighbor() {
 bettingOnNeighbor();
 
 // ставка на серию:
-// function bettingOnSeries() {
-//     console.log(trackSeries.series);
-//     console.log(trackSeries.bet);
-// }
+function bettingOnSeries() {
+    // ломается шаг:
+    let breakingStep = 0;
+    // ставка без сдачи:
+    let betWithoutChange = 0;
+    // по чём играет:
+    let plays = 0;
+    // остаток от деления (кратность):
+    let residue = 0;
+    // сдача:
+    let change = 0;
+
+    //  вычисления:
+    seriesCalc(maxBet, series, bet);
+
+    console.log(`шаг ломается от: ${breakingStep}`);
+    console.log(`чистая ставка: ${betWithoutChange}`);
+    console.log(`играет по:  ${plays}`);
+    console.log(`сдача: ${change}`);
+}
 // bettingOnSeries();
 
 // клик по кнопке "Рассчитать":
