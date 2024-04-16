@@ -5,10 +5,46 @@
 import { rouletteSeries } from "../main/app.js";
 import { rltPos } from "../main/app.js";
 import { payoutRatios } from "../main/app.js";
+import { seriesCalc } from "../series/series.js";
 
 // localStorage
-localStorage.setItem('minBet', 1);
-localStorage.setItem('maxBet', 100);
+let minBet = localStorage.getItem('minBet');
+let maxBet = localStorage.getItem('maxBet');
+minmax.value = `${minBet}-${maxBet}`;
+// выбор минимума максимума рулетки:
+minmax.onclick = function () {
+    // выбор минимума-максимума рулетки:
+    let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
+    minBet = localStorage.getItem('minBet');
+    maxBet = localStorage.getItem('maxBet');
+    switch (minmax) {
+        case "1-100":
+            minBet = 1;
+            maxBet = 100;
+            localStorage.setItem('minBet', 1);
+            localStorage.setItem('maxBet', 100);
+            break;
+        case "5-200":
+            minBet = 5;
+            maxBet = 200;
+            localStorage.setItem('minBet', 5);
+            localStorage.setItem('maxBet', 200);
+            break;
+        case "5-300":
+            minBet = 5;
+            maxBet = 300;
+            localStorage.setItem('minBet', 5);
+            localStorage.setItem('maxBet', 300);
+            break;
+        case "25-500":
+            minBet = 25;
+            maxBet = 500;
+            localStorage.setItem('minBet', 25);
+            localStorage.setItem('maxBet', 500);
+            break;
+    };
+};
+
 // кнопка Сброс:
 reset.onclick = function () {
     location.reload();
@@ -169,12 +205,15 @@ export const track = {
 };
 
 // поворот экрана:
-// document.body.style.transform = 'rotate(90deg)';
+document.body.style.transform = 'rotate(90deg)';
 
 // переменные:
+// user info:
 const info = document.getElementById('user_info');
+// получить список элементов по классу
+const nodeList = document.querySelectorAll(".pos");
 // текст в модальном окне
-let text = ""; // ! переменная нужна
+// let text = ""; 
 // id соседа из nodelist
 let id = "";
 // сосед (строка)
@@ -187,8 +226,17 @@ let bet = 0;
 let num = "";
 // массив информации:
 let infoArr = [];
-// функция модальное окно JS:
+// функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
+    let min = 0;
+    let max = 0;
+    if (minBet == 25) {
+        min = minBet * 5;
+        max = maxBet * 5;
+    } else if (minBet == 1 || 5) {
+        min = 25;
+        max = maxBet * 5;
+    };
     neighbor_id = document.getElementById(neighbor_id);
     neighbor_id.innerHTML = `<button class="openBtn" id=${openBtn}>
     </button>
@@ -200,7 +248,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             <div>
                 <p>
                     <label>
-                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="25" id=${bet_id}>
+                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="${min}" max="${max}" id=${bet_id}>
                     </label>
                 </p>
             </div>
@@ -221,14 +269,11 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         modal.showModal();
     });
     modal.addEventListener('click', (e) => {
-        // console.log(e.target);
         e.preventDefault();
         if (e.target === modal) modal.close();
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // текст номера в модальном окне:
-        text = document.getElementsByTagName('b');
         // записать значение в переменную bet:
         bet = document.getElementById(bet_id).value;
         if (bet == '') {
@@ -263,28 +308,174 @@ for (let i = 0; i < 37; i++) {
     let bet = "bet_" + i;
     modalWindow(neighbor, openBtn, closeBtn, modal, i, bet);
 };
-// ставка на соседа:
+// функция модальное окно JS серия:
+function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
+    let classOpenBtn = "openBtn";
+    let nameSeries = series;
+    let min = 0;
+
+    if (minBet == 25) {
+        switch (nameSeries) {
+            case "tier":
+                classOpenBtn = "tier-series";
+                min = 150;
+                break;
+            case "orphelins":
+                classOpenBtn = "orphelins-series";
+                min = 125;
+                break;
+            case "voisins":
+                classOpenBtn = "voisins-series";
+                min = 225;
+                break;
+            case "spiel":
+                classOpenBtn = "spiel-series";
+                min = 100;
+                break;
+        };
+    } else if (minBet == 1 || 5) {
+        switch (nameSeries) {
+            case "tier":
+                classOpenBtn = "tier-series";
+                min = 30;
+                break;
+            case "orphelins":
+                classOpenBtn = "orphelins-series";
+                min = 25;
+                break;
+            case "voisins":
+                classOpenBtn = "voisins-series";
+                min = 45;
+                break;
+            case "spiel":
+                classOpenBtn = "spiel-series";
+                min = 20;
+                break;
+        };
+    };
+
+    series = document.getElementById(series);
+    series.innerHTML = `<button class=${classOpenBtn} id=${openBtn}>
+    </button>
+    <dialog class="modal" id=${modal}>
+        <span><h3>Серия:</h3></span><b>${nameSeries}</b>
+        <div class="modal_inner">
+            <h3>Введите ставку</h3>
+            <br>
+            <div>
+                <p>
+                    <label>
+                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="${min}" id=${bet_id}>
+                    </label>
+                </p>
+            </div>
+            <br>
+            <button class="closeBtn" id=${closeBtn}>
+                <h3>ОК</h3>
+            </button>
+        </div>
+    </dialog>`
+
+    openBtn = document.getElementById(openBtn);
+    closeBtn = document.getElementById(closeBtn);
+    modal = document.getElementById(modal);
+
+    // 3 функции открытия и закрытия диалогового окна
+    openBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.showModal();
+    });
+    modal.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (e.target === modal) modal.close();
+    });
+    closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // записать значение в переменную bet:
+        bet = document.getElementById(bet_id).value;
+
+        if (bet == '') {
+            bet = 0;
+        } else if (nameSeries == "spiel" && bet < 20) {
+            console.log("не корректная ставка");
+            info.innerHTML = `не корректная ставка`;
+            return;
+        } else if (nameSeries == "orphelins" && bet < 25) {
+            console.log("не корректная ставка");
+            info.innerHTML = `не корректная ставка`;
+            return;
+        }
+        else if (nameSeries == "tier" && bet < 30) {
+            console.log("не корректная ставка");
+            info.innerHTML = `не корректная ставка`;
+            return;
+        }
+        else if (nameSeries == "voisins" && bet < 45) {
+            console.log("не корректная ставка");
+            info.innerHTML = `не корректная ставка`;
+            return;
+        }
+
+        // очистить объект для пересчёта:
+        // for (let i = 0; i < 37; i++) {
+        //     let sel = "number_" + i;
+        //     rltPos.num[sel] = [];
+        // };
+        // console.log(`серия: ${nameSeries}`);
+        // console.log(`ставка: ${bet}`);
+        // console.log(bet_id);
+        // вывод информации юзеру:
+        info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
+        modal.close();
+    });
+    return bet;
+};
+// цикл размножает модальные окна серий
+let series = "";
+for (let i = 37; i < 41; i++) {
+    switch (i) {
+        case 37:
+            series = "tier";
+            break;
+        case 38:
+            series = "orphelins";
+            break;
+        case 39:
+            series = "voisins";
+            break;
+        case 40:
+            series = "spiel";
+            break;
+    }
+    let openBtn = "openBtn_" + i;
+    let closeBtn = "closeBtn_" + i;
+    let modal = "modal_" + i;
+    let bet = "bet_" + i;
+    modalWindow_2(series, openBtn, closeBtn, modal, bet);
+};
+
+// ставка:
 function bettingOnNeighbor() {
-    // получить список элементов по классу
-    const nodeList = document.querySelectorAll(".pos");
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
             id = element.id;
-            // серии:
-            // if (id === "tier" || "orphelins" || "voisins" || "spiel") {
-            //     console.log(id);
-            //     return;
-            // };
+            if (id === "tier" || "orphelins" || "voisins" || "spiel") {
+                series = id;
+                // console.log(`серия: ${series}`);
+                // console.log(`ставка: ${bet}`);
+            };
             // сосед номера:
             neighbors = track[id];
-            // выбранные номера:
-            numbers = track[id].numbers;
-            // номер:
-            num = numbers[2];
-            // ставка на соседа:
-            neighbors.bet = bet;
-            // console.log((`выбранные номера: ${numbers}`));
-            // console.log((`ставка: ${track[id].bet}`));
+            try {
+                // выбранные номера:
+                numbers = track[id].numbers;
+                // номер:
+                num = numbers[2];
+                // ставка на соседа:
+                neighbors.bet = bet;
+            } catch (err) {
+                // console.log(id);
+            };
             // подсветка ставок
             const inlineStyles = element.style;
             if (bet >= 25) {
@@ -303,12 +494,34 @@ function bettingOnNeighbor() {
 };
 bettingOnNeighbor();
 
+// ставка на серию:
+function bettingOnSeries() {
+    // ломается шаг:
+    let breakingStep = 0;
+    // ставка без сдачи:
+    let betWithoutChange = 0;
+    // по чём играет:
+    let plays = 0;
+    // остаток от деления (кратность):
+    let residue = 0;
+    // сдача:
+    let change = 0;
+
+    //  вычисления:
+    seriesCalc(maxBet, series, bet);
+
+    console.log(`шаг ломается от: ${breakingStep}`);
+    console.log(`чистая ставка: ${betWithoutChange}`);
+    console.log(`играет по:  ${plays}`);
+    console.log(`сдача: ${change}`);
+}
+// bettingOnSeries();
+
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
-    // выбор минимума-максимума рулетки:
     let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
-    let minBet = localStorage.getItem('minBet');
-    let maxBet = localStorage.getItem('maxBet');
+    minBet = localStorage.getItem('minBet');
+    maxBet = localStorage.getItem('maxBet');
     switch (minmax) {
         case "1-100":
             minBet = 1;
@@ -334,11 +547,6 @@ calculate.onclick = function () {
             localStorage.setItem('minBet', 25);
             localStorage.setItem('maxBet', 500);
             break;
-        default:
-            minBet = 1;
-            maxBet = 100;
-            localStorage.setItem('minBet', 1);
-            localStorage.setItem('maxBet', 100);
     };
     // обнуление позиций поля:
     for (let i = 0; i < 37; i++) {
@@ -443,7 +651,7 @@ calculate.onclick = function () {
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
                 residue_Arr_2.push(residue_2);
-                console.log(`превышение с номера ${i}: ${residue_2}<br>`);
+                console.log(`превышение с номера ${i}: ${residue_2}`);
                 // сколько номеров играет до максимума:
                 count_2 += 1;
                 excess.push(`,превышение с номера ${i}: ${residue_2}<br>`);
@@ -473,9 +681,13 @@ calculate.onclick = function () {
     };
     const valuesDone = trackBets();
 
-    infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}`);
+    infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}<br>`);
 
-    info.innerHTML = infoArr;
+    if (valuesDone.count_1 == 0) {
+        info.innerHTML = "";
+    } else {
+        info.innerHTML = infoArr;
+    };
 };
 
 
