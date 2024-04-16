@@ -138,8 +138,8 @@ h1 {
 .orphelins-series,
 .voisins-series,
 .spiel-series {
-    background-color: rgb(38, 4, 118);
-    opacity: 75%;
+    /* background-color: rgb(5, 62, 142); */
+    opacity: 0%;
     margin: 0px 0px 0px 0px;
 }
 
