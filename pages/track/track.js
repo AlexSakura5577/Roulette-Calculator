@@ -205,7 +205,7 @@ export const track = {
 };
 
 // поворот экрана:
-document.body.style.transform = 'rotate(90deg)';
+// document.body.style.transform = 'rotate(90deg)';
 
 // переменные:
 // user info:
