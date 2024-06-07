@@ -6,6 +6,7 @@ import { rouletteSeries } from "../main/app.js";
 import { rltPos } from "../main/app.js";
 import { payoutRatios } from "../main/app.js";
 import { seriesCalc } from "../series/series.js";
+import { calculateBTN } from "../series/series.js";
 
 // localStorage
 let minBet = localStorage.getItem('minBet');
@@ -462,7 +463,6 @@ function bettingOnNeighbor() {
             if (id === "tier" || "orphelins" || "voisins" || "spiel") {
                 series = id;
                 // console.log(`серия: ${series}`);
-                // console.log(`ставка: ${bet}`);
             };
             // сосед номера:
             neighbors = track[id];
@@ -493,29 +493,6 @@ function bettingOnNeighbor() {
     };
 };
 bettingOnNeighbor();
-
-// ставка на серию:
-function bettingOnSeries() {
-    // ломается шаг:
-    let breakingStep = 0;
-    // ставка без сдачи:
-    let betWithoutChange = 0;
-    // по чём играет:
-    let plays = 0;
-    // остаток от деления (кратность):
-    let residue = 0;
-    // сдача:
-    let change = 0;
-
-    //  вычисления:
-    seriesCalc(maxBet, series, bet);
-
-    console.log(`шаг ломается от: ${breakingStep}`);
-    console.log(`чистая ставка: ${betWithoutChange}`);
-    console.log(`играет по:  ${plays}`);
-    console.log(`сдача: ${change}`);
-}
-// bettingOnSeries();
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -646,7 +623,8 @@ calculate.onclick = function () {
             if (fillStr_Up > 0) {
                 count_1 += 1;
             };
-            console.log(`${select}: ${fillStr_Up}`);
+            // ! ставка в каждый номер по отдельности:
+            // console.log(`${select}: ${fillStr_Up}`);
             // превышение с номера:
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
@@ -681,6 +659,10 @@ calculate.onclick = function () {
     };
     const valuesDone = trackBets();
 
+    // ставка на серию:
+    seriesCalc(maxBet, series, bet);
+    calculateBTN();
+
     infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}<br>`);
 
     if (valuesDone.count_1 == 0) {
@@ -688,6 +670,9 @@ calculate.onclick = function () {
     } else {
         info.innerHTML = infoArr;
     };
+
+
+
 };
 
 
