@@ -238,18 +238,13 @@ export function seriesCalc(maxBet, series, bet) {
     };
     return;
 };
-
-// function selectSeries() {
-//     // выбор серии:
-//     let series = document.getElementById('series').value;
-//     // сумма ставки на серию:
-//     let bet = +document.getElementById('bet').value;
-//     return ;
-// };
-
-
 // функция "Рассчитать":
-export const calculateBTN = function calculateBTN() {
+const calculateBTN = function calculateBTN() {
+
+    // выбор серии:
+    let series = document.getElementById('series').value;
+    // сумма ставки на серию:
+    let bet = +document.getElementById('bet').value;
 
     // вычисления:
     seriesCalc(maxBet, series, bet);
@@ -273,30 +268,10 @@ export const calculateBTN = function calculateBTN() {
     console.log(`играет по:  ${plays}`);
     console.log(`сдача: ${change}`);
 
-    return {
-        series: series,
-        bet: bet,
-        breakingStep: breakingStep,
-        betWithoutChange: betWithoutChange,
-        plays: plays,
-        change: change
-    };
-}
+    return;
+};
 // клик по кнопке Рассчитать:
 calculate.onclick = function () {
-    // выбор серии:
-    let series = document.getElementById('series').value;
-    // сумма ставки на серию:
-    let bet = +document.getElementById('bet').value;
     calculateBTN();
     return;
 };
-
-// export const importSeries = {
-//     series: series,
-//     bet: bet,
-//     breakingStep: breakingStep,
-//     betWithoutChange: betWithoutChange,
-//     plays: plays,
-//     change: change
-// }
