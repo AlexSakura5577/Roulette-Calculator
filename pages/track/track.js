@@ -508,6 +508,11 @@ bettingOnNeighbor();
 
 // функция подсчёта серии:
 function seriesCalc(maxBet, series, bet) {
+    // проверка ставка ли на серию?
+    if (series.includes("neighbor")) {
+        return;
+    };
+
     // проверка на кратность:
     let multiplicity = bet % 5 == 0;
     if (multiplicity == false) {
@@ -646,6 +651,10 @@ function seriesCalc(maxBet, series, bet) {
 
 // функция "Рассчитать":
 const calculateBTN = function calculateBTN() {
+    // проверка ставка ли на серию?
+    if (series.includes("neighbor")) {
+        return;
+    };
     // вычисления:
     seriesCalc(maxBet, series, bet);
     return;
@@ -810,8 +819,10 @@ calculate.onclick = function () {
     // информация с соседей:
     infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}<br>`);
 
-    // информация с серий:
-    if (series == "tier") {
+    // проверка ставка ли на серию?
+    if (series.includes("neighbor")) {
+        infoArr.push('');
+    } else if (series == "tier") {
         betWithoutChange = bet - change;
         breakingStep = "в tier не ломается";
         infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
@@ -821,7 +832,7 @@ calculate.onclick = function () {
     };
 
     // общий вывод информации
-    info.innerHTML = infoArr;
+    info.innerHTML = infoArr.join('');
 
     // проверка сколько номеров играет (соседей):
     // if (valuesDone.count_1 == 0) {
@@ -833,10 +844,16 @@ calculate.onclick = function () {
     // консоль-логи переменных для трека:
     console.log(`серия: ${series}`);
     console.log(`ставка: ${bet}`);
-    console.log(`шаг ломается от: ${breakingStep}`);
-    console.log(`чистая ставка: ${betWithoutChange}`);
+    // console.log(`шаг ломается от: ${breakingStep}`);
+    // console.log(`чистая ставка: ${betWithoutChange}`);
     console.log(`играет по:  ${plays}`);
     console.log(`сдача: ${change}`);
+
+    // синхронизация позиций:
+    // console.log(`позиция 32-35: ${rltPos.spl["split_32-35"]}`);
+    // console.log(`позиция 26: ${rltPos.num.number_26}`);
+    // console.log(`шпиль сплит 32-35: ${rouletteSeries.spiel.split[2]}`);
+    // console.log(`шпиль номер 26: ${rouletteSeries.spiel.numb[0]}`);
 
 };
 
