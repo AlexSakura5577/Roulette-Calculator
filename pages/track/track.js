@@ -750,10 +750,10 @@ calculate.onclick = function () {
                 //     console.log(`${select}: ${track[select].bet}`);
                 // };
                 // ! проверочный список поля:
-                // for (let i = 0; i < 37; i++) {
-                //     let select = "number_" + i;
-                //     console.log(`${select}: ${rltPos.num[select]}`);
-                // };
+                for (let i = 0; i < 37; i++) {
+                    let select = "number_" + i;
+                    console.log(`${select}: ${rltPos.num[select]}`);
+                };
             };
             trackBet = 0;
             continue;
