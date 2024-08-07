@@ -4,4 +4,6 @@ The project was created to simplify the tasks of casino employees. Calculates be
 
 # Migration to the new MVC architecture
 
+# Complete rebuilding of the folder and file structure
+
 Thank you for watching.
