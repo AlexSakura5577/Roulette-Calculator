@@ -97,7 +97,8 @@ h1 {
     margin: 36px 0px 0px 35px;
 }
 
-.series-tier {
+.series-tier,
+.tier-series {
     position: absolute;
     width: 45px;
     height: 108px;
@@ -105,7 +106,9 @@ h1 {
     margin: 385px 0px 0px 37px;
 }
 
-.series-orphelins {
+
+.series-orphelins,
+.orphelins-series {
     position: absolute;
     width: 45px;
     height: 131px;
@@ -113,7 +116,8 @@ h1 {
     margin: 251px 0px 0px 37px;
 }
 
-.series-voisins {
+.series-voisins,
+.voisins-series {
     position: absolute;
     width: 45px;
     height: 116px;
@@ -121,12 +125,22 @@ h1 {
     margin: 132px 0px 0px 37px;
 }
 
-.series-spiel {
+.series-spiel,
+.spiel-series {
     position: absolute;
     width: 45px;
     height: 53px;
     background-color: rgba(7, 88, 24);
     margin: 60px 0px 0px 37px;
+}
+
+.tier-series,
+.orphelins-series,
+.voisins-series,
+.spiel-series {
+    /* background-color: rgb(5, 62, 142); */
+    opacity: 0%;
+    margin: 0px 0px 0px 0px;
 }
 
 .transparent {
@@ -642,7 +656,8 @@ h1 {
 }
 
 /* модальное окно CSS */
-.openBtn {
+.openBtn,
+.openBtn_2 {
     display: block;
     /* position: absolute; */
     font-size: 0.7rem;
@@ -656,6 +671,11 @@ h1 {
     padding: 0px;
     white-space: pre;
     /* margin: 300px 0px 0px 200px; */
+}
+
+.openBtn_2 {
+    width: 45px;
+    height: 50px;
 }
 
 h3,
@@ -730,10 +750,11 @@ b {
     /* background-color: aqua; */
     margin: -570px 0px 0px 190px;
     /* border: 1px solid aqua; */
-   font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 15px;
     color: #ffffff;
 }
+
 .minmax {
     display: flex;
     flex-direction: column;
@@ -741,6 +762,7 @@ b {
     align-items: center;
     margin-bottom: 5px;
 }
+
 .body__item_3 {
     display: block;
     margin-left: 0px;
@@ -753,10 +775,10 @@ b {
 
 @media (pointer: fine) {
 
-    /* desktop */
     /* body {
         transform: rotate(90deg);
     }
+
     .user_info {
         transform: rotate(-90deg);
         margin: -400px 0px 0px 145px;
