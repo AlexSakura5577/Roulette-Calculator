@@ -1,3 +1,1 @@
-
-import '../main/app.js';
-console.log(import.meta.url);
+import './menuModel.js';

@@ -1,8 +1,8 @@
 body {
     background-color: rgba(0, 0, 0, 0.852);
-    color: rgb(0, 255, 179);
+    color: rgb(47, 208, 11);
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 1rem;
 }
 
 .header__link {

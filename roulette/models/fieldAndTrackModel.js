@@ -1,13 +1,14 @@
-// import "../main/app.js";
-// import { minBet } from "../main/app.js";
-// import { maxBet } from "../main/app.js";
-// import { payoutRatios } from "../main/app.js";
-import { rouletteNumber } from "../main/app.js";
-// import { chipsNeededForABet } from "../main/app.js";
-// import { countPositions } from "../main/app.js";
-// import { oddDozColum } from "../main/app.js";
-import { fullBets } from "../main/app.js";
-import { rltPos } from "../main/app.js";
+// import "./menuModel.js";
+// import { minBet } from "./menuModel.js";
+// import { maxBet } from "./menuModel.js";
+// import { payoutRatios } from "./menuModel.js";
+// import { chipsNeededForABet } from "./menuModel.js";
+// import { countPositions } from "./menuModel.js";
+// import { oddDozColum } from "./menuModel.js";
+
+import { rouletteNumber } from "./menuModel.js";
+import { fullBets } from "./menuModel.js";
+import { rltPos } from "./menuModel.js";
 
 //поворот экрана:
 // document.body.style.transform = 'rotate(90deg)';

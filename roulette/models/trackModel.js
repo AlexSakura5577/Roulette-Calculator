@@ -1,12 +1,11 @@
-// импорты:
-// import "../main/app.js";
-// import { minBet } from "../main/app.js";
-// import { maxBet } from "../main/app.js";
-import { rouletteSeries } from "../main/app.js";
-import { rltPos } from "../main/app.js";
-import { payoutRatios } from "../main/app.js";
-// import { seriesCalc } from "../series/series.js";
-// import { calculateBTN } from "../series/series.js";
+// import "./menuModel.js";
+// import { minBet } from "./menuModel.js";
+// import { maxBet } from "./menuModel.js";
+import { rouletteSeries } from "./menuModel.js";
+import { rltPos } from "./menuModel.js";
+import { payoutRatios } from "./menuModel.js";
+// import { seriesCalc } from "./menuModel.js";
+// import { calculateBTN } from "./menuModel.js";
 
 // localStorage
 let minBet = localStorage.getItem('minBet');

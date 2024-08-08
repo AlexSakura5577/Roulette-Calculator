@@ -1,8 +1,7 @@
-// импорты:
-// import "../main/app.js";
-import { rouletteSeries } from "../main/app.js";
-import { payoutRatios } from "../main/app.js";
-import { fullBets } from "../main/app.js";
+// import "./menuModel.js";
+import { rouletteSeries } from "./menuModel.js";
+import { payoutRatios } from "./menuModel.js";
+import { fullBets } from "./menuModel.js";
 
 // localStorage
 localStorage.setItem('minBet', 1);

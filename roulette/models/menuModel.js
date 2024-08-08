@@ -1,5 +1,4 @@
 // roulette-calculator
-
 export const minBet = 1;
 export const maxBet = 100;
 
