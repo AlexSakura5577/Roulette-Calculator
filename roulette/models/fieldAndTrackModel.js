@@ -1,16 +1,16 @@
 // import "./menuModel.js";
 // import { minBet } from "./menuModel.js";
 // import { maxBet } from "./menuModel.js";
-// import { payoutRatios } from "./menuModel.js";
+// import { payoutRatios } from "./consts/payoutRatios.js";
 // import { chipsNeededForABet } from "./menuModel.js";
 // import { countPositions } from "./menuModel.js";
 // import { oddDozColum } from "./menuModel.js";
 
-import { rouletteNumber } from "./menuModel.js";
+import { rouletteNumber } from "./consts/rouletteNumber.js";
 import { fullBets } from "./menuModel.js";
 import { rltPos } from "./menuModel.js";
 
-//поворот экрана:
+// поворот экрана:
 // document.body.style.transform = 'rotate(90deg)';
 
 // получить список элементов по классу

@@ -1,6 +1,6 @@
 // import "./menuModel.js";
 import { rouletteSeries } from "./menuModel.js";
-import { payoutRatios } from "./menuModel.js";
+import { payoutRatios } from "./consts/payoutRatios.js";
 import { fullBets } from "./menuModel.js";
 
 // localStorage

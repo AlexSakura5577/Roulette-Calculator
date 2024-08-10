@@ -1,6 +1,6 @@
 // import "./menuModel.js";
 import { rouletteSeries } from "./menuModel.js";
-import { payoutRatios } from "./menuModel.js";
+import { payoutRatios } from "./consts/payoutRatios.js";
 
 // localStorage
 let minBet = localStorage.getItem('minBet');
@@ -103,6 +103,7 @@ export function seriesCalc(maxBet, series, bet) {
             if (bet >= maxOrphelins) {
                 change = bet - maxOrphelins;
                 plays = maxBet * payoutRatios.split.position;
+
                 console.log(`максимум на orphelins: ${maxOrphelins}`);
                 return;
             } else if (bet >= breakingStep) {
@@ -113,7 +114,8 @@ export function seriesCalc(maxBet, series, bet) {
                 let plays_1 = diff_1 - diff_2;
                 let cleanBet = plays_1 * 4;
                 let diff_3 = bet - cleanBet;
-                plays = maxBet + plays_1;
+                plays = +maxBet + plays_1;
+                console.log(typeof plays); // проверка на тип
                 change = diff_3 + residue;
             } else if (bet < maxOrphelins) {
                 // рассчёты:
