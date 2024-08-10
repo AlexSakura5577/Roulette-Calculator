@@ -103,7 +103,6 @@ export function seriesCalc(maxBet, series, bet) {
             if (bet >= maxOrphelins) {
                 change = bet - maxOrphelins;
                 plays = maxBet * payoutRatios.split.position;
-
                 console.log(`максимум на orphelins: ${maxOrphelins}`);
                 return;
             } else if (bet >= breakingStep) {
@@ -114,22 +113,16 @@ export function seriesCalc(maxBet, series, bet) {
                 let plays_1 = diff_1 - diff_2;
                 let cleanBet = plays_1 * 4;
                 let diff_3 = bet - cleanBet;
-                plays = +maxBet + plays_1;
-                console.log(typeof plays); // проверка на тип
+                plays = +maxBet + plays_1; //+maxBet;
                 change = diff_3 + residue;
             } else if (bet < maxOrphelins) {
                 // рассчёты:
                 let diff_1 = bet / rouletteSeries.orphelins.position;
                 let diff_2 = bet / rouletteSeries.orphelins.position % 5;
-                plays = diff_1 - diff_2;
+                plays = diff_1 - diff_2; //number
                 let cleanBet = plays * rouletteSeries.orphelins.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         case "voisins":
@@ -139,7 +132,7 @@ export function seriesCalc(maxBet, series, bet) {
             breakingStep = 1.5 * rouletteSeries.voisins.position * maxBet;
             if (bet >= maxVoisins) {
                 change = bet - maxVoisins;
-                plays = maxBet * payoutRatios.split.position;
+                plays = maxBet * payoutRatios.split.position; //number
                 console.log(`максимум на voisins: ${maxVoisins}`);
                 return;
             } else if (bet >= breakingStep) {
@@ -150,21 +143,16 @@ export function seriesCalc(maxBet, series, bet) {
                 let plays_1 = diff_1 - diff_2;
                 let cleanBet = plays_1 * 7;
                 let diff_3 = bet - cleanBet;
-                plays = (maxBet * 1.5) + plays_1;
+                plays = (maxBet * 1.5) + plays_1; //number
                 change = diff_3 + residue;
             } else if (bet < maxVoisins) {
                 // рассчёты:
                 let diff_1 = bet / rouletteSeries.voisins.position;
                 let diff_2 = bet / rouletteSeries.voisins.position % 5;
-                plays = diff_1 - diff_2;
+                plays = diff_1 - diff_2; //number
                 let cleanBet = plays * rouletteSeries.voisins.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         case "spiel":
@@ -174,7 +162,7 @@ export function seriesCalc(maxBet, series, bet) {
             breakingStep = payoutRatios.numb.position * rouletteSeries.spiel.position * maxBet;
             if (bet >= maxSpiel) {
                 change = bet - maxSpiel;
-                plays = maxBet * payoutRatios.split.position;
+                plays = maxBet * payoutRatios.split.position; //number
                 console.log(`максимум на spiel: ${maxSpiel}`);
                 return;
             } else if (bet >= breakingStep) {
@@ -185,21 +173,16 @@ export function seriesCalc(maxBet, series, bet) {
                 let plays_1 = diff_1 - diff_2;
                 let cleanBet = plays_1 * 3;
                 let diff_3 = bet - cleanBet;
-                plays = maxBet + plays_1;
+                plays = +maxBet + plays_1; //+maxBet
                 change = diff_3 + residue;
             } else if (bet < maxSpiel) {
                 // рассчёты:
                 let diff_1 = bet / rouletteSeries.spiel.position;
                 let diff_2 = bet / rouletteSeries.spiel.position % 5;
-                plays = diff_1 - diff_2;
+                plays = diff_1 - diff_2; //number
                 let cleanBet = plays * rouletteSeries.spiel.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         default:
