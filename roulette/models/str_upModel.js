@@ -1,6 +1,5 @@
-import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
-import { fullBets } from "./functions/fullBets.js";
+// import { fullBets } from "./functions/fullBets.js";
 
 // localStorage
 localStorage.setItem('minBet', 1);
@@ -119,6 +118,7 @@ add_bet.onclick = function () {
 
 // клик по кнопке Рассчитать:
 calculate.onclick = function () {
+    // повторяющийся код:
     // выбор минимума-максимума рулетки:
     let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
     let minBet = localStorage.getItem('minBet');
@@ -154,6 +154,7 @@ calculate.onclick = function () {
             localStorage.setItem('minBet', 1);
             localStorage.setItem('maxBet', 100);
     };
+    //
 
     // выплата:
     pay = fillArr.reduce((acc, number) => acc + number, 0);
