@@ -1,5 +1,5 @@
-import { minBet } from './consts/min_max.js';
-import { maxBet } from './consts/min_max.js';
+// import { minBet } from './consts/min_max.js';
+// import { maxBet } from './consts/min_max.js';
 import { payoutRatios } from './consts/payoutRatios.js';
 import { rouletteNumber } from './consts/rouletteNumber.js';
 // import { rltPos } from './consts/rltPos.js';
