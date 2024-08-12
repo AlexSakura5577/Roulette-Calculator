@@ -1,6 +1,5 @@
-// import "./menuModel.js";
-// import { minBet } from "./menuModel.js";
-// import { maxBet } from "./menuModel.js";
+// import { minBet } from "./consts/min_max.js";
+// import { maxBet } from "./consts/min_max.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { rltPos } from "./consts/rltPos.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
