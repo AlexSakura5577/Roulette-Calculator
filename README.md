@@ -6,4 +6,7 @@ The project was created to simplify the tasks of casino employees. Calculates be
 
 # Complete rebuilding of the folder and file structure
 
+# Link:
+https://alexsakura5577.github.io/Roulette-Calculator/roulette/views/menu/menuView.html
+
 Thank you for watching.
