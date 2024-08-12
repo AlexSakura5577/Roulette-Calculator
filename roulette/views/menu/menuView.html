@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3eea134bf1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../../../css/reset.css">
+    <link rel="stylesheet" href="menuStyles.css">
+    <link rel="icon" href="../../../img/favicon.ico" type="image/x-icon">
+    <title>roulette-calculator</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <div>
+            <h1 class="header__item">Меню выбора:</h1>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__list">
+                <li class="header__item">
+                    <a href="../field-and-track/fieldAndTrackView.html" class="header__link">
+                        Поле и трэк
+                    </a>
+                </li>
+                <li class="header__item">
+                    <a href="../str_up/strUpView.html" class="header__link">
+                        Номер
+                    </a>
+                </li>
+                <li class="header__item">
+                    <a href="../series/seriesView.html" class="header__link">
+                        Серии
+                    </a>
+                </li>
+                <li class="header__item">
+                    <a href="../track/trackView.html" class="header__link">
+                        Трэк
+                    </a>
+                </li>
+                <li class="header__item">
+                    <a href="../complete/completeView.html" class="header__link">
+                        Комплит
+                    </a>
+                </li>
+                <li class="header__item">
+                    <a href="../multi-complete/multiCompleteView.html" class="header__link">
+                        Комплиты
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- невидимая кнопка -->
+    <div>
+        <div class="btn">
+            <input id="calculate" type="button" value="Рассчитать" />
+        </div>
+    </div>
+
+    <script src="../../models/consts/min_max.js" type="module"></script>
+    <script src="../../models/consts/payoutRatios.js" type="module"></script>
+    <script src="../../models/consts/rouletteNumber.js" type="module"></script>
+    <script src="../../models/menuModel.js" type="module"></script>
+</body>
+
+</html>
