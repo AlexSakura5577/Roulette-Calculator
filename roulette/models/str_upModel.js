@@ -1,42 +1,35 @@
 import { payoutRatios } from "./consts/payoutRatios.js";
 // import { fullBets } from "./functions/fullBets.js";
-import { localStorageRead } from "../controllers/localStorageRead.js";
-import { minBet, maxBet } from "../controllers/localStorageRead.js";
-console.log(minBet);
-console.log(maxBet);
-
-// localStorage
-localStorageRead();
+// import { localStorageRead } from "../controllers/localStorageRead.js";
+import { minMax } from "../controllers/localStorageRead.js";
 
 // выбор минимума максимума рулетки:
 minmax.onclick = function () {
     // повторяющийся код:
-    // выбор минимума-максимума рулетки:
-    let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
-    // minBet = localStorage.getItem('minBet');
-    // maxBet = localStorage.getItem('maxBet');
-    switch (minmax) {
+    // выбираем элемент select minmax
+    let minmaxValue = document.getElementById('minmax').value; 
+    switch (minmaxValue) {
         case "1-100":
-            minBet = 1;
-            maxBet = 100;
+            minMax.minBet = 1;
+            minMax.maxBet = 100;
             localStorage.setItem('minBet', 1);
             localStorage.setItem('maxBet', 100);
             break;
         case "5-200":
-            minBet = 5;
-            maxBet = 200;
+            minMax.minBet = 5;
+            minMax.maxBet = 200;
             localStorage.setItem('minBet', 5);
             localStorage.setItem('maxBet', 200);
             break;
         case "5-300":
-            minBet = 5;
-            maxBet = 300;
+            minMax.minBet = 5;
+            minMax.maxBet = 300;
             localStorage.setItem('minBet', 5);
             localStorage.setItem('maxBet', 300);
             break;
         case "25-500":
-            minBet = 25;
-            maxBet = 500;
+            minMax.minBet = 25;
+            minMax.maxBet = 500;
             localStorage.setItem('minBet', 25);
             localStorage.setItem('maxBet', 500);
             break;
