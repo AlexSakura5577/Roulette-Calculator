@@ -2,8 +2,46 @@ import { payoutRatios } from "./consts/payoutRatios.js";
 // import { fullBets } from "./functions/fullBets.js";
 
 // localStorage
-localStorage.setItem('minBet', 1);
-localStorage.setItem('maxBet', 100);
+let minBet = localStorage.getItem('minBet');
+let maxBet = localStorage.getItem('maxBet');
+minmax.value = `${minBet}-${maxBet}`;
+
+// выбор минимума максимума рулетки:
+minmax.onclick = function () {
+    // повторяющийся код:
+    // выбор минимума-максимума рулетки:
+    let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
+    minBet = localStorage.getItem('minBet');
+    maxBet = localStorage.getItem('maxBet');
+    switch (minmax) {
+        case "1-100":
+            minBet = 1;
+            maxBet = 100;
+            localStorage.setItem('minBet', 1);
+            localStorage.setItem('maxBet', 100);
+            break;
+        case "5-200":
+            minBet = 5;
+            maxBet = 200;
+            localStorage.setItem('minBet', 5);
+            localStorage.setItem('maxBet', 200);
+            break;
+        case "5-300":
+            minBet = 5;
+            maxBet = 300;
+            localStorage.setItem('minBet', 5);
+            localStorage.setItem('maxBet', 300);
+            break;
+        case "25-500":
+            minBet = 25;
+            maxBet = 500;
+            localStorage.setItem('minBet', 25);
+            localStorage.setItem('maxBet', 500);
+            break;
+    };
+    //
+};
+
 // кнопка Сброс:
 reset.onclick = function () {
     location.reload();
@@ -22,6 +60,7 @@ let summPay = 0;
 let summCash = 0;
 let residue = 0;
 let pay = 0;
+
 // объект заполнения:
 let fillObj = {
     numbers: 0,
@@ -30,6 +69,7 @@ let fillObj = {
     corners: 0,
     six_lines: 0,
 };
+
 // массив значений:
 let fillArr = [];
 
@@ -77,85 +117,8 @@ add_bet.onclick = function () {
     return fillArr;
 };
 
-// клик по кнопке Через ОК:
-// add_cash.onclick = function () {
-//     console.log("Через ОК");
-//     // color = color.value;
-//     // switch (color.value) {
-//     //     case "1":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     case "2":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     case "5":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     case "10":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     case "25":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     case "50":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     case "100":
-//     //         summPay = +color.value * pay;
-//     //         console.log(summPay);
-//     //         break;
-//     //     default:
-//     //         console.log(`цвет по: 1`);
-//     // };
-//     return;
-// };
-
 // клик по кнопке Рассчитать:
 calculate.onclick = function () {
-    // повторяющийся код:
-    // выбор минимума-максимума рулетки:
-    let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
-    let minBet = localStorage.getItem('minBet');
-    let maxBet = localStorage.getItem('maxBet');
-    switch (minmax) {
-        case "1-100":
-            minBet = 1;
-            maxBet = 100;
-            localStorage.setItem('minBet', 1);
-            localStorage.setItem('maxBet', 100);
-            break;
-        case "5-200":
-            minBet = 5;
-            maxBet = 200;
-            localStorage.setItem('minBet', 5);
-            localStorage.setItem('maxBet', 200);
-            break;
-        case "5-300":
-            minBet = 5;
-            maxBet = 300;
-            localStorage.setItem('minBet', 5);
-            localStorage.setItem('maxBet', 300);
-            break;
-        case "25-500":
-            minBet = 25;
-            maxBet = 500;
-            localStorage.setItem('minBet', 25);
-            localStorage.setItem('maxBet', 500);
-            break;
-        default:
-            minBet = 1;
-            maxBet = 100;
-            localStorage.setItem('minBet', 1);
-            localStorage.setItem('maxBet', 100);
-    };
-    //
-
     // выплата:
     pay = fillArr.reduce((acc, number) => acc + number, 0);
     // console.log(`кол-во фишек: ${pay}`);

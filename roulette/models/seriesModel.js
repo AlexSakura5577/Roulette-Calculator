@@ -5,6 +5,7 @@ import { payoutRatios } from "./consts/payoutRatios.js";
 let minBet = localStorage.getItem('minBet');
 let maxBet = localStorage.getItem('maxBet');
 minmax.value = `${minBet}-${maxBet}`;
+
 // выбор минимума максимума рулетки:
 minmax.onclick = function () {
     // повторяющийся код:
@@ -45,6 +46,7 @@ minmax.onclick = function () {
     };
     //
 };
+
 // кнопка Сброс:
 reset.onclick = function () {
     location.reload();
@@ -52,6 +54,7 @@ reset.onclick = function () {
     localStorage.setItem('maxBet', 100);
     return;
 };
+
 // переменные:
 // ломается шаг:
 let breakingStep = 0;
