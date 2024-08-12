@@ -53,7 +53,7 @@ calculate.onclick = function () {
         let magnitude = rouletteNumber[strUp].magnitude;
         let dozen = rouletteNumber[strUp].dozen;
         let column = rouletteNumber[strUp].column;
-        let result = `color: ${color} <br\/> \nparity: ${parity} <br\/> \nmagnitude: ${magnitude} <br\/> \ndozen: ${dozen} <br\/> \ncolumn: ${column}`;
+        let result = ` \ncolor: ${color} <br\/> \nparity: ${parity} <br\/> \nmagnitude: ${magnitude} <br\/> \ndozen: ${dozen} <br\/> \ncolumn: ${column}`;
         return result;
     };
 
@@ -65,5 +65,5 @@ calculate.onclick = function () {
     console.log(info(strUp));
 
     // вывод информации:
-    document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> sumBet: $${sumBet(strUp)}<br\/> payment: ${completePayment(strUp)} chips<br\/> totalPayment: $${totalPayment(strUp)}<br\/> ${info(strUp)}`;
+    document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> \nsumBet: $${sumBet(strUp)}<br\/> \npayment: ${completePayment(strUp)} chips<br\/> \ntotalPayment: $${totalPayment(strUp)}<br\/>${info(strUp)}`;
 };
