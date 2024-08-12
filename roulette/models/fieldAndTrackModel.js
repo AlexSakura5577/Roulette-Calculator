@@ -14,6 +14,9 @@ import { rltPos } from "./consts/rltPos.js";
 // поворот экрана:
 // document.body.style.transform = 'rotate(90deg)';
 
+// пересекается ли трек с полем:
+export const trackOverField = true;
+
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
 // Для каждого элемента добавляем обработчик события "click"
