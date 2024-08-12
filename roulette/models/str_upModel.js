@@ -1,7 +1,7 @@
 // import "./menuModel.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
-import { fullBets } from "./menuModel.js";
+import { fullBets } from "./functions/fullBets.js";
 
 // localStorage
 localStorage.setItem('minBet', 1);

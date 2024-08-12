@@ -8,7 +8,7 @@
 // import { rouletteSeries } from './consts/rouletteSeries.js';
 
 import { rouletteNumber } from "./consts/rouletteNumber.js";
-import { fullBets } from "./menuModel.js";
+import { fullBets } from "./functions/fullBets.js";
 import { rltPos } from "./consts/rltPos.js";
 
 // поворот экрана:
