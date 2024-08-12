@@ -1,4 +1,3 @@
-// import "./menuModel.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 
@@ -6,8 +5,10 @@ import { payoutRatios } from "./consts/payoutRatios.js";
 let minBet = localStorage.getItem('minBet');
 let maxBet = localStorage.getItem('maxBet');
 minmax.value = `${minBet}-${maxBet}`;
+
 // выбор минимума максимума рулетки:
 minmax.onclick = function () {
+    // повторяющийся код:
     // выбор минимума-максимума рулетки:
     let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
     minBet = localStorage.getItem('minBet');
@@ -43,7 +44,9 @@ minmax.onclick = function () {
             localStorage.setItem('minBet', 1);
             localStorage.setItem('maxBet', 100);
     };
+    //
 };
+
 // кнопка Сброс:
 reset.onclick = function () {
     location.reload();
@@ -51,6 +54,7 @@ reset.onclick = function () {
     localStorage.setItem('maxBet', 100);
     return;
 };
+
 // переменные:
 // ломается шаг:
 let breakingStep = 0;
