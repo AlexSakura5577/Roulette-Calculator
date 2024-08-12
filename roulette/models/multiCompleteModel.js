@@ -5,7 +5,7 @@
 // import { rouletteNumber } from "./consts/rouletteNumber.js";
 import { chipsNeededForABet } from "./menuModel.js";
 import { countPositions } from "./menuModel.js";
-import { oddDozColum } from "./menuModel.js";
+import { oddDozColum } from "./consts/oddDozColum.js";
 
 // переменные:
 let selectedNumbers = [];

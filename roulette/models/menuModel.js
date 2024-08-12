@@ -4,68 +4,29 @@ import { payoutRatios } from './consts/payoutRatios.js';
 import { rouletteNumber } from './consts/rouletteNumber.js';
 import { rltPos } from './consts/rltPos.js';
 import { rouletteSeries } from './consts/rouletteSeries.js';
+import { oddDozColum } from './consts/oddDozColum.js';
 
 // пересекается ли трек с полем:
 export const trackOverField = true;
 
 
-// серии рулетки:
-// export const rouletteSeries = {
-//     // малая серия (tier):
-//     tier: {
-//         position: 6,
-//         split: ["5-8", "10-11", "13-16", "23-24", "27-30", "33-36"],
-//         strUps: [5, 8, 10, 11, 13, 16, 23, 24, 27, 30, 33, 36],
-//         sumStrUps: 12,
-//         chips: 12
-//     },
-//     // орфолайнс (orphelins):
-//     orphelins: {
-//         position: 5,
-//         numb: ["1"],
-//         split: ["6-9", "14-17", "17-20", "31-34"],
-//         strUps: [1, 6, 9, 14, 17, 20, 31, 34],
-//         sumStrUps: 8,
-//         chips: 9
-//         // при выпадении 17 x 2 positions
-//     },
-//     // большая серия (voisins du zéro):
-//     voisins: {
-//         position: 9,
-//         split: ["4-7", "12-15", "18-21", "19-22", "32-35"],
-//         corner: ["25-29"],
-//         street: ["0-2-3"],
-//         strUps: [0, 2, 3, 4, 7, 12, 15, 18, 21, 19, 22, 25, 26, 28, 29, 32, 35],
-//         sumStrUps: 17,
-//         chips: 11
-//         // street & corner x 2 positions
-//     },
-//     // шпиль (0-spiel):
-//     spiel: {
-//         position: 4,
-//         numb: ["26"],
-//         split: ["0-3", "12-15", "32-35"],
-//         strUps: [0, 3, 12, 15, 26, 32, 35],
-//         sumStrUps: 7
-//     }
+// шансы, дюжины и колонки:
+// export const oddDozColum = {
+//     dozen_1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+//     dozen_2: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+//     dozen_3: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+//     column_1: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
+//     column_2: [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+//     column_3: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
+//     small: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+//     big: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+//     even: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36],
+//     odd: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35],
+//     red: [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36],
+//     black: [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
 // };
 
 
-// шансы, дюжины и колонки:
-export const oddDozColum = {
-    dozen_1: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-    dozen_2: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
-    dozen_3: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
-    column_1: [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34],
-    column_2: [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
-    column_3: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
-    small: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
-    big: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
-    even: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36],
-    odd: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35],
-    red: [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36],
-    black: [2, 4, 6, 8, 10, 11, 13, 15, 17, 20, 22, 24, 26, 28, 29, 31, 33, 35]
-};
 // функция загрузки номера:
 export function fullBets(strUp) {
     // ставка в номер
@@ -266,41 +227,3 @@ export function countPositions(arr) {
     console.log('всего лишних фишек: ' + totalChips);
     return totalChips;
 };
-
-// используется в multi-complete:
-// общая ставка с вычетом сдачи:
-// export let resultBet = () => {
-//     let positions = chipsNeededForABet(selectedNumbers);
-//     let coincidences = countPositions(selectedNumbers);
-//     console.log('кол-во позиций: ' + positions);
-//     let result = positions - coincidences;
-//     return result;
-// };
-// console.log(resultBet());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
