@@ -2,6 +2,7 @@ import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 import { rltPos } from "./consts/rltPos.js";
 import { track } from "./consts/track.js";
+import { localStorageRead } from "../controllers/localStorageRead.js";
 
 // localStorage
 let minBet = localStorage.getItem('minBet');

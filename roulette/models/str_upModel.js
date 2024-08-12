@@ -1,18 +1,20 @@
 import { payoutRatios } from "./consts/payoutRatios.js";
 // import { fullBets } from "./functions/fullBets.js";
+import { localStorageRead } from "../controllers/localStorageRead.js";
+import { minBet, maxBet } from "../controllers/localStorageRead.js";
+console.log(minBet);
+console.log(maxBet);
 
 // localStorage
-let minBet = localStorage.getItem('minBet');
-let maxBet = localStorage.getItem('maxBet');
-minmax.value = `${minBet}-${maxBet}`;
+localStorageRead();
 
 // выбор минимума максимума рулетки:
 minmax.onclick = function () {
     // повторяющийся код:
     // выбор минимума-максимума рулетки:
     let minmax = document.getElementById('minmax').value; // выбираем элемент select minmax
-    minBet = localStorage.getItem('minBet');
-    maxBet = localStorage.getItem('maxBet');
+    // minBet = localStorage.getItem('minBet');
+    // maxBet = localStorage.getItem('maxBet');
     switch (minmax) {
         case "1-100":
             minBet = 1;
