@@ -2,7 +2,7 @@
 // import { minBet } from "./menuModel.js";
 // import { maxBet } from "./menuModel.js";
 import { rouletteSeries } from "./menuModel.js";
-import { rltPos } from "./menuModel.js";
+import { rltPos } from "./consts/rltPos.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 // import { seriesCalc } from "./menuModel.js";
 // import { calculateBTN } from "./menuModel.js";

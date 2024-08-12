@@ -8,7 +8,7 @@
 
 import { rouletteNumber } from "./consts/rouletteNumber.js";
 import { fullBets } from "./menuModel.js";
-import { rltPos } from "./menuModel.js";
+import { rltPos } from "./consts/rltPos.js";
 
 // поворот экрана:
 // document.body.style.transform = 'rotate(90deg)';
