@@ -1,5 +1,5 @@
 // import "./menuModel.js";
-import { rouletteSeries } from "./menuModel.js";
+import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 
 // localStorage
