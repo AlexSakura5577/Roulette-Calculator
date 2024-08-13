@@ -5,7 +5,6 @@ import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { rltPos } from "./consts/rltPos.js";
 import { track } from "./consts/track.js";
-// import { maxBet, minBet } from "./consts/min_max.js";
 
 // выбор минимума максимума рулетки:
 minmax.onclick = function () {
@@ -580,10 +579,11 @@ calculate.onclick = function () {
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
                 residue_Arr_2.push(residue_2);
+                // residue_Arr_2.join(''); надо как-то убрать запятую вначале...
                 console.log(`превышение с номера ${i}: ${residue_2}`);
                 // сколько номеров играет до максимума:
                 count_2 += 1;
-                excess.push(`,превышение с номера ${i}: ${residue_2}<br>`);
+                excess.push(`превышение с номера ${i}: ${residue_2}<br>`);
             };
         };
         // общая сдача 1:
@@ -648,7 +648,4 @@ calculate.onclick = function () {
     // console.log(`позиция 26: ${rltPos.num.number_26}`);
     // console.log(`шпиль сплит 32-35: ${rouletteSeries.spiel.split[2]}`);
     // console.log(`шпиль номер 26: ${rouletteSeries.spiel.numb[0]}`);
-
 };
-
-
