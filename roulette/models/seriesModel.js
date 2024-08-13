@@ -1,5 +1,6 @@
 import { minMax } from "../controllers/localStorageRead.js";
 import { updateMinMax } from "../controllers/updateMinMax.js";
+import { resetValues } from "../controllers/resetHandler.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 
@@ -12,10 +13,7 @@ minmax.onclick = function () {
 
 // кнопка Сброс:
 reset.onclick = function () {
-    location.reload();
-    localStorage.setItem('minBet', 1);
-    localStorage.setItem('maxBet', 100);
-    return;
+    resetValues();
 };
 
 // переменные:

@@ -1,5 +1,6 @@
 import { minMax } from "../controllers/localStorageRead.js";
 import { updateMinMax } from "../controllers/updateMinMax.js";
+import { resetValues } from "../controllers/resetHandler.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteSeries } from './consts/rouletteSeries.js';
 // import { oddDozColum } from "./consts/oddDozColum.js";
@@ -12,6 +13,11 @@ minmax.onclick = function () {
     // выбираем элемент select minmax
     let minmaxValue = document.getElementById('minmax').value;
     updateMinMax(minmaxValue, minMax);
+};
+
+// кнопка Сброс:
+reset.onclick = function () {
+    resetValues();
 };
 
 // пересекается ли трек с полем:
