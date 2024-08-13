@@ -328,8 +328,6 @@ bettingOnNeighbor();
 
 // функция подсчёта серии:
 function seriesCalc(maxBet, series, bet) {
-    let maxBet = minMax.maxBet;
-    let minBet = minMax.minBet;
     // проверка ставка ли на серию?
     if (series.includes("neighbor")) {
         return;
