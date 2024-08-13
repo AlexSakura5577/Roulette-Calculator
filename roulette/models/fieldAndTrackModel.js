@@ -9,11 +9,10 @@ import { rouletteSeries } from './consts/rouletteSeries.js';
 // import { rltPos } from "./consts/rltPos.js";
 
 // выбор минимума максимума рулетки:
-minmax.onclick = function () {
-    // выбираем элемент select minmax
-    let minmaxValue = document.getElementById('minmax').value;
+document.getElementById('minmax').addEventListener('change', function () {
+    let minmaxValue = this.value;
     updateMinMax(minmaxValue, minMax);
-};
+});
 
 // кнопка Сброс:
 reset.onclick = function () {
