@@ -25,6 +25,4 @@ export function updateMinMax(value, minMax) {
     // Обновляем localStorage
     localStorage.setItem('minBet', minMax.minBet);
     localStorage.setItem('maxBet', minMax.maxBet);
-    // Обновляем minmax.value чтобы изменения вступили в силу
-    document.getElementById('minmax').value = `${minMax.minBet}-${minMax.maxBet}`;
 };
