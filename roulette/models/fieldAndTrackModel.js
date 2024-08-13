@@ -1,11 +1,24 @@
-// import { minBet } from "./menuModel.js";
-// import { maxBet } from "./menuModel.js";
-// import { payoutRatios } from "./consts/payoutRatios.js";
+import { minMax } from "../controllers/localStorageRead.js";
+import { updateMinMax } from "../controllers/updateMinMax.js";
+import { resetValues } from "../controllers/resetHandler.js";
+import { payoutRatios } from "./consts/payoutRatios.js";
+import { rouletteSeries } from './consts/rouletteSeries.js';
 // import { oddDozColum } from "./consts/oddDozColum.js";
-// import { rouletteSeries } from './consts/rouletteSeries.js';
 // import { rouletteNumber } from "./consts/rouletteNumber.js";
 // import { fullBets } from "./functions/fullBets.js";
 // import { rltPos } from "./consts/rltPos.js";
+
+// выбор минимума максимума рулетки:
+minmax.onclick = function () {
+    // выбираем элемент select minmax
+    let minmaxValue = document.getElementById('minmax').value;
+    updateMinMax(minmaxValue, minMax);
+};
+
+// кнопка Сброс:
+reset.onclick = function () {
+    resetValues();
+};
 
 // пересекается ли трек с полем:
 export const trackOverField = true;
