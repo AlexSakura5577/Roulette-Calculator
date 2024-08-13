@@ -245,7 +245,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
             console.log("не корректная ставка");
             info.innerHTML = `не корректная ставка`;
             return;
-        }
+        };
 
         // очистить объект для пересчёта:
         // for (let i = 0; i < 37; i++) {
@@ -255,6 +255,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
         // console.log(`серия: ${nameSeries}`);
         // console.log(`ставка: ${bet}`);
         // console.log(bet_id);
+
         // вывод информации юзеру:
         info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
         modal.close();
@@ -327,6 +328,8 @@ bettingOnNeighbor();
 
 // функция подсчёта серии:
 function seriesCalc(maxBet, series, bet) {
+    let maxBet = minMax.maxBet;
+    let minBet = minMax.minBet;
     // проверка ставка ли на серию?
     if (series.includes("neighbor")) {
         return;
@@ -390,11 +393,6 @@ function seriesCalc(maxBet, series, bet) {
                 let cleanBet = plays * rouletteSeries.orphelins.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         case "voisins":
@@ -425,11 +423,6 @@ function seriesCalc(maxBet, series, bet) {
                 let cleanBet = plays * rouletteSeries.voisins.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         case "spiel":
@@ -475,7 +468,7 @@ const calculateBTN = function calculateBTN() {
         return;
     };
     // вычисления:
-    seriesCalc(maxBet, series, bet);
+    seriesCalc(minMax.maxBet, series, bet);
     return;
 };
 
