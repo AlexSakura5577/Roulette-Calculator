@@ -1,5 +1,7 @@
+import { deepFreeze } from "../functions/deepFreeze.js";
+
 // серии рулетки:
-export const rouletteSeries = {
+export const rouletteSeries = Object.freeze({
     // малая серия (tier):
     tier: {
         position: 6,
@@ -37,4 +39,6 @@ export const rouletteSeries = {
         strUps: [0, 3, 12, 15, 26, 32, 35],
         sumStrUps: 7
     }
-};
+});
+// глубокая заморозка объекта (только для чтения):
+deepFreeze(rouletteSeries);

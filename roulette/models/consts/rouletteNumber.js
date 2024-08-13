@@ -1,5 +1,7 @@
+import { deepFreeze } from "../functions/deepFreeze.js";
+
 // номера рулетки:
-export const rouletteNumber = {
+export const rouletteNumber = Object.freeze({
     0: {
         numb: 1,
         split: 3,
@@ -703,4 +705,6 @@ export const rouletteNumber = {
         dozen: "3rd",
         column: "3rd"
     }
-};
+});
+// глубокая заморозка объекта (только для чтения):
+deepFreeze(rouletteNumber);
