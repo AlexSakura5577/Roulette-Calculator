@@ -2,7 +2,6 @@ import { minMax } from "../controllers/localStorageRead.js";
 import { updateMinMax } from "../controllers/updateMinMax.js";
 import { resetValues } from "../controllers/resetHandler.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
-// import { fullBets } from "./functions/fullBets.js";
 
 // выбор минимума максимума рулетки:
 minmax.onclick = function () {
