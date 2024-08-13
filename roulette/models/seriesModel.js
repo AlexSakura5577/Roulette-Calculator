@@ -5,13 +5,6 @@ import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 
 // выбор минимума максимума рулетки:
-// minmax.onclick = function () {
-//     // выбираем элемент select minmax
-//     let minmaxValue = document.getElementById('minmax').value;
-//     updateMinMax(minmaxValue, minMax);
-// };
-
-// выбор минимума максимума рулетки версия 2:
 document.getElementById('minmax').addEventListener('change', function () {
     let minmaxValue = this.value;
     updateMinMax(minmaxValue, minMax);
