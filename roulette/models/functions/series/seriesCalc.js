@@ -14,6 +14,8 @@ function seriesCalc(maxBet, series, bet) {
     let residue = 0;
     // сдача:
     let change = 0;
+    // максимум на серию:
+    let maxSeries = 0;
 
     // проверка на кратность:
     let multiplicity = bet % 5 == 0;
@@ -29,14 +31,17 @@ function seriesCalc(maxBet, series, bet) {
     breakingStep = 0;
     // рассчёты:
     switch (series) {
+
         case "tier":
             //  проверка на максимум:
             let maxTier = minMax.maxBet * rouletteSeries.tier.chips;
+            maxSeries = maxTier;
+
             if (bet >= maxTier) {
                 change = bet - maxTier;
                 plays = minMax.maxBet * payoutRatios.split.position;
                 console.log(`максимум на tier: ${maxTier}`);
-                return;
+                return { plays, change, breakingStep, maxSeries }; //+maxTier
             } else if (bet < maxTier) {
                 // рассчёты:
                 let diff_1 = bet / rouletteSeries.tier.position;
@@ -47,16 +52,19 @@ function seriesCalc(maxBet, series, bet) {
                 change = diff_3 + residue;
             };
             break;
+
         case "orphelins":
             //  проверка на максимум:
             let maxOrphelins = minMax.maxBet * rouletteSeries.orphelins.chips;
+            maxSeries = maxOrphelins;
+
             // ломается шаг:
             breakingStep = payoutRatios.numb.position * rouletteSeries.orphelins.position * minMax.maxBet;
             if (bet >= maxOrphelins) {
                 change = bet - maxOrphelins;
                 plays = minMax.maxBet * payoutRatios.split.position;
                 console.log(`максимум на orphelins: ${maxOrphelins}`);
-                return;
+                return { plays, change, breakingStep, maxSeries }; //+maxOrphelins
             } else if (bet >= breakingStep) {
                 // рассчёты:
                 bet = bet - breakingStep;
@@ -77,16 +85,19 @@ function seriesCalc(maxBet, series, bet) {
                 change = diff_3 + residue;
             };
             break;
+
         case "voisins":
             //  проверка на максимум:
             let maxVoisins = minMax.maxBet * rouletteSeries.voisins.sumStrUps;
+            maxSeries = maxVoisins;
+
             // ломается шаг:
             breakingStep = 1.5 * rouletteSeries.voisins.position * minMax.maxBet;
             if (bet >= maxVoisins) {
                 change = bet - maxVoisins;
                 plays = minMax.maxBet * payoutRatios.split.position; //number
                 console.log(`максимум на voisins: ${maxVoisins}`);
-                return;
+                return { plays, change, breakingStep, maxSeries }; //+maxVoisins
             } else if (bet >= breakingStep) {
                 // рассчёты:
                 bet = bet - breakingStep;
@@ -110,13 +121,15 @@ function seriesCalc(maxBet, series, bet) {
         case "spiel":
             //  проверка на максимум:
             let maxSpiel = minMax.maxBet * rouletteSeries.spiel.sumStrUps;
+            maxSeries = maxSpiel;
+
             // ломается шаг:
             breakingStep = payoutRatios.numb.position * rouletteSeries.spiel.position * minMax.maxBet;
             if (bet >= maxSpiel) {
                 change = bet - maxSpiel;
                 plays = minMax.maxBet * payoutRatios.split.position; //number
                 console.log(`максимум на spiel: ${maxSpiel}`);
-                return;
+                return { plays, change, breakingStep, maxSeries }; //+maxSpiel
             } else if (bet >= breakingStep) {
                 // рассчёты:
                 bet = bet - breakingStep;
@@ -147,7 +160,8 @@ function seriesCalc(maxBet, series, bet) {
         residue: residue,
         change: change,
         series: series,
-        bet: bet
+        bet: bet,
+        maxSeries: maxSeries
     };
 };
 export { seriesCalc };
