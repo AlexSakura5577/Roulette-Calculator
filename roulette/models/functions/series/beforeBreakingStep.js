@@ -2,6 +2,8 @@ import { rouletteSeries } from "../../consts/rouletteSeries.js";
 
 // расчёт до ломаного шага:
 function beforeBreakingStep(series, bet, residue) {
+    console.log(`функция beforeBreakingStep вызвана`);
+
     let position = rouletteSeries[series].position;
     let diff_1 = bet / position;
     let diff_2 = bet / position % 5;

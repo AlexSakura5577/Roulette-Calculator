@@ -2,6 +2,7 @@ import { minMax } from "../../../controllers/localStorageRead.js";
 import { payoutRatios } from "../../consts/payoutRatios.js";
 import { rouletteSeries } from "../../consts/rouletteSeries.js";
 import { beforeBreakingStep } from "./beforeBreakingStep.js";
+import { afterBreakingStep } from "./afterBreakingStep.js";
 
 // функция подсчёта серии:
 function seriesCalc(maxBet, series, bet) {
@@ -71,6 +72,7 @@ function seriesCalc(maxBet, series, bet) {
                 let diff_3 = bet - cleanBet;
                 plays = +minMax.maxBet + plays_1;
                 change = diff_3 + residue;
+                return { plays, change, breakingStep, maxSeries };
             } else if (bet < maxOrphelins) {
                 // рассчёты beforeBreakingStep:
                 seriesResult = beforeBreakingStep(series, bet, residue);
@@ -100,6 +102,7 @@ function seriesCalc(maxBet, series, bet) {
                 let diff_3 = bet - cleanBet;
                 plays = (minMax.maxBet * 1.5) + plays_1;
                 change = diff_3 + residue;
+                return { plays, change, breakingStep, maxSeries };
             } else if (bet < maxVoisins) {
                 // рассчёты beforeBreakingStep:
                 seriesResult = beforeBreakingStep(series, bet, residue);
@@ -128,6 +131,7 @@ function seriesCalc(maxBet, series, bet) {
                 let diff_3 = bet - cleanBet;
                 plays = +minMax.maxBet + plays_1;
                 change = diff_3 + residue;
+                return { plays, change, breakingStep, maxSeries };
             } else if (bet < maxSpiel) {
                 // рассчёты beforeBreakingStep:
                 seriesResult = beforeBreakingStep(series, bet, residue);
