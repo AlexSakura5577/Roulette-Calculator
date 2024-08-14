@@ -1,6 +1,7 @@
 import { minMax } from "../../../controllers/localStorageRead.js";
 import { payoutRatios } from "../../consts/payoutRatios.js";
 import { rouletteSeries } from "../../consts/rouletteSeries.js";
+import { beforeBreakingStep } from "./beforeBreakingStep.js";
 
 // функция подсчёта серии:
 function seriesCalc(maxBet, series, bet) {
@@ -16,15 +17,18 @@ function seriesCalc(maxBet, series, bet) {
     let change = 0;
     // максимум на серию:
     let maxSeries = 0;
+    // объект результата:
+    let seriesResult = {};
 
     // проверка на кратность:
     let multiplicity = bet % 5 == 0;
     // console.log(`ставка кратна пяти: ${multiplicity}`);
 
     if (multiplicity == false) {
-        // сдача 1:
+        // сдача 1 (остаток от деления):
         residue = bet % 5;
-        bet = bet - residue;
+        bet = bet - residue; // так было всегда
+        // bet = bet; // времерная правка
     } else {
         bet = bet;
     };
@@ -36,20 +40,16 @@ function seriesCalc(maxBet, series, bet) {
             //  проверка на максимум:
             let maxTier = minMax.maxBet * rouletteSeries.tier.chips;
             maxSeries = maxTier;
-
+            // превышение максимума:
             if (bet >= maxTier) {
-                change = bet - maxTier;
+                change = bet - maxTier + residue;
                 plays = minMax.maxBet * payoutRatios.split.position;
                 console.log(`максимум на tier: ${maxTier}`);
                 return { plays, change, breakingStep, maxSeries }; //+maxTier
             } else if (bet < maxTier) {
                 // рассчёты:
-                let diff_1 = bet / rouletteSeries.tier.position;
-                let diff_2 = bet / rouletteSeries.tier.position % 5;
-                plays = diff_1 - diff_2;
-                let cleanBet = plays * rouletteSeries.tier.position;
-                let diff_3 = bet - cleanBet;
-                change = diff_3 + residue;
+                seriesResult = beforeBreakingStep(bet, residue);
+                console.log(seriesResult);
             };
             break;
 
@@ -60,8 +60,9 @@ function seriesCalc(maxBet, series, bet) {
 
             // ломается шаг:
             breakingStep = payoutRatios.numb.position * rouletteSeries.orphelins.position * minMax.maxBet;
+            // превышение максимума:
             if (bet >= maxOrphelins) {
-                change = bet - maxOrphelins;
+                change = bet - maxOrphelins + residue;
                 plays = minMax.maxBet * payoutRatios.split.position;
                 console.log(`максимум на orphelins: ${maxOrphelins}`);
                 return { plays, change, breakingStep, maxSeries }; //+maxOrphelins
@@ -93,8 +94,9 @@ function seriesCalc(maxBet, series, bet) {
 
             // ломается шаг:
             breakingStep = 1.5 * rouletteSeries.voisins.position * minMax.maxBet;
+            // превышение максимума:
             if (bet >= maxVoisins) {
-                change = bet - maxVoisins;
+                change = bet - maxVoisins + residue;
                 plays = minMax.maxBet * payoutRatios.split.position; //number
                 console.log(`максимум на voisins: ${maxVoisins}`);
                 return { plays, change, breakingStep, maxSeries }; //+maxVoisins
@@ -125,8 +127,9 @@ function seriesCalc(maxBet, series, bet) {
 
             // ломается шаг:
             breakingStep = payoutRatios.numb.position * rouletteSeries.spiel.position * minMax.maxBet;
+            // превышение максимума:
             if (bet >= maxSpiel) {
-                change = bet - maxSpiel;
+                change = bet - maxSpiel + residue;
                 plays = minMax.maxBet * payoutRatios.split.position; //number
                 console.log(`максимум на spiel: ${maxSpiel}`);
                 return { plays, change, breakingStep, maxSeries }; //+maxSpiel
@@ -156,9 +159,10 @@ function seriesCalc(maxBet, series, bet) {
     return {
         breakingStep: breakingStep,
         betWithoutChange: betWithoutChange,
-        plays: plays,
+        cleanBet: seriesResult.cleanBet,
+        plays: seriesResult.plays,
+        change: seriesResult.change,
         residue: residue,
-        change: change,
         series: series,
         bet: bet,
         maxSeries: maxSeries
