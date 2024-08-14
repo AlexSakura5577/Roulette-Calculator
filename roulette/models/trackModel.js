@@ -75,7 +75,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             <div>
                 <p>
                     <label>
-                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="${min}" max="${max}" id=${bet_id}>
+                        <input name="bet" class="input track_bet" type="number" min="0" minlength="2" maxlength="8" size="8" min="${min}" max="${max}" id=${bet_id}>
                     </label>
                 </p>
             </div>
@@ -196,7 +196,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
             <div>
                 <p>
                     <label>
-                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="${min}" id=${bet_id}>
+                        <input name="bet" class="input track_bet" type="number" min="0" minlength="2" maxlength="8" size="8" min="${min}" id=${bet_id}>
                     </label>
                 </p>
             </div>

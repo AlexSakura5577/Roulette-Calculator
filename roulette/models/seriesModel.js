@@ -1,8 +1,6 @@
 import { minMax } from "../controllers/localStorageRead.js";
 import { updateMinMax } from "../controllers/updateMinMax.js";
 import { resetValues } from "../controllers/resetHandler.js";
-// import { payoutRatios } from "./consts/payoutRatios.js";
-// import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { seriesCalc } from "./functions/series/seriesCalc.js";
 
 // выбор минимума максимума рулетки:
