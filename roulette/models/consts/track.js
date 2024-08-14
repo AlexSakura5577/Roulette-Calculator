@@ -1,5 +1,7 @@
+// import { deepFreeze } from "../functions/deepFreeze.js";
+
 // трэк:
-export const track = {
+export const track = Object.freeze({
     "neighbor_0": {
         numbers: [15, 32, 0, 26, 3],
         bet: 0
@@ -148,4 +150,5 @@ export const track = {
         numbers: [30, 11, 36, 13, 27],
         bet: 0
     }
-};
+});
+// заморозка не требуется

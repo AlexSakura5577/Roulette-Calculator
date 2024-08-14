@@ -1,8 +1,11 @@
-// коэффициенты выплат
+import { deepFreeze } from "../functions/deepFreeze.js";
+
+// минимум и максимум:
 import { minBet } from './min_max.js';
 import { maxBet } from './min_max.js';
 
-export const payoutRatios = {
+// коэффициенты выплат
+export const payoutRatios = Object.freeze({
     numb: {
         payout: 35,
         position: 1,
@@ -28,4 +31,6 @@ export const payoutRatios = {
         position: 6,
         maxbet: (maxBet * 6)
     }
-};
+});
+// глубокая заморозка объекта:
+deepFreeze(payoutRatios);

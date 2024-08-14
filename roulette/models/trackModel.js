@@ -75,7 +75,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             <div>
                 <p>
                     <label>
-                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="${min}" max="${max}" id=${bet_id}>
+                        <input name="bet" class="input track_bet" type="number" min="0" minlength="2" maxlength="8" size="8" min="${min}" max="${max}" id=${bet_id}>
                     </label>
                 </p>
             </div>
@@ -196,7 +196,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
             <div>
                 <p>
                     <label>
-                        <input name="bet" class="input track_bet" type="number" minlength="2" maxlength="8" size="8" min="${min}" id=${bet_id}>
+                        <input name="bet" class="input track_bet" type="number" min="0" minlength="2" maxlength="8" size="8" min="${min}" id=${bet_id}>
                     </label>
                 </p>
             </div>
@@ -245,7 +245,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
             console.log("не корректная ставка");
             info.innerHTML = `не корректная ставка`;
             return;
-        }
+        };
 
         // очистить объект для пересчёта:
         // for (let i = 0; i < 37; i++) {
@@ -255,6 +255,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
         // console.log(`серия: ${nameSeries}`);
         // console.log(`ставка: ${bet}`);
         // console.log(bet_id);
+
         // вывод информации юзеру:
         info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
         modal.close();
@@ -390,11 +391,6 @@ function seriesCalc(maxBet, series, bet) {
                 let cleanBet = plays * rouletteSeries.orphelins.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         case "voisins":
@@ -425,11 +421,6 @@ function seriesCalc(maxBet, series, bet) {
                 let cleanBet = plays * rouletteSeries.voisins.position;
                 let diff_3 = bet - cleanBet;
                 change = diff_3 + residue;
-                // консоль-логи вычислений:
-                // console.log(diff_1);
-                // console.log(diff_2);
-                // console.log(cleanBet);
-                // console.log(diff_3);
             };
             break;
         case "spiel":
@@ -475,7 +466,7 @@ const calculateBTN = function calculateBTN() {
         return;
     };
     // вычисления:
-    seriesCalc(maxBet, series, bet);
+    seriesCalc(minMax.maxBet, series, bet);
     return;
 };
 
