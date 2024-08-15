@@ -116,7 +116,10 @@ body {
     display: block;
 }
 
-.body__item_14,
+.body__item_14 {
+    margin: auto;
+}
+
 .body__item_15 {
     display: block;
     margin: 10px 50px 0px 50px;

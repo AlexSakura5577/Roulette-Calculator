@@ -3,13 +3,12 @@ import { rouletteSeries } from "../../consts/rouletteSeries.js";
 // расчёт до ломаного шага:
 function beforeBreakingStep(series, bet, residue) {
     console.log("функция beforeBreakingStep");
-    let position = rouletteSeries[series].position;
-    let diff_1 = bet / position;
-    let diff_2 = bet / position % 5;
-    let plays = diff_1 - diff_2;
-    let cleanBet = plays * position;
-    let diff_3 = bet - cleanBet;
-    let change = diff_3 + residue;
+
+    const position = rouletteSeries[series].position; // Используем const для константы
+    const diff_1 = bet / position;
+    const plays = diff_1 - (bet / position % 5); // Объединяем расчёт и определение
+    const cleanBet = plays * position;
+    const change = (bet - cleanBet) + residue; // Объединение расчёта change
 
     return { cleanBet, plays, change };
 };

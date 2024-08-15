@@ -10,7 +10,7 @@ export const rouletteSeries = Object.freeze({
         sumStrUps: 12,
         chips: 6,
         step: 12, // проверка на maxBet
-        coefficient: 0
+        coefficient: 6
     },
     // орфолайнс (orphelins):
     orphelins: {
