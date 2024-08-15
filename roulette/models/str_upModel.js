@@ -31,9 +31,16 @@ add_bet.onclick = function () {
 
 // клик по кнопке Рассчитать:
 calculate.onclick = function () {
-    let infoObj = strUpCalculations(fillArr); // Вызываем strUpCalculations и сохраняем результат в infoObj
+    // Вызываем strUpCalculations и сохраняем результат в infoObj
+    let infoObj = strUpCalculations(fillArr);
     console.log(infoObj);
 
     // вывод информации пользователю:
-    document.getElementById('info_3').innerHTML = ` Выплата<br\/> сумма фишек: ${infoObj.pay}<br\/> сумма выплаты: ${infoObj.summPay}<br\/> выплата цветом: ${infoObj.payChips}<br\/> через: ${infoObj.summCash}<br\/>`;
+    document.getElementById('info_3').innerHTML = `
+        Выплата<br\/>
+        сумма фишек: ${infoObj.pay}<br\/>
+        сумма выплаты: ${infoObj.summPay}<br\/>
+        выплата цветом: ${infoObj.payChips}<br\/>
+        через: ${infoObj.summCash}<br\/>
+    `;
 };
