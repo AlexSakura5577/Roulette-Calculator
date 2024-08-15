@@ -8,7 +8,7 @@ function strUpCalculations(fillArr) {
 
     // выплата (кол-во фишек):
     pay = fillArr.reduce((acc, number) => acc + number, 0);
-    // console.log(`кол-во фишек: ${pay}`);
+    console.log(`кол-во фишек: ${pay}`);
 
     // цвет по:
     console.log(`цвет по: ${color.value}`);
@@ -26,17 +26,17 @@ function strUpCalculations(fillArr) {
         summCash = `${summCash} не получится`;
         console.log("не получится");
     } else {
-        console.log("ok");
+        console.log("проверка кратности: ok");
     };
-    // console.log(`через (кэш): ${summCash}`);
+    console.log(`через (кэш): ${summCash}`);
 
     // остаток:
     residue = summPay - +cash.value;
-    // console.log(`остаток: ${residue}`);
+    console.log(`остаток: ${residue}`);
 
     // выплата цветом:
     payChips = residue / +color.value;
-    // console.log(`выплата цветом: ${payChips}`);
+    console.log(`выплата цветом: ${payChips}`);
 
     return {
         pay: pay,
