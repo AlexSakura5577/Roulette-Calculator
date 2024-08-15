@@ -6,7 +6,7 @@ function strUpCalculations(fillArr) {
 
     // Цвет по:
     const colorValue = +color.value;
-    console.log(`цвет по: ${color.value}`);
+    console.log(`цвет по: ${colorValue}`);
 
     // Сумма выплаты:
     const summPay = colorValue * pay;
@@ -17,23 +17,30 @@ function strUpCalculations(fillArr) {
 
     // Проверка кратности:
     if (summCash % colorValue !== 0) {
-        console.log(`${summCash} не получится`);
+        console.log(`через ${summCash} не получится`);
     } else {
         console.log("проверка кратности: ok");
     }
     console.log(`через (кэш): ${summCash}`);
 
-    // Новая проверка: если summCash больше summPay
+    // Проверка если сумма кэш фишек больше суммы выплаты:
     if (summCash > summPay) {
         summCash = summPay; // Устанавливаем summCash равным summPay
     }
 
-    // Остаток и выплата цветом:
+    // Остаток:
     const residue = summPay - summCash;
     console.log(`остаток: ${residue}`);
 
-    // Убедимся, что payChips не отрицательное значение:
-    const payChips = residue < 0 ? 0 : residue / colorValue;
+    // Проверка делимости остатка на цвет
+    let payChips;
+    if (residue % colorValue !== 0) {
+        payChips = pay; // Устанавливаем payChips равным pay
+        summCash = 0;   // Устанавливаем summCash в 0
+        console.log("остаток не делится на цвет");
+    } else {
+        payChips = residue < 0 ? 0 : residue / colorValue; // Проверка для payChips
+    }
     console.log(`выплата цветом: ${payChips}`);
 
     return {
