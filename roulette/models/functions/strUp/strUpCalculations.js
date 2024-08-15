@@ -13,22 +13,27 @@ function strUpCalculations(fillArr) {
     console.log(`выплата: ${summPay}`);
 
     // Кэш:
-    const summCash = +cash.value;
+    let summCash = +cash.value;
 
     // Проверка кратности:
     if (summCash % colorValue !== 0) {
         console.log(`${summCash} не получится`);
-        console.log("не получится");
     } else {
         console.log("проверка кратности: ok");
     }
     console.log(`через (кэш): ${summCash}`);
 
+    // Новая проверка: если summCash больше summPay
+    if (summCash > summPay) {
+        summCash = summPay; // Устанавливаем summCash равным summPay
+    }
+
     // Остаток и выплата цветом:
     const residue = summPay - summCash;
     console.log(`остаток: ${residue}`);
 
-    const payChips = residue / colorValue;
+    // Убедимся, что payChips не отрицательное значение:
+    const payChips = residue < 0 ? 0 : residue / colorValue;
     console.log(`выплата цветом: ${payChips}`);
 
     return {
