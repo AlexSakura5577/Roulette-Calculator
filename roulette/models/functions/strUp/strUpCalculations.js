@@ -1,49 +1,42 @@
 // функция расчета ставок в разделе Номер:
 function strUpCalculations(fillArr) {
-    let pay = 0;
-    let summPay = 0;
-    let summCash = 0;
-    let residue = 0;
-    let payChips = 0;
-
-    // выплата (кол-во фишек):
-    pay = fillArr.reduce((acc, number) => acc + number, 0);
+    // Выплата (кол-во фишек):
+    const pay = fillArr.reduce((acc, number) => acc + number, 0);
     console.log(`кол-во фишек: ${pay}`);
 
-    // цвет по:
+    // Цвет по:
+    const colorValue = +color.value;
     console.log(`цвет по: ${color.value}`);
 
-    // сумма выплаты:
-    summPay = +color.value * pay;
+    // Сумма выплаты:
+    const summPay = colorValue * pay;
     console.log(`выплата: ${summPay}`);
 
-    // через сколько (кэш):
-    summCash = +cash.value;
+    // Кэш:
+    const summCash = +cash.value;
 
-    // проверка кратности:
-    let colorCash = summCash / +color.value;
-    if ((colorCash ^ 0) !== colorCash) {
-        summCash = `${summCash} не получится`;
+    // Проверка кратности:
+    if (summCash % colorValue !== 0) {
+        console.log(`${summCash} не получится`);
         console.log("не получится");
     } else {
         console.log("проверка кратности: ok");
-    };
+    }
     console.log(`через (кэш): ${summCash}`);
 
-    // остаток:
-    residue = summPay - +cash.value;
+    // Остаток и выплата цветом:
+    const residue = summPay - summCash;
     console.log(`остаток: ${residue}`);
 
-    // выплата цветом:
-    payChips = residue / +color.value;
+    const payChips = residue / colorValue;
     console.log(`выплата цветом: ${payChips}`);
 
     return {
-        pay: pay,
-        summPay: summPay,
-        summCash: summCash,
-        residue: residue,
-        payChips: payChips
+        pay,
+        summPay,
+        summCash,
+        residue,
+        payChips
     };
 };
 // Экспортируем функцию chipCount с вычисленными значениями:
