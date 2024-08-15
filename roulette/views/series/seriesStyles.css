@@ -83,6 +83,7 @@ body {
 
 .body__item_10 {
     display: block;
-    margin: 10px 50px 0px 50px;
+    margin: auto;
     white-space: pre;
+    padding-right: 80px;
 }
