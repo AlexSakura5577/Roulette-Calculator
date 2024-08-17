@@ -9,6 +9,7 @@ function completePayment(strUp) {
     let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line * payoutRatios.six_line.payout;
     let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
     let result = quantitySum;
+    console.log(`payment: ${result} chips`);
     return result;
 };
 export { completePayment };

@@ -3,6 +3,7 @@ import { rouletteNumber } from './consts/rouletteNumber.js';
 import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
 import { sumBet } from './functions/complete/sumBet.js';
 import { completePayment } from './functions/complete/completePayment.js';
+import { totalPayment } from './functions/complete/totalPayment.js';
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -10,17 +11,15 @@ calculate.onclick = function () {
     let completeBet = document.getElementById('complete').value;
 
     // блок вызовов функций:
-    let chipsNeeded = chipsNeededForABet(strUp); // 17
+    let chipsNeeded = chipsNeededForABet(strUp, completeBet); // 17
 
     let sum = sumBet(chipsNeeded, completeBet); // 425
 
     let completePay = completePayment(strUp); // 235
 
-    function totalPayment(strUp) {
-        let chips = completePay;
-        let result = completeBet * chips;
-        return result;
-    };
+    let totalPay = totalPayment(completeBet, completePay); // 5875
+
+
     function info(strUp) {
         let color = rouletteNumber[strUp].color;
         let parity = rouletteNumber[strUp].parity;
@@ -39,18 +38,12 @@ calculate.onclick = function () {
         return result;
     };
 
-    // блок вызовов console.log:
-    console.log('strUp ' + strUp + ': ' + chipsNeeded + ' positions of ' + completeBet);
-    console.log('sumBet: $' + sum);
-    console.log('payment: ' + completePay + ' chips');
-    console.log('totalPayment: $' + totalPayment(strUp));
-
     // вывод информации:
     document.getElementById('info_1').innerHTML = `
     strUp  ${strUp}: ${chipsNeeded} positions of ${completeBet}<br\/>
     sumBet: $${sum}<br\/>
     payment: ${completePay} chips<br\/>
-    totalPayment: $${totalPayment(strUp)}<br\/>
+    totalPayment: $${totalPay}<br\/>
     ${info(strUp)}
     // `;
 };
