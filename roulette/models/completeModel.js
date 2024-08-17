@@ -7,20 +7,28 @@ import { completeInfo } from './functions/complete/completeInfo.js';
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
+    // выбор номера:
     let strUp = document.getElementById('str_up').value;
-    // let completeBet = document.getElementById('str_up').value;
-    let completeBet = document.getElementById('complete').value;
+
+    // let completeBet = document.getElementById('completeBet').value;
+
+    let nominal = document.getElementById('nominal').value;
 
     // кол-во фишек для ставки:
-    let chipsNeeded = chipsNeededForABet(strUp, completeBet); // 17
+    let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
+
     // сумма ставки:
-    let sum = sumBet(chipsNeeded, completeBet); // 425
+    let sum = sumBet(chipsNeeded, nominal); // 425
+
     // кол-во фишек на выплату:
     let completePay = completePayment(strUp); // 235
+
     // сумма выплаты:
-    let totalPay = totalPayment(completeBet, completePay); // 5875
-    // информация:
-    let addInfo = strUpDescript(strUp, completeBet, chipsNeeded, sum, completePay, totalPay);
-    // вывод информации:
-    let info = completeInfo(chipsNeeded, completeBet, sum, completePay, totalPay, addInfo);
+    let totalPay = totalPayment(nominal, completePay); // 5875
+
+    // допольнительная информация:
+    let addInfo = strUpDescript(strUp, nominal, chipsNeeded, sum, completePay, totalPay);
+
+    // вывод информации пользователю:
+    let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
 };

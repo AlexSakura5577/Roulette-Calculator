@@ -1,5 +1,5 @@
-function totalPayment(completeBet, completePay) {
-    let result = completeBet * completePay;
+function totalPayment(nominal, completePay) {
+    let result = nominal * completePay;
     console.log(`totalPayment: $${result}`);
     return result;
 };
