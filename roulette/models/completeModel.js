@@ -1,5 +1,6 @@
 import { payoutRatios } from './consts/payoutRatios.js';
 import { rouletteNumber } from './consts/rouletteNumber.js';
+import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
 // import { rltPos } from './consts/rltPos.js';
 
 // клик по кнопке "Рассчитать":
@@ -7,19 +8,9 @@ calculate.onclick = function () {
     let strUp = document.getElementById('str_up').value;
     let completeBet = document.getElementById('complete').value;
 
-    // блок функций:
-    function chipsNeededForABet(strUp) {
-        // повторяющийся код:
-        let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb;
-        let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split;
-        let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner;
-        let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street;
-        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line;
-        //
-        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        let result = quantitySum;
-        return result;
-    };
+    // блок вызовов функций:
+    let chipsNeeded = chipsNeededForABet(strUp);
+
     function sumBet(strUp) {
         let sumChips = chipsNeededForABet(strUp);
         let result = sumChips * completeBet;
@@ -63,7 +54,7 @@ calculate.onclick = function () {
     console.log('sumBet: $' + sumBet(strUp));
     console.log('payment: ' + completePayment(strUp) + ' chips');
     console.log('totalPayment: $' + totalPayment(strUp));
-    console.log(info(strUp));
+    // console.log(info(strUp));
 
     // вывод информации:
     document.getElementById('info_1').innerHTML = `
