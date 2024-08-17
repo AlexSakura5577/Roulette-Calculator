@@ -18,6 +18,40 @@
             <form action="../menu/menuView.html">
                 <button>Меню</button>
         </div>
+        <!-- кнопка сброс -->
+        <div class="header__item_0 btn">
+            <input id="reset" type="button" value="Сброс" />
+        </div>
+        <div class="minmax">
+            <!-- выбор минимума - максимума -->
+            <div class="body__item_3 item">
+                <h1>Min/Max:</h1>
+            </div>
+            <div class="body__item_4 item">
+                <p><select id="minmax" size="1">
+                        <option value="1-50">1-50</option>
+                        <option value="1-100">1-100</option>
+                        <option value="5-200">5-200</option>
+                        <option value="5-300">5-300</option>
+                        <option value="25-500">25-500</option>
+                        <option value="100-5000">100-5000</option>
+                    </select></p>
+            </div>
+        </div>
+        <div class="bet">
+            <!-- ставка -->
+            <div class="body__item_7 item">
+                <h1>Ставка:</h1>
+            </div>
+            <div class="body__item_8 item">
+                <p>
+                    <label>
+                        <input class="input" type="number" min="0" minlength="2" maxlength="10" size="10" id="bet">
+                    </label>
+                </p>
+            </div>
+        </div>
+    
         <div class="header__item_2 item">
             <h1>Комплит</h1>
         </div>
@@ -66,7 +100,7 @@
                 </select></p>
         </div>
         <div class="header__item_5 item">
-            <h1>Комплит играет по:</h1>
+            <h1>Номинал:</h1>
         </div>
         <div class="header__item_6 item">
             <p><select id="nominal" size="1">

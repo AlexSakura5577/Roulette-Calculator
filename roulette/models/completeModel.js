@@ -1,9 +1,23 @@
+import { minMax } from "../controllers/localStorageRead.js";
+import { updateMinMax } from "../controllers/updateMinMax.js";
+import { resetValues } from "../controllers/resetHandler.js";
 import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
 import { sumBet } from './functions/complete/sumBet.js';
 import { completePayment } from './functions/complete/completePayment.js';
 import { totalPayment } from './functions/complete/totalPayment.js';
 import { strUpDescript } from './functions/complete/strUpDescript.js';
 import { completeInfo } from './functions/complete/completeInfo.js';
+
+// выбор минимума максимума рулетки:
+document.getElementById('minmax').addEventListener('change', function () {
+    let minmaxValue = this.value;
+    updateMinMax(minmaxValue, minMax);
+});
+
+// кнопка Сброс:
+reset.onclick = function () {
+    resetValues();
+};
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
