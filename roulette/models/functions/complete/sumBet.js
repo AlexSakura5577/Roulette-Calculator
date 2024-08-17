@@ -1,6 +1,5 @@
-
-function sumBet(strUp) {
-    let sumChips = chipsNeededForABet(strUp);
-    let result = sumChips * completeBet;
+function sumBet(chipsNeeded, completeBet) {
+    let result = chipsNeeded * +completeBet;
     return result;
 };
+export { sumBet };

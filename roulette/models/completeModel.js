@@ -1,7 +1,7 @@
 import { payoutRatios } from './consts/payoutRatios.js';
 import { rouletteNumber } from './consts/rouletteNumber.js';
 import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
-// import { rltPos } from './consts/rltPos.js';
+import { sumBet } from './functions/complete/sumBet.js';
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -9,13 +9,10 @@ calculate.onclick = function () {
     let completeBet = document.getElementById('complete').value;
 
     // блок вызовов функций:
-    let chipsNeeded = chipsNeededForABet(strUp);
+    let chipsNeeded = chipsNeededForABet(strUp); // 17
 
-    function sumBet(strUp) {
-        let sumChips = chipsNeededForABet(strUp);
-        let result = sumChips * completeBet;
-        return result;
-    };
+    let sum = sumBet(chipsNeeded, completeBet); // 425
+
     function completePayment(strUp) {
         let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb * payoutRatios.numb.payout;
         let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split * payoutRatios.split.payout;
@@ -50,18 +47,17 @@ calculate.onclick = function () {
     };
 
     // блок вызовов console.log:
-    console.log('strUp ' + strUp + ': ' + chipsNeededForABet(strUp) + ' positions of ' + completeBet);
-    console.log('sumBet: $' + sumBet(strUp));
+    console.log('strUp ' + strUp + ': ' + chipsNeeded + ' positions of ' + completeBet);
+    console.log('sumBet: $' + sum);
     console.log('payment: ' + completePayment(strUp) + ' chips');
     console.log('totalPayment: $' + totalPayment(strUp));
-    // console.log(info(strUp));
 
     // вывод информации:
     document.getElementById('info_1').innerHTML = `
-    strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/>
-    sumBet: $${sumBet(strUp)}<br\/>
+    strUp  ${strUp}: ${chipsNeeded} positions of ${completeBet}<br\/>
+    sumBet: $${sum}<br\/>
     payment: ${completePayment(strUp)} chips<br\/>
     totalPayment: $${totalPayment(strUp)}<br\/>
     ${info(strUp)}
-    `;
+    // `;
 };
