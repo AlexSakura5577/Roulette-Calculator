@@ -1,6 +1,6 @@
 import { rouletteNumber } from '../../consts/rouletteNumber.js';
 
-function info(strUp) {
+function strUpDescript(strUp) {
     let color = rouletteNumber[strUp].color;
     let parity = rouletteNumber[strUp].parity;
     let magnitude = rouletteNumber[strUp].magnitude;
@@ -8,12 +8,13 @@ function info(strUp) {
     let column = rouletteNumber[strUp].column;
 
     let result = ` 
-    color: ${color} <br\/>
-    parity: ${parity} <br\/>
-    magnitude: ${magnitude} <br\/>
-    dozen: ${dozen} <br\/>
-    column: ${column}
+    цвет: ${color} <br\/>
+    чётность: ${parity} <br\/>
+    величина: ${magnitude} <br\/>
+    дюжина: ${dozen} <br\/>
+    колонка: ${column}
     `;
 
     return result;
 };
+export { strUpDescript };

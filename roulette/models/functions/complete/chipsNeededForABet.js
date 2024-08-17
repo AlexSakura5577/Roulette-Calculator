@@ -9,7 +9,7 @@ function chipsNeededForABet(strUp, completeBet) {
     let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line;
     let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
     let result = quantitySum;
-    console.log(`strUp ${strUp}: ${result} positions of ${completeBet}`);
+    console.log(`${result} positions of ${completeBet}`);
     return result;
 };
 export { chipsNeededForABet };
