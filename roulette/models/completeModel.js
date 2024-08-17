@@ -24,8 +24,11 @@ calculate.onclick = function () {
     // выбор номера:
     let strUp = document.getElementById('str_up').value;
 
-    // let completeBet = document.getElementById('completeBet').value;
+    // ставка:
+    let completeBet = document.getElementById('completeBet').value;
+    console.log(completeBet);
 
+    // выбор номинала:
     let nominal = document.getElementById('nominal').value;
 
     // кол-во фишек для ставки:
