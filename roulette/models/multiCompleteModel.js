@@ -1,6 +1,20 @@
+import { minMax } from "../controllers/localStorageRead.js";
+import { updateMinMax } from "../controllers/updateMinMax.js";
+import { resetValues } from "../controllers/resetHandler.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteNumber } from "./consts/rouletteNumber.js";
-import { oddDozColum } from "./consts/oddDozColum.js";
+// import { oddDozColum } from "./consts/oddDozColum.js";
+
+// выбор минимума максимума рулетки:
+document.getElementById('minmax').addEventListener('change', function () {
+    let minmaxValue = this.value;
+    updateMinMax(minmaxValue, minMax);
+});
+
+// кнопка Сброс:
+reset.onclick = function () {
+    resetValues();
+};
 
 // переменные:
 let selectedNumbers = [];

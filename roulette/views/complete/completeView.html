@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../../css/reset.css">
     <link rel="stylesheet" href="completeStyles.css">
     <link rel="icon" href="../../../img/favicon.ico" type="image/x-icon">
-    <title>Complete</title>
+    <title>Комплит</title>
 </head>
 
 <body>
@@ -18,16 +18,51 @@
             <form action="../menu/menuView.html">
                 <button>Меню</button>
         </div>
+        <!-- кнопка сброс -->
+        <div class="header__item_0 btn">
+            <input id="reset" type="button" value="Сброс" />
+        </div>
+        <div class="minmax">
+            <!-- выбор минимума - максимума -->
+            <div class="body__item_3 item">
+                <h1>Min/Max:</h1>
+            </div>
+            <div class="body__item_4 item">
+                <p><select id="minmax" size="1">
+                        <option value="1-50">1-50</option>
+                        <option value="1-100">1-100</option>
+                        <option value="5-200">5-200</option>
+                        <option value="5-300">5-300</option>
+                        <option value="25-500">25-500</option>
+                        <option value="100-5000">100-5000</option>
+                    </select></p>
+            </div>
+        </div>
+        <div class="bet">
+            <!-- ставка -->
+            <div class="body__item_7 item">
+                <h1>Ставка:</h1>
+            </div>
+            <div class="body__item_8 item">
+                <p>
+                    <label>
+                        <input class="input" type="number" min="0" minlength="2" maxlength="10" size="10"
+                            id="completeBet">
+                    </label>
+                </p>
+            </div>
+        </div>
+
         <div class="header__item_2 item">
-            <h1>Complete</h1>
+            <h1>Комплит</h1>
         </div>
         <div class="header__item_3 item">
             <h1>Номер:</h1>
         </div>
         <div class="header__item_4 item">
             <p><select id="str_up" size="1">
-                    <option value="0">0</option>
-                    <option value="1" selected>1</option>
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
@@ -66,11 +101,13 @@
                 </select></p>
         </div>
         <div class="header__item_5 item">
-            <h1>Комплит играет по:</h1>
+            <h1>Номинал:</h1>
         </div>
         <div class="header__item_6 item">
-            <p><select id="complete" size="1">
-                    <option value="25">25</option>
+            <p><select id="nominal" size="1">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25" selected>25</option>
                     <option value="50">50</option>
                     <option value="75">75</option>
                     <option value="100">100</option>
@@ -96,7 +133,7 @@
             <input class="btn" id="calculate" type="button" value="Рассчитать" />
         </div>
     </div>
-    <div class="header__item_8 item" id="info_1"></div>
+    <div class="header__item_8 item" id="complete_info"></div>
 
     <script src="../../models/completeModel.js" type="module"></script>
 </body>

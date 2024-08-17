@@ -1,69 +1,51 @@
-import { payoutRatios } from './consts/payoutRatios.js';
-import { rouletteNumber } from './consts/rouletteNumber.js';
-// import { rltPos } from './consts/rltPos.js';
-// import { rouletteSeries } from './consts/rouletteSeries.js';
-// import { oddDozColum } from './consts/oddDozColum.js';
-// import { fullBets } from './functions/fullBets.js';
+import { minMax } from "../controllers/localStorageRead.js";
+import { updateMinMax } from "../controllers/updateMinMax.js";
+import { resetValues } from "../controllers/resetHandler.js";
+import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
+import { sumBet } from './functions/complete/sumBet.js';
+import { completePayment } from './functions/complete/completePayment.js';
+import { totalPayment } from './functions/complete/totalPayment.js';
+import { strUpDescript } from './functions/complete/strUpDescript.js';
+import { completeInfo } from './functions/complete/completeInfo.js';
 
-// для тестов:
-//export let strUp = 0;
-//export let completeBet = 25;
+// выбор минимума максимума рулетки:
+document.getElementById('minmax').addEventListener('change', function () {
+    let minmaxValue = this.value;
+    updateMinMax(minmaxValue, minMax);
+});
+
+// кнопка Сброс:
+reset.onclick = function () {
+    resetValues();
+};
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
+    // выбор номера:
     let strUp = document.getElementById('str_up').value;
-    let completeBet = document.getElementById('complete').value;
 
-    // блок функций:
-    function chipsNeededForABet(strUp) {
-        // повторяющийся код:
-        let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb;
-        let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split;
-        let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner;
-        let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street;
-        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line;
-        //
-        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        let result = quantitySum;
-        return result;
-    }
-    function sumBet(strUp) {
-        let sumChips = chipsNeededForABet(strUp);
-        let result = sumChips * completeBet;
-        return result;
-    };
-    function completePayment(strUp) {
-        let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb * payoutRatios.numb.payout;
-        let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split * payoutRatios.split.payout;
-        let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner * payoutRatios.corner.payout;
-        let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street * payoutRatios.street.payout;
-        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line * payoutRatios.six_line.payout;
-        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        let result = quantitySum;
-        return result;
-    }
-    function totalPayment(strUp) {
-        let chips = completePayment(strUp);
-        let result = completeBet * chips;
-        return result;
-    };
-    function info(strUp) {
-        let color = rouletteNumber[strUp].color;
-        let parity = rouletteNumber[strUp].parity;
-        let magnitude = rouletteNumber[strUp].magnitude;
-        let dozen = rouletteNumber[strUp].dozen;
-        let column = rouletteNumber[strUp].column;
-        let result = ` \ncolor: ${color} <br\/> \nparity: ${parity} <br\/> \nmagnitude: ${magnitude} <br\/> \ndozen: ${dozen} <br\/> \ncolumn: ${column}`;
-        return result;
-    };
+    // ставка:
+    let completeBet = document.getElementById('completeBet').value;
+    console.log(completeBet);
 
-    // блок вызовов console.log:
-    console.log('strUp ' + strUp + ': ' + chipsNeededForABet(strUp) + ' positions of ' + completeBet);
-    console.log('sumBet: $' + sumBet(strUp));
-    console.log('payment: ' + completePayment(strUp) + ' chips');
-    console.log('totalPayment: $' + totalPayment(strUp));
-    console.log(info(strUp));
+    // выбор номинала:
+    let nominal = document.getElementById('nominal').value;
 
-    // вывод информации:
-    document.getElementById('info_1').innerHTML = `strUp  ${strUp}: ${chipsNeededForABet(strUp)} positions of ${completeBet}<br\/> \nsumBet: $${sumBet(strUp)}<br\/> \npayment: ${completePayment(strUp)} chips<br\/> \ntotalPayment: $${totalPayment(strUp)}<br\/>${info(strUp)}`;
+    // кол-во фишек для ставки:
+    let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
+
+    // сумма ставки:
+    let sum = sumBet(chipsNeeded, nominal); // 425
+
+    // кол-во фишек на выплату:
+    let completePay = completePayment(strUp); // 235
+
+    // сумма выплаты:
+    let totalPay = totalPayment(nominal, completePay); // 5875
+
+    // допольнительная информация:
+    let addInfo = strUpDescript(strUp, nominal, chipsNeeded, sum, completePay, totalPay);
+
+    // вывод информации пользователю:
+    let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
 };
