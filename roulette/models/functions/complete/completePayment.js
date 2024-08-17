@@ -11,3 +11,4 @@ function completePayment(strUp) {
     let result = quantitySum;
     return result;
 };
+export { completePayment };

@@ -1,7 +1,8 @@
-import { payoutRatios } from './consts/payoutRatios.js';
+// import { payoutRatios } from './consts/payoutRatios.js';
 import { rouletteNumber } from './consts/rouletteNumber.js';
 import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
 import { sumBet } from './functions/complete/sumBet.js';
+import { completePayment } from './functions/complete/completePayment.js';
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -13,18 +14,10 @@ calculate.onclick = function () {
 
     let sum = sumBet(chipsNeeded, completeBet); // 425
 
-    function completePayment(strUp) {
-        let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb * payoutRatios.numb.payout;
-        let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split * payoutRatios.split.payout;
-        let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner * payoutRatios.corner.payout;
-        let quantityStreet = payoutRatios.street.position * rouletteNumber[strUp].street * payoutRatios.street.payout;
-        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[strUp].six_line * payoutRatios.six_line.payout;
-        let quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        let result = quantitySum;
-        return result;
-    };
+    let completePay = completePayment(strUp); // 235
+
     function totalPayment(strUp) {
-        let chips = completePayment(strUp);
+        let chips = completePay;
         let result = completeBet * chips;
         return result;
     };
@@ -49,14 +42,14 @@ calculate.onclick = function () {
     // блок вызовов console.log:
     console.log('strUp ' + strUp + ': ' + chipsNeeded + ' positions of ' + completeBet);
     console.log('sumBet: $' + sum);
-    console.log('payment: ' + completePayment(strUp) + ' chips');
+    console.log('payment: ' + completePay + ' chips');
     console.log('totalPayment: $' + totalPayment(strUp));
 
     // вывод информации:
     document.getElementById('info_1').innerHTML = `
     strUp  ${strUp}: ${chipsNeeded} positions of ${completeBet}<br\/>
     sumBet: $${sum}<br\/>
-    payment: ${completePayment(strUp)} chips<br\/>
+    payment: ${completePay} chips<br\/>
     totalPayment: $${totalPayment(strUp)}<br\/>
     ${info(strUp)}
     // `;
