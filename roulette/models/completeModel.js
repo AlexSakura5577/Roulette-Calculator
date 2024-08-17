@@ -2,8 +2,8 @@ import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
 import { sumBet } from './functions/complete/sumBet.js';
 import { completePayment } from './functions/complete/completePayment.js';
 import { totalPayment } from './functions/complete/totalPayment.js';
-// import { completeInfo } from './functions/complete/completeInfo.js';
 import { strUpDescript } from './functions/complete/strUpDescript.js';
+import { completeInfo } from './functions/complete/completeInfo.js';
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -21,13 +21,6 @@ calculate.onclick = function () {
     let totalPay = totalPayment(completeBet, completePay); // 5875
     // информация:
     let addInfo = strUpDescript(strUp, completeBet, chipsNeeded, sum, completePay, totalPay);
-
     // вывод информации:
-    document.getElementById('info_1').innerHTML = `
-    ${chipsNeeded} позиций по ${completeBet}<br\/>
-    сумма ставки: $${sum}<br\/>
-    кол-во фишек: ${completePay}<br\/>
-    выплата: $${totalPay}<br\/>
-    ${addInfo}
-    `;
+    let info = completeInfo(chipsNeeded, completeBet, sum, completePay, totalPay, addInfo);
 };

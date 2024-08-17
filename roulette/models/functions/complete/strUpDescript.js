@@ -14,7 +14,6 @@ function strUpDescript(strUp) {
     дюжина: ${dozen} <br\/>
     колонка: ${column}
     `;
-
     return result;
 };
 export { strUpDescript };
