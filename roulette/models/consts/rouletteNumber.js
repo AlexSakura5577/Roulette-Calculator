@@ -19,7 +19,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'zero',
         magnitude: 'zero',
         dozen: 'zero',
-        column: 'zero'
+        column: 'zero',
+        chipsComplete: 17,
+        chipsPayoutComplete: 235
     },
     1: {
         numb: 1,
@@ -38,7 +40,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 27,
+        chipsPayoutComplete: 297
     },
     2: {
         numb: 1,
@@ -57,7 +61,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 36,
+        chipsPayoutComplete: 396
     },
     3: {
         numb: 1,
@@ -76,7 +82,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 27,
+        chipsPayoutComplete: 297
     },
     4: {
         numb: 1,
@@ -95,7 +103,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     5: {
         numb: 1,
@@ -114,7 +124,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     6: {
         numb: 1,
@@ -133,7 +145,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     7: {
         numb: 1,
@@ -152,7 +166,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     8: {
         numb: 1,
@@ -171,7 +187,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     9: {
         numb: 1,
@@ -190,7 +208,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     10: {
         numb: 1,
@@ -209,7 +229,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     11: {
         numb: 1,
@@ -228,7 +250,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     12: {
         numb: 1,
@@ -247,7 +271,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "1st",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     13: {
         numb: 1,
@@ -266,7 +292,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "2nd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     14: {
         numb: 1,
@@ -285,7 +313,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "2nd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     15: {
         numb: 1,
@@ -304,7 +334,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "2nd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     16: {
         numb: 1,
@@ -323,7 +355,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "2nd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     17: {
         numb: 1,
@@ -342,7 +376,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'small numbers',
         dozen: "2nd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     18: {
         numb: 1,
@@ -361,7 +397,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'small numbers',
         dozen: "2nd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     19: {
         numb: 1,
@@ -380,7 +418,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "2nd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     20: {
         numb: 1,
@@ -399,7 +439,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "2nd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     21: {
         numb: 1,
@@ -418,7 +460,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "2nd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     22: {
         numb: 1,
@@ -437,7 +481,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "2nd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     23: {
         numb: 1,
@@ -456,7 +502,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "2nd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     24: {
         numb: 1,
@@ -475,7 +523,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "2nd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     25: {
         numb: 1,
@@ -494,7 +544,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     26: {
         numb: 1,
@@ -513,7 +565,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     27: {
         numb: 1,
@@ -532,7 +586,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     28: {
         numb: 1,
@@ -551,7 +607,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     29: {
         numb: 1,
@@ -570,7 +628,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     30: {
         numb: 1,
@@ -589,7 +649,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     31: {
         numb: 1,
@@ -608,7 +670,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     32: {
         numb: 1,
@@ -627,7 +691,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 40,
+        chipsPayoutComplete: 392
     },
     33: {
         numb: 1,
@@ -646,7 +712,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 30,
+        chipsPayoutComplete: 294
     },
     34: {
         numb: 1,
@@ -665,7 +733,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "1st"
+        column: "1st",
+        chipsComplete: 18,
+        chipsPayoutComplete: 198
     },
     35: {
         numb: 1,
@@ -684,7 +754,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'odd',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "2nd"
+        column: "2nd",
+        chipsComplete: 24,
+        chipsPayoutComplete: 264
     },
     36: {
         numb: 1,
@@ -703,7 +775,9 @@ export const rouletteNumber = Object.freeze({
         parity: 'even',
         magnitude: 'large numbers',
         dozen: "3rd",
-        column: "3rd"
+        column: "3rd",
+        chipsComplete: 18,
+        chipsPayoutComplete: 198
     }
 });
 // глубокая заморозка объекта (только для чтения):

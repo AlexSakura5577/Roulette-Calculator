@@ -21,16 +21,23 @@ reset.onclick = function () {
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
+    // переменные:
+    // выбор минимума максимума рулетки:
+    let max = minMax.maxBet;
+    console.log(`----------------------------------------------\nmax: ${max}`); // 100
+
     // выбор номера:
     let strUp = document.getElementById('str_up').value;
 
-    // ставка:
+    // ввод суммы ставки:
     let completeBet = document.getElementById('completeBet').value;
-    console.log(`----------------------------------------------\ncompleteBet: $${completeBet}`);
+    console.log(`completeBet: $${completeBet}`);
 
     // выбор номинала:
-    let nominal = document.getElementById('nominal').value;
+    let nominal = document.getElementById('nominal').value; // 25 либо max
+    //
 
+    // вызовы функций:
     // кол-во фишек для ставки:
     let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
 
@@ -43,7 +50,7 @@ calculate.onclick = function () {
     // сумма выплаты:
     let totalPay = totalPayment(nominal, completePay); // 5875
 
-    // допольнительная информация:
+    // дополнительная информация:
     let addInfo = strUpDescript(strUp, nominal, chipsNeeded, sum, completePay, totalPay);
 
     // вывод информации пользователю:
