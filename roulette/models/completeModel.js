@@ -26,7 +26,7 @@ calculate.onclick = function () {
 
     // ставка:
     let completeBet = document.getElementById('completeBet').value;
-    console.log(completeBet);
+    console.log(`----------------------------------------------\ncompleteBet: $${completeBet}`);
 
     // выбор номинала:
     let nominal = document.getElementById('nominal').value;
