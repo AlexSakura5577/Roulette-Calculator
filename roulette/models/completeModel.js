@@ -1,6 +1,7 @@
 import { minMax } from "../controllers/localStorageRead.js";
 import { updateMinMax } from "../controllers/updateMinMax.js";
 import { resetValues } from "../controllers/resetHandler.js";
+import { completeCalc } from './functions/complete/completeCalc.js';
 import { chipsNeededForABet } from './functions/complete/chipsNeededForABet.js';
 import { sumBet } from './functions/complete/sumBet.js';
 import { completePayment } from './functions/complete/completePayment.js';
@@ -24,20 +25,22 @@ calculate.onclick = function () {
     // переменные:
     // выбор минимума максимума рулетки:
     let max = minMax.maxBet;
-    console.log(`----------------------------------------------\nmax: ${max}`); // 100
+    console.log(`-----------------------------------------------------\n`); // 100
 
     // выбор номера:
     let strUp = document.getElementById('str_up').value;
 
     // ввод суммы ставки:
     let completeBet = document.getElementById('completeBet').value;
-    console.log(`completeBet: $${completeBet}`);
 
     // выбор номинала:
     let nominal = document.getElementById('nominal').value; // 25 либо max
     //
 
     // вызовы функций:
+    // подсчёт ставки и сдачи:
+    let calc = completeCalc(max, strUp, completeBet, nominal);
+
     // кол-во фишек для ставки:
     let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
 
