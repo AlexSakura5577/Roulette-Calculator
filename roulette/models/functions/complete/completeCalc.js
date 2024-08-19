@@ -1,8 +1,8 @@
-// import { minMax } from "../../../controllers/localStorageRead.js";
-import { payoutRatios } from '../../consts/payoutRatios.js';
 import { rouletteNumber } from '../../consts/rouletteNumber.js';
 
 function completeCalc(max, strUp, completeBet, nominal, multiplicity) {
+    console.log('completeCalc функция');
+
     let chipsNeeded = rouletteNumber[strUp].chipsComplete; // Кол-во фишек для ставки
     console.log(`chipsNeeded: ${chipsNeeded} (${typeof chipsNeeded})`);
 
@@ -56,11 +56,29 @@ function completeCalc(max, strUp, completeBet, nominal, multiplicity) {
     // если известен номинал:
     if (nominal !== "max") {
         nominal = +nominal;
-        console.log(`nominal: ${nominal} (${typeof nominal})`);
+
+        // выбран некорректный номинал (превышение):
+        let betNeeded = nominal * chipsNeeded // необходимая ставка 2125
+        console.log(`betNeeded: ${betNeeded} (${typeof betNeeded})`);
+
+        let betChips = chipsNeeded * multiplicity // кол-во фишек на ставку 425
+        console.log(`betChips: ${betChips} (${typeof betChips})`);
+
+        // 4.705 (4) - максимально возможное кол-во этажей
+        let maxFloor = Math.floor(((completeBet / multiplicity) / chipsNeeded));
+        console.log(`maxFloor: ${maxFloor} (${typeof maxFloor})`);
 
         // количество "этажей":
-        let numberOfFloors = nominal / multiplicity;
+        let numberOfFloors = Math.floor((nominal / multiplicity));
         console.log(`numberOfFloors: ${numberOfFloors} (${typeof numberOfFloors})`);
+
+        // если ставка маловата:
+        if ((completeBet / numberOfFloors) < betChips) {
+            numberOfFloors = maxFloor;
+            nominal = multiplicity * maxFloor;
+            document.getElementById('nominal').value = nominal;
+        };
+        console.log(`nominal: ${nominal} (${typeof nominal})`);
 
         // выплата фишек:
         let completePay = rouletteNumber[strUp].chipsPayoutComplete
@@ -86,13 +104,6 @@ function completeCalc(max, strUp, completeBet, nominal, multiplicity) {
             change,
             totalPay
         };
-    }
-
-
-
-
-
-
-    // return { chipsNeeded,  nominal, sum, completePay, change, totalPay};
+    };
 };
 export { completeCalc };

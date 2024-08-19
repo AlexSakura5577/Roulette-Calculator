@@ -45,14 +45,14 @@ calculate.onclick = function () {
     if (completeBet !== "") {
         let calc = completeCalc(max, strUp, completeBet, nominal, multiplicity);
 
-
-
-        // дополнительная информация:
-        // let addInfo = strUpDescript(strUp);
-
         // вывод информации пользователю:
         let info = completeInfo(calc.chipsNeeded, calc.nominal, calc.sum, calc.completePay, calc.change, calc.totalPay);
     } else {
+        let change;
+        if (change === undefined || "") {
+            change = 0;
+        };
+
         // кол-во фишек для ставки:
         let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
 
@@ -66,9 +66,9 @@ calculate.onclick = function () {
         let totalPay = totalPayment(nominal, completePay); // 5875
 
         // дополнительная информация:
-        let addInfo = strUpDescript(strUp);
+        // let addInfo = strUpDescript(strUp);
 
         // вывод информации пользователю:
-        let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
+        let info = completeInfo(chipsNeeded, nominal, sum, completePay, change, totalPay);
     };
 };
