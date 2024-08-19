@@ -6,29 +6,27 @@ import { totalPayment } from './totalPayment.js';
 import { completeInfo } from './completeInfo.js';
 
 function completeController(max, strUp, completeBet, nominal) {
-    // кратность (этажи)
     const multiplicity = 25;
-    // если введена ставка:
-    if (completeBet !== "") {
-        // рассчет ставки:
-        let calc = completeCalc(max, strUp, completeBet, nominal, multiplicity);
-        // вывод информации пользователю:
+
+    // Функция для расчета и вывода информации
+    const calculateAndDisplay = (calc) => {
         let info = completeInfo(calc.chipsNeeded, calc.nominal, calc.sum, calc.completePay, calc.change, calc.totalPay);
-    } else {
-        let change;
-        if (change === undefined || "") {
-            change = 0;
-        };
-        // кол-во фишек для ставки:
-        let chipsNeeded = chipsNeededForABet(strUp, nominal);
-        // сумма ставки:
-        let sum = sumBet(chipsNeeded, nominal);
-        // кол-во фишек на выплату:
-        let completePay = completePayment(strUp);
-        // сумма выплаты:
-        let totalPay = totalPayment(nominal, completePay);
-        // вывод информации пользователю:
-        let info = completeInfo(chipsNeeded, nominal, sum, completePay, change, totalPay);
     };
+
+    if (completeBet !== "") {
+        // Если ставка введена, выполняем расчеты
+        let calc = completeCalc(max, strUp, completeBet, nominal, multiplicity);
+        calculateAndDisplay(calc);
+    } else {
+        // Если ставка не введена, делаем расчеты без учета ставки
+        let chipsNeeded = chipsNeededForABet(strUp, nominal);
+        let sum = sumBet(chipsNeeded, nominal);
+        let completePay = completePayment(strUp);
+        let totalPay = totalPayment(nominal, completePay);
+        let change = 0; // Устанавливаем значение по умолчанию
+
+        // Выводим информацию
+        let info = completeInfo(chipsNeeded, nominal, sum, completePay, change, totalPay);
+    }
 };
 export { completeController };
