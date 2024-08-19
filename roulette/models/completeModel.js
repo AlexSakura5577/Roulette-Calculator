@@ -35,27 +35,40 @@ calculate.onclick = function () {
 
     // выбор номинала:
     let nominal = document.getElementById('nominal').value; // 25 либо max
-    //
+
+    // кратность (этажи)
+    const multiplicity = 25;
 
     // вызовы функций:
-    // подсчёт ставки и сдачи:
-    let calc = completeCalc(max, strUp, completeBet, nominal);
 
-    // кол-во фишек для ставки:
-    let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
+    // если введена ставка:
+    if (completeBet !== "") {
+        let calc = completeCalc(max, strUp, completeBet, nominal, multiplicity);
 
-    // сумма ставки:
-    let sum = sumBet(chipsNeeded, nominal); // 425
 
-    // кол-во фишек на выплату:
-    let completePay = completePayment(strUp); // 235
 
-    // сумма выплаты:
-    let totalPay = totalPayment(nominal, completePay); // 5875
+        // дополнительная информация:
+        // let addInfo = strUpDescript(strUp);
 
-    // дополнительная информация:
-    let addInfo = strUpDescript(strUp, nominal, chipsNeeded, sum, completePay, totalPay);
+        // вывод информации пользователю:
+        // let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
+    } else {
+        // кол-во фишек для ставки:
+        let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
 
-    // вывод информации пользователю:
-    let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
+        // сумма ставки:
+        let sum = sumBet(chipsNeeded, nominal); // 425
+
+        // кол-во фишек на выплату:
+        let completePay = completePayment(strUp); // 235
+
+        // сумма выплаты:
+        let totalPay = totalPayment(nominal, completePay); // 5875
+
+        // дополнительная информация:
+        let addInfo = strUpDescript(strUp);
+
+        // вывод информации пользователю:
+        let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
+    };
 };
