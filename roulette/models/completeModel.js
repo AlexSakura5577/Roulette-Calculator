@@ -51,7 +51,7 @@ calculate.onclick = function () {
         // let addInfo = strUpDescript(strUp);
 
         // вывод информации пользователю:
-        // let info = completeInfo(chipsNeeded, nominal, sum, completePay, totalPay, addInfo);
+        let info = completeInfo(calc.chipsNeeded, calc.nominal, calc.sum, calc.completePay, calc.change, calc.totalPay);
     } else {
         // кол-во фишек для ставки:
         let chipsNeeded = chipsNeededForABet(strUp, nominal); // 17
