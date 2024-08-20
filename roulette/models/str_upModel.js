@@ -3,6 +3,7 @@ import { updateMinMax } from "../controllers/updateMinMax.js";
 import { resetValues } from "../controllers/resetHandler.js";
 import { chipCount } from "./functions/strUp/chipCount.js";
 import { strUpCalculations } from "./functions/strUp/strUpCalculations.js";
+import { strUpInfo } from "./functions/strUp/strUpInfo.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -35,12 +36,5 @@ calculate.onclick = function () {
     let infoObj = strUpCalculations(fillArr);
     console.log(infoObj);
 
-    // вывод информации пользователю:
-    document.getElementById('info_3').innerHTML = `
-        Выплата<br\/>
-        сумма фишек: ${infoObj.pay}<br\/>
-        сумма выплаты: ${infoObj.summPay}<br\/>
-        выплата цветом: ${infoObj.payChips}<br\/>
-        через: ${infoObj.summCash}<br\/>
-    `;
+    strUpInfo(infoObj);
 };
