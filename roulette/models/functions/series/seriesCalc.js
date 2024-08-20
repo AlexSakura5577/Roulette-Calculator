@@ -50,7 +50,10 @@ function seriesCalc(maxBet, series, bet) {
         default:
             console.log("выберите серию"); // Если не выбрана серия
             return { plays: 0, change: bet }; // Возвращаем ставку как сдачу
-    }
+    };
+
+    betWithoutChange = bet - seriesResult.change + residue; // чистая ставка
+
     return {
         breakingStep,
         betWithoutChange,

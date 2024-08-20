@@ -1,7 +1,8 @@
-
 // вывод информации пользователю:
 function seriesInfo(series, bet, objVarSeriesCalc) {
-    const breakingStepText = series === "tier" ? "шаг в tier не ломается" : `шаг ломается от: ${objVarSeriesCalc.breakingStep}`;
+    const breakingStepText = (series === "tier")
+        ? "шаг в tier не ломается"
+        : `шаг ломается от: ${objVarSeriesCalc.breakingStep}`;
 
     document.getElementById('info_2').innerHTML = `
         максимум на серию: ${objVarSeriesCalc.maxSeries}<br/>
