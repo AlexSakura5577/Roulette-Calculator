@@ -35,6 +35,11 @@ function completeCalc(max, strUp, completeBet, nominal, multiplicity) {
     let change = (completeBet - sum) + residue; //! общая сдача
     let totalPay = nominal * completePay; //! общая выплата
 
+    console.log(`${chipsNeeded} positions of ${nominal}`);
+    console.log(`sumBet: $${sum}`);
+    console.log(`payment: ${completePay} chips`);
+    console.log(`totalPayment: $${totalPay}`);
+
     return {
         chipsNeeded,
         nominal,
