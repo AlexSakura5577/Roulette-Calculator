@@ -1,27 +1,24 @@
 import { rouletteNumber } from '../../consts/rouletteNumber.js';
 
 function completeCalc(max, strUp, completeBet, nominal, multiplicity) {
-    let chipsNeeded = rouletteNumber[strUp].chipsComplete; // Кол-во фишек для ставки
     if (completeBet === "") {
         return;
     };
-    completeBet = +completeBet;
+    let chipsNeeded = rouletteNumber[strUp].chipsComplete; // Кол-во фишек для ставки
+    let completePay = rouletteNumber[strUp].chipsPayoutComplete // выплата фишек
+    completeBet = +completeBet; // Преобразуем ставку в число
     let residue = completeBet % 5; // Остаток от деления на 5
     if (residue) completeBet -= residue; // Корректируем ставку на кратность 5
+    nominal = nominal === "max" ? +max : +nominal; // Присваиваем номинал
+    let betChips = chipsNeeded * multiplicity // сумма ставки на 1 этаж
+
     // если номинал не выбран:
     if (nominal === "max") {
-        nominal = +max;
-        // количество "этажей":
         let numberOfFloors = Math.floor((completeBet / multiplicity) / chipsNeeded);
-        nominal = multiplicity * numberOfFloors; // по чём играет комплит
-        // чистая ставка:
-        let sum = chipsNeeded * numberOfFloors * multiplicity;
-        // общая сдача:
-        let change = (completeBet - sum) + residue; //
-        // выплата фишек:
-        let completePay = rouletteNumber[strUp].chipsPayoutComplete
-        // общая выплата:
-        let totalPay = nominal * completePay;
+        nominal = multiplicity * numberOfFloors; // по чём играет
+        let sum = chipsNeeded * numberOfFloors * multiplicity; // сумма ставки
+        let change = (completeBet - sum) + residue; //! общая сдача (не трогать)
+        let totalPay = nominal * completePay; //! общая выплата (не трогать)
         return {
             chipsNeeded,
             nominal,
@@ -31,29 +28,20 @@ function completeCalc(max, strUp, completeBet, nominal, multiplicity) {
             totalPay
         };
     };
+
     // если известен номинал:
     if (nominal !== "max") {
-        nominal = +nominal;
-        let betChips = chipsNeeded * multiplicity // кол-во фишек на ставку 425
-        // максимально возможное кол-во этажей
+        let numberOfFloors = Math.floor((nominal / multiplicity)); // сколько этажей
         let maxFloor = Math.floor(((completeBet / multiplicity) / chipsNeeded));
-        // количество "этажей":
-        let numberOfFloors = Math.floor((nominal / multiplicity));
-        // если ставка маловата:
         // выбран некорректный номинал (превышение):
         if ((completeBet / numberOfFloors) < betChips) {
             numberOfFloors = maxFloor;
             nominal = multiplicity * maxFloor;
             document.getElementById('nominal').value = nominal;
         };
-        // выплата фишек:
-        let completePay = rouletteNumber[strUp].chipsPayoutComplete
-        // чистая ставка:
-        let sum = chipsNeeded * nominal;
-        // общая выплата:
-        let totalPay = nominal * completePay;
-        // общая сдача:
-        let change = (completeBet - sum) + residue;
+        let sum = chipsNeeded * nominal; // чистая ставка
+        let change = (completeBet - sum) + residue; //! общая сдача (не трогать)
+        let totalPay = nominal * completePay; //! общая выплата (не трогать)
         return {
             chipsNeeded,
             nominal,
