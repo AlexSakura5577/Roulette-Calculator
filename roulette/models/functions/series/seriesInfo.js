@@ -1,14 +1,6 @@
-// import { minMax } from "../../../controllers/localStorageRead.js";
-import { seriesCalc } from "./seriesCalc.js";
 
 // вывод информации пользователю:
-function seriesInfo(max, series, bet) {
-    // вызов функции подсчета серии:
-    let objVarSeriesCalc = seriesCalc(max, series, bet);
-
-    // Установка значения betWithoutChange
-    objVarSeriesCalc.betWithoutChange = bet - objVarSeriesCalc.change;
-
+function seriesInfo(series, bet, objVarSeriesCalc) {
     const breakingStepText = series === "tier" ? "шаг в tier не ломается" : `шаг ломается от: ${objVarSeriesCalc.breakingStep}`;
 
     document.getElementById('info_2').innerHTML = `

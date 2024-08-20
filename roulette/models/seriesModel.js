@@ -1,8 +1,7 @@
 import { minMax } from "../controllers/localStorageRead.js";
 import { updateMinMax } from "../controllers/updateMinMax.js";
 import { resetValues } from "../controllers/resetHandler.js";
-import { seriesCalc } from "./functions/series/seriesCalc.js";
-import { seriesInfo } from "./functions/series/seriesInfo.js";
+import { seriesController } from './functions/series/seriesController.js';
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -24,7 +23,5 @@ calculate.onclick = function () {
     // выбор суммы ставки:
     let bet = +document.getElementById('bet').value;
     // выполнение вычислений:
-
-    // вывод информации пользователю:
-    seriesInfo(max, series, bet);
+    seriesController(max, series, bet);
 };
