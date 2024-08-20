@@ -24,6 +24,6 @@ calculate.onclick = function () {
     let completeBet = document.getElementById('completeBet').value;
     // выбор номинала:
     let nominal = document.getElementById('nominal').value;
-    // вызов функции:
+    // выполнение вычислений:
     completeController(max, strUp, completeBet, nominal);
 };
