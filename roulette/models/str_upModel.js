@@ -4,6 +4,7 @@ import { resetValues } from "../controllers/resetHandler.js";
 import { chipCount } from "./functions/strUp/chipCount.js";
 import { strUpCalculations } from "./functions/strUp/strUpCalculations.js";
 import { strUpInfo } from "./functions/strUp/strUpInfo.js";
+import { strUpController } from "./functions/strUp/strUpController.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -37,4 +38,8 @@ calculate.onclick = function () {
     console.log(infoObj);
 
     strUpInfo(infoObj);
+
+
+    // выполнение вычислений:
+    // strUpController();
 };
