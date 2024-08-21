@@ -6,13 +6,11 @@ function positionsMap() {
         "splits": { payout: payoutRatios.split.payout, infoId: 'info_spl', label: 'сплитов' },
         "streets": { payout: payoutRatios.street.payout, infoId: 'info_str', label: 'стритов' },
         "corners": { payout: payoutRatios.corner.payout, infoId: 'info_cor', label: 'карэ' },
-        "six-lines": { payout: payoutRatios.six_line.payout, infoId: 'info_six', label: 'сикс-лайнов' },
+        "six_lines": { payout: payoutRatios.six_line.payout, infoId: 'info_six', label: 'сикс-лайнов' },
     };
 
     // Получаем нужную позицию
     const position = positionsMap[positions.value];
-    console.log(position);
-
     return position;
 }
 export { positionsMap };

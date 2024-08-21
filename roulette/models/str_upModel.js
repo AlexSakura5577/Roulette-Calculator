@@ -30,7 +30,6 @@ let fillArr = [];
 add_bet.onclick = function () {
     fillArr = chipCount(positions, bet); // сохраняем результат в fillArr
     // info.innerHTML = ``;
-    console.log(fillArr);
 };
 
 // клик по кнопке Рассчитать:

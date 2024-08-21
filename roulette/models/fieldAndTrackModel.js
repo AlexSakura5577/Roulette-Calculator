@@ -7,6 +7,7 @@ import { rouletteSeries } from './consts/rouletteSeries.js';
 // import { rouletteNumber } from "./consts/rouletteNumber.js";
 // import { fullBets } from "./functions/fullBets.js";
 // import { rltPos } from "./consts/rltPos.js";
+import { chipCountAll } from "./functions/strUp/chipCountAll.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -18,6 +19,15 @@ document.getElementById('minmax').addEventListener('change', function () {
 reset.onclick = function () {
     resetValues();
 };
+
+// функция подсчета ставок (пример):
+let fillArr = [];
+fillArr = chipCountAll("numbers", 5);
+fillArr = chipCountAll("splits", 5);
+fillArr = chipCountAll("streets", 5);
+fillArr = chipCountAll("corners", 5);
+fillArr = chipCountAll("six_lines", 5);
+console.log(fillArr);
 
 // пересекается ли трек с полем:
 export const trackOverField = true;
