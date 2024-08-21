@@ -4,25 +4,25 @@ import { positionsMap } from "../../consts/strUp/positionsMap.js";
 // функция подсчета кол-ва фишек:
 function chipCount(positions, bet) {
     // проверка и приведение к объекту:
-    if (typeof positions && typeof bet !== 'object') {
+    if (typeof positions !== 'object' || typeof bet !== 'object') {
         positions = { value: positions }
         bet = { value: bet }
-    };
+    }
+
     // Проверка на нулевую ставку:
-    if (bet.value <= 0) {
-        bet.value = 0;
-    };
+    bet.value = Math.max(0, bet.value);
+
     let position = positionsMap();
+
     // Считаем фишки:
     if (position) {
         fillObj[positions.value] = +bet.value * position.payout;
         document.getElementById(position.infoId).innerHTML = `${position.label}: ${bet.value}`;
     } else {
         console.log("выберите позицию");
-    };
+    }
     console.log(fillObj); // Объект заполнения выигрышных позиций
-    bet.value = '';
-    // Возвращаем массив с подсчитанными выигрышными позициями:
-    return Object.values(fillObj);
+    bet.value = null;
+    return Object.values(fillObj); // возвращаем Массив
 };
 export { chipCount };
