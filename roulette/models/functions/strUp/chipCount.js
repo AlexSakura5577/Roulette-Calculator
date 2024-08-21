@@ -24,7 +24,7 @@ function chipCount() {
     // Считаем фишки:
     if (position) {
         fillObj[positions.value] = +bet.value * position.payout;
-        console.log(`${positions.value}: ${+bet.value}`);
+        // console.log(`${positions.value}: ${+bet.value}`);
         document.getElementById(position.infoId).innerHTML = `${position.label}: ${+bet.value}`;
     } else {
         console.log("выберите позицию");
