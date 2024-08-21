@@ -23,13 +23,13 @@ const bet = document.getElementById('bet');
 const color = document.getElementById('color');
 const cash = document.getElementById('cash');
 
-// массив значений:
 let fillArr = [];
 
 // клик по кнопке Ставка ОК (подсчёт кол-ва фишек):
 add_bet.onclick = function () {
-    fillArr = chipCount(); // Вызываем chipCount и сохраняем результат в fillArr
+    fillArr = chipCount(positions, bet); // Вызываем chipCount и сохраняем результат в fillArr
     console.log(fillArr);
+    console.log(`positions: ${positions.value}`);
 };
 
 // клик по кнопке Рассчитать:
@@ -39,7 +39,6 @@ calculate.onclick = function () {
     console.log(infoObj);
 
     strUpInfo(infoObj);
-
 
     // выполнение вычислений:
     // strUpController();

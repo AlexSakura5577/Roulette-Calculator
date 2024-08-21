@@ -2,11 +2,12 @@ import { payoutRatios } from "../../consts/payoutRatios.js";
 import { fillObj } from "../../consts/strUp/fillObj.js";
 
 // функция подсчета кол-ва фишек:
-function chipCount() {
+function chipCount(positions, bet) {
     // Проверка на нулевую ставку:
     if (bet.value <= 0) {
         bet.value = 0;
     }
+
     document.getElementById('info_3').innerHTML = ``;
 
     // Объект для маппинга
