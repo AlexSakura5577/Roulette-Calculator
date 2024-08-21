@@ -14,52 +14,44 @@
 
 <body>
     <div class="header">
-        <div class="btn header__item_1 item">
+        <!-- кнопка сброс -->
+        <div class="header__item_0 item btn">
+            <input id="reset" type="button" value="Сброс" />
+        </div>
+        <!-- заголовок -->
+        <div class="header__item_1 item">
+            <h1>Комплит</h1>
+        </div>
+        <!-- кнопка меню -->
+        <div class="header__item_2 item btn">
             <form action="../menu/menuView.html">
                 <button>Меню</button>
         </div>
-        <!-- кнопка сброс -->
-        <div class="header__item_0 btn">
-            <input id="reset" type="button" value="Сброс" />
-        </div>
-        <div class="minmax">
-            <!-- выбор минимума - максимума -->
-            <div class="body__item_3 item">
-                <h1>Min/Max:</h1>
-            </div>
-            <div class="body__item_4 item">
-                <p><select id="minmax" size="1">
-                        <option value="1-50">1-50</option>
-                        <option value="1-100">1-100</option>
-                        <option value="5-200">5-200</option>
-                        <option value="5-300">5-300</option>
-                        <option value="25-500">25-500</option>
-                        <option value="100-5000">100-5000</option>
-                    </select></p>
-            </div>
-        </div>
-        <div class="bet">
-            <!-- ставка -->
-            <div class="body__item_7 item">
-                <h1>Ставка:</h1>
-            </div>
-            <div class="body__item_8 item">
-                <p>
-                    <label>
-                        <input class="input" type="number" min="0" minlength="2" maxlength="10" size="10"
-                            id="completeBet">
-                    </label>
-                </p>
-            </div>
-        </div>
+    </div>
 
-        <div class="header__item_2 item">
-            <h1>Комплит</h1>
-        </div>
+    <!-- выбор минимума - максимума -->
+    <div class="minmax">
         <div class="header__item_3 item">
-            <h1>Номер:</h1>
+            <h2>Min/Max:</h2>
         </div>
         <div class="header__item_4 item">
+            <p><select id="minmax" size="1">
+                    <option value="1-50">1-50</option>
+                    <option value="1-100">1-100</option>
+                    <option value="5-200">5-200</option>
+                    <option value="5-300">5-300</option>
+                    <option value="25-500">25-500</option>
+                    <option value="100-5000">100-5000</option>
+                </select></p>
+        </div>
+    </div>
+
+    <!-- выбор номера -->
+    <div class="number">
+        <div class="header__item_5 item">
+            <h2>Выбран номер:</h2>
+        </div>
+        <div class="header__item_6 item">
             <p><select id="str_up" size="1">
                     <option value="0" selected>0</option>
                     <option value="1">1</option>
@@ -100,14 +92,31 @@
                     <option value="36">36</option>
                 </select></p>
         </div>
-        <div class="header__item_5 item">
-            <h1>Номинал:</h1>
+    </div>
+
+    <!-- ставка -->
+    <div class="bet">
+        <div class="header__item_7 item">
+            <h2>Ставка:</h2>
         </div>
-        <div class="header__item_6 item">
+        <div class="header__item_8 item">
+            <p>
+                <label>
+                    <input class="input" type="number" min="0" minlength="2" maxlength="10" size="10" id="completeBet">
+                </label>
+            </p>
+        </div>
+    </div>
+
+    <!-- номинал -->
+    <div class="nominal">
+        <div class="header__item_9 item">
+            <h2>Номинал:</h2>
+        </div>
+        <div class="header__item_10 item">
             <p><select id="nominal" size="1">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="25" selected>25</option>
+                    <option value="max" selected>max</option>
+                    <option value="25">25</option>
                     <option value="50">50</option>
                     <option value="75">75</option>
                     <option value="100">100</option>
@@ -129,11 +138,19 @@
                     <option value="500">500</option>
                 </select></p>
         </div>
-        <div class="header__item_7 item">
+    </div>
+
+    <!-- кнопка Рассчитать -->
+    <div class="calculate">
+        <div class="header__item_11 item">
             <input class="btn" id="calculate" type="button" value="Рассчитать" />
         </div>
     </div>
-    <div class="header__item_8 item" id="complete_info"></div>
+
+    <!-- информация -->
+    <div class="info">
+        <div class="header__item_12 item" id="complete_info"></div>
+    </div>
 
     <script src="../../models/completeModel.js" type="module"></script>
 </body>

@@ -1,7 +1,12 @@
+import { minMax } from "../../../controllers/localStorageRead.js";
 import { payoutRatios } from '../../consts/payoutRatios.js';
 import { rouletteNumber } from '../../consts/rouletteNumber.js';
 
 function chipsNeededForABet(strUp, nominal) {
+    if (nominal === "max") {
+        nominal = minMax.maxBet;
+    };
+    
     let quantityNumb = payoutRatios.numb.position * rouletteNumber[strUp].numb;
     let quantitySplit = payoutRatios.split.position * rouletteNumber[strUp].split;
     let quantityCorner = payoutRatios.corner.position * rouletteNumber[strUp].corner;

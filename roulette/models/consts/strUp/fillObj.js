@@ -4,5 +4,5 @@ export const fillObj = {
     splits: 0,
     streets: 0,
     corners: 0,
-    six_lines: 0,
+    six_lines: 0
 };

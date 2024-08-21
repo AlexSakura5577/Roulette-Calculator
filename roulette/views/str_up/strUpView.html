@@ -13,25 +13,29 @@
 </head>
 
 <body>
-    <!-- header -->
     <div class="header">
-        <div class="header__item_0 btn">
+        <!-- кнопка сброс -->
+        <div class="header__item_0 item btn">
             <input id="reset" type="button" value="Сброс" />
         </div>
+        <!-- заголовок -->
         <div class="header__item_1 item">
             <h1>Номер</h1>
         </div>
-        <div class="btn header__item_2 item">
+        <!-- кнопка меню -->
+        <div class="header__item_2 item btn">
             <form action="../menu/menuView.html">
                 <button>Меню</button>
         </div>
     </div>
+
     <!-- body -->
     <div class="body">
+
         <!-- минимум - максимум -->
         <div class="minmax">
             <div class="body__item_1 item">
-                <h1>Min/Max:</h1>
+                <h2>Min/Max:</h2>
             </div>
             <div class="body__item_2 item">
                 <p><select id="minmax" size="1">
@@ -44,10 +48,11 @@
                     </select></p>
             </div>
         </div>
+
         <!-- выбор позиции -->
         <div class="positions">
             <div class="body__item_3 item">
-                <h1>Позиция:</h1>
+                <h2>Позиция:</h2>
             </div>
             <div class="body__item_4 item">
                 <p><select id="positions" size="1">
@@ -55,14 +60,15 @@
                         <option value="splits">splits</option>
                         <option value="streets">streets</option>
                         <option value="corners">corners</option>
-                        <option value="six-lines">six-lines</option>
+                        <option value="six_lines">six-lines</option>
                     </select></p>
             </div>
         </div>
+
         <!-- ставка -->
         <div class="bet">
             <div class="body__item_5 item">
-                <h1>Ставка:</h1>
+                <h2>Ставка:</h2>
             </div>
             <div class="body__item_6 item">
                 <p>
@@ -76,10 +82,11 @@
                 <input class="btn" id="add_bet" type="button" value="Добавить" />
             </div>
         </div>
+
         <!-- цвет -->
         <div class="color">
             <div class="body__item_8 item">
-                <h1>Цвет по:</h1>
+                <h2>Цвет по:</h2>
             </div>
             <div class="body__item_9 item">
                 <p><select id="color" size="1">
@@ -93,10 +100,11 @@
                     </select></p>
             </div>
         </div>
+
         <!-- через -->
         <div class="cash">
             <div class="body__item_10 item">
-                <h1>Через:</h1>
+                <h2>Через:</h2>
             </div>
             <div class="body__item_11 item">
                 <p>
@@ -106,12 +114,14 @@
                 </p>
             </div>
         </div>
+
         <!-- кнопка Рассчитать -->
         <div class="calc">
             <div class="body__item_13 item">
                 <input class="btn" id="calculate" type="button" value="Рассчитать" />
             </div>
         </div>
+
         <!-- инфо -->
         <div class="body__item_15 item" id="info_num"></div>
         <div class="body__item_16 item" id="info_spl"></div>
@@ -120,6 +130,7 @@
         <div class="body__item_19 item" id="info_six"></div>
         <div class="body__item_14 item" id="info_3"></div>
     </div>
+
     <script src="../../controllers/localStorageRead.js" type="module"></script>
     <script src="../../models/str_upModel.js" type="module"></script>
 </body>

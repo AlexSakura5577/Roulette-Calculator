@@ -2,6 +2,7 @@
 function strUpCalculations(fillArr) {
     // Выплата (кол-во фишек):
     const pay = fillArr.reduce((acc, number) => acc + number, 0);
+    console.log(`----------------------------------------------------`);
     console.log(`кол-во фишек: ${pay}`);
 
     // Цвет по:

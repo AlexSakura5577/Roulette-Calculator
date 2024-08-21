@@ -9,31 +9,33 @@
     <link rel="stylesheet" href="../../../css/reset.css">
     <link rel="stylesheet" href="seriesStyles.css">
     <link rel="icon" href="../../../img/favicon.ico" type="image/x-icon">
-    <title>series</title>
+    <title>Серии</title>
 </head>
 
 <body>
-    <!-- header -->
     <div class="header">
-        <!-- кнопка Сброс -->
-        <div class="header__item_0 btn">
+        <!-- кнопка сброс -->
+        <div class="header__item_0 item btn">
             <input id="reset" type="button" value="Сброс" />
         </div>
         <!-- заголовок -->
         <div class="header__item_1 item">
             <h1>Серии</h1>
         </div>
-        <div class="btn header__item_2 item">
+        <!-- кнопка меню -->
+        <div class="header__item_2 item btn">
             <form action="../menu/menuView.html">
                 <button>Меню</button>
         </div>
     </div>
+
     <!-- body -->
     <div class="body">
+
+        <!-- выбор минимума - максимума -->
         <div class="minmax">
-            <!-- выбор минимума - максимума -->
             <div class="body__item_3 item">
-                <h1>Min/Max:</h1>
+                <h2>Min/Max:</h2>
             </div>
             <div class="body__item_4 item">
                 <p><select id="minmax" size="1">
@@ -46,10 +48,11 @@
                     </select></p>
             </div>
         </div>
+
+        <!-- выбор серии -->
         <div class="series">
-            <!-- выбор серии -->
             <div class="body__item_5 item">
-                <h1>Серия:</h1>
+                <h2>Серия:</h2>
             </div>
             <div class="body__item_6 item">
                 <p><select id="series" size="1">
@@ -60,10 +63,11 @@
                     </select></p>
             </div>
         </div>
+
+        <!-- ставка -->
         <div class="bet">
-            <!-- ставка -->
             <div class="body__item_7 item">
-                <h1>Ставка:</h1>
+                <h2>Ставка:</h2>
             </div>
             <div class="body__item_8 item">
                 <p>
@@ -73,12 +77,14 @@
                 </p>
             </div>
         </div>
+
+        <!-- кнопка Рассчитать -->
         <div class="calc">
-            <!-- кнопка Рассчитать -->
             <div class="body__item_9 item">
                 <input class="btn" id="calculate" type="button" value="Рассчитать" />
             </div>
         </div>
+        
         <!-- инфо -->
         <div class="body__item_10 item" id="info_2"></div>
     </div>
