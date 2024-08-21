@@ -1,7 +1,5 @@
 import { payoutRatios } from "../../consts/payoutRatios.js";
 function positionsMap() {
-    // info.innerHTML = ``;
-
     // Объект для маппинга
     const positionsMap = {
         "numbers": { payout: payoutRatios.numb.payout, infoId: 'info_num', label: 'номеров' },

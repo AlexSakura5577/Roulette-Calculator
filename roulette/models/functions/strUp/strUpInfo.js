@@ -1,3 +1,5 @@
+import { positionsMap } from "../../consts/strUp/positionsMap.js";
+
 // вывод информации пользователю:
 function strUpInfo(infoObj) {
     document.getElementById('info_3').innerHTML = `

@@ -29,6 +29,7 @@ let fillArr = [];
 // клик по кнопке Ставка ОК (подсчёт кол-ва фишек):
 add_bet.onclick = function () {
     fillArr = chipCount(positions, bet); // сохраняем результат в fillArr
+    // info.innerHTML = ``;
     console.log(fillArr);
 };
 

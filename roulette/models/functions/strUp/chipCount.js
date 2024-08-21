@@ -8,7 +8,7 @@ function chipCount(positions, bet) {
     if (typeof positions && typeof bet !== 'object') {
         positions = { value: positions }
         bet = { value: bet }
-    };
+    }
 
     // Проверка на нулевую ставку:
     if (bet.value <= 0) {
@@ -20,10 +20,14 @@ function chipCount(positions, bet) {
     // Считаем фишки:
     if (position) {
         fillObj[positions.value] = +bet.value * position.payout;
-        console.log(`${positions.value}: ${+bet.value}`);
-        document.getElementById(position.infoId).innerHTML = `${position.label}: ${+bet.value}`;
+        // console.log(`${positions.value}: ${bet.value}`);
     } else {
         console.log("выберите позицию");
+    }
+
+    // Заполняем инфо
+    if (position) {
+        document.getElementById(position.infoId).innerHTML = `${position.label}: ${bet.value}`;
     }
 
     console.log(fillObj); // Объект заполнения выигрышных позиций
