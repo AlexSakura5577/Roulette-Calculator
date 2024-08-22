@@ -4,6 +4,7 @@ import { resetValues } from "../controllers/resetHandler.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteNumber } from "./consts/rouletteNumber.js";
 // import { oddDozColum } from "./consts/oddDozColum.js";
+import { chipsNeededForABet } from "./functions/multi-complete/chipsNeededForABet.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -23,27 +24,7 @@ let result;
 let coincidences;
 
 // функция подсчёта нескольких комплитов в поле:
-export function chipsNeededForABet(arr) {
-    let result;
-    let quantitySum;
-    let arrChips = [];
-    let totalSum;
-    arr.forEach(element => {
-        // повторяющийся код:
-        let quantityNumb = payoutRatios.numb.position * rouletteNumber[element].numb;
-        let quantitySplit = payoutRatios.split.position * rouletteNumber[element].split;
-        let quantityCorner = payoutRatios.corner.position * rouletteNumber[element].corner;
-        let quantityStreet = payoutRatios.street.position * rouletteNumber[element].street;
-        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[element].six_line;
-        // 
-        quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        arrChips.push(quantitySum);
-        totalSum = arrChips.reduce((acc, number) => acc + number);
-    });
-    result = totalSum;
-    console.log(arrChips);
-    return result;
-};
+chipsNeededForABet(selectedNumbers);
 
 // функция подсчёта совпадений (сдача):
 export function countPositions(arr) {
