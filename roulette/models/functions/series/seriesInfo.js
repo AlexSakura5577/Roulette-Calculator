@@ -1,5 +1,5 @@
 // вывод информации пользователю:
-function seriesInfo(series, bet, objVarSeriesCalc) {
+function seriesInfo(series, seriesBet, objVarSeriesCalc) {
     const breakingStepText = (series === "tier")
         ? "шаг в tier не ломается"
         : `шаг ломается от: ${objVarSeriesCalc.breakingStep}`;
@@ -15,7 +15,7 @@ function seriesInfo(series, bet, objVarSeriesCalc) {
     // значения переменных для справки в консоли:
     console.log(objVarSeriesCalc);
     console.log(`серия: ${series}`);
-    console.log(`ставка: ${bet}`);
+    console.log(`ставка: ${seriesBet}`);
     console.log(`шаг ломается от: ${objVarSeriesCalc.breakingStep}`);
     console.log(`чистая ставка: ${objVarSeriesCalc.betWithoutChange}`);
     console.log(`играет по:  ${objVarSeriesCalc.plays}`);

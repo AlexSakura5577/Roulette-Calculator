@@ -5,9 +5,9 @@ import { beforeBreakingStep } from "./beforeBreakingStep.js";
 import { afterBreakingStep } from "./afterBreakingStep.js";
 
 // функция подсчёта серии:
-function seriesCalc(maxBet, series, bet) {
-    let residue = bet % 5;
-    if (residue) bet -= residue; // Корректируем ставку на кратность 5
+function seriesCalc(maxBet, series, seriesBet) {
+    let residue = seriesBet % 5;
+    if (residue) seriesBet -= residue; // Корректируем ставку на кратность 5
     const getMaxSeries = (step) => minMax.maxBet * step;
     const getBreakingStep = (series, position) => {
         if (series === "voisins") {
@@ -17,21 +17,21 @@ function seriesCalc(maxBet, series, bet) {
     };
     let maxSeries = 0;
     let breakingStep = 0;
-    let betWithoutChange = bet + residue; // Учтём остаток от первоначальной ставки
+    let betWithoutChange = seriesBet + residue; // Учтём остаток от первоначальной ставки
     let seriesResult = { cleanBet: 0, plays: 0, change: 0 };
     // Общая логика для обработки серий
     const calculateSeries = (step, position) => {
         maxSeries = getMaxSeries(step);
         breakingStep = getBreakingStep(series, position);
-        if (bet >= maxSeries) {
-            const change = bet - maxSeries + residue;
+        if (seriesBet >= maxSeries) {
+            const change = seriesBet - maxSeries + residue;
             const plays = minMax.maxBet * payoutRatios.split.position;
             return { plays, change, breakingStep };
         }
-        if (bet >= breakingStep) {
-            return afterBreakingStep(minMax, series, breakingStep, bet, residue);
+        if (seriesBet >= breakingStep) {
+            return afterBreakingStep(minMax, series, breakingStep, seriesBet, residue);
         }
-        return beforeBreakingStep(series, bet, residue);
+        return beforeBreakingStep(series, seriesBet, residue);
     };
 
     switch (series) {
@@ -49,10 +49,10 @@ function seriesCalc(maxBet, series, bet) {
             break;
         default:
             console.log("выберите серию"); // Если не выбрана серия
-            return { plays: 0, change: bet }; // Возвращаем ставку как сдачу
+            return { plays: 0, change: seriesBet }; // Возвращаем ставку как сдачу
     };
 
-    betWithoutChange = bet - seriesResult.change + residue; // чистая ставка
+    betWithoutChange = seriesBet - seriesResult.change + residue; // чистая ставка
 
     return {
         breakingStep,
@@ -62,7 +62,7 @@ function seriesCalc(maxBet, series, bet) {
         change: seriesResult.change,
         residue,
         series,
-        bet,
+        seriesBet,
         maxSeries
     };
 };

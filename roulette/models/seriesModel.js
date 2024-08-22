@@ -21,7 +21,7 @@ calculate.onclick = function () {
     // выбор серии:
     let series = document.getElementById('series').value;
     // выбор суммы ставки:
-    let bet = +document.getElementById('bet').value;
+    let seriesBet = +document.getElementById('seriesBet').value;
     // выполнение вычислений:
-    seriesController(max, series, bet);
+    seriesController(max, series, seriesBet);
 };
