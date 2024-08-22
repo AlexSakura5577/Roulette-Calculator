@@ -3,24 +3,24 @@ import { rouletteNumber } from "../../consts/rouletteNumber.js";
 
 // функция подсчёта нескольких комплитов в поле:
 function chipsNeededForABet(arr) {
-    let result;
-    let quantitySum;
-    let arrChips = [];
-    let totalSum;
-    arr.forEach(element => {
-        // повторяющийся код:
-        let quantityNumb = payoutRatios.numb.position * rouletteNumber[element].numb;
-        let quantitySplit = payoutRatios.split.position * rouletteNumber[element].split;
-        let quantityCorner = payoutRatios.corner.position * rouletteNumber[element].corner;
-        let quantityStreet = payoutRatios.street.position * rouletteNumber[element].street;
-        let quantitySix_line = payoutRatios.six_line.position * rouletteNumber[element].six_line;
-        // 
-        quantitySum = quantityNumb + quantitySplit + quantityCorner + quantityStreet + quantitySix_line;
-        arrChips.push(quantitySum);
-        totalSum = arrChips.reduce((acc, number) => acc + number);
-    });
-    result = totalSum;
-    console.log(arrChips);
-    return result;
+    // Определяем типы ставок и их коэффициенты
+    const betTypes = [
+        { type: 'numb', ratio: payoutRatios.numb.position },
+        { type: 'split', ratio: payoutRatios.split.position },
+        { type: 'corner', ratio: payoutRatios.corner.position },
+        { type: 'street', ratio: payoutRatios.street.position },
+        { type: 'six_line', ratio: payoutRatios.six_line.position }
+    ];
+
+    // Вычисляем сумму фишек для каждого элемента массива
+    const totalSum = arr.reduce((acc, element) => {
+        const elementQuantities = betTypes.reduce((sum, betType) => {
+            return sum + betType.ratio * rouletteNumber[element][betType.type];
+        }, 0);
+
+        return acc + elementQuantities;
+    }, 0);
+
+    return totalSum;
 };
 export { chipsNeededForABet };
