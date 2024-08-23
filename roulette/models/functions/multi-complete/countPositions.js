@@ -1,79 +1,31 @@
 import { payoutRatios } from "../../consts/payoutRatios.js";
 import { rouletteNumber } from "../../consts/rouletteNumber.js";
 
-// функция подсчёта совпадающих позиций:
+// Функция для расчета количества фишек для каждой позиции
+const calculateChips = (positions, payoutRatio) => {
+    const flatPositions = positions.flat(Infinity); // в одномерный массив
+    const uniquePositions = [...new Set(flatPositions)];
+    const coincidences = flatPositions.length - uniquePositions.length;
+    return coincidences * payoutRatio;
+};
+
+// Функция подсчёта лишних позиций:
 function countPositions(arr) {
-    let total = [];
-    let totalChips;
-    function splits(arr) {
-        let totalSplits = [];
-        let coincidences = 0;
-        arr.forEach(element => {
-            totalSplits.push(rouletteNumber[element].positions.split);
-        });
-        let flatArr = totalSplits.flat(Infinity);
-        let unique = [...new Set(flatArr)];
-        coincidences = flatArr.length - unique.length;
-        console.log(`кол-во совпадений сплитов: ${coincidences}`);
-        let chips = coincidences * payoutRatios.split.position;
-        console.log(chips);
-        return chips;
-    };
-    let splitChips = splits(arr);
-    function corners(arr) {
-        let totalCorners = [];
-        let coincidences = 0;
-        arr.forEach(element => {
-            totalCorners.push(rouletteNumber[element].positions.corner);
-        });
-        let flatArr = totalCorners.flat(Infinity);
-        let unique = [...new Set(flatArr)];
-        coincidences = flatArr.length - unique.length;
-        console.log(`кол-во совпадений карэ: ${coincidences}`);
-        let chips = coincidences * payoutRatios.corner.position;
-        console.log(chips);
-        return chips;
-    };
-    let cornerChips = corners(arr);
-    function streets(arr) {
-        let totalStreets = [];
-        let coincidences = 0;
-        arr.forEach(element => {
-            totalStreets.push(rouletteNumber[element].positions.street);
-        });
-        let flatArr = totalStreets.flat(Infinity);
-        let unique = [...new Set(flatArr)];
-        coincidences = flatArr.length - unique.length;
-        console.log(`кол-во совпадений стритов: ${coincidences}`);
-        let chips = coincidences * payoutRatios.street.position;
-        console.log(chips);
-        return chips;
-    };
-    let streetChips = streets(arr);
-    function sixLines(arr) {
-        let totalSixLines = [];
-        let coincidences = 0;
-        arr.forEach(element => {
-            totalSixLines.push(rouletteNumber[element].positions.six_line);
-        });
-        let flatArr = totalSixLines.flat(Infinity);
-        let unique = [...new Set(flatArr)];
-        coincidences = flatArr.length - unique.length;
-        console.log(`кол-во совпадений сикслайнов: ${coincidences}`);
-        let chips = coincidences * payoutRatios.six_line.position;
-        console.log(chips);
-        return chips;
-    };
-    let sixLineChips = sixLines(arr);
-    total.push(splitChips);
-    total.push(cornerChips);
-    total.push(streetChips);
-    total.push(sixLineChips);
-    console.log(total);
-    totalChips = total.reduce(function (sum, elem) {
-        return sum + elem;
-    }, 0);
-    console.log(`всего лишних фишек: ${totalChips}`);
+    const uniqueNumbers = [...new Set(arr)]; // удаляем дубликаты
+    const { split, corner, street, six_line } = payoutRatios;
+
+    // Получение позиций для каждого типа
+    const getPositions = (type) => uniqueNumbers.map(element => rouletteNumber[element].positions[type]);
+
+    // Вычисление количества фишек для каждого типа
+    const splitChips = calculateChips(getPositions('split'), split.position);
+    const cornerChips = calculateChips(getPositions('corner'), corner.position);
+    const streetChips = calculateChips(getPositions('street'), street.position);
+    const sixLineChips = calculateChips(getPositions('six_line'), six_line.position);
+
+    // Суммирование всех фишек
+    const totalChips = splitChips + cornerChips + streetChips + sixLineChips;
+    console.log(`Всего лишних фишек: ${totalChips}`);
     return totalChips;
 };
 export { countPositions };
