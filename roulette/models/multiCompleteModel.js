@@ -7,6 +7,7 @@ import { chipsNeededForABet } from "./functions/multi-complete/chipsNeededForABe
 import { countPositions } from "./functions/multi-complete/countPositions.js";
 import { nodeChanColumDoz } from "./consts/multi-complete/nodeChanColumDoz.js";
 import { showMessage } from "./functions/multi-complete/showMessage.js";
+import { multipleChoice } from "./functions/multi-complete/multipleChoice.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -41,11 +42,7 @@ calculate.onclick = function () {
         let num = element_id.substring(4, element_id.length);
 
         // функция множественного выбора:
-        function multipleChoice(arr, nodeList) {
-            arr.forEach((element) => {
-                nodeList[element].checked = true;
-            });
-        };
+        multipleChoice(selectedNumbers, nodeList);
 
         // блок выборов:
         if (nodeList[2].checked === true) {
@@ -86,9 +83,7 @@ calculate.onclick = function () {
         };
 
         // добавление элементов в массив:
-        
         if (element_id.includes("num") === true && isChecked === true) {
-            // let uniqueNumbers = [...new Set(selectedNumbers)]; // удаляем дубликаты
             uniqueNumbers.push(+num);
         };
     });
@@ -102,6 +97,5 @@ calculate.onclick = function () {
     };
     console.log('итоговая ставка: ' + resultBet());
     console.log(uniqueNumbers);
-    // selectedNumbers = [];
     return result;
 };
