@@ -7,33 +7,23 @@ import { processChoices } from "./processChoices.js";
 let selectedNumbers = [];
 let positions;
 let coincidences;
+
 function multiCompleteCalc(nodeList) {
-    let uniqueNumbers = [...new Set(selectedNumbers)]; // удаляем дубликаты
-    nodeList.forEach((item, index) => {
-        let element_id = item.id;
-        let isChecked = item.checked;
-        let num = element_id.substring(4, element_id.length);
+    const nodeArray = Array.from(nodeList); // Конвертируем NodeList в массив
+    
+    const uniqueNumbers = [...new Set(nodeArray
+        .filter(item => item.id.includes("num") && item.checked) // Фильтруем массив
+        .map(item => +item.id.substring(4)) // Преобразуем в числа
+    )];
+    console.log(uniqueNumbers);
 
-        // функция множественного выбора:
-        multipleChoice(selectedNumbers, nodeList);
-
-        // процесс выбора:
-        processChoices(nodeList);
-
-        // добавление элементов в массив:
-        if (element_id.includes("num") === true && isChecked === true) {
-            uniqueNumbers.push(+num);
-        };
-    });
-
-    // общая ставка с вычетом сдачи:
-    let result = resultBet(uniqueNumbers, positions, coincidences);
-
+    multipleChoice(selectedNumbers, nodeArray); // выбираем номера
+    processChoices(nodeArray); // процесс выбора
+    const result = resultBet(uniqueNumbers, positions, coincidences); // общая ставка
     console.log(`=> uniqueNumbers: [${uniqueNumbers.join(' ')}] выбранные номера`);
 
     // вывод сообщения пользователю:
     showMessage(uniqueNumbers, result);
-
     return result;
 };
 export { multiCompleteCalc };
