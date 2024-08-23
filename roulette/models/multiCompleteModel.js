@@ -8,6 +8,7 @@ import { countPositions } from "./functions/multi-complete/countPositions.js";
 import { nodeChanColumDoz } from "./consts/multi-complete/nodeChanColumDoz.js";
 import { showMessage } from "./functions/multi-complete/showMessage.js";
 import { multipleChoice } from "./functions/multi-complete/multipleChoice.js";
+import { resultBet } from "./functions/multi-complete/resultBet.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -25,12 +26,10 @@ const nodeList = document.querySelectorAll(".radioBtn");
 
 let selectedNumbers = [];
 let positions;
-let result;
 let coincidences;
 
 // функция подсчёта нескольких комплитов в поле:
 // let totalSum = chipsNeededForABet(selectedNumbers);
-
 // функция подсчёта совпадений (сдача):
 // let totalChips = countPositions(selectedNumbers);
 
@@ -89,13 +88,9 @@ calculate.onclick = function () {
     });
 
     // общая ставка с вычетом сдачи:
-    let resultBet = () => {
-        positions = chipsNeededForABet(uniqueNumbers);
-        coincidences = countPositions(uniqueNumbers);
-        result = positions - coincidences;
-        return result;
-    };
-    console.log('итоговая ставка: ' + resultBet());
+    let result = resultBet(uniqueNumbers, positions, coincidences);
+
     console.log(uniqueNumbers);
+
     return result;
 };
