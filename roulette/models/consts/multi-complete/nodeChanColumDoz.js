@@ -1,5 +1,7 @@
+import { deepFreeze } from "./../../functions/deepFreeze.js";
+
 // константа - шансы, дюжины и колонки (для node_multi_complete):
-const nodeChanColumDoz = {
+export const nodeChanColumDoz = Object.freeze({
     dozen_1: [3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15],
     dozen_2: [18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30],
     dozen_3: [33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45],
@@ -12,5 +14,6 @@ const nodeChanColumDoz = {
     column_1: [3, 6, 10, 13, 18, 21, 25, 28, 33, 36, 40, 43],
     column_2: [4, 7, 11, 14, 19, 22, 26, 29, 34, 37, 41, 44],
     column_3: [5, 8, 12, 15, 20, 23, 27, 30, 35, 38, 42, 45]
-};
-export { nodeChanColumDoz };
+});
+// глубокая заморозка объекта (только для чтения):
+deepFreeze(nodeChanColumDoz);
