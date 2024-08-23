@@ -1,0 +1,6 @@
+
+
+function multiCompleteCalc () {
+    
+};
+export { multiCompleteCalc };

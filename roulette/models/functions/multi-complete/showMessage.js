@@ -1,11 +1,9 @@
 
 // вывод сообщения алерт:
-function showMessage(resultBet) {
+function showMessage(arr, result) {
     console.log((`
-        \nвыбранные номера: ${selectedNumbers} 
-        \nкол-во позиций: ${totalSum} 
-        \nлишних позиций: ${coincidences} 
-        \nитоговая ставка: ${resultBet}
+        \nвыбранные номера: ${arr.join(' ')}
+        \nитоговая ставка: ${result}
         `));
     // location.reload();
     return;

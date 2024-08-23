@@ -9,6 +9,7 @@ import { nodeChanColumDoz } from "./consts/multi-complete/nodeChanColumDoz.js";
 import { showMessage } from "./functions/multi-complete/showMessage.js";
 import { multipleChoice } from "./functions/multi-complete/multipleChoice.js";
 import { resultBet } from "./functions/multi-complete/resultBet.js";
+import { multiCompleteCalc } from "./functions/multi-complete/multiCompleteCalc.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -91,6 +92,8 @@ calculate.onclick = function () {
     let result = resultBet(uniqueNumbers, positions, coincidences);
 
     console.log(uniqueNumbers);
+
+    showMessage(uniqueNumbers, result);
 
     return result;
 };
