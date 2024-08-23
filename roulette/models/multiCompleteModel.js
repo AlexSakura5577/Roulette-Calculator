@@ -3,9 +3,9 @@ import { updateMinMax } from "../controllers/updateMinMax.js";
 import { resetValues } from "../controllers/resetHandler.js";
 import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteNumber } from "./consts/rouletteNumber.js";
-// import { oddDozColum } from "./consts/oddDozColum.js";
 import { chipsNeededForABet } from "./functions/multi-complete/chipsNeededForABet.js";
 import { countPositions } from "./functions/multi-complete/countPositions.js";
+import { nodeChanColumDoz } from "./consts/multi-complete/nodeChanColumDoz.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -52,70 +52,51 @@ calculate.onclick = function () {
                 nodeList[element].checked = true;
             });
         };
-        // 1-я дюжина:
-        let dozen_1 = [3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15];
+
+        // блок выборов:
         if (nodeList[2].checked === true) {
-            multipleChoice(dozen_1, nodeList);
+            multipleChoice(nodeChanColumDoz.dozen_1, nodeList);
         };
-        // 2-я дюжина:
-        let dozen_2 = [18, 19, 20, 21, 22, 23, 25, 26, 27, 28, 29, 30];
         if (nodeList[17].checked === true) {
-            multipleChoice(dozen_2, nodeList);
+            multipleChoice(nodeChanColumDoz.dozen_2, nodeList);
         };
-        // 3-я дюжина:
-        let dozen_3 = [33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45];
         if (nodeList[32].checked === true) {
-            multipleChoice(dozen_3, nodeList);
+            multipleChoice(nodeChanColumDoz.dozen_3, nodeList);
         };
-        // малые номера:
-        let small = [3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23];
         if (nodeList[1].checked === true) {
-            multipleChoice(small, nodeList);
+            multipleChoice(nodeChanColumDoz.small, nodeList);
         };
-        // большие номера:
-        let big = [25, 26, 27, 28, 29, 30, 33, 34, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45];
         if (nodeList[39].checked === true) {
-            multipleChoice(big, nodeList);
+            multipleChoice(nodeChanColumDoz.big, nodeList);
         };
-        // чёт:
-        let even = [4, 6, 8, 11, 13, 15, 19, 21, 23, 26, 28, 30, 34, 36, 38, 41, 43, 45];
         if (nodeList[9].checked === true) {
-            multipleChoice(even, nodeList);
+            multipleChoice(nodeChanColumDoz.even, nodeList);
         };
-        // нечет:
-        let odd = [3, 5, 7, 10, 12, 14, 18, 20, 22, 25, 27, 29, 33, 35, 37, 40, 42, 44];
         if (nodeList[31].checked === true) {
-            multipleChoice(odd, nodeList);
+            multipleChoice(nodeChanColumDoz.odd, nodeList);
         };
-        // красное:
-        let red = [3, 5, 7, 10, 12, 15, 19, 21, 23, 25, 27, 29, 33, 35, 38, 41, 43, 45];
         if (nodeList[16].checked === true) {
-            multipleChoice(red, nodeList);
+            multipleChoice(nodeChanColumDoz.red, nodeList);
         };
-        // чёрное:
-        let black = [4, 6, 8, 11, 13, 14, 18, 20, 22, 26, 28, 30, 34, 36, 37, 40, 42, 44];
         if (nodeList[24].checked === true) {
-            multipleChoice(black, nodeList);
+            multipleChoice(nodeChanColumDoz.black, nodeList);
         };
-        // 1-я колонка:
-        let column_1 = [3, 6, 10, 13, 18, 21, 25, 28, 33, 36, 40, 43];
         if (nodeList[46].checked === true) {
-            multipleChoice(column_1, nodeList);
+            multipleChoice(nodeChanColumDoz.column_1, nodeList);
         };
-        // 2-я колонка:
-        let column_2 = [4, 7, 11, 14, 19, 22, 26, 29, 34, 37, 41, 44];
         if (nodeList[47].checked === true) {
-            multipleChoice(column_2, nodeList);
+            multipleChoice(nodeChanColumDoz.column_2, nodeList);
         };
-        // 3-я колонка:
-        let column_3 = [5, 8, 12, 15, 20, 23, 27, 30, 35, 38, 42, 45];
         if (nodeList[48].checked === true) {
-            multipleChoice(column_3, nodeList);
+            multipleChoice(nodeChanColumDoz.column_3, nodeList);
         };
+
+        // добавление элементов в массив:
         if (element_id.includes("num") === true && isChecked === true) {
             selectedNumbers.push(+num);
         };
     });
+
     // общая ставка с вычетом сдачи:
     let resultBet = () => {
         positions = chipsNeededForABet(selectedNumbers);
