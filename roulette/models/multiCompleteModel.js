@@ -28,20 +28,21 @@ let result;
 let coincidences;
 
 // функция подсчёта нескольких комплитов в поле:
-let totalSum = chipsNeededForABet(selectedNumbers);
+// let totalSum = chipsNeededForABet(selectedNumbers);
 
 // функция подсчёта совпадений (сдача):
-let totalChips = countPositions(selectedNumbers);
+// let totalChips = countPositions(selectedNumbers);
 
 calculate.onclick = function () {
+    let uniqueNumbers = [...new Set(selectedNumbers)]; // удаляем дубликаты
     nodeList.forEach((item, index) => {
         let element_id = item.id;
         let isChecked = item.checked;
         let num = element_id.substring(4, element_id.length);
 
         // функция множественного выбора:
-        function multipleChoice(array, nodeList) {
-            array.forEach((element) => {
+        function multipleChoice(arr, nodeList) {
+            arr.forEach((element) => {
                 nodeList[element].checked = true;
             });
         };
@@ -85,19 +86,22 @@ calculate.onclick = function () {
         };
 
         // добавление элементов в массив:
+        
         if (element_id.includes("num") === true && isChecked === true) {
-            selectedNumbers.push(+num);
+            // let uniqueNumbers = [...new Set(selectedNumbers)]; // удаляем дубликаты
+            uniqueNumbers.push(+num);
         };
     });
 
     // общая ставка с вычетом сдачи:
     let resultBet = () => {
-        positions = chipsNeededForABet(selectedNumbers);
-        coincidences = countPositions(selectedNumbers);
-        return positions - coincidences;
+        positions = chipsNeededForABet(uniqueNumbers);
+        coincidences = countPositions(uniqueNumbers);
+        result = positions - coincidences;
+        return result;
     };
     console.log('итоговая ставка: ' + resultBet());
-    console.log(selectedNumbers);
+    console.log(uniqueNumbers);
     // selectedNumbers = [];
-    return resultBet();
+    return result;
 };
