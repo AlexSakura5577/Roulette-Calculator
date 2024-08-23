@@ -6,6 +6,7 @@ import { rouletteNumber } from "./consts/rouletteNumber.js";
 import { chipsNeededForABet } from "./functions/multi-complete/chipsNeededForABet.js";
 import { countPositions } from "./functions/multi-complete/countPositions.js";
 import { nodeChanColumDoz } from "./consts/multi-complete/nodeChanColumDoz.js";
+import { showMessage } from "./functions/multi-complete/showMessage.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -19,26 +20,18 @@ reset.onclick = function () {
 };
 
 // переменные:
+const nodeList = document.querySelectorAll(".radioBtn");
+
 let selectedNumbers = [];
 let positions;
 let result;
 let coincidences;
 
 // функция подсчёта нескольких комплитов в поле:
-chipsNeededForABet(selectedNumbers);
+let totalSum = chipsNeededForABet(selectedNumbers);
 
 // функция подсчёта совпадений (сдача):
-countPositions(selectedNumbers);
-
-// вывод сообщения алерт:
-function showMessage() {
-    console.log((`выбранные номера: ${selectedNumbers} \nкол-во позиций: ${positions} \nлишних позиций: ${coincidences} \nитоговая ставка: ${result}`));
-    // location.reload();
-    return;
-};
-
-// функция подсчёта пересечений комплитов:
-const nodeList = document.querySelectorAll(".radioBtn");
+let totalChips = countPositions(selectedNumbers);
 
 calculate.onclick = function () {
     nodeList.forEach((item, index) => {
@@ -101,12 +94,10 @@ calculate.onclick = function () {
     let resultBet = () => {
         positions = chipsNeededForABet(selectedNumbers);
         coincidences = countPositions(selectedNumbers);
-        console.log('кол-во позиций: ' + positions);
-        result = positions - coincidences;
-        return result;
+        return positions - coincidences;
     };
     console.log('итоговая ставка: ' + resultBet());
     console.log(selectedNumbers);
     // selectedNumbers = [];
-    return showMessage();
+    return resultBet();
 };

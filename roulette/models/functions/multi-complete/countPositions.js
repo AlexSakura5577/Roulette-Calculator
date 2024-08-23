@@ -25,7 +25,7 @@ function countPositions(arr) {
 
     // Суммирование всех фишек
     const totalChips = splitChips + cornerChips + streetChips + sixLineChips;
-    console.log(`Всего лишних фишек: ${totalChips}`);
+    console.log(`=> totalChips: ${totalChips} лишних фишек`);
     return totalChips;
 };
 export { countPositions };

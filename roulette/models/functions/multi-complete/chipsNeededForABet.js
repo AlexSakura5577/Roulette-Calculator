@@ -20,7 +20,7 @@ function chipsNeededForABet(arr) {
 
         return acc + elementQuantities;
     }, 0);
-
+    console.log(`=> totalSum: ${totalSum} общая сумма`);
     return totalSum;
 };
 export { chipsNeededForABet };
