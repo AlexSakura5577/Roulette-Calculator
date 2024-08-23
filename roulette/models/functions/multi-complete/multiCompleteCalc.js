@@ -15,7 +15,6 @@ function multiCompleteCalc(nodeList) {
         .filter(item => item.id.includes("num") && item.checked) // Фильтруем массив
         .map(item => +item.id.substring(4)) // Преобразуем в числа
     )];
-    console.log(uniqueNumbers);
 
     multipleChoice(selectedNumbers, nodeArray); // выбираем номера
     processChoices(nodeArray); // процесс выбора
