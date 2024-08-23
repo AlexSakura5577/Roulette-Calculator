@@ -1,4 +1,5 @@
 import { deepFreeze } from "./../../functions/deepFreeze.js";
+import { nodeChanColumDoz } from "../../consts/multi-complete/nodeChanColumDoz.js";
 
 // Объект, сопоставляющий индексы с соответствующими значениями
 export const nodeOptions = Object.freeze({
