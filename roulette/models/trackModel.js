@@ -17,8 +17,10 @@ reset.onclick = function () {
     resetValues();
 };
 
-// переменные:
+const wrapper = document.querySelector('.wrapper');
+wrapper.style.transform = 'rotate(90deg)';
 
+// переменные:
 // user info:
 const info = document.getElementById('user_info');
 
@@ -120,7 +122,12 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         console.log(`ставка: ${bet}`);
 
         // вывод информации юзеру:
-        info.innerHTML = `сосед: ${num}<br>выбранные номера: ${numbers}<br>ставка: ${bet}<br>`;
+        info.innerHTML = ``;
+        info.innerHTML = `
+        сосед: ${num}<br>
+        ставка: ${bet}<br>
+        выбранные номера: ${numbers}<br>
+        `;
 
         modal.close();
     });
@@ -601,6 +608,7 @@ calculate.onclick = function () {
     calculateBTN();
 
     // информация с соседей:
+    // infoArr.push(``);
     infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}<br>`);
 
     // проверка ставка ли на серию?

@@ -12,14 +12,11 @@ body {
     user-select: none;
 }
 
-.flex_header {
+.header {
     display: flex;
-    width: 100%;
-    /* height: 100%; */
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    /* position: fixed; */
-    /* top: 0; */
 }
 
 .btn {
@@ -37,7 +34,9 @@ h1 {
     display: block;
     width: 119px;
     height: 550px;
-    margin: 25px 25px 25px 55px;
+    margin: 100px 0px 0px 217px;
+    /* background-color: #ef07fb; */
+    position: absolute;
 }
 
 .track {
@@ -46,6 +45,14 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    /* background-color: #9d07fb; */
+}
+
+.calc {
+    display: inline-block;
+    /* background-color: #3c0d0d; */
+    height: 25px;
+    margin-left: 230px;
 }
 
 .circle {
@@ -747,11 +754,11 @@ b {
     position: absolute;
     width: 280px;
     height: 200px;
-    /* background-color: aqua; */
-    margin: -570px 0px 0px 190px;
+    background-color: rgb(54, 40, 71);
+    margin: 0px 0px 0px 140px;
     /* border: 1px solid aqua; */
     font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
+    font-size: 0.8rem;
     color: #ffffff;
 }
 
