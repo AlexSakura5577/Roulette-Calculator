@@ -18,5 +18,5 @@ const nodeList = document.querySelectorAll(".radioBtn");
 
 calculate.onclick = function () {
     // выполнение вычислений:
-    multiCompleteController(nodeList);
+    multiCompleteController(["массив"]);
 };
