@@ -7,6 +7,7 @@ import { rltPos } from "./consts/rltPos.js";
 import { track } from "./consts/track.js";
 import { modalWin_1 } from "./consts/track/modalWin_1.js";
 import { modalWin_2 } from "./consts/track/modalWin_2.js";
+import { propagatesNeighbor } from "./functions/track/propagatesNeighbor.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -22,12 +23,12 @@ reset.onclick = function () {
 const wrapper = document.querySelector('.wrapper');
 wrapper.style.transform = 'rotate(90deg)';
 
-// переменные:
 // user info:
 const info = document.getElementById('user_info');
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
+console.log(nodeList);
 
 // текст в модальном окне
 // let text = ""; 
@@ -54,8 +55,6 @@ let plays = 0;
 let residue = 0;
 // сдача:
 let change = 0;
-
-
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
@@ -109,7 +108,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         console.log(`ставка: ${bet}`);
 
         // вывод информации юзеру:
-        info.innerHTML = ``;
+        // info.innerHTML = ``;
         info.innerHTML = `
         сосед: ${num}<br>
         ставка: ${bet}<br>
@@ -121,15 +120,8 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     return bet;
 };
 
-// цикл размножает модальные окна
-for (let i = 0; i < 37; i++) {
-    let neighbor = "neighbor_" + i;
-    let openBtn = "openBtn_" + i;
-    let closeBtn = "closeBtn_" + i;
-    let modal = "modal_" + i;
-    let bet = "bet_" + i;
-    modalWindow(neighbor, openBtn, closeBtn, modal, i, bet);
-};
+// цикл размножает модальные окна соседей
+propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
@@ -546,6 +538,7 @@ calculate.onclick = function () {
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
                 residue_Arr_2.push(residue_2);
+                // residue_Arr_2.join(' ');
                 // residue_Arr_2.join(''); надо как-то убрать запятую вначале...
                 console.log(`превышение с номера ${i}: ${residue_2}`);
                 // сколько номеров играет до максимума:
@@ -579,7 +572,14 @@ calculate.onclick = function () {
 
     // информация с соседей:
     // infoArr.push(``);
-    infoArr.push(`<br>общая сдача с трека: ${valuesDone.allResidue}<br>всего номеров играет: ${valuesDone.count_1}<br>номеров играет до максимума: ${valuesDone.count_2}<br><br>${excess}<br>`);
+    infoArr.push(`
+        <br>
+        общая сдача с трека: ${valuesDone.allResidue}<br>
+        всего номеров играет: ${valuesDone.count_1}<br>
+        номеров играет до максимума: ${valuesDone.count_2}<br>
+        <br>${excess}<br>
+        `);
+    // infoArr.join('');
 
     // проверка ставка ли на серию?
     if (series.includes("neighbor")) {
@@ -606,14 +606,6 @@ calculate.onclick = function () {
     // консоль-логи переменных для трека:
     console.log(`серия: ${series}`);
     console.log(`ставка: ${bet}`);
-    // console.log(`шаг ломается от: ${breakingStep}`);
-    // console.log(`чистая ставка: ${betWithoutChange}`);
     console.log(`играет по:  ${plays}`);
     console.log(`сдача: ${change}`);
-
-    // синхронизация позиций:
-    // console.log(`позиция 32-35: ${rltPos.spl["split_32-35"]}`);
-    // console.log(`позиция 26: ${rltPos.num.number_26}`);
-    // console.log(`шпиль сплит 32-35: ${rouletteSeries.spiel.split[2]}`);
-    // console.log(`шпиль номер 26: ${rouletteSeries.spiel.numb[0]}`);
 };
