@@ -8,6 +8,7 @@ import { track } from "./consts/track.js";
 import { modalWin_1 } from "./consts/track/modalWin_1.js";
 import { modalWin_2 } from "./consts/track/modalWin_2.js";
 import { propagatesNeighbor } from "./functions/track/propagatesNeighbor.js";
+import { propagatesSeries } from "./functions/track/propagatesSeries.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -233,28 +234,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
 };
 
 // цикл размножает модальные окна серий
-let series = "";
-for (let i = 37; i < 41; i++) {
-    switch (i) {
-        case 37:
-            series = "tier";
-            break;
-        case 38:
-            series = "orphelins";
-            break;
-        case 39:
-            series = "voisins";
-            break;
-        case 40:
-            series = "spiel";
-            break;
-    }
-    let openBtn = "openBtn_" + i;
-    let closeBtn = "closeBtn_" + i;
-    let modal = "modal_" + i;
-    let bet = "bet_" + i;
-    modalWindow_2(series, openBtn, closeBtn, modal, bet);
-};
+let series = propagatesSeries(modalWindow_2);
 
 // ставка:
 function bettingOnNeighbor() {
@@ -263,7 +243,7 @@ function bettingOnNeighbor() {
             id = element.id;
             if (id === "tier" || "orphelins" || "voisins" || "spiel") {
                 series = id;
-                // console.log(`серия: ${series}`);
+                console.log(`серия: ${series}`);
             };
             // сосед номера:
             neighbors = track[id];
