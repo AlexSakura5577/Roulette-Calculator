@@ -5,6 +5,8 @@ import { payoutRatios } from "./consts/payoutRatios.js";
 import { rouletteSeries } from "./consts/rouletteSeries.js";
 import { rltPos } from "./consts/rltPos.js";
 import { track } from "./consts/track.js";
+import { modalWin_1 } from "./consts/track/modalWin_1.js";
+import { modalWin_2 } from "./consts/track/modalWin_2.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -53,6 +55,8 @@ let residue = 0;
 // сдача:
 let change = 0;
 
+
+
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     let maxBet = minMax.maxBet;
@@ -67,26 +71,9 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         max = maxBet * 5;
     };
     neighbor_id = document.getElementById(neighbor_id);
-    neighbor_id.innerHTML = `<button class="openBtn" id=${openBtn}>
-    </button>
-    <dialog class="modal" id=${modal}>
-        <span><h3>Сосед номера:</h3></span><b>${num}</b>
-        <div class="modal_inner">
-            <h3>Введите ставку</h3>
-            <br>
-            <div>
-                <p>
-                    <label>
-                        <input name="bet" class="input track_bet" type="number" min="0" minlength="2" maxlength="8" size="8" min="${min}" max="${max}" id=${bet_id}>
-                    </label>
-                </p>
-            </div>
-            <br>
-            <button class="closeBtn" id=${closeBtn}>
-                <h3>ОК</h3>
-            </button>
-        </div>
-    </dialog>`
+
+    let modalWin = modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max);
+    neighbor_id.innerHTML = modalWin;
 
     openBtn = document.getElementById(openBtn);
     closeBtn = document.getElementById(closeBtn);
@@ -193,26 +180,8 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     };
 
     series = document.getElementById(series);
-    series.innerHTML = `<button class=${classOpenBtn} id=${openBtn}>
-    </button>
-    <dialog class="modal" id=${modal}>
-        <span><h3>Серия:</h3></span><b>${nameSeries}</b>
-        <div class="modal_inner">
-            <h3>Введите ставку</h3>
-            <br>
-            <div>
-                <p>
-                    <label>
-                        <input name="bet" class="input track_bet" type="number" min="0" minlength="2" maxlength="8" size="8" min="${min}" id=${bet_id}>
-                    </label>
-                </p>
-            </div>
-            <br>
-            <button class="closeBtn" id=${closeBtn}>
-                <h3>ОК</h3>
-            </button>
-        </div>
-    </dialog>`
+    let modalWin = modalWin_2(classOpenBtn, openBtn, closeBtn, modal, nameSeries, bet_id, min);
+    series.innerHTML = modalWin;
 
     openBtn = document.getElementById(openBtn);
     closeBtn = document.getElementById(closeBtn);
@@ -229,6 +198,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
+
         // записать значение в переменную bet:
         bet = document.getElementById(bet_id).value;
 
