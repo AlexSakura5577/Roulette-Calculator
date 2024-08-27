@@ -12,6 +12,7 @@ import { propagatesSeries } from "./functions/track/propagatesSeries.js";
 import { seriesController } from "./functions/series/seriesController.js";
 // import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
 import { trackFunctionCall } from "./functions/trackFunctionCall.js";
+import { modalWindow } from "./functions/track/modalWindow.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -51,72 +52,10 @@ let num = "";
 let infoArr = [];
 
 // функция модальное окно JS соседи:
-function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
-    // console.trace()
-    let maxBet = minMax.maxBet;
-    let minBet = minMax.minBet;
-    let min = 0;
-    let max = 0;
-    if (minBet == 25) {
-        min = minBet * 5;
-        max = maxBet * 5;
-    } else if (minBet == 1 || 5) {
-        min = 25;
-        max = maxBet * 5;
-    };
-    neighbor_id = document.getElementById(neighbor_id);
-
-    let modalWin = modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max);
-    neighbor_id.innerHTML = modalWin;
-
-    openBtn = document.getElementById(openBtn);
-    closeBtn = document.getElementById(closeBtn);
-    modal = document.getElementById(modal);
-
-    // 3 функции открытия и закрытия диалогового окна
-    openBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.showModal();
-    });
-    modal.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (e.target === modal) modal.close();
-    });
-    closeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        // записать значение в переменную bet:
-        bet = document.getElementById(bet_id).value;
-        if (bet == '') {
-            bet = 0;
-        } else if (bet < 25) {
-            console.log("не корректная ставка");
-            info.innerHTML = `не корректная ставка`;
-            return;
-        };
-        // очистить объект для пересчёта:
-        for (let i = 0; i < 37; i++) {
-            let sel = "number_" + i;
-            rltPos.num[sel] = [];
-        };
-        console.log(`сосед: ${num}`);
-        console.log(`выбранные номера: ${numbers}`);
-        console.log(`ставка: ${bet}`);
-
-        // вывод информации юзеру:
-        // info.innerHTML = ``;
-        info.innerHTML = `
-        сосед: ${num}<br>
-        ставка: ${bet}<br>
-        выбранные номера: ${numbers}<br>
-        `;
-
-        modal.close();
-    });
-    return bet;
-};
+// здесь была функция modalWindow
 
 // цикл размножает модальные окна соседей
-propagatesNeighbor(modalWindow);
+propagatesNeighbor();
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
@@ -287,8 +226,6 @@ bettingOnNeighbor();
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
-    console.trace()
-
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     // обнуление позиций поля:
