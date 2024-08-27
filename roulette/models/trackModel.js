@@ -30,11 +30,12 @@ const info = document.getElementById('user_info');
 
 // получить список элементов по классу
 const nodeList = document.querySelectorAll(".pos");
-console.log(nodeList);
 
 // текст в модальном окне
 // let text = ""; 
 
+// минимальная ставка:
+let min = minMax.minBet;
 // максимальная ставка:
 let max = minMax.maxBet;
 // id соседа из nodelist
@@ -278,17 +279,6 @@ function bettingOnNeighbor() {
 };
 bettingOnNeighbor();
 
-// функция "Рассчитать":
-const calculateBTN = function calculateBTN() {
-    // проверка ставка ли на серию?
-    if (series.includes("neighbor")) {
-        return;
-    };
-    // вычисления:
-    seriesController(max, series, bet);
-    return;
-};
-
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
@@ -418,7 +408,12 @@ calculate.onclick = function () {
     const valuesDone = trackBets();
 
     // ставка на серию:
-    calculateBTN();
+    // проверка ставка ли на серию?
+    if (series.includes("neighbor")) {
+        return;
+    };
+    // вычисления:
+    seriesController(max, series, bet);
 
     // информация с соседей:
     // infoArr.push(``);

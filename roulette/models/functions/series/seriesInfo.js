@@ -13,7 +13,10 @@ function seriesInfo(series, seriesBet, objVarSeriesCalc) {
             сдача: ${objVarSeriesCalc.change}<br/>
         `;
     }
-    catch (err) { console.log(err); };
+    catch (err) { 
+        // console.log(err); 
+        // console.trace("вызвана функция seriesController");
+    };
 
     // значения переменных для справки в консоли:
     console.log(objVarSeriesCalc);

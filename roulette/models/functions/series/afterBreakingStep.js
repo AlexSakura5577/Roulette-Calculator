@@ -2,8 +2,6 @@ import { rouletteSeries } from "../../consts/rouletteSeries.js";
 
 // рассчёт после ломаного шага:
 function afterBreakingStep(minMax, series, breakingStep, seriesBet, residue) {
-    console.log("функция afterBreakingStep");
-
     const coefficient = rouletteSeries[series].coefficient; // Используем const для константы
     seriesBet -= breakingStep; // Упрощаем запись
     const diff_1 = seriesBet / coefficient;
