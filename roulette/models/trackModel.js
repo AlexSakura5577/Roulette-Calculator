@@ -10,6 +10,7 @@ import { modalWin_2 } from "./consts/track/modalWin_2.js";
 import { propagatesNeighbor } from "./functions/track/propagatesNeighbor.js";
 import { propagatesSeries } from "./functions/track/propagatesSeries.js";
 import { seriesController } from "./functions/series/seriesController.js";
+// import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -29,7 +30,7 @@ wrapper.style.transform = 'rotate(90deg)';
 const info = document.getElementById('user_info');
 
 // получить список элементов по классу
-const nodeList = document.querySelectorAll(".pos");
+export const nodeList = document.querySelectorAll(".pos");
 
 // текст в модальном окне
 // let text = ""; 
@@ -50,6 +51,8 @@ let bet = 0;
 let num = "";
 // массив информации:
 let infoArr = [];
+
+// переменные для подсчета серий: (удалить потом)
 // ломается шаг:
 let breakingStep = 0;
 // ставка без сдачи:
@@ -60,6 +63,7 @@ let plays = 0;
 let residue = 0;
 // сдача:
 let change = 0;
+//
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
@@ -242,10 +246,13 @@ let series = propagatesSeries(modalWindow_2);
 
 // ставка:
 function bettingOnNeighbor() {
+    // console.log(nodeList);
+    const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
+            console.log(element.id);
             id = element.id;
-            if (id === "tier" || "orphelins" || "voisins" || "spiel") {
+            if (validSeries.some(elem => id.includes(elem))) {
                 series = id;
                 console.log(`серия: ${series}`);
             };
@@ -270,14 +277,21 @@ function bettingOnNeighbor() {
             };
         });
     });
+    console.log(`id: ${id}`);
+    console.log(`num: ${num}`);
+    console.log(`numbers: ${numbers}`);
+    console.log(`series: ${series}`);
+    console.log(`bet: ${bet}`);
     return {
         id: id,
         num: num,
         numbers: numbers,
+        series: series,
         bet: bet
     };
 };
 bettingOnNeighbor();
+// bettingOnNeighbor(id, num, numbers, series, neighbors, bet);
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -290,6 +304,8 @@ calculate.onclick = function () {
     };
     // крайняя ставка
     const values = bettingOnNeighbor();
+    // const values = bettingOnNeighbor(id, num, numbers, series, neighbors, bet);
+    console.log(values);
     // по чём играет:
     let posBet = 0;
     // сдача 1
@@ -406,6 +422,7 @@ calculate.onclick = function () {
         };
     };
     const valuesDone = trackBets();
+    console.log(`valuesDone: ${valuesDone}`);
 
     // ставка на серию:
     // проверка ставка ли на серию?
