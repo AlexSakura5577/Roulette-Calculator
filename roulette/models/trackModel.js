@@ -35,10 +35,6 @@ export const nodeList = document.querySelectorAll(".pos");
 // текст в модальном окне
 // let text = ""; 
 
-// минимальная ставка:
-let min = minMax.minBet;
-// максимальная ставка:
-let max = minMax.maxBet;
 // id соседа из nodelist
 let id = "";
 // сосед (строка)
@@ -252,10 +248,12 @@ function bettingOnNeighbor() {
         element.addEventListener('click', () => {
             console.log(element.id);
             id = element.id;
+
             if (validSeries.some(elem => id.includes(elem))) {
                 series = id;
                 console.log(`серия: ${series}`);
             };
+
             // сосед номера:
             neighbors = track[id];
             try {
@@ -302,10 +300,12 @@ calculate.onclick = function () {
         let select = "number_" + i;
         rltPos.num[select] = [];
     };
+
     // крайняя ставка
-    const values = bettingOnNeighbor();
+    // const values = bettingOnNeighbor();
     // const values = bettingOnNeighbor(id, num, numbers, series, neighbors, bet);
-    console.log(values);
+    // console.log(values);
+
     // по чём играет:
     let posBet = 0;
     // сдача 1
@@ -422,15 +422,13 @@ calculate.onclick = function () {
         };
     };
     const valuesDone = trackBets();
-    console.log(`valuesDone: ${valuesDone}`);
 
     // ставка на серию:
-    // проверка ставка ли на серию?
     if (series.includes("neighbor")) {
         return;
     };
     // вычисления:
-    seriesController(max, series, bet);
+    seriesController(minMax.maxBet, series, bet);
 
     // информация с соседей:
     // infoArr.push(``);
@@ -444,16 +442,16 @@ calculate.onclick = function () {
     // infoArr.join('');
 
     // проверка ставка ли на серию?
-    if (series.includes("neighbor")) {
-        infoArr.push('');
-    } else if (series == "tier") {
-        betWithoutChange = bet - change;
-        breakingStep = "в tier не ломается";
-        infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
-    } else if (series != "tier") {
-        betWithoutChange = bet - change;
-        infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг ломается от: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
-    };
+    // if (series.includes("neighbor")) {
+    //     infoArr.push('');
+    // } else if (series == "tier") {
+    //     betWithoutChange = bet - change;
+    //     breakingStep = "в tier не ломается";
+    //     infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
+    // } else if (series != "tier") {
+    //     betWithoutChange = bet - change;
+    //     infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг ломается от: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
+    // };
 
     // общий вывод информации
     info.innerHTML = infoArr.join('');
@@ -464,10 +462,4 @@ calculate.onclick = function () {
     // } else {
     //     info.innerHTML = infoArr;
     // };
-
-    // консоль-логи переменных для трека:
-    // console.log(`серия: ${series}`);
-    // console.log(`ставка: ${bet}`);
-    // console.log(`играет по:  ${plays}`);
-    // console.log(`сдача: ${change}`);
 };
