@@ -4,13 +4,16 @@ function seriesInfo(series, seriesBet, objVarSeriesCalc) {
         ? "шаг в tier не ломается"
         : `шаг ломается от: ${objVarSeriesCalc.breakingStep}`;
 
-    document.getElementById('info_2').innerHTML = `
-        максимум на серию: ${objVarSeriesCalc.maxSeries}<br/>
-        ${breakingStepText}<br/>
-        чистая ставка: ${objVarSeriesCalc.betWithoutChange}<br/>
-        играет по: ${objVarSeriesCalc.plays}<br/>
-        сдача: ${objVarSeriesCalc.change}<br/>
-    `;
+    try {
+        document.getElementById('info_2').innerHTML = `
+            максимум на серию: ${objVarSeriesCalc.maxSeries}<br/>
+            ${breakingStepText}<br/>
+            чистая ставка: ${objVarSeriesCalc.betWithoutChange}<br/>
+            играет по: ${objVarSeriesCalc.plays}<br/>
+            сдача: ${objVarSeriesCalc.change}<br/>
+        `;
+    }
+    catch (err) { console.log(err); };
 
     // значения переменных для справки в консоли:
     console.log(objVarSeriesCalc);
