@@ -41,23 +41,12 @@ let neighbors = "";
 let numbers = [];
 // ставка на соседа
 let bet = 0;
+// ставка на серию
+let seriesBet = 0;
 // сосед (число)
 let num = "";
 // массив информации:
 let infoArr = [];
-
-// переменные для подсчета серий: (удалить потом)
-// ломается шаг:
-let breakingStep = 0;
-// ставка без сдачи:
-let betWithoutChange = 0;
-// по чём играет:
-let plays = 0;
-// остаток от деления (кратность):
-let residue = 0;
-// сдача:
-let change = 0;
-//
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
@@ -239,15 +228,9 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
 
 // цикл размножает модальные окна серий
 let series = propagatesSeries(modalWindow_2);
-// propagatesSeries(modalWindow_2);
-// console.log(series);
 
 // ставка:
 function bettingOnNeighbor() {
-    // console.log(nodeList);
-    // trackFunctionCall('bettingOnNeighbor');
-    // console.trace()
-
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
@@ -257,6 +240,7 @@ function bettingOnNeighbor() {
             if (validSeries.some(elem => id.includes(elem))) {
                 series = id;
                 console.log(`серия: ${series}`);
+                seriesBet = bet;
             };
 
             // сосед номера:
@@ -269,7 +253,7 @@ function bettingOnNeighbor() {
                 // ставка на соседа:
                 neighbors.bet = bet;
             } catch (err) {
-                // console.log(id);
+                // console.error(err);
             };
             // подсветка ставок
             const inlineStyles = element.style;
@@ -285,16 +269,19 @@ function bettingOnNeighbor() {
     console.log(`numbers: ${numbers}`);
     console.log(`series: ${series}`);
     console.log(`bet: ${bet}`);
+    console.log(`seriesBet: ${seriesBet}`);
     return {
         id: id,
         num: num,
         numbers: numbers,
         series: series,
-        bet: bet
+        bet: bet,
+        seriesBet: seriesBet
     };
 };
 bettingOnNeighbor();
 // bettingOnNeighbor(id, num, numbers, series, neighbors, bet);
+// bettingOnNeighbor(nodeList, info, bet, series);
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
@@ -435,7 +422,7 @@ calculate.onclick = function () {
         return;
     };
     // вычисления:
-    seriesController(minMax.maxBet, series, bet);
+    seriesController(minMax.maxBet, series, seriesBet);
 
     // информация с соседей:
     // infoArr.push(``);

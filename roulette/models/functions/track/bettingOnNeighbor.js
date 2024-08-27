@@ -1,17 +1,23 @@
 import { track } from "../../consts/track.js";
-import { nodeList } from "../../trackModel.js";
 
-function bettingOnNeighbor(id, num, numbers, series, neighbors, bet) {
-    // console.log(nodeList);
+let id = "";
+let neighbors = "";
+let numbers = [];
+let num = "";
+
+function bettingOnNeighbor(nodeList, info, bet, series) {
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
-            console.log(element.id);
+            console.log(`клик на элемент: ${element.id}`);
             id = element.id;
+
             if (validSeries.some(elem => id.includes(elem))) {
-                series = id;
+                series = { value: series }; // Теперь это объект
+                series.value = id; 
                 console.log(`серия: ${series}`);
-            };
+            }
+
             // сосед номера:
             neighbors = track[id];
             try {
@@ -23,14 +29,14 @@ function bettingOnNeighbor(id, num, numbers, series, neighbors, bet) {
                 neighbors.bet = bet;
             } catch (err) {
                 // console.log(id);
-            };
+            }
             // подсветка ставок
             const inlineStyles = element.style;
             if (bet >= 25) {
                 element.setAttribute('style', 'background-color: rgb(242, 247, 96); opacity: 90%; ');
             } else {
                 element.setAttribute('style', 'background-color: none; opacity: 0%; ');
-            };
+            }
         });
     });
     console.log(`id: ${id}`);
@@ -39,11 +45,11 @@ function bettingOnNeighbor(id, num, numbers, series, neighbors, bet) {
     console.log(`series: ${series}`);
     console.log(`bet: ${bet}`);
     return {
-        id: id,
-        num: num,
-        numbers: numbers,
-        series: series,
-        bet: bet
+        id,
+        num,
+        numbers,
+        series,
+        bet
     };
 };
 export { bettingOnNeighbor };
