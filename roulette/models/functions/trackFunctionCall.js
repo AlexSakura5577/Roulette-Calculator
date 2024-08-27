@@ -1,8 +1,7 @@
-
-
 function trackFunctionCall(moduleName) {
     const error = new Error();
     const stack = error.stack.split('\n');
+    console.log(stack);
     
     // Получаем стек вызовов и анализируем его
     console.log(`Вызвана функция в модуле: ${moduleName}`);

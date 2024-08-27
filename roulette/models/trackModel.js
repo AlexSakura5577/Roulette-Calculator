@@ -11,6 +11,7 @@ import { propagatesNeighbor } from "./functions/track/propagatesNeighbor.js";
 import { propagatesSeries } from "./functions/track/propagatesSeries.js";
 import { seriesController } from "./functions/series/seriesController.js";
 // import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
+import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -31,9 +32,6 @@ const info = document.getElementById('user_info');
 
 // получить список элементов по классу
 export const nodeList = document.querySelectorAll(".pos");
-
-// текст в модальном окне
-// let text = ""; 
 
 // id соседа из nodelist
 let id = "";
@@ -63,6 +61,7 @@ let change = 0;
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
+    // console.trace()
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let min = 0;
@@ -130,6 +129,7 @@ propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
+    // console.trace()
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let classOpenBtn = "openBtn";
@@ -239,14 +239,19 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
 
 // цикл размножает модальные окна серий
 let series = propagatesSeries(modalWindow_2);
+// propagatesSeries(modalWindow_2);
+// console.log(series);
 
 // ставка:
 function bettingOnNeighbor() {
     // console.log(nodeList);
+    // trackFunctionCall('bettingOnNeighbor');
+    // console.trace()
+
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
-            console.log(element.id);
+            console.log(`клик на элемент: ${element.id}`);
             id = element.id;
 
             if (validSeries.some(elem => id.includes(elem))) {
@@ -293,6 +298,8 @@ bettingOnNeighbor();
 
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
+    console.trace()
+
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     // обнуление позиций поля:

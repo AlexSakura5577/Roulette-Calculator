@@ -23,6 +23,7 @@ function propagatesSeries(modalWindow_2) {
         let bet = "bet_" + i;
         modalWindow_2(series, openBtn, closeBtn, modal, bet);
     };
+    series = "";
     return series;
 };
 export { propagatesSeries };
