@@ -1,11 +1,6 @@
 import { track } from "../../consts/track.js";
 
-let id = "";
-let neighbors = "";
-let numbers = [];
-let num = "";
-
-function bettingOnNeighbor(nodeList, info, bet, series) {
+function bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num) {
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
@@ -13,10 +8,10 @@ function bettingOnNeighbor(nodeList, info, bet, series) {
             id = element.id;
 
             if (validSeries.some(elem => id.includes(elem))) {
-                series = { value: series }; // Теперь это объект
-                series.value = id; 
+                series = id;
                 console.log(`серия: ${series}`);
-            }
+                seriesBet = bet;
+            };
 
             // сосед номера:
             neighbors = track[id];
@@ -28,15 +23,15 @@ function bettingOnNeighbor(nodeList, info, bet, series) {
                 // ставка на соседа:
                 neighbors.bet = bet;
             } catch (err) {
-                // console.log(id);
-            }
+                // console.error(err);
+            };
             // подсветка ставок
             const inlineStyles = element.style;
             if (bet >= 25) {
                 element.setAttribute('style', 'background-color: rgb(242, 247, 96); opacity: 90%; ');
             } else {
                 element.setAttribute('style', 'background-color: none; opacity: 0%; ');
-            }
+            };
         });
     });
     console.log(`id: ${id}`);
@@ -44,12 +39,14 @@ function bettingOnNeighbor(nodeList, info, bet, series) {
     console.log(`numbers: ${numbers}`);
     console.log(`series: ${series}`);
     console.log(`bet: ${bet}`);
+    console.log(`seriesBet: ${seriesBet}`);
     return {
-        id,
-        num,
-        numbers,
-        series,
-        bet
+        id: id,
+        num: num,
+        numbers: numbers,
+        series: series,
+        bet: bet,
+        seriesBet: seriesBet
     };
 };
 export { bettingOnNeighbor };

@@ -41,6 +41,8 @@ let neighbors = "";
 let numbers = [];
 // ставка на соседа
 let bet = 0;
+// серия
+// let series = "";
 // ставка на серию
 let seriesBet = 0;
 // сосед (число)
@@ -264,12 +266,12 @@ function bettingOnNeighbor() {
             };
         });
     });
-    console.log(`id: ${id}`);
-    console.log(`num: ${num}`);
-    console.log(`numbers: ${numbers}`);
-    console.log(`series: ${series}`);
-    console.log(`bet: ${bet}`);
-    console.log(`seriesBet: ${seriesBet}`);
+    // console.log(`id: ${id}`);
+    // console.log(`num: ${num}`);
+    // console.log(`numbers: ${numbers}`);
+    // console.log(`series: ${series}`);
+    // console.log(`bet: ${bet}`);
+    // console.log(`seriesBet: ${seriesBet}`);
     return {
         id: id,
         num: num,
@@ -280,7 +282,7 @@ function bettingOnNeighbor() {
     };
 };
 bettingOnNeighbor();
-// bettingOnNeighbor(id, num, numbers, series, neighbors, bet);
+// bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num);
 // bettingOnNeighbor(nodeList, info, bet, series);
 
 // клик по кнопке "Рассчитать":
