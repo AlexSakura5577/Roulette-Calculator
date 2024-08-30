@@ -290,6 +290,7 @@ bettingOnNeighbor();
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
+
     // обнуление позиций поля:
     for (let i = 0; i < 37; i++) {
         let select = "number_" + i;
@@ -356,6 +357,16 @@ calculate.onclick = function () {
                     let betOfNum = "number_" + element;
                     rltPos.num[betOfNum].push(posBet);
                 });
+
+                // добавляем позиции серий в массив rltPos:
+                // console.log(seriesBet);
+                // ставка на серию:
+                if (series.includes("neighbor")) {
+                    return;
+                };
+                // вычисления серии:
+                seriesController(minMax.maxBet, series, seriesBet);
+
                 // ! проверочный список трека:
                 // for (let i = 0; i < 37; i++) {
                 //     let select = "neighbor_" + i;
@@ -419,11 +430,11 @@ calculate.onclick = function () {
     const valuesDone = trackBets();
 
     // ставка на серию:
-    if (series.includes("neighbor")) {
-        return;
-    };
-    // вычисления:
-    seriesController(minMax.maxBet, series, seriesBet);
+    // if (series.includes("neighbor")) {
+    //     return;
+    // };
+    // // вычисления серии:
+    // seriesController(minMax.maxBet, series, seriesBet);
 
     // информация с соседей:
     // infoArr.push(``);
