@@ -114,7 +114,6 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     });
     return bet;
 };
-// здесь была функция modalWindow
 
 // цикл размножает модальные окна соседей
 propagatesNeighbor(modalWindow);
@@ -289,18 +288,13 @@ bettingOnNeighbor();
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
-    let minBet = minMax.minBet;
+    // let minBet = minMax.minBet; // не используется
 
     // обнуление позиций поля:
     for (let i = 0; i < 37; i++) {
         let select = "number_" + i;
         rltPos.num[select] = [];
     };
-
-    // крайняя ставка
-    // const values = bettingOnNeighbor();
-    // const values = bettingOnNeighbor(id, num, numbers, series, neighbors, bet);
-    // console.log(values);
 
     // по чём играет:
     let posBet = 0;
@@ -359,13 +353,11 @@ calculate.onclick = function () {
                 });
 
                 // добавляем позиции серий в массив rltPos:
-                // console.log(seriesBet);
-                // ставка на серию:
-                if (series.includes("neighbor")) {
-                    return;
-                };
-                // вычисления серии:
-                seriesController(minMax.maxBet, series, seriesBet);
+                let plays = seriesController(minMax.maxBet, series, seriesBet);
+                console.log(plays);
+
+
+
 
                 // ! проверочный список трека:
                 // for (let i = 0; i < 37; i++) {
@@ -430,11 +422,11 @@ calculate.onclick = function () {
     const valuesDone = trackBets();
 
     // ставка на серию:
-    // if (series.includes("neighbor")) {
-    //     return;
-    // };
-    // // вычисления серии:
-    // seriesController(minMax.maxBet, series, seriesBet);
+    if (series.includes("neighbor")) {
+        return;
+    };
+    // вычисления серии:
+    seriesController(minMax.maxBet, series, seriesBet);
 
     // информация с соседей:
     // infoArr.push(``);
