@@ -52,7 +52,7 @@ let num = "";
 let infoArr = [];
 
 // функция модальное окно JS соседи:
-function modalWindow(openBtn, closeBtn, modal, bet_id) {
+function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let min = 0;
@@ -103,21 +103,21 @@ function modalWindow(openBtn, closeBtn, modal, bet_id) {
         console.log(`ставка: ${bet}`);
 
         // вывод информации юзеру:
+        // info.innerHTML = ``;
         info.innerHTML = `
-          сосед: ${num}<br>
-          ставка: ${bet}<br>
-          выбранные номера: ${numbers}<br>
-          `;
+        сосед: ${num}<br>
+        ставка: ${bet}<br>
+        выбранные номера: ${numbers}<br>
+        `;
 
         modal.close();
     });
     return bet;
 };
-modalWindow(openBtn, closeBtn, modal, bet_id);
 // здесь была функция modalWindow
 
 // цикл размножает модальные окна соседей
-propagatesNeighbor();
+propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
