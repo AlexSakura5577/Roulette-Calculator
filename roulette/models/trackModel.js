@@ -13,7 +13,7 @@ import { seriesController } from "./functions/series/seriesController.js";
 // import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
 import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 // import { modalWindow } from "./functions/track/modalWindow.js";
-import { fillPositionSeries } from "./functions/track/fillPositionSeries.js";
+// import { fillPositionSeries } from "./functions/series/fillPositionSeries.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -313,10 +313,8 @@ calculate.onclick = function () {
     let excess = [];
 
     if (series !== "") {
-        // добавляем позиции серий в массив rltPos:
-        let plays = seriesController(minMax.maxBet, series, seriesBet);
-        // заполняем ячейки позиций серий
-        fillPositionSeries(series, plays);
+        // считаем ставку на серию и добавляем позиции серий в массив rltPos:
+        seriesController(minMax.maxBet, series, seriesBet);
     }
 
     // функция подсчёта ставок на трек:
@@ -360,10 +358,6 @@ calculate.onclick = function () {
                     let betOfNum = "number_" + element;
                     rltPos.num[betOfNum].push(posBet);
                 });
-
-
-
-
 
                 // ! проверочный список трека:
                 // for (let i = 0; i < 37; i++) {
