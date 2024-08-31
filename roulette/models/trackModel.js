@@ -13,6 +13,7 @@ import { seriesController } from "./functions/series/seriesController.js";
 // import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
 import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 // import { modalWindow } from "./functions/track/modalWindow.js";
+import { fillPositionSeries } from "./functions/track/fillPositionSeries.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -236,12 +237,12 @@ function bettingOnNeighbor() {
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
-            console.log(`клик на элемент: ${element.id}`);
+            // console.log(`клик на элемент: ${element.id}`);
             id = element.id;
 
             if (validSeries.some(elem => id.includes(elem))) {
                 series = id;
-                console.log(`серия: ${series}`);
+                // console.log(`серия: ${series}`);
                 seriesBet = bet;
             };
 
@@ -290,7 +291,7 @@ calculate.onclick = function () {
     let maxBet = minMax.maxBet;
     // let minBet = minMax.minBet; // не используется
 
-    // обнуление позиций поля:
+    // обнуление номеров позиций поля:
     for (let i = 0; i < 37; i++) {
         let select = "number_" + i;
         rltPos.num[select] = [];
@@ -310,7 +311,15 @@ calculate.onclick = function () {
     let allResidue = 0;
     // превышение:
     let excess = [];
-    // функция подсчёта
+
+    if (series !== "") {
+        // добавляем позиции серий в массив rltPos:
+        let plays = seriesController(minMax.maxBet, series, seriesBet);
+        // заполняем ячейки позиций серий
+        fillPositionSeries(series, plays);
+    }
+
+    // функция подсчёта ставок на трек:
     function trackBets() {
         // цикл прохода по треку:
         for (let i = 0; i < 37; i++) {
@@ -352,9 +361,6 @@ calculate.onclick = function () {
                     rltPos.num[betOfNum].push(posBet);
                 });
 
-                // добавляем позиции серий в массив rltPos:
-                let plays = seriesController(minMax.maxBet, series, seriesBet);
-                console.log(plays);
 
 
 
@@ -420,13 +426,14 @@ calculate.onclick = function () {
         };
     };
     const valuesDone = trackBets();
+    console.log(valuesDone);
 
     // ставка на серию:
-    if (series.includes("neighbor")) {
-        return;
-    };
+    // if (series.includes("neighbor")) {
+    //     return;
+    // };
     // вычисления серии:
-    seriesController(minMax.maxBet, series, seriesBet);
+    // seriesController(minMax.maxBet, series, seriesBet);
 
     // информация с соседей:
     // infoArr.push(``);
