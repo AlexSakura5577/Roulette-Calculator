@@ -291,10 +291,12 @@ calculate.onclick = function () {
     let maxBet = minMax.maxBet;
     // let minBet = minMax.minBet; // не используется
 
-    // обнуление номеров позиций поля:
+    //! обнуление всех позиций поля:
     for (let i = 0; i < 37; i++) {
         let select = "number_" + i;
         rltPos.num[select] = [];
+
+        // дописать...
     };
 
     // по чём играет:

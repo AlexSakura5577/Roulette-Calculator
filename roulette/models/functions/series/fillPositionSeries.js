@@ -1,74 +1,36 @@
 import { rltPos } from "../../consts/rltPos.js";
 import { rouletteSeries } from "../../consts/rouletteSeries.js";
 
-// заполняем ячейки позиций серий
+// Заполняем ячейки позиций серий
 function fillPositionSeries(series, plays) {
+    const fillPositions = (positions, prefix_1, prefix_2, multiplier = 1) => {
+        positions.forEach(element => {
+            const selector = `${prefix_2}${element}`;
+            console.log(selector);
+            rltPos[prefix_1][selector].push(plays * multiplier);
+            console.log(rltPos[prefix_1][selector]);
+        });
+    };
 
     switch (series) {
         case "tier":
-            rouletteSeries.tier.split.forEach(element => {
-                console.log(`сплит: ${element}`);
-                let selSpl = "split_" + element;
-
-                rltPos.spl[selSpl].push(plays);
-                console.log(rltPos.spl[selSpl]);
-            })
+            fillPositions(rouletteSeries.tier.split, 'spl', 'split_');
             break;
         case "orphelins":
-            rouletteSeries.orphelins.numb.forEach(element => {
-                console.log(`номер: ${element}`);
-                let selNumb = "number_" + element;
-
-                rltPos.num[selNumb].push(plays);
-                console.log(rltPos.num[selNumb]);
-            })
-            rouletteSeries.orphelins.split.forEach(element => {
-                console.log(`сплит: ${element}`);
-                let selSpl = "split_" + element;
-
-                rltPos.spl[selSpl].push(plays);
-                console.log(rltPos.spl[selSpl]);
-            })
+            fillPositions(rouletteSeries.orphelins.numb, 'num', 'number_');
+            fillPositions(rouletteSeries.orphelins.split, 'spl', 'split_');
             break;
         case "voisins":
-            rouletteSeries.voisins.split.forEach(element => {
-                console.log(`сплит: ${element}`);
-                let selSpl = "split_" + element;
-
-                rltPos.spl[selSpl].push(plays);
-                console.log(rltPos.spl[selSpl]);
-            })
-            rouletteSeries.voisins.street.forEach(element => {
-                console.log(`стрит: ${element}`);
-                let selStr = "street_" + element;
-
-                rltPos.str[selStr].push(plays * 2);
-                console.log(rltPos.str[selStr]);
-            })
-            rouletteSeries.voisins.corner.forEach(element => {
-                console.log(`карэ: ${element}`);
-                let selCor = "corner_" + element;
-
-                rltPos.cor[selCor].push(plays * 2);
-                console.log(rltPos.cor[selCor]);
-            })
+            fillPositions(rouletteSeries.voisins.split, 'spl', 'split_');
+            fillPositions(rouletteSeries.voisins.street, 'str', 'street_', 2);
+            fillPositions(rouletteSeries.voisins.corner, 'cor', 'corner_', 2);
             break;
         case "spiel":
-            rouletteSeries.spiel.numb.forEach(element => {
-                console.log(`номер: ${element}`);
-                let selNumb = "number_" + element;
-
-                rltPos.num[selNumb].push(plays);
-                console.log(rltPos.num[selNumb]);
-            })
-            rouletteSeries.spiel.split.forEach(element => {
-                console.log(`сплит: ${element}`);
-                let selSpl = "split_" + element;
-
-                rltPos.spl[selSpl].push(plays);
-                console.log(rltPos.spl[selSpl]);
-            })
+            fillPositions(rouletteSeries.spiel.numb, 'num', 'number_');
+            fillPositions(rouletteSeries.spiel.split, 'spl', 'split_');
             break;
+        default:
+            console.warn(`Неизвестная серия: ${series}`);
     }
-};
+}
 export { fillPositionSeries };
