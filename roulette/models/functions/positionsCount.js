@@ -9,10 +9,7 @@ const prefixes = {
 };
 
 function positionsCount(position) {
-    const prefix = prefixes[position]; // Находим префикс по позиции
-    const numberKeys = Object.keys(rltPos[position]);
-    const filteredNumberKeys = numberKeys.filter(key => key.startsWith(prefix));
-    const count = filteredNumberKeys.length;
+    const count = Object.keys(rltPos[position]).filter(key => key.startsWith(prefixes[position])).length;
     return count;
 };
 export { positionsCount };
