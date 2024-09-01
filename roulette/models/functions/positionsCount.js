@@ -1,18 +1,15 @@
 import { rltPos } from "../consts/rltPos.js";
 
+const prefixes = {
+    num: "number_",
+    spl: "split_",
+    str: "street_",
+    cor: "corner_",
+    six: "six_line_"
+};
+
 function positionsCount(position) {
-    let prefix;
-    if (position === "num") {
-        prefix = "number_";
-    } else if (position === "spl") {
-        prefix = "split_";
-    } else if (position === "str") {
-        prefix = "street_";
-    } else if (position === "cor") {
-        prefix = "corner_";
-    } else if (position === "six") {
-        prefix = "six_line_";
-    }
+    const prefix = prefixes[position]; // Находим префикс по позиции
     const numberKeys = Object.keys(rltPos[position]);
     const filteredNumberKeys = numberKeys.filter(key => key.startsWith(prefix));
     const count = filteredNumberKeys.length;
