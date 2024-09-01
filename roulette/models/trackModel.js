@@ -15,6 +15,7 @@ import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 // import { modalWindow } from "./functions/track/modalWindow.js";
 // import { fillPositionSeries } from "./functions/series/fillPositionSeries.js";
 import { positionsCount } from "./functions/positionsCount.js";
+import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -287,33 +288,15 @@ bettingOnNeighbor();
 // bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num);
 // bettingOnNeighbor(nodeList, info, bet, series);
 
-console.log(`номеров: ${positionsCount("num")}`);
-console.log(`сплитов: ${positionsCount("spl")}`);
-console.log(`стритов: ${positionsCount("str")}`);
-console.log(`карэх: ${positionsCount("cor")}`);
-console.log(`сикс-лайнов: ${positionsCount("six")}`);
-
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
     // let minBet = minMax.minBet; // не используется
 
-    //! обнуление всех позиций поля:
-    for (let i = 0; i < 37; i++) {
-        let selNum = "number_" + i;
-        // let selSpl = "split_" + i;
-        // let selStr = "corner_" + i;
-        // let selCor = "street_" + i;
-        // let selSix = "six_line_" + i;
-        rltPos.num[selNum] = [];
-        // rltPos.spl[selSpl] = [];
-        // rltPos.str[selStr] = [];
-        // rltPos.cor[selCor] = [];
-        // rltPos.six[selSix] = [];
+    //! очищение позий поля:
+    cleanAllFieldPositions();
 
-
-        // дописать...
-    };
+    // вывод в консоль позиций поля:
     console.log(rltPos.num);
     console.log(rltPos.spl);
     console.log(rltPos.str);
