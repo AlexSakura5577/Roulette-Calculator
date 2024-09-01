@@ -14,6 +14,7 @@ import { seriesController } from "./functions/series/seriesController.js";
 import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 // import { modalWindow } from "./functions/track/modalWindow.js";
 // import { fillPositionSeries } from "./functions/series/fillPositionSeries.js";
+import { positionsCount } from "./functions/positionsCount.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -286,6 +287,12 @@ bettingOnNeighbor();
 // bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num);
 // bettingOnNeighbor(nodeList, info, bet, series);
 
+console.log(`номеров: ${positionsCount("num")}`);
+console.log(`сплитов: ${positionsCount("spl")}`);
+console.log(`стритов: ${positionsCount("str")}`);
+console.log(`карэх: ${positionsCount("cor")}`);
+console.log(`сикс-лайнов: ${positionsCount("six")}`);
+
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
@@ -293,11 +300,25 @@ calculate.onclick = function () {
 
     //! обнуление всех позиций поля:
     for (let i = 0; i < 37; i++) {
-        let select = "number_" + i;
-        rltPos.num[select] = [];
+        let selNum = "number_" + i;
+        // let selSpl = "split_" + i;
+        // let selStr = "corner_" + i;
+        // let selCor = "street_" + i;
+        // let selSix = "six_line_" + i;
+        rltPos.num[selNum] = [];
+        // rltPos.spl[selSpl] = [];
+        // rltPos.str[selStr] = [];
+        // rltPos.cor[selCor] = [];
+        // rltPos.six[selSix] = [];
+
 
         // дописать...
     };
+    console.log(rltPos.num);
+    console.log(rltPos.spl);
+    console.log(rltPos.str);
+    console.log(rltPos.cor);
+    console.log(rltPos.six);
 
     // по чём играет:
     let posBet = 0;
@@ -367,10 +388,10 @@ calculate.onclick = function () {
                 //     console.log(`${select}: ${track[select].bet}`);
                 // };
                 // ! проверочный список поля:
-                for (let i = 0; i < 37; i++) {
-                    let select = "number_" + i;
-                    console.log(`${select}: ${rltPos.num[select]}`);
-                };
+                // for (let i = 0; i < 37; i++) {
+                //     let select = "number_" + i;
+                //     console.log(`${select}: ${rltPos.num[select]}`);
+                // };
             };
             trackBet = 0;
             continue;
