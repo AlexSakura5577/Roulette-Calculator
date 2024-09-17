@@ -2,6 +2,8 @@ import { minMax } from "../../../controllers/localStorageRead.js";
 import { modalWin_1 } from "../../consts/track/modalWin_1.js";
 import { rltPos } from "../../consts/rltPos.js";
 
+// ! не используется
+
 // user info:
 const info = document.getElementById('user_info');
 // номера входящие в соседа

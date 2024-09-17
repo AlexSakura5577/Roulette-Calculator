@@ -13,7 +13,6 @@ import { seriesController } from "./functions/series/seriesController.js";
 // import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
 import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 // import { modalWindow } from "./functions/track/modalWindow.js";
-// import { fillPositionSeries } from "./functions/series/fillPositionSeries.js";
 import { positionsCount } from "./functions/positionsCount.js";
 import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
 
@@ -27,8 +26,6 @@ document.getElementById('minmax').addEventListener('change', function () {
 reset.onclick = function () {
     resetValues();
 };
-
-//! тест гита на ноуте
 
 const wrapper = document.querySelector('.wrapper');
 wrapper.style.transform = 'rotate(90deg)';

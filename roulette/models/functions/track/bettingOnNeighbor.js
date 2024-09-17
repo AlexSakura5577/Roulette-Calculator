@@ -1,5 +1,7 @@
 import { track } from "../../consts/track.js";
 
+// ! не используется
+
 function bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num) {
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
