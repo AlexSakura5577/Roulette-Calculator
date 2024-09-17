@@ -28,6 +28,8 @@ reset.onclick = function () {
     resetValues();
 };
 
+//! тест гита на ноуте
+
 const wrapper = document.querySelector('.wrapper');
 wrapper.style.transform = 'rotate(90deg)';
 
