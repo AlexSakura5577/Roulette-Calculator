@@ -15,6 +15,7 @@ import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 // import { modalWindow } from "./functions/track/modalWindow.js";
 import { positionsCount } from "./functions/positionsCount.js";
 import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
+import { infoNeighbor } from "./functions/track/infoNeighbor.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -105,12 +106,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         console.log(`ставка: ${bet}`);
 
         // вывод информации юзеру:
-        // info.innerHTML = ``;
-        info.innerHTML = `
-        сосед: ${num}<br>
-        ставка: ${bet}<br>
-        выбранные номера: ${numbers}<br>
-        `;
+        infoNeighbor(info, num, bet, numbers);
 
         modal.close();
     });
