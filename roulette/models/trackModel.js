@@ -186,21 +186,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
-        // проверка минимальной ставки:
         incorrectBetCheck(info, bet, nameSeries);
-
-        // очистить объект для пересчёта:
-        // for (let i = 0; i < 37; i++) {
-        //     let sel = "number_" + i;
-        //     rltPos.num[sel] = [];
-        // };
-        // console.log(`серия: ${nameSeries}`);
-        // console.log(`ставка: ${bet}`);
-        // console.log(bet_id);
-
-        // вывод информации юзеру:
-        // info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
-
         modal.close();
     });
     return bet;
