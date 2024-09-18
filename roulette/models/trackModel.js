@@ -16,6 +16,7 @@ import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 import { positionsCount } from "./functions/positionsCount.js";
 import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
 import { infoNeighbor } from "./functions/track/infoNeighbor.js";
+import { incorrectBetCheck } from "./functions/track/incorrectBetCheck.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -32,7 +33,7 @@ const wrapper = document.querySelector('.wrapper');
 wrapper.style.transform = 'rotate(90deg)';
 
 // user info:
-const info = document.getElementById('user_info');
+export const info = document.getElementById('user_info');
 
 // получить список элементов по классу
 export const nodeList = document.querySelectorAll(".pos");
@@ -184,31 +185,9 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-
-        // записать значение в переменную bet:
         bet = document.getElementById(bet_id).value;
-
-        if (bet == '') {
-            bet = 0;
-        } else if (nameSeries == "spiel" && bet < 20) {
-            console.log("не корректная ставка");
-            info.innerHTML = `не корректная ставка`;
-            return;
-        } else if (nameSeries == "orphelins" && bet < 25) {
-            console.log("не корректная ставка");
-            info.innerHTML = `не корректная ставка`;
-            return;
-        }
-        else if (nameSeries == "tier" && bet < 30) {
-            console.log("не корректная ставка");
-            info.innerHTML = `не корректная ставка`;
-            return;
-        }
-        else if (nameSeries == "voisins" && bet < 45) {
-            console.log("не корректная ставка");
-            info.innerHTML = `не корректная ставка`;
-            return;
-        };
+        // проверка минимальной ставки:
+        incorrectBetCheck(info, bet, nameSeries);
 
         // очистить объект для пересчёта:
         // for (let i = 0; i < 37; i++) {
@@ -220,7 +199,8 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
         // console.log(bet_id);
 
         // вывод информации юзеру:
-        info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
+        // info.innerHTML = `серия: ${nameSeries}<br>ставка: ${bet}<br>`;
+
         modal.close();
     });
     return bet;
