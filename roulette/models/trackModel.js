@@ -81,16 +81,6 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     modal = document.getElementById(modal);
     closeBtn = document.getElementById(closeBtn);
 
-    // // 3 функции открытия и закрытия диалогового окна
-    // openBtn.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     modal.showModal();
-    // });
-    // modal.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     if (e.target === modal) modal.close();
-    // });
-
     openWindowsControl(openBtn, modal);
 
     closeBtn.addEventListener('click', (e) => {
@@ -166,16 +156,6 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     openBtn = document.getElementById(openBtn);
     modal = document.getElementById(modal);
     closeBtn = document.getElementById(closeBtn);
-
-    // // 3 функции открытия и закрытия диалогового окна
-    // openBtn.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     modal.showModal();
-    // });
-    // modal.addEventListener('click', (e) => {
-    //     e.preventDefault();
-    //     if (e.target === modal) modal.close();
-    // });
 
     openWindowsControl(openBtn, modal);
 

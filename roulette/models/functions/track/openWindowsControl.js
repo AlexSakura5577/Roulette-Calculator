@@ -1,10 +1,5 @@
-// import { incorrectBetCheckNeighbor } from "./incorrectBetCheckNeighbor.js";
-// import { incorrectBetCheckSeries } from "./incorrectBetCheckSeries.js";
 
 function openWindowsControl(openBtn, modal) {
-    // openBtn = document.getElementById(openBtn);
-    // modal = document.getElementById(modal);
-
     openBtn.addEventListener('click', (e) => {
         e.preventDefault();
         modal.showModal();
