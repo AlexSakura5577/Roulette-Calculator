@@ -102,10 +102,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             let sel = "number_" + i;
             rltPos.num[sel] = [];
         };
-        console.log(`сосед: ${num}`);
-        console.log(`выбранные номера: ${numbers}`);
-        console.log(`ставка: ${bet}`);
-
+        
         // вывод информации юзеру:
         infoNeighbor(info, num, bet, numbers);
 
@@ -186,7 +183,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
-        
+
         incorrectBetCheckSeries(info, bet, nameSeries);
         modal.close();
     });
