@@ -18,6 +18,8 @@ import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions
 import { infoNeighbor } from "./functions/track/infoNeighbor.js";
 import { incorrectBetCheckSeries } from "./functions/track/incorrectBetCheckSeries.js";
 import { incorrectBetCheckNeighbor } from "./functions/track/incorrectBetCheckNeighbor.js";
+import { openWindowsControl } from "./functions/track/openWindowsControl.js";
+import { closeWindowsControl } from "./functions/track/closeWindowsControl.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -47,8 +49,6 @@ let neighbors = "";
 let numbers = [];
 // ставка на соседа
 let bet = 0;
-// серия
-// let series = "";
 // ставка на серию
 let seriesBet = 0;
 // сосед (число)
@@ -78,18 +78,21 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     neighbor_id.innerHTML = modalWin;
 
     openBtn = document.getElementById(openBtn);
-    closeBtn = document.getElementById(closeBtn);
     modal = document.getElementById(modal);
+    closeBtn = document.getElementById(closeBtn);
 
-    // 3 функции открытия и закрытия диалогового окна
-    openBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.showModal();
-    });
-    modal.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (e.target === modal) modal.close();
-    });
+    // // 3 функции открытия и закрытия диалогового окна
+    // openBtn.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     modal.showModal();
+    // });
+    // modal.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     if (e.target === modal) modal.close();
+    // });
+
+    openWindowsControl(openBtn, modal);
+
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
@@ -98,6 +101,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         incorrectBetCheckNeighbor(info, bet, num, numbers);
         modal.close();
     });
+
     return bet;
 };
 
@@ -160,18 +164,21 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     series.innerHTML = modalWin;
 
     openBtn = document.getElementById(openBtn);
-    closeBtn = document.getElementById(closeBtn);
     modal = document.getElementById(modal);
+    closeBtn = document.getElementById(closeBtn);
 
-    // 3 функции открытия и закрытия диалогового окна
-    openBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.showModal();
-    });
-    modal.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (e.target === modal) modal.close();
-    });
+    // // 3 функции открытия и закрытия диалогового окна
+    // openBtn.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     modal.showModal();
+    // });
+    // modal.addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     if (e.target === modal) modal.close();
+    // });
+
+    openWindowsControl(openBtn, modal);
+
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
@@ -180,6 +187,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
         incorrectBetCheckSeries(info, bet, nameSeries);
         modal.close();
     });
+
     return bet;
 };
 
