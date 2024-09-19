@@ -17,6 +17,7 @@ import { positionsCount } from "./functions/positionsCount.js";
 import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
 import { infoNeighbor } from "./functions/track/infoNeighbor.js";
 import { incorrectBetCheckSeries } from "./functions/track/incorrectBetCheckSeries.js";
+import { incorrectBetCheckNeighbor } from "./functions/track/incorrectBetCheckNeighbor.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -90,22 +91,8 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
 
-        if (bet == '') {
-            bet = 0;
-        } else if (bet < 25) {
-            console.log("не корректная ставка");
-            info.innerHTML = `не корректная ставка`;
-            return;
-        };
-        // очистить объект для пересчёта:
-        for (let i = 0; i < 37; i++) {
-            let sel = "number_" + i;
-            rltPos.num[sel] = [];
-        };
-        
-        // вывод информации юзеру:
-        infoNeighbor(info, num, bet, numbers);
-
+        // проверка некорректной ставки:
+        incorrectBetCheckNeighbor(info, bet, num, numbers);
         modal.close();
     });
     return bet;
@@ -184,6 +171,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
 
+        // проверка некорректной ставки:
         incorrectBetCheckSeries(info, bet, nameSeries);
         modal.close();
     });
