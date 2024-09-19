@@ -58,6 +58,9 @@ let infoArr = [];
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
+    let nameFn = modalWindow.name;
+    console.log(nameFn);
+
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let min = 0;
@@ -103,7 +106,9 @@ propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
-    // console.trace()
+    let nameFn = modalWindow_2.name;
+    console.log(nameFn);
+
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let classOpenBtn = "openBtn";
