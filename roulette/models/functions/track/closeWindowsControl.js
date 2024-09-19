@@ -1,11 +1,12 @@
 import { incorrectBetCheckNeighbor } from "./incorrectBetCheckNeighbor.js";
 import { incorrectBetCheckSeries } from "./incorrectBetCheckSeries.js";
 
+// ! не используется
+
 function closeWindowsControl(nameFn, closeBtn) {
     // closeBtn = document.getElementById(closeBtn);
 
     if (nameFn == "modalWindow") {
-
 
         closeBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -16,7 +17,6 @@ function closeWindowsControl(nameFn, closeBtn) {
     }
 
     if (nameFn == "modalWindow_2") {
-
 
         closeBtn.addEventListener('click', (e) => {
             e.preventDefault();

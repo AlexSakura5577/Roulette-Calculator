@@ -19,7 +19,7 @@ import { infoNeighbor } from "./functions/track/infoNeighbor.js";
 import { incorrectBetCheckSeries } from "./functions/track/incorrectBetCheckSeries.js";
 import { incorrectBetCheckNeighbor } from "./functions/track/incorrectBetCheckNeighbor.js";
 import { openWindowsControl } from "./functions/track/openWindowsControl.js";
-import { closeWindowsControl } from "./functions/track/closeWindowsControl.js";
+// import { closeWindowsControl } from "./functions/track/closeWindowsControl.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -58,13 +58,11 @@ let infoArr = [];
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
-    let nameFn = modalWindow.name;
-    console.log(nameFn);
-
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let min = 0;
     let max = 0;
+
     if (minBet == 25) {
         min = minBet * 5;
         max = maxBet * 5;
@@ -72,6 +70,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         min = 25;
         max = maxBet * 5;
     };
+
     neighbor_id = document.getElementById(neighbor_id);
 
     let modalWin = modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max);
@@ -86,8 +85,6 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
-
-        // проверка некорректной ставки:
         incorrectBetCheckNeighbor(info, bet, num, numbers);
         modal.close();
     });
@@ -100,9 +97,6 @@ propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
-    let nameFn = modalWindow_2.name;
-    console.log(nameFn);
-
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
     let classOpenBtn = "openBtn";
@@ -162,8 +156,6 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
-
-        // проверка некорректной ставки:
         incorrectBetCheckSeries(info, bet, nameSeries);
         modal.close();
     });
@@ -233,7 +225,7 @@ calculate.onclick = function () {
     let maxBet = minMax.maxBet;
     // let minBet = minMax.minBet; // не используется
 
-    //! очищение позий поля:
+    //! очищение позиций поля:
     cleanAllFieldPositions();
 
     // вывод в консоль позиций поля:
