@@ -16,7 +16,7 @@ import { trackFunctionCall } from "./functions/trackFunctionCall.js";
 import { positionsCount } from "./functions/positionsCount.js";
 import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
 import { infoNeighbor } from "./functions/track/infoNeighbor.js";
-import { incorrectBetCheck } from "./functions/track/incorrectBetCheck.js";
+import { incorrectBetCheckSeries } from "./functions/track/incorrectBetCheckSeries.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -88,8 +88,8 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     });
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // записать значение в переменную bet:
         bet = document.getElementById(bet_id).value;
+
         if (bet == '') {
             bet = 0;
         } else if (bet < 25) {
@@ -186,7 +186,8 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
-        incorrectBetCheck(info, bet, nameSeries);
+        
+        incorrectBetCheckSeries(info, bet, nameSeries);
         modal.close();
     });
     return bet;
@@ -406,18 +407,6 @@ calculate.onclick = function () {
         <br>${excess}<br>
         `);
     // infoArr.join('');
-
-    // проверка ставка ли на серию?
-    // if (series.includes("neighbor")) {
-    //     infoArr.push('');
-    // } else if (series == "tier") {
-    //     betWithoutChange = bet - change;
-    //     breakingStep = "в tier не ломается";
-    //     infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
-    // } else if (series != "tier") {
-    //     betWithoutChange = bet - change;
-    //     infoArr.push(`<br>серия: ${series}<br\/>ставка: ${bet} <br\/> шаг ломается от: ${breakingStep}<br\/> чистая ставка: ${betWithoutChange}<br\/> играет по:  ${plays}<br\/> сдача: ${change}<br\/>`);
-    // };
 
     // общий вывод информации
     info.innerHTML = infoArr.join('');
