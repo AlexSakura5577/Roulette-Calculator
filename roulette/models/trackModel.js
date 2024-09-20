@@ -56,10 +56,12 @@ let num = "";
 // массив информации:
 let infoArr = [];
 
+let maxBet = minMax.maxBet;
+let minBet = minMax.minBet;
+
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
-    let maxBet = minMax.maxBet;
-    let minBet = minMax.minBet;
+    console.log(modalWindow.name);
     let min = 0;
     let max = 0;
 
@@ -97,8 +99,7 @@ propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
-    let maxBet = minMax.maxBet;
-    let minBet = minMax.minBet;
+    console.log(modalWindow_2.name);
     let classOpenBtn = "openBtn";
     let nameSeries = series;
     let min = 0;
