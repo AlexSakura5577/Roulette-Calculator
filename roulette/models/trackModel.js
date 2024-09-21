@@ -20,6 +20,7 @@ import { incorrectBetCheckSeries } from "./functions/track/incorrectBetCheckSeri
 import { incorrectBetCheckNeighbor } from "./functions/track/incorrectBetCheckNeighbor.js";
 import { openWindowsControl } from "./functions/track/openWindowsControl.js";
 // import { closeWindowsControl } from "./functions/track/closeWindowsControl.js";
+import { neighborMinMax } from "./functions/track/neighborMinMax.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -62,16 +63,23 @@ let minBet = minMax.minBet;
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     console.log(modalWindow.name);
-    let min = 0;
-    let max = 0;
 
-    if (minBet == 25) {
-        min = minBet * 5;
-        max = maxBet * 5;
-    } else if (minBet == 1 || 5) {
-        min = 25;
-        max = maxBet * 5;
-    };
+    // let min = 0;
+    // let max = 0;
+
+    // if (minBet == 25) {
+    //     min = minBet * 5;
+    //     max = maxBet * 5;
+    // } else if (minBet == 1 || minBet == 5) {
+    //     min = 25;
+    //     max = maxBet * 5;
+    // };
+
+    // neighborMinMax(minBet, maxBet);
+    let min = neighborMinMax(minBet, maxBet).min;
+    let max = neighborMinMax(minBet, maxBet).max;
+    console.log(`min: ${min}`);
+    console.log(`max: ${max}`);
 
     neighbor_id = document.getElementById(neighbor_id);
 
