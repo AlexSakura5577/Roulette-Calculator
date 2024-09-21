@@ -64,18 +64,6 @@ let minBet = minMax.minBet;
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     console.log(modalWindow.name);
 
-    // let min = 0;
-    // let max = 0;
-
-    // if (minBet == 25) {
-    //     min = minBet * 5;
-    //     max = maxBet * 5;
-    // } else if (minBet == 1 || minBet == 5) {
-    //     min = 25;
-    //     max = maxBet * 5;
-    // };
-
-    // neighborMinMax(minBet, maxBet);
     let min = neighborMinMax(minBet, maxBet).min;
     let max = neighborMinMax(minBet, maxBet).max;
     console.log(`min: ${min}`);
@@ -95,7 +83,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
-        incorrectBetCheckNeighbor(info, bet, num, numbers);
+        incorrectBetCheckNeighbor(info, bet, num, numbers, min);
         modal.close();
     });
 

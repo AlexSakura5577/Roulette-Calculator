@@ -1,8 +1,14 @@
 import { rltPos } from "../../consts/rltPos.js";
 import { infoNeighbor } from "./infoNeighbor.js";
 
-function incorrectBetCheckNeighbor(info, bet, num, numbers) {
+function incorrectBetCheckNeighbor(info, bet, num, numbers, min) {
     bet = bet === '' ? 0 : bet; // Присвоение значения
+
+    if (bet < min) {
+        console.log(`минимум на соседа ${min}`);
+        info.innerHTML = `минимум на соседа ${min}`;
+        return;
+    };
 
     if (bet < 25) {
         console.log("не корректная ставка");
