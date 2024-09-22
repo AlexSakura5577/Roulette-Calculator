@@ -219,7 +219,7 @@ bettingOnNeighbor();
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
-    let minBet = minMax.minBet; // не используется
+    let minBet = minMax.minBet;
 
     //! очищение позиций поля:
     cleanAllFieldPositions();
@@ -259,6 +259,12 @@ calculate.onclick = function () {
             let select = "neighbor_" + i;
             let trackBet = track[select].bet;
             let trackNumb = track[select].numbers;
+            // если ставка меньше минимума:
+            if (trackBet < minBet) {
+                console.log("ставка меньше минимума");
+                allResidue = trackBet;
+                return;
+            }
             // если есть ставка:
             if (trackBet > 0) {
                 // проверка кратности 25 (без сдачи)
