@@ -1,4 +1,6 @@
-// это функция которая как-бы константа
+// import { minMax } from "../../../controllers/localStorageRead.js";
+// import { neighborMinMax } from "../../functions/track/neighborMinMax.js"
+
 // модальное окно соседи:
 function modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max) {
     return `<button class="openBtn" id=${openBtn}>

@@ -11,11 +11,6 @@ function neighborMinMax(minBet, maxBet) {
         max = maxBet * 5;
     };
 
-    console.log(`minBet: ${minBet}`);
-    console.log(`maxBet: ${maxBet}`);
-    console.log(`min: ${min}`);
-    console.log(`max: ${max}`);
-
     return {
         min: min,
         max, max

@@ -26,6 +26,9 @@ import { neighborMinMax } from "./functions/track/neighborMinMax.js";
 document.getElementById('minmax').addEventListener('change', function () {
     let minmaxValue = this.value;
     updateMinMax(minmaxValue, minMax);
+
+    // neighborMinMax(minBet, maxBet);
+    // propagatesNeighbor(modalWindow);
 });
 
 // кнопка Сброс:
@@ -57,17 +60,12 @@ let num = "";
 // массив информации:
 let infoArr = [];
 
-let maxBet = minMax.maxBet;
-let minBet = minMax.minBet;
-
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
-    console.log(modalWindow.name);
-
+    let maxBet = minMax.maxBet;
+    let minBet = minMax.minBet;
     let min = neighborMinMax(minBet, maxBet).min;
     let max = neighborMinMax(minBet, maxBet).max;
-    console.log(`min: ${min}`);
-    console.log(`max: ${max}`);
 
     neighbor_id = document.getElementById(neighbor_id);
 
@@ -83,19 +81,23 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     closeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         bet = document.getElementById(bet_id).value;
+
         incorrectBetCheckNeighbor(info, bet, num, numbers, min);
         modal.close();
     });
 
     return bet;
 };
+export { modalWindow };
 
 // цикл размножает модальные окна соседей
 propagatesNeighbor(modalWindow);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
-    console.log(modalWindow_2.name);
+    // console.log(modalWindow_2.name);
+    let maxBet = minMax.maxBet;
+    let minBet = minMax.minBet;
     let classOpenBtn = "openBtn";
     let nameSeries = series;
     let min = 0;

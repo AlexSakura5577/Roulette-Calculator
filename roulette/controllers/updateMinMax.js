@@ -1,3 +1,7 @@
+import { neighborMinMax } from "../models/functions/track/neighborMinMax.js"
+import { propagatesNeighbor } from "../models/functions/track/propagatesNeighbor.js"
+import { modalWindow } from "../models/trackModel.js"
+
 // updateMinMax
 export function updateMinMax(value, minMax) {
     // выбираем элемент select minmax
@@ -33,4 +37,6 @@ export function updateMinMax(value, minMax) {
     // Обновляем localStorage
     localStorage.setItem('minBet', minMax.minBet);
     localStorage.setItem('maxBet', minMax.maxBet);
+    neighborMinMax(minMax.minBet, minMax.maxBet);
+    propagatesNeighbor(modalWindow);
 };
