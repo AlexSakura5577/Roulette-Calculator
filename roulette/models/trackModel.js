@@ -26,9 +26,6 @@ import { neighborMinMax } from "./functions/track/neighborMinMax.js";
 document.getElementById('minmax').addEventListener('change', function () {
     let minmaxValue = this.value;
     updateMinMax(minmaxValue, minMax);
-
-    // neighborMinMax(minBet, maxBet);
-    // propagatesNeighbor(modalWindow);
 });
 
 // кнопка Сброс:
@@ -222,7 +219,7 @@ bettingOnNeighbor();
 // клик по кнопке "Рассчитать":
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
-    // let minBet = minMax.minBet; // не используется
+    let minBet = minMax.minBet; // не используется
 
     //! очищение позиций поля:
     cleanAllFieldPositions();
@@ -301,11 +298,6 @@ calculate.onclick = function () {
                 //     let select = "neighbor_" + i;
                 //     console.log(`${select}: ${track[select].bet}`);
                 // };
-                // ! проверочный список поля:
-                // for (let i = 0; i < 37; i++) {
-                //     let select = "number_" + i;
-                //     console.log(`${select}: ${rltPos.num[select]}`);
-                // };
             };
             trackBet = 0;
             continue;
@@ -359,15 +351,8 @@ calculate.onclick = function () {
     const valuesDone = trackBets();
     console.log(valuesDone);
 
-    // ставка на серию:
-    // if (series.includes("neighbor")) {
-    //     return;
-    // };
-    // вычисления серии:
-    // seriesController(minMax.maxBet, series, seriesBet);
-
     // информация с соседей:
-    // infoArr.push(``);
+    // infoArr.join(''); // убрать запятые вначале
     infoArr.push(`
         <br>
         общая сдача с трека: ${valuesDone.allResidue}<br>
@@ -375,15 +360,7 @@ calculate.onclick = function () {
         номеров играет до максимума: ${valuesDone.count_2}<br>
         <br>${excess}<br>
         `);
-    // infoArr.join('');
 
     // общий вывод информации
     info.innerHTML = infoArr.join('');
-
-    // проверка сколько номеров играет (соседей):
-    // if (valuesDone.count_1 == 0) {
-    //     info.innerHTML = "";
-    // } else {
-    //     info.innerHTML = infoArr;
-    // };
 };
