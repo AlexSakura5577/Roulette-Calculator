@@ -33,8 +33,13 @@ reset.onclick = function () {
     resetValues();
 };
 
-const wrapper = document.querySelector('.wrapper');
-wrapper.style.transform = 'rotate(90deg)';
+// поворот экрана
+try {
+    const wrapper = document.querySelector('.wrapper');
+    wrapper.style.transform = 'rotate(90deg)';
+} catch (error) {
+    console.log(error);
+}
 
 // user info:
 export const info = document.getElementById('user_info');
@@ -67,7 +72,12 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     neighbor_id = document.getElementById(neighbor_id);
 
     let modalWin = modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max);
-    neighbor_id.innerHTML = modalWin;
+    try {
+        neighbor_id.innerHTML = modalWin;
+    } catch (error) {
+        console.log(error);
+    }
+    // neighbor_id.innerHTML = modalWin;
 
     openBtn = document.getElementById(openBtn);
     modal = document.getElementById(modal);
@@ -75,13 +85,17 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
 
     openWindowsControl(openBtn, modal);
 
-    closeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        bet = document.getElementById(bet_id).value;
+    try {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            bet = document.getElementById(bet_id).value;
 
-        incorrectBetCheckNeighbor(info, bet, num, numbers, min);
-        modal.close();
-    });
+            incorrectBetCheckNeighbor(info, bet, num, numbers, min);
+            modal.close();
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
     return bet;
 };
@@ -141,7 +155,12 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
 
     series = document.getElementById(series);
     let modalWin = modalWin_2(classOpenBtn, openBtn, closeBtn, modal, nameSeries, bet_id, min);
-    series.innerHTML = modalWin;
+
+    try {
+        series.innerHTML = modalWin;
+    } catch (error) {
+        console.log(error);
+    }
 
     openBtn = document.getElementById(openBtn);
     modal = document.getElementById(modal);
@@ -149,12 +168,16 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
 
     openWindowsControl(openBtn, modal);
 
-    closeBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        bet = document.getElementById(bet_id).value;
-        incorrectBetCheckSeries(info, bet, nameSeries);
-        modal.close();
-    });
+    try {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            bet = document.getElementById(bet_id).value;
+            incorrectBetCheckSeries(info, bet, nameSeries);
+            modal.close();
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
     return bet;
 };
@@ -220,6 +243,8 @@ bettingOnNeighbor();
 calculate.onclick = function () {
     let maxBet = minMax.maxBet;
     let minBet = minMax.minBet;
+    let min = neighborMinMax(minBet, maxBet).min;
+    let max = neighborMinMax(minBet, maxBet).max;
 
     //! очищение позиций поля:
     cleanAllFieldPositions();
@@ -259,11 +284,13 @@ calculate.onclick = function () {
             let select = "neighbor_" + i;
             let trackBet = track[select].bet;
             let trackNumb = track[select].numbers;
+            console.log(`trackBet: ${trackBet}`);
+            console.log(`min: ${min}`);
             // если ставка меньше минимума:
-            if (trackBet < minBet) {
+            if (trackBet < min) {
                 console.log("ставка меньше минимума");
                 allResidue = trackBet;
-                return;
+                return { allResidue };
             }
             // если есть ставка:
             if (trackBet > 0) {
@@ -327,7 +354,6 @@ calculate.onclick = function () {
             if (fillStr_Up > maxBet) {
                 residue_2 = fillStr_Up - maxBet;
                 residue_Arr_2.push(residue_2);
-                // residue_Arr_2.join(' ');
                 // residue_Arr_2.join(''); надо как-то убрать запятую вначале...
                 console.log(`превышение с номера ${i}: ${residue_2}`);
                 // сколько номеров играет до максимума:
@@ -339,12 +365,10 @@ calculate.onclick = function () {
         let sum1 = residue_Arr_1.reduce(function (a, b) {
             return a + b;
         }, 0);
-        // console.log(`общая сдача 1: ${sum1}`);
         // общая сдача 2:
         let sum2 = residue_Arr_2.reduce(function (a, b) {
             return a + b;
         }, 0);
-        // console.log(`общая сдача 2: ${sum2}`);
         allResidue = sum1 + sum2;
         console.log(`общая сдача с трека: ${allResidue}`);
         return {
