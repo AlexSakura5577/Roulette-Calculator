@@ -10,7 +10,7 @@ function openWindowsControl(openBtn, modal) {
             if (e.target === modal) modal.close();
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 };
 export { openWindowsControl };

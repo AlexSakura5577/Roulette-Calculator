@@ -21,6 +21,7 @@ import { incorrectBetCheckNeighbor } from "./functions/track/incorrectBetCheckNe
 import { openWindowsControl } from "./functions/track/openWindowsControl.js";
 // import { closeWindowsControl } from "./functions/track/closeWindowsControl.js";
 import { neighborMinMax } from "./functions/track/neighborMinMax.js";
+import { allFieldPositions } from "./consts/track/allFieldPositions.js";
 
 // выбор минимума максимума рулетки:
 document.getElementById('minmax').addEventListener('change', function () {
@@ -38,7 +39,7 @@ try {
     const wrapper = document.querySelector('.wrapper');
     wrapper.style.transform = 'rotate(90deg)';
 } catch (error) {
-    console.log(error);
+    // console.log(error);
 }
 
 // user info:
@@ -75,7 +76,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     try {
         neighbor_id.innerHTML = modalWin;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     // neighbor_id.innerHTML = modalWin;
 
@@ -94,7 +95,7 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             modal.close();
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 
     return bet;
@@ -159,7 +160,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
     try {
         series.innerHTML = modalWin;
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 
     openBtn = document.getElementById(openBtn);
@@ -176,7 +177,7 @@ function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
             modal.close();
         });
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 
     return bet;
@@ -208,8 +209,8 @@ function bettingOnNeighbor() {
                 num = numbers[2];
                 // ставка на соседа:
                 neighbors.bet = bet;
-            } catch (err) {
-                // console.error(err);
+            } catch (error) {
+                // console.log(error);
             };
             // подсветка ставок
             const inlineStyles = element.style;
@@ -250,11 +251,12 @@ calculate.onclick = function () {
     cleanAllFieldPositions();
 
     // вывод в консоль позиций поля:
-    console.log(rltPos.num);
-    console.log(rltPos.spl);
-    console.log(rltPos.str);
-    console.log(rltPos.cor);
-    console.log(rltPos.six);
+    // console.log(rltPos.num);
+    // console.log(rltPos.spl);
+    // console.log(rltPos.str);
+    // console.log(rltPos.cor);
+    // console.log(rltPos.six);
+    allFieldPositions();
 
     // по чём играет:
     let posBet = 0;
@@ -284,14 +286,12 @@ calculate.onclick = function () {
             let select = "neighbor_" + i;
             let trackBet = track[select].bet;
             let trackNumb = track[select].numbers;
-            console.log(`trackBet: ${trackBet}`);
-            console.log(`min: ${min}`);
-            // если ставка меньше минимума:
-            if (trackBet < min) {
-                console.log("ставка меньше минимума");
-                allResidue = trackBet;
-                return { allResidue };
+
+            if (trackBet > 0) {
+                console.log(`trackBet: ${trackBet}`);
+                console.log(`min: ${min}`);
             }
+
             // если есть ставка:
             if (trackBet > 0) {
                 // проверка кратности 25 (без сдачи)
@@ -319,6 +319,15 @@ calculate.onclick = function () {
                         infoArr.push(`сосед: ${i} играет по: ${posBet}<br>есть сдача: ${residue_1}<br>`);
                     }
                 };
+
+                // если ставка меньше минимума:
+                // if (trackBet < min) {
+                //     console.log("ставка меньше минимума");
+                //     // allResidue = trackBet;
+                //     // return { allResidue };
+                //     return;
+                // }
+
                 // заполняем ячейки позиций
                 trackNumb.forEach((element) => {
                     // селектор для объекта rltPos
@@ -338,6 +347,7 @@ calculate.onclick = function () {
         // счётчики:
         let count_1 = 0;
         let count_2 = 0;
+
         // цикл прохода по треку:
         for (let i = 0; i < 37; i++) {
             let select = "number_" + i;
@@ -369,6 +379,8 @@ calculate.onclick = function () {
         let sum2 = residue_Arr_2.reduce(function (a, b) {
             return a + b;
         }, 0);
+
+        // общая сдача:
         allResidue = sum1 + sum2;
         console.log(`общая сдача с трека: ${allResidue}`);
         return {
@@ -379,7 +391,7 @@ calculate.onclick = function () {
         };
     };
     const valuesDone = trackBets();
-    console.log(valuesDone);
+    // console.log(valuesDone);
 
     // информация с соседей:
     // infoArr.join(''); // убрать запятые вначале
