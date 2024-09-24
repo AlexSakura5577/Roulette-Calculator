@@ -1,6 +1,7 @@
 import { neighborMinMax } from "../models/functions/track/neighborMinMax.js"
 import { propagatesNeighbor } from "../models/functions/track/propagatesNeighbor.js"
-import { modalWindow } from "../models/trackModel.js"
+// import { modalWindow } from "../models/trackModel.js"
+import { modalWindow } from "../models/functions/track/modalWindow.js"
 
 // updateMinMax
 export function updateMinMax(value, minMax) {
