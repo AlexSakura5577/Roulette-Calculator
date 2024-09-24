@@ -34,7 +34,7 @@ reset.onclick = function () {
     resetValues();
 };
 
-// поворот экрана
+// поворот экрана:
 try {
     const wrapper = document.querySelector('.wrapper');
     wrapper.style.transform = 'rotate(90deg)';
@@ -78,7 +78,6 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     } catch (error) {
         // console.log(error);
     }
-    // neighbor_id.innerHTML = modalWin;
 
     openBtn = document.getElementById(openBtn);
     modal = document.getElementById(modal);
@@ -90,7 +89,6 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         closeBtn.addEventListener('click', (e) => {
             e.preventDefault();
             bet = document.getElementById(bet_id).value;
-
             incorrectBetCheckNeighbor(info, bet, num, numbers, min);
             modal.close();
         });
@@ -250,12 +248,7 @@ calculate.onclick = function () {
     //! очищение позиций поля:
     cleanAllFieldPositions();
 
-    // вывод в консоль позиций поля:
-    // console.log(rltPos.num);
-    // console.log(rltPos.spl);
-    // console.log(rltPos.str);
-    // console.log(rltPos.cor);
-    // console.log(rltPos.six);
+    // все позиции поля:
     allFieldPositions();
 
     // по чём играет:
@@ -282,18 +275,14 @@ calculate.onclick = function () {
     function trackBets() {
         // цикл прохода по треку:
         for (let i = 0; i < 37; i++) {
-            // селектор для объекта track:
             let select = "neighbor_" + i;
             let trackBet = track[select].bet;
             let trackNumb = track[select].numbers;
 
+            // если есть ставка:
             if (trackBet > 0) {
                 console.log(`trackBet: ${trackBet}`);
                 console.log(`min: ${min}`);
-            }
-
-            // если есть ставка:
-            if (trackBet > 0) {
                 // проверка кратности 25 (без сдачи)
                 if (trackBet % 25 == 0) {
                     posBet = trackBet / 5;
