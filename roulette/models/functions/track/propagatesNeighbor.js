@@ -1,6 +1,6 @@
-import { modalWindow } from "./modalWindow.js";
+// import { modalWindow } from "./modalWindow.js";
 
-function propagatesNeighbor() {
+function propagatesNeighbor(modalWindow) {
     // цикл размножает модальные окна соседей
     for (let i = 0; i < 37; i++) {
         let neighbor = "neighbor_" + i;

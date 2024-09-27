@@ -12,7 +12,7 @@ import { propagatesSeries } from "./functions/track/propagatesSeries.js";
 import { seriesController } from "./functions/series/seriesController.js";
 // import { bettingOnNeighbor } from "./functions/track/bettingOnNeighbor.js";
 import { trackFunctionCall } from "./functions/trackFunctionCall.js";
-import { modalWindow } from "./functions/track/modalWindow.js";
+// import { modalWindow } from "./functions/track/modalWindow.js";
 import { positionsCount } from "./functions/positionsCount.js";
 import { cleanAllFieldPositions } from "./functions/track/cleanAllFieldPositions.js";
 import { infoNeighbor } from "./functions/track/infoNeighbor.js";
@@ -64,41 +64,41 @@ let num = "";
 let infoArr = [];
 
 // функция модальное окно JS соседи:
-// function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
-//     let maxBet = minMax.maxBet;
-//     let minBet = minMax.minBet;
-//     let min = neighborMinMax(minBet, maxBet).min;
-//     let max = neighborMinMax(minBet, maxBet).max;
+function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
+    let maxBet = minMax.maxBet;
+    let minBet = minMax.minBet;
+    let min = neighborMinMax(minBet, maxBet).min;
+    let max = neighborMinMax(minBet, maxBet).max;
 
-//     neighbor_id = document.getElementById(neighbor_id);
+    neighbor_id = document.getElementById(neighbor_id);
 
-//     let modalWin = modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max);
-//     try {
-//         neighbor_id.innerHTML = modalWin;
-//     } catch (error) {
-//         // console.log(error);
-//     }
+    let modalWin = modalWin_1(openBtn, modal, closeBtn, num, bet_id, min, max);
+    try {
+        neighbor_id.innerHTML = modalWin;
+    } catch (error) {
+        // console.log(error);
+    }
 
-//     openBtn = document.getElementById(openBtn);
-//     modal = document.getElementById(modal);
-//     closeBtn = document.getElementById(closeBtn);
+    openBtn = document.getElementById(openBtn);
+    modal = document.getElementById(modal);
+    closeBtn = document.getElementById(closeBtn);
 
-//     openWindowsControl(openBtn, modal);
+    openWindowsControl(openBtn, modal);
 
-//     try {
-//         closeBtn.addEventListener('click', (e) => {
-//             e.preventDefault();
-//             bet = document.getElementById(bet_id).value;
-//             incorrectBetCheckNeighbor(info, bet, num, numbers, min);
-//             modal.close();
-//         });
-//     } catch (error) {
-//         // console.log(error);
-//     }
+    try {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            bet = document.getElementById(bet_id).value;
+            incorrectBetCheckNeighbor(info, bet, num, numbers, min);
+            modal.close();
+        });
+    } catch (error) {
+        // console.log(error);
+    }
 
-//     return bet;
-// };
-// export { modalWindow };
+    return bet;
+};
+export { modalWindow };
 
 // цикл размножает модальные окна соседей
 propagatesNeighbor(modalWindow);
