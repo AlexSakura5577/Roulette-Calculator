@@ -40,12 +40,17 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
             e.preventDefault();
             bet = document.getElementById(bet_id).value;
             incorrectBetCheckNeighbor(info, bet, num, numbers, min);
+            console.log(numbers);
             modal.close();
         });
     } catch (error) {
         // console.log(error);
     }
 
+
+
     return bet;
+
+
 };
 export { modalWindow };
