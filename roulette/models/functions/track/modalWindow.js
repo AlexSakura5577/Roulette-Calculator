@@ -9,9 +9,9 @@ import { incorrectBetCheckNeighbor } from "./incorrectBetCheckNeighbor.js";
 // user info:
 const info = document.getElementById('user_info');
 // номера входящие в соседа
-let numbers = [];
+// let numbers = [];
 // ставка на соседа
-let bet = 0;
+// let bet = 0;
 
 // функция модальное окно JS соседи:
 function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
@@ -19,6 +19,9 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
     let minBet = minMax.minBet;
     let min = neighborMinMax(minBet, maxBet).min;
     let max = neighborMinMax(minBet, maxBet).max;
+
+    let bet = 0;
+    let numbers = [];
 
     neighbor_id = document.getElementById(neighbor_id);
 
@@ -47,10 +50,10 @@ function modalWindow(neighbor_id, openBtn, closeBtn, modal, num, bet_id) {
         // console.log(error);
     }
 
-
-
-    return bet;
-
+    return {
+        bet: bet,
+        numbers: numbers
+    }
 
 };
 export { modalWindow };

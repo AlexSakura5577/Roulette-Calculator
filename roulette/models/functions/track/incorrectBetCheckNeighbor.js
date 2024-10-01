@@ -1,5 +1,9 @@
 import { rltPos } from "../../consts/rltPos.js";
 import { infoNeighbor } from "./infoNeighbor.js";
+import { modalWindow } from "./modalWindow.js";
+
+let numbers = modalWindow().numbers;
+console.log(numbers);
 
 function incorrectBetCheckNeighbor(info, bet, num, numbers, min) {
     bet = bet === '' ? 0 : bet; // Присвоение значения
@@ -21,6 +25,8 @@ function incorrectBetCheckNeighbor(info, bet, num, numbers, min) {
         let sel = "number_" + i;
         rltPos.num[sel] = [];
     };
+
+    console.log(numbers);
 
     // вывод информации юзеру:
     infoNeighbor(info, num, bet, numbers);
