@@ -102,7 +102,8 @@ let infoArr = [];
 
 // цикл размножает модальные окна соседей
 propagatesNeighbor(modalWindow);
-let numbers = modalWindow().numbers;
+// let numbers = modalWindow().numbers;
+// console.log(numbers);
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
@@ -187,6 +188,7 @@ let series = propagatesSeries(modalWindow_2);
 
 // ставка:
 function bettingOnNeighbor() {
+    let numbers;
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
@@ -236,7 +238,7 @@ function bettingOnNeighbor() {
         seriesBet: seriesBet
     };
 };
-bettingOnNeighbor(numbers);
+bettingOnNeighbor();
 // bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num);
 // bettingOnNeighbor(nodeList, info, bet, series);
 
