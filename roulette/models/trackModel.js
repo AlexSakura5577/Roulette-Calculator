@@ -190,6 +190,7 @@ let series = propagatesSeries(modalWindow_2);
 
 // ставка:
 function bettingOnNeighbor() {
+    let numbers;
     const validSeries = ["tier", "orphelins", "voisins", "spiel"];
     nodeList.forEach(element => {
         element.addEventListener('click', () => {
@@ -239,7 +240,7 @@ function bettingOnNeighbor() {
         seriesBet: seriesBet
     };
 };
-bettingOnNeighbor(numbers);
+bettingOnNeighbor();
 // bettingOnNeighbor(nodeList, id, neighbors, numbers, bet, series, seriesBet, num);
 // bettingOnNeighbor(nodeList, info, bet, series);
 
