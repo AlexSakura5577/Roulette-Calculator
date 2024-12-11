@@ -53,7 +53,7 @@ let id = "";
 // сосед (строка)
 let neighbors = "";
 // номера входящие в соседа
-// let numbers = [];
+let numbers = [];
 // ставка на соседа
 let bet = 0;
 // ставка на серию
@@ -89,7 +89,11 @@ let infoArr = [];
 //         closeBtn.addEventListener('click', (e) => {
 //             e.preventDefault();
 //             bet = document.getElementById(bet_id).value;
+//             console.log(numbers);
+
+//             console.log(numbers);
 //             incorrectBetCheckNeighbor(info, bet, num, numbers, min);
+
 //             modal.close();
 //         });
 //     } catch (error) {
@@ -102,7 +106,6 @@ let infoArr = [];
 
 // цикл размножает модальные окна соседей
 propagatesNeighbor(modalWindow);
-let numbers = modalWindow().numbers;
 
 // функция модальное окно JS серия:
 function modalWindow_2(series, openBtn, closeBtn, modal, bet_id) {
